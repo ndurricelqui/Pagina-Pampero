@@ -1,0 +1,3415 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pampero Córdoba | Indumentaria Corporativa y de Trabajo</title>
+  <meta name="description" content="Pampero Córdoba – Especialistas en indumentaria corporativa y de trabajo para empresas. Uniformes, bordado y pedidos por volumen. Pedí tu presupuesto." />
+  <link rel="canonical" href="https://www.pamperocordoba.com" />
+  <link rel="icon" type="image/png" href="https://pampero.com.ar/wp-content/uploads/2024/09/FAV_PAMPERO.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Barlow+Condensed:wght@600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    /* ═══════════════════════════════════════
+       RESET & BASE
+    ═══════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'Barlow', sans-serif;
+      background: #fff;
+      color: #111;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; }
+
+    /* ═══════════════════════════════════════
+       VARIABLES
+    ═══════════════════════════════════════ */
+    :root {
+      --yellow:  #FFD100;
+      --black:   #111111;
+      --white:   #FFFFFF;
+      --gray-bg: #F4F4F4;
+      --gray-mid:#999999;
+      --gray-txt:#444444;
+      --border:  #E0E0E0;
+    }
+
+    /* ═══════════════════════════════════════
+       ANNOUNCEMENT BAR
+    ═══════════════════════════════════════ */
+    .topbar {
+      background: var(--yellow);
+      color: var(--black);
+      text-align: center;
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: .45rem 1rem;
+    }
+
+    /* ═══════════════════════════════════════
+       NAVBAR
+    ═══════════════════════════════════════ */
+    .navbar {
+      position: sticky; top: 0; z-index: 1000;
+      background: var(--black);
+      display: flex; align-items: center;
+      justify-content: space-between;
+      padding: 0 2.5rem;
+      height: 70px;
+    }
+    /* Logo */
+    .navbar__logo {
+      display: flex; align-items: center; gap: .85rem;
+    }
+    .navbar__logo img.logo-symbol {
+      height: 38px; width: auto;
+      filter: brightness(0) invert(1);
+    }
+    .navbar__logo-sep {
+      width: 1px; height: 28px;
+      background: #444;
+      margin: 0 .5rem;
+    }
+    .navbar__logo-city {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700; font-size: 1.3rem;
+      color: #fff; letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+    /* Nav links */
+    .navbar__menu {
+      display: flex; align-items: center; gap: 2.5rem; list-style: none;
+    }
+    .navbar__menu a {
+      color: #ccc; font-size: .78rem; font-weight: 600;
+      letter-spacing: .1em; text-transform: uppercase;
+      transition: color .18s;
+    }
+    .navbar__menu a:hover { color: var(--yellow); }
+    /* CTA */
+    .navbar__cta {
+      background: var(--yellow); color: var(--black);
+      font-size: .75rem; font-weight: 800;
+      letter-spacing: .1em; text-transform: uppercase;
+      padding: .6rem 1.5rem; border-radius: 2px;
+      transition: opacity .18s;
+      white-space: nowrap;
+    }
+    .navbar__cta:hover { opacity: .88; }
+    /* Hamburger */
+    .hamburger {
+      display: none; background: none; border: none; cursor: pointer;
+      flex-direction: column; gap: 5px; padding: .25rem;
+    }
+    .hamburger span {
+      display: block; width: 22px; height: 2px; background: #fff; transition: .25s;
+    }
+
+    /* ═══════════════════════════════════════
+       HERO
+    ═══════════════════════════════════════ */
+    .hero {
+      position: relative; overflow: hidden;
+      height: calc(100vh - 70px); min-height: 520px;
+    }
+    .hero__img {
+      width: 100%; height: 100%; object-fit: cover; object-position: center 30%;
+    }
+    .hero__overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to right, rgba(0,0,0,.72) 0%, rgba(0,0,0,.30) 60%, rgba(0,0,0,.1) 100%);
+    }
+    .hero__content {
+      position: absolute; top: 50%; left: 0;
+      transform: translateY(-50%);
+      padding: 0 5vw;
+      max-width: 680px;
+    }
+    .hero__eyebrow {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: var(--yellow); color: var(--black);
+      font-size: .68rem; font-weight: 800;
+      letter-spacing: .14em; text-transform: uppercase;
+      padding: .3rem .85rem; margin-bottom: 1.25rem;
+    }
+    .hero__title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900; font-size: clamp(3.2rem, 8vw, 6.5rem);
+      color: #fff; line-height: .95; text-transform: uppercase;
+      letter-spacing: -.01em; margin-bottom: 1.25rem;
+    }
+    .hero__title .highlight { color: var(--yellow); }
+    .hero__sub {
+      font-size: clamp(.95rem, 1.5vw, 1.15rem);
+      color: rgba(255,255,255,.82); max-width: 440px;
+      margin-bottom: 2.25rem; font-weight: 300;
+    }
+    .hero__btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: .5rem;
+      font-family: 'Barlow', sans-serif;
+      font-size: .8rem; font-weight: 800;
+      letter-spacing: .12em; text-transform: uppercase;
+      padding: .85rem 2rem; border-radius: 2px;
+      transition: all .18s; border: 2px solid transparent;
+      cursor: pointer;
+    }
+    .btn--yellow { background: var(--yellow); color: var(--black); }
+    .btn--yellow:hover { background: #e6bc00; }
+    .btn--outline-white { background: transparent; color: #fff; border-color: rgba(255,255,255,.55); }
+    .btn--outline-white:hover { border-color: #fff; background: rgba(255,255,255,.08); }
+    .btn--outline-black { background: transparent; color: var(--black); border-color: var(--black); }
+    .btn--outline-black:hover { background: var(--black); color: #fff; }
+    .btn--full { width: 100%; justify-content: center; }
+
+    /* ═══════════════════════════════════════
+       STRIP / BADGE ROW
+    ═══════════════════════════════════════ */
+    .strip {
+      background: var(--black);
+      display: flex; justify-content: center; align-items: center;
+      flex-wrap: wrap; gap: 0;
+      border-bottom: 1px solid #222;
+    }
+    .strip__item {
+      display: flex; align-items: center; gap: .65rem;
+      padding: 1.1rem 2.5rem;
+      color: #bbb; font-size: .75rem; font-weight: 600;
+      letter-spacing: .08em; text-transform: uppercase;
+      border-right: 1px solid #2a2a2a;
+    }
+    .strip__item:last-child { border-right: none; }
+    .strip__item i { color: var(--yellow); font-size: 1rem; }
+
+    /* ═══════════════════════════════════════
+       SECTIONS BASE
+    ═══════════════════════════════════════ */
+    .section { padding: 90px 2.5rem; }
+    .section--gray { background: var(--gray-bg); }
+    .section--black { background: var(--black); }
+    .container { max-width: 1200px; margin: 0 auto; }
+
+    .section-label {
+      display: inline-block;
+      font-size: .68rem; font-weight: 800;
+      letter-spacing: .18em; text-transform: uppercase;
+      color: var(--gray-mid); margin-bottom: .65rem;
+    }
+    .section-label--yellow { color: var(--yellow); }
+    .section-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900; font-size: clamp(2.2rem, 4vw, 3.4rem);
+      text-transform: uppercase; line-height: 1;
+      letter-spacing: -.01em; color: var(--black);
+      margin-bottom: 1rem;
+    }
+    .section-title--white { color: #fff; }
+    .section-desc { color: var(--gray-txt); font-size: 1rem; max-width: 520px; }
+    .section-desc--light { color: #999; }
+
+    /* ═══════════════════════════════════════
+       LINES / CATEGORIES
+    ═══════════════════════════════════════ */
+    .lines__header {
+      display: flex; justify-content: space-between; align-items: flex-end;
+      margin-bottom: 2.5rem; flex-wrap: wrap; gap: 1rem;
+    }
+    .lines__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px; background: var(--border);
+    }
+    .instagram-banner {
+      margin-top: 2.5rem;
+      background: linear-gradient(135deg, #833ab4 0%, #fd1d1d 50%, #fcb045 100%);
+      padding: 2.5rem 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1.5rem;
+      border-radius: 2px;
+    }
+    .instagram-banner__text { color: #fff; }
+    .instagram-banner__text p {
+      font-size: .8rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; opacity: .85; margin-bottom: .4rem;
+    }
+    .instagram-banner__text h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900; font-size: 1.75rem;
+      text-transform: uppercase; line-height: 1;
+    }
+    .instagram-banner__text span {
+      font-size: .9rem; opacity: .9; font-weight: 300; display: block; margin-top: .4rem;
+    }
+    .instagram-banner__cta {
+      display: inline-flex; align-items: center; gap: .6rem;
+      background: #fff; color: #833ab4;
+      font-size: .8rem; font-weight: 800; letter-spacing: .1em;
+      text-transform: uppercase; padding: .85rem 1.75rem;
+      border-radius: 2px; transition: opacity .18s; white-space: nowrap;
+    }
+    .instagram-banner__cta:hover { opacity: .88; }
+    .line-card {
+      position: relative; overflow: hidden;
+      background: var(--gray-bg);
+      aspect-ratio: 3/4;
+      cursor: pointer;
+    }
+    .line-card img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform .5s ease;
+    }
+    .line-card:hover img { transform: scale(1.04); }
+    .line-card__overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,.8) 0%, rgba(0,0,0,0) 55%);
+    }
+    .line-card:hover .line-card__overlay {
+      background: linear-gradient(to top, rgba(0,0,0,.9) 0%, rgba(0,0,0,.1) 55%);
+    }
+    .line-card__body {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 1.5rem;
+    }
+    .line-card__tag {
+      display: inline-block;
+      background: var(--yellow); color: var(--black);
+      font-size: .6rem; font-weight: 800;
+      letter-spacing: .14em; text-transform: uppercase;
+      padding: .18rem .6rem; margin-bottom: .5rem;
+    }
+    .line-card__title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900; font-size: 1.8rem;
+      color: #fff; text-transform: uppercase;
+      line-height: 1; margin-bottom: .35rem;
+    }
+    .line-card__desc {
+      font-size: .78rem; color: rgba(255,255,255,.7);
+      line-height: 1.5;
+    }
+    .line-card__arrow {
+      display: inline-flex; align-items: center; gap: .4rem;
+      font-size: .7rem; font-weight: 700; color: var(--yellow);
+      letter-spacing: .1em; text-transform: uppercase;
+      margin-top: .75rem; opacity: 0; transform: translateY(4px);
+      transition: opacity .25s, transform .25s;
+    }
+    .line-card:hover .line-card__arrow { opacity: 1; transform: none; }
+
+    /* ═══════════════════════════════════════
+       PRODUCT HIGHLIGHTS
+    ═══════════════════════════════════════ */
+    .products__header {
+      display: flex; justify-content: space-between; align-items: flex-end;
+      margin-bottom: 2.5rem; flex-wrap: wrap; gap: 1rem;
+    }
+
+    /* Chosen categories grid */
+    .chosen__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .chosen-cat {
+      position: relative; overflow: hidden;
+      background: var(--gray-bg);
+      cursor: pointer;
+    }
+    .chosen-cat__img-wrap {
+      position: relative;
+      aspect-ratio: 3/4;
+      overflow: hidden;
+    }
+    .chosen-cat__img-wrap img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center top;
+      transition: transform .5s ease;
+    }
+    .chosen-cat:hover .chosen-cat__img-wrap img { transform: scale(1.04); }
+    .chosen-cat__overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,.82) 0%, rgba(0,0,0,.1) 55%);
+    }
+    .chosen-cat:hover .chosen-cat__overlay {
+      background: linear-gradient(to top, rgba(0,0,0,.9) 0%, rgba(0,0,0,.18) 55%);
+    }
+    .chosen-cat__body {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 1.5rem;
+    }
+    .chosen-cat__tag {
+      display: inline-block;
+      background: var(--yellow); color: var(--black);
+      font-size: .6rem; font-weight: 800;
+      letter-spacing: .14em; text-transform: uppercase;
+      padding: .18rem .6rem; margin-bottom: .5rem;
+    }
+    .chosen-cat__title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900; font-size: 1.9rem;
+      color: #fff; text-transform: uppercase;
+      line-height: 1; margin-bottom: .35rem;
+    }
+    .chosen-cat__desc {
+      font-size: .78rem; color: rgba(255,255,255,.72);
+      line-height: 1.55;
+    }
+    .chosen-cat__arrow {
+      display: inline-flex; align-items: center; gap: .4rem;
+      font-size: .7rem; font-weight: 700; color: var(--yellow);
+      letter-spacing: .1em; text-transform: uppercase;
+      margin-top: .75rem; opacity: 0; transform: translateY(4px);
+      transition: opacity .25s, transform .25s;
+    }
+    .chosen-cat:hover .chosen-cat__arrow { opacity: 1; transform: none; }
+    a.chosen-cat { display: block; color: inherit; }
+
+    /* 4-column chosen grid */
+    .chosen__grid--4 { grid-template-columns: repeat(4, 1fr); }
+    /* 5-column chosen grid */
+    .chosen__grid--5 { grid-template-columns: repeat(5, 1fr); gap: 1rem; }
+    .chosen__grid--5 .chosen-cat__img-wrap { aspect-ratio: 2/3; }
+    .chosen__grid--5 .chosen-cat__title { font-size: 1.5rem; }
+    .chosen__grid--5 .chosen-cat__body { padding: 1rem; }
+
+    /* Categorías intro text */
+    .cats-intro { margin-bottom: 2.5rem; max-width: 760px; }
+    .cats-intro p { font-size: .97rem; color: var(--gray-txt); line-height: 1.8; margin-bottom: .85rem; }
+    .cats-intro p:last-child { margin-bottom: 0; }
+    .cats-intro strong { color: var(--black); }
+
+    /* ═══════════════════════════════════════
+       ABOUT / NOSOTROS
+    ═══════════════════════════════════════ */
+    .about__grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 5rem; align-items: center;
+    }
+    .about__img-wrap { position: relative; }
+    .about__img {
+      width: 100%; aspect-ratio: 4/5; object-fit: cover;
+      object-position: center top;
+    }
+    .about__img-stamp {
+      position: absolute; bottom: -1.5rem; right: -1.5rem;
+      width: 140px; height: 140px;
+      background: var(--yellow);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+    }
+    .about__img-stamp strong {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900; font-size: 2.8rem;
+      color: var(--black); line-height: 1;
+    }
+    .about__img-stamp span {
+      font-size: .62rem; font-weight: 800;
+      color: var(--black); letter-spacing: .1em;
+      text-transform: uppercase; text-align: center;
+      line-height: 1.3;
+    }
+    .about__list { margin-top: 2rem; display: flex; flex-direction: column; gap: 1.5rem; }
+    .about__item { display: flex; gap: 1.1rem; align-items: flex-start; }
+    .about__item-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900; font-size: 2rem; color: var(--yellow);
+      line-height: 1; min-width: 2rem; text-align: right;
+    }
+    .about__item-text h4 {
+      font-weight: 700; font-size: .9rem;
+      text-transform: uppercase; letter-spacing: .05em;
+      margin-bottom: .2rem;
+    }
+    .about__item-text p { font-size: .88rem; color: var(--gray-txt); }
+
+    /* ═══════════════════════════════════════
+       WHY US
+    ═══════════════════════════════════════ */
+    .why__header { margin-bottom: 3rem; }
+    .why__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px; background: #222;
+    }
+    .why-card {
+      background: var(--black); padding: 2.5rem 2rem;
+      transition: background .2s;
+    }
+    .why-card:hover { background: #1a1a1a; }
+    .why-card__icon {
+      font-size: 1.6rem; color: var(--yellow);
+      margin-bottom: 1.25rem;
+    }
+    .why-card h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900; font-size: 1.25rem;
+      text-transform: uppercase; color: #fff;
+      letter-spacing: .04em; margin-bottom: .6rem;
+    }
+    .why-card p { font-size: .85rem; color: #777; line-height: 1.65; }
+
+    /* ═══════════════════════════════════════
+       QUOTE / FORM
+    ═══════════════════════════════════════ */
+    .quote__grid {
+      display: grid; grid-template-columns: 1fr 1.5fr;
+      gap: 5rem; align-items: start;
+    }
+    .quote__info { position: sticky; top: 90px; }
+    .quote__contact { margin-top: 2rem; display: flex; flex-direction: column; gap: 1.25rem; }
+    .quote__citem {
+      display: flex; gap: .9rem; align-items: center;
+      padding-bottom: 1.25rem; border-bottom: 1px solid var(--border);
+    }
+    .quote__citem:last-child { border-bottom: none; }
+    .quote__citem-icon {
+      width: 40px; height: 40px; flex-shrink: 0;
+      background: var(--yellow);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--black); font-size: .95rem;
+    }
+    .quote__citem span { font-size: .75rem; color: var(--gray-mid); text-transform: uppercase; letter-spacing: .06em; display: block; }
+    .quote__citem strong { font-size: .92rem; color: var(--black); }
+
+    /* Form */
+    .form {
+      background: var(--gray-bg);
+      padding: 2.5rem;
+    }
+    .form__title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900; font-size: 1.5rem;
+      text-transform: uppercase; margin-bottom: 1.75rem;
+      padding-bottom: 1.25rem; border-bottom: 2px solid var(--yellow);
+    }
+    .form__row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form__group { margin-bottom: 1.1rem; }
+    .form__group label {
+      display: block; font-size: .72rem; font-weight: 800;
+      text-transform: uppercase; letter-spacing: .1em;
+      color: var(--black); margin-bottom: .4rem;
+    }
+    .form__group input,
+    .form__group select,
+    .form__group textarea {
+      width: 100%; padding: .75rem 1rem;
+      border: 1.5px solid var(--border);
+      background: #fff; font-family: 'Barlow', sans-serif;
+      font-size: .92rem; color: var(--black);
+      border-radius: 0; outline: none;
+      transition: border-color .18s;
+      -webkit-appearance: none;
+    }
+    .form__group input:focus,
+    .form__group select:focus,
+    .form__group textarea:focus { border-color: var(--yellow); }
+    .form__group textarea { resize: vertical; min-height: 100px; }
+    .form__check {
+      display: flex; gap: .65rem; align-items: flex-start;
+      margin-bottom: 1.5rem;
+    }
+    .form__check input { width: auto; margin-top: .2rem; accent-color: var(--yellow); }
+    .form__check label {
+      font-size: .8rem; color: var(--gray-txt);
+      font-weight: 400; text-transform: none; letter-spacing: 0;
+    }
+    .btn--submit {
+      background: var(--black); color: #fff;
+      width: 100%; justify-content: center;
+      font-size: .82rem; padding: 1.1rem;
+      border: 2px solid var(--black);
+      transition: background .18s, color .18s;
+    }
+    .btn--submit:hover { background: #fff; color: var(--black); }
+    #formSuccess {
+      display: none; text-align: center; padding: 3rem 2rem;
+    }
+    #formSuccess i { font-size: 3rem; color: var(--yellow); display: block; margin-bottom: 1rem; }
+    #formSuccess h3 { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 1.75rem; text-transform: uppercase; margin-bottom: .5rem; }
+    #formSuccess p { color: var(--gray-txt); font-size: .9rem; }
+
+    /* ═══════════════════════════════════════
+       WHATSAPP FLOAT
+    ═══════════════════════════════════════ */
+    .wa {
+      position: fixed; bottom: 1.75rem; right: 1.75rem; z-index: 900;
+      background: #25D366; color: #fff;
+      width: 56px; height: 56px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.55rem;
+      box-shadow: 0 4px 18px rgba(37,211,102,.55);
+      transition: transform .2s;
+    }
+    .wa:hover { transform: scale(1.1); color: #fff; }
+    .wa__label {
+      position: absolute; right: 66px;
+      background: #25D366; color: #fff;
+      font-size: .82rem; font-weight: 600;
+      white-space: nowrap; padding: .35rem .75rem;
+      border-radius: 2rem;
+      box-shadow: 0 3px 12px rgba(37,211,102,.4);
+      opacity: 0; transform: translateX(8px);
+      transition: opacity .25s, transform .25s;
+      pointer-events: none;
+    }
+    .wa:hover .wa__label { opacity: 1; transform: translateX(0); }
+    .wa__pulse {
+      position: absolute; inset: -5px;
+      border-radius: 50%; border: 2px solid rgba(37,211,102,.4);
+      animation: wapulse 2.2s infinite;
+    }
+    @keyframes wapulse { 0%,100%{transform:scale(1);opacity:.8} 50%{transform:scale(1.18);opacity:.3} }
+
+    /* ═══════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════ */
+    footer {
+      background: #0a0a0a; color: #666;
+      padding: 4rem 2.5rem 2rem;
+    }
+    .footer__grid {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 2.5fr 1fr 1fr 1fr;
+      gap: 3rem; padding-bottom: 3rem;
+      border-bottom: 1px solid #1e1e1e;
+    }
+    .footer__logo-wrap { display: flex; align-items: center; gap: .75rem; margin-bottom: 1rem; }
+    .footer__logo-wrap img { height: 30px; filter: brightness(0) invert(1); }
+    .footer__logo-city {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900; font-size: 1.3rem;
+      color: #fff; text-transform: uppercase; letter-spacing: .08em;
+    }
+    .footer__logo-sub { font-size: .6rem; color: var(--yellow); font-weight: 700; letter-spacing: .15em; text-transform: uppercase; }
+    .footer__desc { font-size: .83rem; line-height: 1.75; max-width: 280px; color: #555; }
+    .footer__social { display: flex; gap: .6rem; margin-top: 1.25rem; }
+    .footer__social a {
+      width: 34px; height: 34px; background: #1a1a1a;
+      display: flex; align-items: center; justify-content: center;
+      color: #666; font-size: .85rem; transition: all .18s;
+    }
+    .footer__social a:hover { background: var(--yellow); color: var(--black); }
+    .footer__col h4 {
+      font-size: .7rem; font-weight: 800; text-transform: uppercase;
+      letter-spacing: .14em; color: #fff; margin-bottom: 1.1rem;
+    }
+    .footer__col ul { list-style: none; }
+    .footer__col li { margin-bottom: .6rem; }
+    .footer__col li a {
+      font-size: .82rem; color: #555; transition: color .18s;
+    }
+    .footer__col li a:hover { color: var(--yellow); }
+    .footer__bottom {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: center;
+      padding-top: 2rem; flex-wrap: wrap; gap: .75rem;
+    }
+    .footer__bottom p { font-size: .75rem; color: #333; }
+    .footer__bottom a { color: var(--yellow); }
+
+    /* ═══════════════════════════════════════
+       CATEGORY PAGE VIEW
+    ═══════════════════════════════════════ */
+    #catView { transition: opacity .2s ease; }
+    #prodView { display: none; opacity: 0; transition: opacity .2s ease; }
+
+    .prod-page__nav { margin-bottom: 2rem; }
+    .prod-page__back {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: none; border: none; cursor: pointer;
+      font-size: .75rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--gray-mid); padding: .4rem 0;
+      transition: color .18s;
+    }
+    .prod-page__back:hover { color: var(--black); }
+    .prod-page__back i { transition: transform .18s; }
+    .prod-page__back:hover i { transform: translateX(-3px); }
+    .prod-page__header {
+      display: flex; justify-content: space-between; align-items: flex-end;
+      margin-bottom: 2.5rem; flex-wrap: wrap; gap: 1rem;
+      padding-bottom: 2rem; border-bottom: 1px solid var(--border);
+    }
+    .prod-page__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+    .prod-card { background: var(--gray-bg); }
+    .prod-card__img { aspect-ratio: 3/4; overflow: hidden; }
+    .prod-card__img img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center top;
+      transition: transform .5s ease;
+    }
+    .prod-card:hover .prod-card__img img { transform: scale(1.04); }
+    .prod-card__body { padding: .75rem 1rem 1rem; }
+    .prod-card__name {
+      font-size: .78rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .04em;
+      color: var(--black); margin-bottom: .6rem; line-height: 1.3;
+    }
+    .prod-card__desc {
+      font-size: .75rem; color: var(--gray-txt);
+      line-height: 1.5; margin-bottom: .5rem;
+    }
+    .prod-card__sizes {
+      display: inline-block;
+      font-size: .65rem; font-weight: 700;
+      letter-spacing: .08em; text-transform: uppercase;
+      color: var(--gray-mid);
+      background: #e8e8e8; padding: .18rem .55rem;
+      margin-bottom: .55rem;
+    }
+    .prod-card__btn {
+      display: inline-flex; align-items: center; gap: .35rem;
+      background: var(--yellow); color: var(--black);
+      font-size: .65rem; font-weight: 800;
+      letter-spacing: .1em; text-transform: uppercase;
+      padding: .35rem .85rem; border: none; cursor: pointer;
+      transition: opacity .18s; text-decoration: none;
+    }
+    .prod-card__btn:hover { opacity: .8; }
+
+    /* Prod card image clickable */
+    .prod-card__img { cursor: zoom-in; }
+
+    /* ═══════════════════════════════════════
+       PRODUCT MODAL
+    ═══════════════════════════════════════ */
+    .modal-overlay {
+      position: fixed; inset: 0; z-index: 2000;
+      background: rgba(0,0,0,.88);
+      display: flex; align-items: center; justify-content: center;
+      padding: 1rem;
+      opacity: 0; pointer-events: none;
+      transition: opacity .25s;
+    }
+    .modal-overlay.open { opacity: 1; pointer-events: all; }
+    .modal {
+      background: #fff; max-width: 980px; width: 100%;
+      max-height: 92vh; overflow-y: auto;
+      display: grid; grid-template-columns: 1fr 1fr;
+      position: relative;
+      transform: translateY(16px);
+      transition: transform .25s;
+    }
+    .modal-overlay.open .modal { transform: none; }
+    .modal__close {
+      position: absolute; top: 1rem; right: 1rem; z-index: 10;
+      background: var(--black); color: #fff; border: none;
+      width: 36px; height: 36px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      font-size: .9rem; transition: background .18s;
+    }
+    .modal__close:hover { background: #333; }
+
+    /* Gallery side */
+    .modal__gallery { background: var(--gray-bg); display: flex; flex-direction: column; }
+    .modal__main-img {
+      aspect-ratio: 3/4; overflow: hidden; flex-shrink: 0;
+    }
+    .modal__main-img img {
+      width: 100%; height: 100%; object-fit: cover;
+      object-position: center top;
+      transition: opacity .2s;
+    }
+    .modal__thumbs {
+      display: flex; gap: .5rem; padding: .75rem;
+      flex-wrap: wrap; background: #eaeaea;
+    }
+    .modal__thumb {
+      width: 56px; height: 72px; overflow: hidden;
+      cursor: pointer; border: 2px solid transparent;
+      transition: border-color .15s; flex-shrink: 0;
+    }
+    .modal__thumb:hover { border-color: #aaa; }
+    .modal__thumb.active { border-color: var(--yellow); }
+    .modal__thumb img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+
+    /* Info side */
+    .modal__info {
+      padding: 2.5rem 2rem 2rem;
+      display: flex; flex-direction: column; gap: .75rem;
+      overflow-y: auto;
+    }
+    .modal__cat {
+      font-size: .65rem; font-weight: 800; letter-spacing: .16em;
+      text-transform: uppercase; color: var(--gray-mid);
+    }
+    .modal__name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900; font-size: 2.1rem;
+      text-transform: uppercase; line-height: 1;
+      color: var(--black);
+    }
+    .modal__desc {
+      font-size: .87rem; color: var(--gray-txt);
+      line-height: 1.65; border-top: 1px solid var(--border);
+      padding-top: .75rem;
+    }
+    .modal__sizes-wrap {
+      display: flex; align-items: center; gap: .65rem;
+      flex-wrap: wrap;
+    }
+    .modal__sizes-label {
+      font-size: .65rem; font-weight: 800; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--black);
+    }
+    .modal__sizes-val {
+      font-size: .8rem; font-weight: 600; color: var(--gray-txt);
+      background: var(--gray-bg); padding: .25rem .65rem;
+      border: 1px solid var(--border);
+    }
+    .modal__colors-label {
+      font-size: .65rem; font-weight: 800; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--black);
+      margin-bottom: .4rem;
+    }
+    .modal__color-name {
+      font-size: .78rem; font-weight: 600; color: var(--gray-mid);
+      text-transform: uppercase; letter-spacing: .08em;
+      margin-bottom: .5rem; min-height: 1.1em;
+    }
+    .modal__swatches { display: flex; gap: .45rem; flex-wrap: wrap; }
+    .modal__swatch {
+      width: 28px; height: 28px; border-radius: 50%;
+      border: 2.5px solid transparent;
+      cursor: pointer; transition: border-color .15s, transform .15s;
+      outline: none; padding: 0;
+    }
+    .modal__swatch:hover { transform: scale(1.1); }
+    .modal__swatch.active { border-color: var(--black) !important; transform: scale(1.15); }
+    .modal__swatch--white { border-color: #bbb !important; }
+    .modal__swatch--white.active { border-color: var(--black) !important; }
+    .modal__wa {
+      display: flex; align-items: center; justify-content: center; gap: .65rem;
+      background: #25D366; color: #fff;
+      font-size: .82rem; font-weight: 800;
+      letter-spacing: .1em; text-transform: uppercase;
+      padding: 1rem; border: none; cursor: pointer;
+      text-decoration: none; margin-top: auto;
+      transition: background .18s;
+    }
+    .modal__wa:hover { background: #1fba58; color: #fff; }
+    .modal__wa i { font-size: 1.1rem; }
+
+    @media (max-width: 700px) {
+      .modal { grid-template-columns: 1fr; }
+      .modal__gallery { max-height: 55vw; flex-direction: row; overflow: hidden; }
+      .modal__main-img { aspect-ratio: auto; flex: 1; height: 55vw; }
+      .modal__thumbs { flex-direction: column; width: 64px; padding: .5rem .35rem; gap: .35rem; overflow-y: auto; }
+      .modal__thumb { width: 50px; height: 64px; }
+      .modal__info { padding: 1.25rem; }
+    }
+
+    /* Color swatches */
+    .prod-card__colors {
+      display: flex; gap: .38rem; flex-wrap: wrap; margin-bottom: .55rem;
+    }
+    .color-swatch {
+      width: 22px; height: 22px; border-radius: 50%;
+      border: 2.5px solid transparent;
+      cursor: pointer; transition: border-color .15s, transform .15s;
+      outline: none; padding: 0;
+    }
+    .color-swatch:hover { transform: scale(1.12); }
+    .color-swatch.active { border-color: var(--black) !important; transform: scale(1.18); }
+    .color-swatch--white { border-color: #bbb !important; }
+    .color-swatch--white.active { border-color: var(--black) !important; }
+    .prod-card__color-label {
+      font-size: .67rem; color: var(--gray-mid);
+      text-transform: uppercase; letter-spacing: .07em;
+      margin-bottom: .35rem; min-height: 1em;
+      font-weight: 600;
+    }
+
+    @media (max-width: 1024px) {
+      .prod-page__grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .prod-page__grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 400px) {
+      .prod-page__grid { grid-template-columns: 1fr; }
+    }
+
+    /* ═══════════════════════════════════════
+       SCROLL REVEAL
+    ═══════════════════════════════════════ */
+    .reveal {
+      opacity: 0; transform: translateY(22px);
+      transition: opacity .55s ease, transform .55s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-delay-1 { transition-delay: .1s; }
+    .reveal-delay-2 { transition-delay: .2s; }
+    .reveal-delay-3 { transition-delay: .3s; }
+
+    /* ═══════════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════════ */
+    @media (max-width: 1024px) {
+      .lines__grid { grid-template-columns: repeat(3, 1fr); }
+      .instagram-banner { flex-direction: column; }
+      .chosen__grid { grid-template-columns: repeat(3, 1fr); }
+      .chosen__grid--4 { grid-template-columns: repeat(2, 1fr); }
+      .chosen__grid--5 { grid-template-columns: repeat(3, 1fr); }
+      .footer__grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    }
+    @media (max-width: 768px) {
+      .navbar__menu { display: none; flex-direction: column; gap: 0;
+        position: absolute; top: 70px; left: 0; right: 0;
+        background: var(--black); padding: 1rem 2.5rem 1.5rem;
+      }
+      .navbar__menu.open { display: flex; }
+      .navbar__cta { display: none; }
+      .hamburger { display: flex; }
+      .about__grid { grid-template-columns: 1fr; gap: 3rem; }
+      .about__img-stamp { bottom: 1rem; right: 1rem; }
+      .quote__grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .quote__info { position: static; }
+      .why__grid { grid-template-columns: 1fr; }
+      .strip__item { padding: 1rem 1.5rem; }
+      .footer__grid { grid-template-columns: 1fr; }
+      .chosen__grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 540px) {
+      .section { padding: 60px 1.25rem; }
+      .navbar { padding: 0 1.25rem; }
+      .hero__content { padding: 0 1.25rem; }
+      .lines__grid { grid-template-columns: repeat(2, 1fr); }
+      .chosen__grid { grid-template-columns: 1fr; gap: 1rem; }
+      .chosen__grid--4 { grid-template-columns: 1fr; gap: 1rem; }
+      .chosen__grid--5 { grid-template-columns: 1fr; gap: 1rem; }
+      .form { padding: 1.5rem; }
+      .form__row { grid-template-columns: 1fr; }
+      .footer__bottom { flex-direction: column; text-align: center; }
+    }
+
+    /* ═══════════════════════════════════════
+       LOCAL GALLERY
+    ═══════════════════════════════════════ */
+    .local-section {
+      margin-top: 3rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--border);
+    }
+    .local-section__header { margin-bottom: 1.25rem; }
+    .local-section__title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900; font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+      text-transform: uppercase; line-height: 1.1;
+      letter-spacing: -.01em; color: var(--black);
+      margin-bottom: .5rem;
+    }
+    .local-section__desc { color: var(--gray-txt); font-size: .85rem; max-width: 560px; }
+    .local-section__desc strong { color: var(--black); }
+    .local__gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-bottom: 2rem;
+    }
+    .local__thumb {
+      width: 88px; height: 88px;
+      overflow: hidden;
+      cursor: zoom-in;
+      flex-shrink: 0;
+    }
+    .local__thumb img {
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+      transition: transform .3s ease, filter .3s ease;
+    }
+    .local__thumb:hover img {
+      transform: scale(1.1);
+      filter: brightness(1.1);
+    }
+    /* Lightbox */
+    .local-lightbox {
+      position: fixed; inset: 0; z-index: 2100;
+      background: rgba(0,0,0,.93);
+      display: flex; align-items: center; justify-content: center;
+      padding: 1.5rem;
+      opacity: 0; pointer-events: none;
+      transition: opacity .22s;
+    }
+    .local-lightbox.open { opacity: 1; pointer-events: all; }
+    .local-lightbox__img {
+      max-width: 88vw; max-height: 88vh;
+      object-fit: contain;
+      box-shadow: 0 12px 60px rgba(0,0,0,.7);
+      transform: scale(.97);
+      transition: transform .22s;
+    }
+    .local-lightbox.open .local-lightbox__img { transform: scale(1); }
+    .local-lightbox__close {
+      position: absolute; top: 1.25rem; right: 1.25rem;
+      background: rgba(255,255,255,.12); border: none;
+      color: #fff; font-size: .95rem; cursor: pointer;
+      width: 38px; height: 38px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      transition: background .18s;
+    }
+    .local-lightbox__close:hover { background: rgba(255,255,255,.25); }
+    @media (max-width: 480px) {
+      .local__thumb { width: 72px; height: 72px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── TOPBAR ── -->
+  <div class="topbar">
+    Venta Corporativa Pampero &nbsp;·&nbsp; Industrial · Rural · Urbano · Aventura · Corporativa &nbsp;·&nbsp; Córdoba, Argentina
+  </div>
+
+  <!-- ── NAVBAR ── -->
+  <nav class="navbar">
+    <a class="navbar__logo" href="#inicio">
+      <img class="logo-symbol"
+        src="https://pampero.com.ar/wp-content/uploads/2024/07/logosimbolo.png"
+        alt="Pampero logo" />
+      <div class="navbar__logo-sep"></div>
+      <span class="navbar__logo-city">Córdoba</span>
+    </a>
+
+    <ul class="navbar__menu" id="navMenu">
+      <li><a href="#categorias">Categorías</a></li>
+      <li><a href="#lineas">Venta Corporativa</a></li>
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#presupuesto">Presupuesto</a></li>
+    </ul>
+
+    <a class="navbar__cta" href="#presupuesto">Pedir presupuesto</a>
+
+    <button class="hamburger" id="hamburger" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section id="inicio" style="position:relative">
+    <div class="hero">
+      <img
+        class="hero__img"
+        src="https://pampero.com.ar/wp-content/uploads/2026/01/CARROUSEL_ENERO_PANTALONES.jpg"
+        alt="Ropa de trabajo Pampero"
+      />
+      <div class="hero__overlay"></div>
+      <div class="hero__content">
+        <div class="hero__eyebrow">
+          <i class="fas fa-map-marker-alt"></i> Córdoba, Argentina
+        </div>
+        <h1 class="hero__title">
+          La ropa<br>
+          que el<br>
+          trabajo<br>
+          <span class="highlight">exige.</span>
+        </h1>
+        <div style="max-width:480px;margin-bottom:1.75rem;">
+          <p style="color:rgba(255,255,255,.75);font-size:.88rem;line-height:1.75;margin-bottom:.7rem;">
+            En <strong style="color:#fff;">Pampero Córdoba</strong> contamos con cuatro líneas principales:
+            <strong style="color:#fff;">Industrial, Rural, Urbana, Aventura y Corporativa</strong>.
+            Cada una pensada para distintos entornos y necesidades de trabajo.
+          </p>
+          <p style="color:rgba(255,255,255,.75);font-size:.88rem;line-height:1.75;margin-bottom:.7rem;">
+            Si querés conocer la colección <strong style="color:#fff;">Rural, Aventura o Urbana</strong> completa,
+            te invitamos a acercarte al local en <strong style="color:#fff;">Av. Rafael Nuñez 4535, Córdoba</strong>,
+            donde también encontrás toda la línea Industrial al detalle.
+          </p>
+          <p style="color:rgba(255,255,255,.75);font-size:.88rem;line-height:1.75;">
+            Para <strong style="color:#fff;">presupuestos, ventas corporativas o mayoristas</strong>,
+            contactanos directamente a través de esta página.
+          </p>
+        </div>
+        <div class="hero__btns">
+          <a class="btn btn--yellow" href="#presupuesto">
+            Solicitar presupuesto
+          </a>
+          <a class="btn btn--outline-white" href="#categorias">
+            Ver líneas <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── STRIP ── -->
+  <div class="strip">
+    <div class="strip__item">
+      <i class="fas fa-medal"></i> Marca líder en Argentina
+    </div>
+    <div class="strip__item">
+      <i class="fas fa-tshirt"></i> Industrial · Rural · Urbano · Aventura · Corporativa
+    </div>
+    <div class="strip__item">
+      <i class="fas fa-paint-brush"></i> Personalización y bordado
+    </div>
+    <div class="strip__item">
+      <i class="fab fa-whatsapp"></i> Atención directa por WhatsApp
+    </div>
+  </div>
+
+  <!-- ── CATEGORÍAS ── -->
+  <section class="section section--gray" id="categorias">
+    <div class="container">
+      <div class="products__header">
+        <div class="reveal">
+          <span class="section-label">Destacados</span>
+          <h2 class="section-title">Lineas</h2>
+        </div>
+      </div>
+
+      <div class="chosen__grid chosen__grid--5">
+
+        <!-- INDUSTRIAL -->
+        <a class="chosen-cat reveal" href="#lineas">
+          <div class="chosen-cat__img-wrap">
+            <img src="industrial.jpg" alt="Línea Industrial Pampero" loading="lazy" />
+            <div class="chosen-cat__overlay"></div>
+            <div class="chosen-cat__body">
+              <span class="chosen-cat__tag">Industrial</span>
+              <h3 class="chosen-cat__title">Línea<br>Industrial</h3>
+              <p class="chosen-cat__desc">Ropa de trabajo para fábrica, obra y producción. Pantalones, mameluco y calzado de seguridad.</p>
+              <span class="chosen-cat__arrow">Ver venta corporativa <i class="fas fa-arrow-right"></i></span>
+            </div>
+          </div>
+        </a>
+
+        <!-- RURAL -->
+        <a class="chosen-cat reveal reveal-delay-1" href="#local">
+          <div class="chosen-cat__img-wrap">
+            <img src="Rural.jpg" alt="Línea Rural Pampero" loading="lazy" />
+            <div class="chosen-cat__overlay"></div>
+            <div class="chosen-cat__body">
+              <span class="chosen-cat__tag">Rural</span>
+              <h3 class="chosen-cat__title">Línea<br>Rural</h3>
+              <p class="chosen-cat__desc">Indumentaria para el campo: pilotos, impermeables, camperas y calzado a la intemperie.</p>
+              <span class="chosen-cat__arrow">Ver fotos del local <i class="fas fa-arrow-right"></i></span>
+            </div>
+          </div>
+        </a>
+
+        <!-- URBANO -->
+        <a class="chosen-cat reveal reveal-delay-2" href="#local">
+          <div class="chosen-cat__img-wrap">
+            <img src="Urbano.jpg" alt="Línea Urbana Pampero" loading="lazy" />
+            <div class="chosen-cat__overlay"></div>
+            <div class="chosen-cat__body">
+              <span class="chosen-cat__tag">Urbano</span>
+              <h3 class="chosen-cat__title">Línea<br>Urbana</h3>
+              <p class="chosen-cat__desc">Jeans, remeras y prendas para el día a día con el sello de calidad Pampero.</p>
+              <span class="chosen-cat__arrow">Ver fotos del local <i class="fas fa-arrow-right"></i></span>
+            </div>
+          </div>
+        </a>
+
+        <!-- AVENTURA -->
+        <a class="chosen-cat reveal reveal-delay-3" href="#local">
+          <div class="chosen-cat__img-wrap">
+            <img src="Aventura.jpeg" alt="Línea Aventura Pampero" loading="lazy" />
+            <div class="chosen-cat__overlay"></div>
+            <div class="chosen-cat__body">
+              <span class="chosen-cat__tag">Aventura</span>
+              <h3 class="chosen-cat__title">Línea<br>Aventura</h3>
+              <p class="chosen-cat__desc">Equipate para el aire libre: pesca, trekking, camping y más. Prendas resistentes para cada aventura.</p>
+              <span class="chosen-cat__arrow">Ver fotos del local <i class="fas fa-arrow-right"></i></span>
+            </div>
+          </div>
+        </a>
+
+        <!-- CORPORATIVA -->
+        <a class="chosen-cat reveal reveal-delay-3" href="#lineas">
+          <div class="chosen-cat__img-wrap">
+            <img src="https://pampero.com.ar/wp-content/uploads/2025/06/BAJO_PORTADA_CAMISAS.jpg" alt="Línea Corporativa Pampero" loading="lazy" />
+            <div class="chosen-cat__overlay"></div>
+            <div class="chosen-cat__body">
+              <span class="chosen-cat__tag">Corporativa</span>
+              <h3 class="chosen-cat__title">Línea<br>Corporativa</h3>
+              <p class="chosen-cat__desc">Uniformes para ambientes de trabajo: camisas, pantalones, sweaters y más. Prolijos, cómodos y con identidad de marca.</p>
+              <span class="chosen-cat__arrow">Ver venta corporativa <i class="fas fa-arrow-right"></i></span>
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── LÍNEAS ── -->
+  <section class="section" id="lineas">
+    <div class="container">
+      <div id="catView">
+      <div class="lines__header">
+        <div class="reveal">
+          <span class="section-label">Venta Corporativa</span>
+          <h2 class="section-title">Categorías<br>corporativas</h2>
+        </div>
+        <p class="section-desc reveal reveal-delay-1">
+          Todo lo que tu empresa necesita en un solo lugar.
+          Pedidos por volumen, bordado y personalización de marca.
+        </p>
+      </div>
+      <div class="lines__grid">
+
+        <div class="line-card reveal" data-cat="camisas">
+          <img
+            src="https://pampero.com.ar/wp-content/uploads/2025/06/BAJO_PORTADA_CAMISAS.jpg"
+            alt="Camisas Corporativo" loading="lazy" />
+          <div class="line-card__overlay"></div>
+          <div class="line-card__body">
+            <h3 class="line-card__title">Camisas</h3>
+            <p class="line-card__desc">Camisas para uniformes empresariales con personalización de marca.</p>
+            <span class="line-card__arrow">Ver categoría <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </div>
+
+        <div class="line-card reveal reveal-delay-1" data-cat="pantalones">
+          <img
+            src="https://pampero.com.ar/wp-content/uploads/2025/06/BAJO_PORTADA_PANTALONES.jpg"
+            alt="Pantalones Corporativo" loading="lazy" />
+          <div class="line-card__overlay"></div>
+          <div class="line-card__body">
+            <h3 class="line-card__title">Pantalones</h3>
+            <p class="line-card__desc">Pantalones resistentes para uso corporativo y laboral intensivo.</p>
+            <span class="line-card__arrow">Ver categoría <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </div>
+
+        <div class="line-card reveal reveal-delay-2" data-cat="calzado">
+          <img
+            src="https://pampero.com.ar/wp-content/uploads/2025/06/BAJO_PORTADA_CALZADOS.jpg"
+            alt="Calzado Corporativo" loading="lazy" />
+          <div class="line-card__overlay"></div>
+          <div class="line-card__body">
+            <h3 class="line-card__title">Calzado</h3>
+            <p class="line-card__desc">Calzado de seguridad y corporativo para toda la jornada laboral.</p>
+            <span class="line-card__arrow">Ver categoría <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </div>
+
+        <div class="line-card reveal" data-cat="impermeables">
+          <img
+            src="https://pampero.com.ar/wp-content/uploads/2025/06/BAJO_PORTADA_IMPERMEABLES.jpg"
+            alt="Impermeables Corporativo" loading="lazy" />
+          <div class="line-card__overlay"></div>
+          <div class="line-card__body">
+            <h3 class="line-card__title">Impermeables</h3>
+            <p class="line-card__desc">Camperas y pilotos impermeables para trabajo en exteriores.</p>
+            <span class="line-card__arrow">Ver categoría <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </div>
+
+        <div class="line-card reveal reveal-delay-1" data-cat="abrigos">
+          <img
+            src="https://pampero.com.ar/wp-content/uploads/2025/07/BAJO_PORTADA_ABRIGOS.jpg"
+            alt="Abrigos Corporativo" loading="lazy" />
+          <div class="line-card__overlay"></div>
+          <div class="line-card__body">
+            <h3 class="line-card__title">Abrigos</h3>
+            <p class="line-card__desc">Abrigos corporativos para afrontar el frío con identidad de marca.</p>
+            <span class="line-card__arrow">Ver categoría <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </div>
+
+        <div class="line-card reveal reveal-delay-2" data-cat="seguridad">
+          <img
+            src="https://pampero.com.ar/wp-content/uploads/2025/07/BAJO_PORTADA_SEGURIDAD.jpg"
+            alt="Seguridad" loading="lazy" />
+          <div class="line-card__overlay"></div>
+          <div class="line-card__body">
+            <h3 class="line-card__title">Seguridad</h3>
+            <p class="line-card__desc">Guantes, protecciones y equipamiento de seguridad para entornos exigentes.</p>
+            <span class="line-card__arrow">Ver categoría <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Nuestro Local -->
+      <div class="local-section reveal" id="local">
+        <div class="local-section__header">
+          <span class="section-label">Av. Rafael Nuñez 4535 · Córdoba</span>
+          <h3 class="local-section__title">En el local también: Urbana · Rural · Aventura</h3>
+          <p class="local-section__desc">
+            Esta página es corporativa y mayorista, pero en el local encontrás <strong>toda la línea Pampero</strong> al detalle.
+          </p>
+        </div>
+        <div class="local__gallery">
+          <div class="local__thumb" onclick="openLocalLightbox('local1.jpg')"><img data-src="local1.jpg" alt="Local Pampero" /></div>
+          <div class="local__thumb" onclick="openLocalLightbox('local2.jpg')"><img data-src="local2.jpg" alt="Local Pampero" /></div>
+          <div class="local__thumb" onclick="openLocalLightbox('local3.jpg')"><img data-src="local3.jpg" alt="Local Pampero" /></div>
+          <div class="local__thumb" onclick="openLocalLightbox('local4.jpg')"><img data-src="local4.jpg" alt="Local Pampero" /></div>
+          <div class="local__thumb" onclick="openLocalLightbox('local5.jpg')"><img data-src="local5.jpg" alt="Local Pampero" /></div>
+          <div class="local__thumb" onclick="openLocalLightbox('local6.jpg')"><img data-src="local6.jpg" alt="Local Pampero" /></div>
+          <div class="local__thumb" onclick="openLocalLightbox('local7.jpg')"><img data-src="local7.jpg" alt="Local Pampero" /></div>
+          <div class="local__thumb" onclick="openLocalLightbox('local8.jpg')"><img data-src="local8.jpg" alt="Local Pampero" /></div>
+          <div class="local__thumb" onclick="openLocalLightbox('local9.jpg')"><img data-src="local9.jpg" alt="Local Pampero" /></div>
+        </div>
+      </div>
+
+      <!-- Instagram Banner -->
+      <div class="instagram-banner reveal">
+        <div class="instagram-banner__text">
+          <p><i class="fab fa-instagram"></i> &nbsp;Seguinos en Instagram</p>
+          <h3>@pamperocordobaoficial</h3>
+          <span>Todo lo urbano, aventura, industrial y rural — en un solo lugar.</span>
+        </div>
+        <a class="instagram-banner__cta"
+          href="https://www.instagram.com/pamperocordobaoficial"
+          target="_blank" rel="noopener">
+          <i class="fab fa-instagram"></i> Ir al Instagram
+        </a>
+      </div>
+      </div><!-- end catView -->
+
+      <div id="prodView">
+        <div class="prod-page__nav">
+          <button id="backBtn" class="prod-page__back">
+            <i class="fas fa-arrow-left"></i> Volver a Categorías
+          </button>
+        </div>
+        <div class="prod-page__header">
+          <div>
+            <span class="section-label section-label--yellow">Venta Corporativa</span>
+            <h2 class="section-title" id="prodPageTitle">Categoría</h2>
+          </div>
+          <a class="btn btn--outline-black" href="#presupuesto">
+            Pedir presupuesto <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+        <div class="prod-page__grid" id="prodPageGrid"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── NOSOTROS ── -->
+  <section class="section" id="nosotros">
+    <div class="container">
+      <div class="about__grid">
+        <div class="about__img-wrap reveal">
+          <img
+            class="about__img"
+            src="Frente Local.jpg"
+            alt="Local Pampero Córdoba"
+            loading="lazy"
+            style="object-fit: contain; aspect-ratio: auto; object-position: center center; background: #f4f4f4;"
+          />
+          <div class="about__img-stamp">
+            <strong>CBA</strong>
+            <span>Hecho en<br>Córdoba</span>
+          </div>
+        </div>
+        <div class="reveal reveal-delay-1">
+          <span class="section-label">Quiénes somos</span>
+          <h2 class="section-title">Somos<br>Pampero<br>Córdoba</h2>
+          <p class="section-desc" style="margin-bottom:1.5rem">
+            En Pampero Córdoba ayudamos a empresas a resolver de forma integral su indumentaria laboral y corporativa, combinando asesoramiento, diseño, personalización, logística y abastecimiento continuo, respaldados por la trayectoria y calidad de Pampero, marca referente a nivel nacional en indumentaria de trabajo.
+          </p>
+          <p class="section-desc" style="margin-bottom:1.5rem">
+            Somos distribuidores oficiales y fabricantes de Pampero, con base en Córdoba.
+            Llevamos la calidad y el respaldo de una marca líder argentina
+            con la atención personalizada que sólo puede dar quien está acá.
+          </p>
+          <p class="section-desc">
+            Trabajamos con empresas y equipos que eligen la durabilidad
+            de Pampero para uniformar a su gente con calidad y respaldo de marca.
+          </p>
+          <div class="about__list">
+            <div class="about__item">
+              <span class="about__item-num">01</span>
+              <div class="about__item-text">
+                <h4>Fabricantes y distribución oficial</h4>
+                <p>Producimos y distribuimos productos originales con garantía de marca Pampero.</p>
+              </div>
+            </div>
+            <div class="about__item">
+              <span class="about__item-num">02</span>
+              <div class="about__item-text">
+                <h4>Atención directa</h4>
+                <p>Sin intermediarios. Hablás con quien conoce el producto.</p>
+              </div>
+            </div>
+            <div class="about__item">
+              <span class="about__item-num">03</span>
+              <div class="about__item-text">
+                <h4>Pedidos por volumen</h4>
+                <p>Uniformes y kits corporativos con descuentos por cantidad.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── POR QUÉ ELEGIRNOS ── -->
+  <section class="section section--black" id="por-que">
+    <div class="container">
+      <div class="why__header">
+        <span class="section-label section-label--yellow reveal">Por qué elegirnos</span>
+        <h2 class="section-title section-title--white reveal">La diferencia<br>Pampero Córdoba</h2>
+      </div>
+      <div class="why__grid">
+        <div class="why-card reveal">
+          <div class="why-card__icon"><i class="fas fa-medal"></i></div>
+          <h3>Marca líder</h3>
+          <p>Pampero es sinónimo de calidad y durabilidad en Argentina. Productos que resisten el trabajo más exigente.</p>
+        </div>
+        <div class="why-card reveal reveal-delay-1">
+          <div class="why-card__icon"><i class="fas fa-tags"></i></div>
+          <h3>Precios por volumen</h3>
+          <p>Descuentos especiales para pedidos corporativos y de equipos. Consultá sin compromiso.</p>
+        </div>
+        <div class="why-card reveal reveal-delay-2">
+          <div class="why-card__icon"><i class="fas fa-tshirt"></i></div>
+          <h3>Personalización</h3>
+          <p>Bordado de logos y serigrafía. Kits armados a medida según el rubro de tu empresa.</p>
+        </div>
+        <div class="why-card reveal">
+          <div class="why-card__icon"><i class="fas fa-shipping-fast"></i></div>
+          <h3>Entrega rápida</h3>
+          <p>Desde Córdoba con logística ágil. Coordinamos tiempos y puntos de entrega según tu necesidad.</p>
+        </div>
+        <div class="why-card reveal reveal-delay-1">
+          <div class="why-card__icon"><i class="fab fa-whatsapp"></i></div>
+          <h3>Atención directa</h3>
+          <p>Respondemos por WhatsApp en el día. Sin formularios eternos ni esperas.</p>
+        </div>
+        <div class="why-card reveal reveal-delay-2">
+          <div class="why-card__icon"><i class="fas fa-users"></i></div>
+          <h3>Asesoramiento integral</h3>
+          <p>Te acompañamos desde la elección del producto hasta la entrega. Soluciones a medida para cada empresa.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PRESUPUESTO ── -->
+  <section class="section" id="presupuesto">
+    <div class="container">
+      <div class="quote__grid">
+
+        <div class="quote__info reveal">
+          <span class="section-label">Presupuesto sin cargo</span>
+          <h2 class="section-title">Pedí tu<br>presupuesto</h2>
+          <p class="section-desc">
+            Completá el formulario y te respondemos en menos de 24 h
+            con precios, disponibilidad y opciones de personalización.
+          </p>
+          <div class="quote__contact">
+            <div class="quote__citem">
+              <div class="quote__citem-icon"><i class="fab fa-whatsapp"></i></div>
+              <div>
+                <span>WhatsApp</span>
+                <strong>+54 9 351 310-4836</strong>
+              </div>
+            </div>
+            <div class="quote__citem">
+              <div class="quote__citem-icon"><i class="fas fa-envelope"></i></div>
+              <div>
+                <span>Email</span>
+                <strong>Cordoba@pampenorte.com</strong>
+              </div>
+            </div>
+            <div class="quote__citem">
+              <div class="quote__citem-icon"><i class="fas fa-map-marker-alt"></i></div>
+              <div>
+                <span>Dirección</span>
+                <strong>Av. Rafael Nuñez 4535, Córdoba</strong>
+                <iframe
+                  src="https://maps.google.com/maps?q=Av.+Rafael+Nu%C3%B1ez+4535%2C+C%C3%B3rdoba%2C+Argentina&output=embed"
+                  width="100%" height="140"
+                  style="border:0; display:block; margin-top:.6rem; border-radius:2px;"
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                  title="Mapa Pampero Córdoba">
+                </iframe>
+              </div>
+            </div>
+            <div class="quote__citem">
+              <div class="quote__citem-icon"><i class="fas fa-clock"></i></div>
+              <div>
+                <span>Horario</span>
+                <strong>Lun–Vie 9:00 – 20:00 · Sáb 9:00 – 13:00</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal reveal-delay-1">
+          <div class="form" id="formWrap">
+            <h3 class="form__title">Formulario de presupuesto</h3>
+            <form id="quoteForm" novalidate>
+              <input type="hidden" name="access_key" value="fec27d8a-e46f-4395-a586-009c5bf796f0" />
+              <input type="hidden" name="subject" value="Nueva solicitud de presupuesto – Pampero Córdoba" />
+              <input type="hidden" name="from_name" value="Web Pampero Córdoba" />
+              <input type="hidden" name="redirect" value="false" />
+              <div class="form__row">
+                <div class="form__group">
+                  <label for="name">Nombre y apellido *</label>
+                  <input type="text" id="name" name="name" placeholder="Juan Pérez" required />
+                </div>
+                <div class="form__group">
+                  <label for="phone">WhatsApp *</label>
+                  <input type="tel" id="phone" name="phone" placeholder="+54 9 351 000-0000" required />
+                </div>
+              </div>
+              <div class="form__group">
+                <label for="empresa">Empresa / Organización <span style="font-weight:400;text-transform:none">(opcional)</span></label>
+                <input type="text" id="empresa" name="empresa" placeholder="Nombre de tu empresa" />
+              </div>
+              <div class="form__group">
+                <label for="nota">Nota <span style="font-weight:400;text-transform:none">(opcional)</span></label>
+                <textarea id="nota" name="nota" placeholder="¿Algún detalle que quieras agregar?"></textarea>
+              </div>
+              <div class="form__check">
+                <input type="checkbox" id="privacy" name="privacy" required />
+                <label for="privacy">
+                  Acepto que Pampero Córdoba me contacte para responder esta consulta. No compartimos datos con terceros.
+                </label>
+              </div>
+              <button type="submit" class="btn btn--submit" id="submitBtn">
+                <i class="fas fa-paper-plane"></i> &nbsp;Enviar solicitud
+              </button>
+            </form>
+          </div>
+          <div id="formSuccess">
+            <i class="fas fa-check-circle"></i>
+            <h3>¡Solicitud enviada!</h3>
+            <p>Nos comunicaremos en menos de 24 horas hábiles.<br>También podés escribirnos directo por WhatsApp.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PRODUCT MODAL ── -->
+  <div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true">
+    <div class="modal" id="modal">
+      <button class="modal__close" id="modalClose" aria-label="Cerrar">
+        <i class="fas fa-times"></i>
+      </button>
+      <div class="modal__gallery">
+        <div class="modal__main-img">
+          <img id="modalMainImg" src="" alt="" />
+        </div>
+        <div class="modal__thumbs" id="modalThumbs"></div>
+      </div>
+      <div class="modal__info">
+        <p class="modal__cat" id="modalCat"></p>
+        <h2 class="modal__name" id="modalName"></h2>
+        <p class="modal__desc" id="modalDesc"></p>
+        <div class="modal__sizes-wrap" id="modalSizesWrap" style="display:none">
+          <span class="modal__sizes-label">Talles:</span>
+          <span class="modal__sizes-val" id="modalSizes"></span>
+        </div>
+        <div id="modalColorsSection" style="display:none">
+          <p class="modal__colors-label">Color</p>
+          <p class="modal__color-name" id="modalColorName"></p>
+          <div class="modal__swatches" id="modalSwatches"></div>
+        </div>
+        <a class="modal__wa" id="modalWa" href="#" target="_blank" rel="noopener">
+          <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── LOCAL LIGHTBOX ── -->
+  <div class="local-lightbox" id="localLightbox" onclick="closeLocalLightbox()">
+    <button class="local-lightbox__close" onclick="closeLocalLightbox()" aria-label="Cerrar">
+      <i class="fas fa-times"></i>
+    </button>
+    <img class="local-lightbox__img" id="localLightboxImg" src="" alt="Local Pampero Córdoba" onclick="event.stopPropagation()" />
+  </div>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer__grid">
+      <div>
+        <div class="footer__logo-wrap">
+          <img
+            src="https://pampero.com.ar/wp-content/uploads/2024/07/logosimbolo.png"
+            alt="Pampero" />
+          <div>
+            <div class="footer__logo-city">Pampero</div>
+            <div class="footer__logo-sub">Córdoba</div>
+          </div>
+        </div>
+        <p class="footer__desc">
+          Distribuidores oficiales de Pampero en Córdoba.
+          Especialistas en indumentaria corporativa y de trabajo para empresas, con atención personalizada y pedidos por volumen.
+        </p>
+        <div class="footer__social">
+          <a href="https://www.instagram.com/pamperocordobaoficial" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://wa.me/5493513104836" aria-label="WhatsApp" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="footer__col">
+        <h4>Venta Corporativa</h4>
+        <ul>
+          <li><a href="#lineas">Camisas</a></li>
+          <li><a href="#lineas">Pantalones</a></li>
+          <li><a href="#lineas">Calzado</a></li>
+          <li><a href="#lineas">Impermeables</a></li>
+          <li><a href="#lineas">Abrigos</a></li>
+          <li><a href="#lineas">Seguridad</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Empresa</h4>
+        <ul>
+          <li><a href="#nosotros">Quiénes somos</a></li>
+          <li><a href="#por-que">Por qué elegirnos</a></li>
+          <li><a href="#presupuesto">Presupuesto</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="https://wa.me/5493513104836" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="mailto:Cordoba@pampenorte.com">Cordoba@pampenorte.com</a></li>
+          <li><a href="mailto:Cordoba@pampenorte.com">Cordoba@pampenorte.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>&copy; 2025 Pampero Córdoba — Distribuidor Oficial.</p>
+      <p><a href="https://www.pamperocordoba.com">www.pamperocordoba.com</a></p>
+    </div>
+  </footer>
+
+
+  <!-- ── WHATSAPP FLOAT ── -->
+  <a class="wa"
+    href="https://wa.me/5493513104836?text=Hola%20Pampero%20C%C3%B3rdoba!%20Quiero%20solicitar%20un%20presupuesto%20para%20ropa%20de%20trabajo.%20%C2%BFMe%20pueden%20asesorar%3F"
+    target="_blank" rel="noopener" aria-label="Solicitar presupuesto por WhatsApp">
+    <div class="wa__pulse"></div>
+    <i class="fab fa-whatsapp"></i>
+    <span class="wa__label">Pedir presupuesto</span>
+  </a>
+
+  <!-- ── SCRIPTS ── -->
+  <script>
+    // Local lightbox
+    function openLocalLightbox(src) {
+      document.getElementById('localLightboxImg').src = src;
+      document.getElementById('localLightbox').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLocalLightbox() {
+      document.getElementById('localLightbox').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLocalLightbox(); });
+
+    // Lazy load galería del local: solo carga la imagen cuando entra en pantalla
+    const lazyImgs = document.querySelectorAll('img[data-src]');
+    const lazyObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          img.src = img.dataset.src;
+          lazyObserver.unobserve(img);
+        }
+      });
+    }, { rootMargin: '200px' });
+    lazyImgs.forEach(img => lazyObserver.observe(img));
+
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Hamburger
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('navMenu');
+    hamburger.addEventListener('click', () => navMenu.classList.toggle('open'));
+    navMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navMenu.classList.remove('open')));
+
+    // Form
+    document.getElementById('quoteForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      if (!this.checkValidity()) { this.reportValidity(); return; }
+
+      const btn = document.getElementById('submitBtn');
+      btn.disabled = true;
+      btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> &nbsp;Enviando...';
+
+      try {
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: new FormData(this)
+        });
+        const data = await res.json();
+
+        if (data.success) {
+          document.getElementById('formWrap').style.display = 'none';
+          document.getElementById('formSuccess').style.display = 'block';
+        } else {
+          alert('Hubo un error al enviar. Por favor contactanos por WhatsApp.');
+          btn.disabled = false;
+          btn.innerHTML = '<i class="fas fa-paper-plane"></i> &nbsp;Enviar solicitud';
+        }
+      } catch (_) {
+        alert('Hubo un error de conexión. Por favor contactanos por WhatsApp.');
+        btn.disabled = false;
+        btn.innerHTML = '<i class="fas fa-paper-plane"></i> &nbsp;Enviar solicitud';
+      }
+    });
+
+    // Category product drawer
+    const PRODUCTS = {
+      camisas: {
+        label: 'Camisas',
+        items: [
+          {
+            name: 'Camisa De Trabajo',
+            desc: 'Confeccionada en gabardina 6 oz 100% algodón con construcción sarga 2/1/s. Cuello clásico, puños con botones y bolsillos delanteros funcionales.',
+            sizes: '36 al 62',
+            img: 'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7131-580x785.webp',
+            colors: [
+              {
+                label: 'Aero', hex: '#7cb9e8',
+                img: 'https://pampero.com.ar/wp-content/uploads/2024/09/250628_Pampero_Ecom_D43980.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/250628_Pampero_Ecom_D43980.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/250628_Pampero_Ecom_D43975.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/250628_Pampero_Ecom_D43988.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/250628_Pampero_Ecom_D43986.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/250628_Pampero_Ecom_D43983.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/250628_Pampero_Ecom_D43981.jpg',
+                ]
+              },
+              {
+                label: 'Azul', hex: '#1a3a6b',
+                img: 'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7199-1200x1200.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7199.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7203.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7196.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7207.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7206.jpg',
+                ]
+              },
+              {
+                label: 'Beige', hex: '#c8b49a',
+                img: 'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7131-580x785.webp',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7131-1200x1200.webp',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7133.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7126-1200x1200.webp',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7135.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7137.jpg',
+                ]
+              },
+              {
+                label: 'Naranja', hex: '#e65c1a',
+                img: 'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7410-1200x1200.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7410.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7414.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7418.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7417.jpg',
+                ]
+              },
+              {
+                label: 'Verde', hex: '#2d6a2d',
+                img: 'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7100.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7100.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7106.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7096.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7107.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7108.jpg',
+                ]
+              },
+            ]
+          },
+          {
+            name: 'Chomba Pique Básica',
+            img: 'https://pampero.com.ar/wp-content/uploads/2024/09/DSC05031-580x785.jpg',
+            colors: [
+              { label: 'Azul',         hex: '#1a3a6b', img: 'https://pampero.com.ar/wp-content/uploads/2024/09/DSC05031-580x785.jpg' },
+              { label: 'Blanco',       hex: '#ffffff', img: 'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_6907-580x785.jpg', white: true },
+              { label: 'Gris Melange', hex: '#8a8a8a', img: 'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_6595-580x785.jpg' },
+              { label: 'Negro',        hex: '#111111', img: null },
+              { label: 'Rojo',         hex: '#c41e3a', img: null },
+              { label: 'Verde',        hex: '#2d6a2d', img: null },
+            ]
+          },
+          {
+            name: 'Remera Básica Manga Corta',
+            img: 'https://pampero.com.ar/wp-content/uploads/2024/08/240626_Pampero_D1_6904-580x785.jpg',
+            colors: [
+              { label: 'Blanco',       hex: '#ffffff', img: 'https://pampero.com.ar/wp-content/uploads/2024/08/240626_Pampero_D1_6904-580x785.jpg', white: true },
+              { label: 'Negro',        hex: '#111111', img: null },
+              { label: 'Gris Melange', hex: '#8a8a8a', img: null },
+              { label: 'Rojo',         hex: '#c41e3a', img: null },
+              { label: 'Verde',        hex: '#2d6a2d', img: null },
+              { label: 'Azul',         hex: '#1a3a6b', img: null },
+            ]
+          },
+          { name: 'Camisa De Trabajo Denim', img: 'https://pampero.com.ar/wp-content/uploads/2024/09/250627_Pampero_Ecom_D3_1221-1-580x785.jpg' },
+          {
+            name: 'Camisa Soler Oxford',
+            desc: 'Camisa de oxford liso con cuello inglés y botón. Corte clásico, manga larga con bolsillo delantero izquierdo y canesú trasero con tablón. 70% Algodón, 30% Poliéster.',
+            sizes: 'MCH al 2MG',
+            img: 'https://pampero.com.ar/wp-content/uploads/2025/04/241205_Pampero_D3_0969-1200x1200.jpg',
+            colors: [
+              {
+                label: 'Blanco', hex: '#ffffff', white: true,
+                img: 'https://pampero.com.ar/wp-content/uploads/2025/04/241205_Pampero_D3_0969-1200x1200.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2025/04/241205_Pampero_D3_0969-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2025/04/241205_Pampero_D3_0973-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2025/04/241205_Pampero_D3_0965-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2025/04/241205_Pampero_D3_0976-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2025/04/241205_Pampero_D3_0977-1200x1200.jpg',
+                ]
+              },
+              {
+                label: 'Celeste', hex: '#7cb9e8',
+                img: 'https://pampero.com.ar/wp-content/uploads/2026/01/271203_Pampero_Ecom_0516.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2026/01/271203_Pampero_Ecom_0516.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2026/01/271203_Pampero_Ecom_0518.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2026/01/271203_Pampero_Ecom_0513-1.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2026/01/271203_Pampero_Ecom_0519.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2026/01/271203_Pampero_Ecom_0524.jpg',
+                ]
+              },
+            ]
+          },
+          {
+            name: 'Camisa Básica Maizani',
+            desc: 'Camisa de oxford liso de moldería clásica con manga larga, canesú trasero y pinzas en busto. Puño camisero y botonero a la vista. 70% Algodón, 30% Poliéster.',
+            sizes: 'MCH al 2MG',
+            img: 'https://pampero.com.ar/wp-content/uploads/2026/03/271203_Pampero_Ecom_0496.jpg',
+            colors: [
+              {
+                label: 'Celeste', hex: '#7cb9e8',
+                img: 'https://pampero.com.ar/wp-content/uploads/2026/03/271203_Pampero_Ecom_0496.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2026/03/271203_Pampero_Ecom_0496.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2026/03/271203_Pampero_Ecom_0497.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2026/03/271203_Pampero_Ecom_0504.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2026/03/271203_Pampero_Ecom_0500.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2026/03/271203_Pampero_Ecom_0505.jpg',
+                ]
+              },
+              {
+                label: 'Blanco', hex: '#ffffff', white: true,
+                img: 'https://pampero.com.ar/wp-content/uploads/2026/03/251203_Pampero_Ecom_0271.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2026/03/251203_Pampero_Ecom_0271.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2026/03/251203_Pampero_Ecom_0272.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2026/03/251203_Pampero_Ecom_0274.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2026/03/251203_Pampero_Ecom_0276.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2026/03/251203_Pampero_Ecom_0277.jpg',
+                ]
+              },
+            ]
+          },
+        ]
+      },
+      pantalones: {
+        label: 'Pantalones',
+        items: [
+          {
+            name: 'Cargo Ripstop Antidesgarro',
+            desc: 'Pantalón Cargo en ripstop antidesgarro 60% poliéster / 40% algodón de 7.8 oz. Bolsillos con tapa a velcro, triple costura en laterales y entrepierna con costuras reforzadas.',
+            sizes: '36 al 60',
+            img: 'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7034-580x785.jpg',
+            colors: [
+              {
+                label: 'Beige', hex: '#c8b49a',
+                img: 'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7034-580x785.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7034.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7037.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7039-1.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7043-1.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7042-1.jpg',
+                ]
+              },
+              {
+                label: 'Azul Marino', hex: '#1a3a6b',
+                img: 'https://pampero.com.ar/wp-content/uploads/2024/09/250627_Pampero_Ecom_D3_0046-580x785.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/250627_Pampero_Ecom_D3_0046-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/250627_Pampero_Ecom_D3_0051-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/250627_Pampero_Ecom_D3_0053-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/250627_Pampero_Ecom_D3_0052-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/250627_Pampero_Ecom_D3_0056-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/250627_Pampero_Ecom_D3_0055-1200x1200.jpg',
+                ]
+              },
+              {
+                label: 'Verde', hex: '#2d6a2d',
+                img: 'https://pampero.com.ar/wp-content/uploads/2024/09/261203_Pampero_Ecom_0839-580x785.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/261203_Pampero_Ecom_0839.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/261203_Pampero_Ecom_0842.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/261203_Pampero_Ecom_0868.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/261203_Pampero_Ecom_0872.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/261203_Pampero_Ecom_0873.jpg',
+                ]
+              },
+              {
+                label: 'Negro', hex: '#111111',
+                img: 'https://pampero.com.ar/wp-content/uploads/2024/09/261203_Pampero_Ecom_1088-580x785.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/261203_Pampero_Ecom_1088.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/261203_Pampero_Ecom_1095.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/261203_Pampero_Ecom_1097.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/261203_Pampero_Ecom_1090.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/261203_Pampero_Ecom_1093.jpg',
+                ]
+              },
+            ]
+          },
+          {
+            name: 'Pantalón De Trabajo',
+            desc: 'Pantalón de trabajo en gabardina 100% algodón 8 oz. Bolsillos traseros con ojal, bolsillo carpintero lateral y billetera con cierre.',
+            sizes: '36 al 64',
+            img: 'https://pampero.com.ar/wp-content/uploads/2024/08/240626_Pampero_D1_7158-580x785.webp',
+            colors: [
+              {
+                label: 'Verde', hex: '#2d6a2d',
+                img: 'https://pampero.com.ar/wp-content/uploads/2024/08/240626_Pampero_D1_7158-580x785.webp',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/240626_Pampero_D1_7158-1200x1200.webp',
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/240626_Pampero_D1_7162-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/240626_Pampero_D1_7164-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/240626_Pampero_D1_7165-1200x1200.jpg',
+                ]
+              },
+              {
+                label: 'Aero', hex: '#7cb9e8',
+                img: 'https://pampero.com.ar/wp-content/uploads/2024/08/240626_Pampero_D1_7280-580x785.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/240626_Pampero_D1_7280-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/240626_Pampero_D1_7278-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/240626_Pampero_D1_7282-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/240626_Pampero_D1_7285-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/240626_Pampero_D1_7286-1200x1200.jpg',
+                ]
+              },
+              {
+                label: 'Azul', hex: '#1a3a6b',
+                img: 'https://pampero.com.ar/wp-content/uploads/2024/08/240626_Pampero_D1_7210-580x785.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/240626_Pampero_D1_7210-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/240626_Pampero_D1_7213-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/240626_Pampero_D1_7208-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/240626_Pampero_D1_7217-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/240626_Pampero_D1_7212-1200x1200.jpg',
+                ]
+              },
+              {
+                label: 'Beige', hex: '#c8b49a',
+                img: 'https://pampero.com.ar/wp-content/uploads/2024/08/240626_Pampero_D1_7138-1200x1200-1-580x785.webp',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/240626_Pampero_D1_7138-1200x1200-1.webp',
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/240626_Pampero_D1_7144.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/240626_Pampero_D1_7125-1200x1200-1.webp',
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/240626_Pampero_D1_7142.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/240626_Pampero_D1_7146.jpg',
+                ]
+              },
+              {
+                label: 'Naranja', hex: '#e65c1a',
+                img: 'https://pampero.com.ar/wp-content/uploads/2024/08/240626_Pampero_D1_7409-580x785.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/240626_Pampero_D1_7409-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/240626_Pampero_D1_7419-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/240626_Pampero_D1_7428-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/240626_Pampero_D1_7429-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/240626_Pampero_D1_7425-1200x1200.jpg',
+                ]
+              },
+              {
+                label: 'Blanco', hex: '#ffffff', white: true,
+                img: 'https://pampero.com.ar/wp-content/uploads/2024/08/240626_Pampero_D1_7350-580x785.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/240626_Pampero_D1_7350-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/240626_Pampero_D1_7360-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/240626_Pampero_D1_7355-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/240626_Pampero_D1_7364-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/240626_Pampero_D1_7366-1200x1200.jpg',
+                ]
+              },
+            ]
+          },
+          {
+            name: 'Pantalón Cargo Cazador',
+            desc: 'Pantalón Cargo en gabardina 100% algodón 8 oz, sarga 3/1/S. Bolsillos con tapa a velcro, bolsillos de pierna, bolsillo celular frontal y billetera con cierre.',
+            sizes: '38 al 60',
+            img: 'https://pampero.com.ar/wp-content/uploads/2024/08/240626_Pampero_D1_6640-580x785.jpg',
+            colors: [
+              {
+                label: 'Verde', hex: '#2d6a2d',
+                img: 'https://pampero.com.ar/wp-content/uploads/2024/08/240626_Pampero_D1_6640-580x785.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/240626_Pampero_D1_6640-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/240626_Pampero_D1_6666-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/240626_Pampero_D1_6653-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/240626_Pampero_D1_6657-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/240626_Pampero_D1_6664-1200x1200.jpg',
+                ]
+              },
+              {
+                label: 'Azul', hex: '#1a3a6b',
+                img: 'https://pampero.com.ar/wp-content/uploads/2024/08/250628_Pampero_Ecom_D44504-1-580x785.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/250628_Pampero_Ecom_D44504-1-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/250628_Pampero_Ecom_D44485-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/250628_Pampero_Ecom_D44486-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/250628_Pampero_Ecom_D44488-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/250628_Pampero_Ecom_D44489-1200x1200.jpg',
+                ]
+              },
+              {
+                label: 'Negro', hex: '#111111',
+                img: 'https://pampero.com.ar/wp-content/uploads/2024/08/250627_Pampero_Ecom_D3_1024-580x785.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/250627_Pampero_Ecom_D3_1024-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/250627_Pampero_Ecom_D3_1029-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/250627_Pampero_Ecom_D3_1031-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/250627_Pampero_Ecom_D3_1032-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/250627_Pampero_Ecom_D3_1034-1200x1200.jpg',
+                ]
+              },
+              {
+                label: 'Beige', hex: '#c8b49a',
+                img: 'https://pampero.com.ar/wp-content/uploads/2024/08/250627_Pampero_Ecom_D3_0004-580x785.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/250627_Pampero_Ecom_D3_0004-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/250627_Pampero_Ecom_D3_0018-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/250627_Pampero_Ecom_D3_0021-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/250627_Pampero_Ecom_D3_0024-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/250627_Pampero_Ecom_D3_0020-1200x1200.jpg',
+                ]
+              },
+              {
+                label: 'Gris', hex: '#8a8a8a',
+                img: 'https://pampero.com.ar/wp-content/uploads/2024/08/240626_Pampero_D1_6945-1-580x785.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/240626_Pampero_D1_6945-1-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/240626_Pampero_D1_6948-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/240626_Pampero_D1_6955-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/240626_Pampero_D1_6952-1200x1200.jpg',
+                ]
+              },
+            ]
+          },
+          {
+            name: 'Pantalón Cargo Elastizado',
+            desc: 'Pantalón Cargo slim en gabardina 8 oz con lavado gastado. Bolsillos laterales con tapa, diagonales frontales y refuerzo horizontal en rodilla.',
+            sizes: '36 al 56',
+            img: 'https://pampero.com.ar/wp-content/uploads/2024/08/250627_Pampero_Ecom_D3_0072-580x785.jpg',
+            colors: [
+              {
+                label: 'Verde', hex: '#2d6a2d',
+                img: 'https://pampero.com.ar/wp-content/uploads/2024/08/250627_Pampero_Ecom_D3_0072-580x785.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/250627_Pampero_Ecom_D3_0072-1200x1200.jpg',
+                ]
+              },
+              {
+                label: 'Azul', hex: '#1a3a6b',
+                img: 'https://pampero.com.ar/wp-content/uploads/2024/08/250627_Pampero_Ecom_D3_0074-580x785.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/250627_Pampero_Ecom_D3_0074-1200x1200.jpg',
+                ]
+              },
+              {
+                label: 'Beige', hex: '#c8b49a',
+                img: 'https://pampero.com.ar/wp-content/uploads/2024/08/250627_Pampero_Ecom_D3_0078-580x785.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/250627_Pampero_Ecom_D3_0057-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/250627_Pampero_Ecom_D3_0061-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/250627_Pampero_Ecom_D3_0065-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/250627_Pampero_Ecom_D3_0063-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/250627_Pampero_Ecom_D3_0067-1200x1200.jpg',
+                ]
+              },
+              {
+                label: 'Camuflado', hex: '#4a5240',
+                img: 'https://pampero.com.ar/wp-content/uploads/2024/08/250627_Pampero_Ecom_D3_0079-580x785.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2024/10/DSC055772.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/10/DSC05579.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/10/DSC05578.jpg',
+                ]
+              },
+              {
+                label: 'Negro', hex: '#111111',
+                img: 'https://pampero.com.ar/wp-content/uploads/2024/08/250627_Pampero_Ecom_D3_0080-580x785.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/240626_Pampero_D1_6977-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/240626_Pampero_D1_6993-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/240626_Pampero_D1_6989-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/240626_Pampero_D1_6996-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/240626_Pampero_D1_6992-1200x1200.jpg',
+                ]
+              },
+            ]
+          },
+          {
+            name: 'Pantalón Areco',
+            desc: 'Pantalón recto en gabardina con confort. Tiro medio, sin pinzas, pierna regular y bolsillos diagonales en delantero. 98% Algodón, 2% Elastano.',
+            sizes: '38 al 60',
+            img: 'https://pampero.com.ar/wp-content/uploads/2024/09/411122007_AZUL_1340-copy-0-1200x1200.jpg',
+            colors: [
+              {
+                label: 'Azul Marino', hex: '#1a3a6b',
+                img: 'https://pampero.com.ar/wp-content/uploads/2024/09/411122007_AZUL_1340-copy-0-1200x1200.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/411122007_AZUL_1340-copy-0-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/411122007_AZUL_1342-1-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/411122007_AZUL_1341-1-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/411122007_AZUL_1345-1-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/411122007_AZUL_1340-1-1200x1200.jpg',
+                ]
+              },
+              {
+                label: 'Negro', hex: '#111111',
+                img: 'https://pampero.com.ar/wp-content/uploads/2024/09/412506002_H2_0729.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/412506002_H2_0729.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/412506002_H2_0717.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/412506002_H2_0737.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/412506002_H2_0733.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/412506002_H2_0723.jpg',
+                ]
+              },
+              {
+                label: 'Tiza', hex: '#dcd8d0',
+                img: 'https://pampero.com.ar/wp-content/uploads/2026/01/251203_Pampero_Ecom_0388.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2026/01/251203_Pampero_Ecom_0388.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2026/01/251203_Pampero_Ecom_0390.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2026/01/251203_Pampero_Ecom_0365.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2026/01/251203_Pampero_Ecom_0392.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2026/01/251203_Pampero_Ecom_0391.jpg',
+                ]
+              },
+              {
+                label: 'Tostado', hex: '#c09060',
+                img: 'https://pampero.com.ar/wp-content/uploads/2024/09/250627_Pampero_Ecom_D3_1120-1200x1200.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/250627_Pampero_Ecom_D3_1120-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/250627_Pampero_Ecom_D3_1125-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/250627_Pampero_Ecom_D3_1126-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/250627_Pampero_Ecom_D3_1128-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/250627_Pampero_Ecom_D3_1129-1200x1200.jpg',
+                ]
+              },
+            ]
+          },
+          {
+            name: 'Pantalón Junín',
+            desc: 'Pantalón chino en gabardina teñida en prenda. Tiro medio, sin pinzas, pierna chupín y cintura con ojal y botón. 98% Algodón, 2% Elastano.',
+            sizes: '38 al 58',
+            img: 'https://pampero.com.ar/wp-content/uploads/2024/09/812506000_C4_4499-1200x1200.jpg',
+            colors: [
+              {
+                label: 'Azul Marino', hex: '#1a3a6b',
+                img: 'https://pampero.com.ar/wp-content/uploads/2024/09/812506000_C4_4499-1200x1200.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/812506000_C4_4499-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/812506000_C4_4500-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/812506000_C4_4503-1200x1200.jpg',
+                ]
+              },
+              {
+                label: 'Beige', hex: '#c8b49a',
+                img: 'https://pampero.com.ar/wp-content/uploads/2024/09/412506003_G8_0060.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/412506003_G8_0060.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/412506003_G8_0080.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/412506003_G8_0079.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/412506003_G8_0064.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/412506003_G8_0082.jpg',
+                ]
+              },
+              {
+                label: 'Gris', hex: '#8a8a8a',
+                img: 'https://pampero.com.ar/wp-content/uploads/2024/10/412506003RII_H3-1659-1200x1200.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2024/10/412506003RII_H3-1659-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/10/412506003RII_H3-1662-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/10/412506003RII_H3-1663-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/10/412506003RII_H3-1667-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/10/412506003RII_H3-1666-1200x1200.jpg',
+                ]
+              },
+              {
+                label: 'Negro', hex: '#111111',
+                img: 'https://pampero.com.ar/wp-content/uploads/2024/09/412506003_H2_4214.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/412506003_H2_4214.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/412506003_H2_4218.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/412506003_H2_4220.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/412506003_H2_4225.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/412506003_H2_4222.jpg',
+                ]
+              },
+              {
+                label: 'Tostado', hex: '#c09060',
+                img: 'https://pampero.com.ar/wp-content/uploads/2026/01/251203_Pampero_Ecom_0927.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2026/01/251203_Pampero_Ecom_0927.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2026/01/251203_Pampero_Ecom_0936.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2026/01/251203_Pampero_Ecom_0913.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2026/01/251203_Pampero_Ecom_0931.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2026/01/251203_Pampero_Ecom_0935.jpg',
+                ]
+              },
+              {
+                label: 'Verde', hex: '#2d6a2d',
+                img: 'https://pampero.com.ar/wp-content/uploads/2024/10/271203_Pampero_Ecom_0724.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2024/10/271203_Pampero_Ecom_0724.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/10/271203_Pampero_Ecom_0728.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/10/271203_Pampero_Ecom_0726.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/10/271203_Pampero_Ecom_0730.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/10/271203_Pampero_Ecom_0710.jpg',
+                ]
+              },
+            ]
+          },
+          {
+            name: 'Pantalón Candelaria',
+            desc: 'Pantalón chupín en gabardina con confort. Tiro medio con pierna y bota angosta, bolsillos avanzados delanteros y ojal trasero. 98% Algodón, 2% Elastano.',
+            sizes: '34 al 54',
+            img: 'https://pampero.com.ar/wp-content/uploads/2024/09/812506000_C4-4027-1-1200x1200.jpg',
+            colors: [
+              {
+                label: 'Azul Marino', hex: '#1a3a6b',
+                img: 'https://pampero.com.ar/wp-content/uploads/2024/09/812506000_C4-4027-1-1200x1200.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/812506000_C4-4027-1-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/812506000_C4-4029-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/812506000_C4-4034-1-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/812506000_C4-4033-1-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/812506000_C4-4031-1-1200x1200.jpg',
+                ]
+              },
+            ]
+          },
+        ]
+      },
+      calzado: {
+        label: 'Calzado',
+        items: [
+          {
+            name: 'Botín Alenke',
+            desc: 'Botín con punta de acero y cuero flor 100% vacuno. Suela PU bi-densidad antideslizante, resistente a hidrocarburos y dieléctrica. Plantilla Ortholite.',
+            sizes: '35 al 46',
+            img: 'https://pampero.com.ar/wp-content/uploads/2026/01/WhatsApp-Image-2026-01-27-at-2.39.39-PM-1-580x785.jpeg',
+            colors: [
+              {
+                label: 'Marrón', hex: '#7B4B2A',
+                img: 'https://pampero.com.ar/wp-content/uploads/2026/01/WhatsApp-Image-2026-01-27-at-2.39.39-PM-1-580x785.jpeg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2026/01/WhatsApp-Image-2026-01-27-at-2.39.39-PM-1-580x785.jpeg',
+                  'https://pampero.com.ar/wp-content/uploads/2026/01/WhatsApp-Image-2026-01-27-at-2.39.40-PM-580x785.jpeg',
+                  'https://pampero.com.ar/wp-content/uploads/2026/01/WhatsApp-Image-2026-01-27-at-2.39.40-PM-2-580x785.jpeg',
+                  'https://pampero.com.ar/wp-content/uploads/2026/01/WhatsApp-Image-2026-01-27-at-2.39.40-PM-1-580x785.jpeg',
+                ]
+              },
+            ]
+          },
+          {
+            name: 'Botín Constructor',
+            desc: 'Botín 100% cuero vacuno BOX ultra resistente. Talón reforzado. Suela de caucho y PU dieléctrica, con alto nivel de resistencia a la abrasión y altas temperaturas. Resistente a la flexión, con estrías para escalera. Interior de pique absorvente y expelente de humedad. Plantilla extraconfort 3mm.',
+            sizes: '35 al 45',
+            imgContain: true,
+            img: 'Botin Constructor.jpg',
+            colors: [
+              {
+                label: 'Negro', hex: '#111111',
+                img: 'Botin Constructor.jpg',
+                imgs: [
+                  'Botin Constructor.jpg',
+                ]
+              },
+            ]
+          },
+          {
+            name: 'Botín Patrio',
+            desc: 'Botín 100% cuero vacuno flor. Talón reforzado. Suela PU bi-densidad ultra-liviana, dieléctrica, con alto nivel de resistencia a la abrasión y altas temperaturas. Resistente a la inflexión, con estrías para escaleras. *Consultar por talles mayores.',
+            sizes: '35 al 45',
+            imgContain: true,
+            img: 'Botin Patrio.png',
+            colors: [
+              {
+                label: 'Negro', hex: '#111111',
+                img: 'Botin Patrio.png',
+                imgs: [
+                  'Botin Patrio.png',
+                ]
+              },
+            ]
+          },
+          {
+            name: 'Zapatilla Ushua',
+            desc: 'Cuero flor dieléctrico combinado con tela Ripstop. Suela PU bi-densidad antideslizante y resistente a hidrocarburos. Puntera plástica. Cert. IRAM.',
+            sizes: '35 al 45',
+            img: 'https://pampero.com.ar/wp-content/uploads/2024/08/121131110-1-scaled-1-1200x1200.jpg',
+            colors: [
+              {
+                label: 'Marrón', hex: '#7B4B2A',
+                img: 'https://pampero.com.ar/wp-content/uploads/2024/08/121131110-1-scaled-1-1200x1200.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/121131110-1-scaled-1-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/121131110-scaled-1-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/121131110-4-scaled-1-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/121131110-2-scaled-1-1200x1200.jpg',
+                ]
+              },
+              {
+                label: 'Azul', hex: '#1a3a6b',
+                img: 'https://pampero.com.ar/wp-content/uploads/2024/08/PAMPERO-PRODUCTO-DIA-1_0392-580x785.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/PAMPERO-PRODUCTO-DIA-1_0392-580x785.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/PAMPERO-PRODUCTO-DIA-1_0396-580x785.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/PAMPERO-PRODUCTO-DIA-1_0400-580x785.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/PAMPERO-PRODUCTO-DIA-1_0398-580x785.jpg',
+                ]
+              },
+              {
+                label: 'Negro', hex: '#111111',
+                img: 'https://pampero.com.ar/wp-content/uploads/2025/07/PAMPERO-PRODUCTO-DIA-1_0367-580x785.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2025/07/PAMPERO-PRODUCTO-DIA-1_0367-580x785.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2025/07/PAMPERO-PRODUCTO-DIA-1_0369-580x785.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2025/07/PAMPERO-PRODUCTO-DIA-1_0371-580x785.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2025/07/PAMPERO-PRODUCTO-DIA-1_0370-580x785.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2025/07/PAMPERO-PRODUCTO-DIA-1_0372-580x785.jpg',
+                ]
+              },
+            ]
+          },
+          {
+            name: 'Botín Yavu',
+            desc: 'Botín de cuero flor con punta de acero y suela PU antideslizante, resistente a hidrocarburos y dieléctrica. Ojales anticorrosión, collar acolchado y talón antifatiga con núcleo PU bi-densidad.',
+            sizes: '35 al 46',
+            img: 'https://pampero.com.ar/wp-content/uploads/2025/07/PAMPERO-PRODUCTO-INV-26-DIA-1_0151-580x785.jpg',
+            colors: [
+              {
+                label: 'Cuero', hex: '#8B6914',
+                img: 'https://pampero.com.ar/wp-content/uploads/2025/07/PAMPERO-PRODUCTO-INV-26-DIA-1_0151-580x785.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2025/07/PAMPERO-PRODUCTO-INV-26-DIA-1_0151-580x785.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2025/07/PAMPERO-PRODUCTO-INV-26-DIA-1_0156-580x785.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2025/07/PAMPERO-PRODUCTO-INV-26-DIA-1_0153-580x785.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2025/07/PAMPERO-PRODUCTO-INV-26-DIA-1_0148-580x785.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2025/07/PAMPERO-PRODUCTO-INV-26-DIA-1_0150-580x785.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2025/07/PAMPERO-PRODUCTO-INV-26-DIA-1_0149-580x785.jpg',
+                ]
+              },
+              {
+                label: 'Negro', hex: '#111111',
+                img: 'https://pampero.com.ar/wp-content/uploads/2024/08/PAMPERO-PRODUCTO-DIA-1_0297-580x785.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/PAMPERO-PRODUCTO-DIA-1_0297-580x785.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/PAMPERO-PRODUCTO-DIA-1_0299-580x785.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/PAMPERO-PRODUCTO-DIA-1_0304-580x785.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/PAMPERO-PRODUCTO-DIA-1_0301-580x785.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/PAMPERO-PRODUCTO-DIA-1_0310-580x785.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/08/PAMPERO-PRODUCTO-DIA-1_0306-580x785.jpg',
+                ]
+              },
+            ]
+          },
+          {
+            name: 'Zapato Yavu',
+            desc: 'Cuero flor con puntera de acero y suela PU bi-densidad antideslizante, dieléctrica y resistente a hidrocarburos. Tratamiento antimicótico, taco antifatiga y ojales anticorrosivos.',
+            sizes: '36 al 46',
+            img: 'https://pampero.com.ar/wp-content/uploads/2024/10/PA-1619H2NEGRO-1-580x785.jpg',
+            colors: [
+              {
+                label: 'Negro', hex: '#111111',
+                img: 'https://pampero.com.ar/wp-content/uploads/2024/10/PA-1619H2NEGRO-1-580x785.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2024/10/PA-1619H2NEGRO-1-580x785.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/10/PA-1619H2NEGRO-580x785.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/10/PA-1619H2NEGRO-2-580x785.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/10/PA-1619H2NEGRO-3-580x785.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/10/PA-1619H2NEGRO-4-580x785.jpg',
+                ]
+              },
+              {
+                label: 'Marrón', hex: '#7B4B2A',
+                img: 'https://pampero.com.ar/wp-content/uploads/2026/01/PAMPERO-PRODUCTO-INV-26-DIA-1_0175-580x785.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2026/01/PAMPERO-PRODUCTO-INV-26-DIA-1_0175-580x785.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2026/01/PAMPERO-PRODUCTO-INV-26-DIA-1_0177-580x785.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2026/01/PAMPERO-PRODUCTO-INV-26-DIA-1_0179-580x785.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2026/01/PAMPERO-PRODUCTO-INV-26-DIA-1_0173-580x785.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2026/01/PAMPERO-PRODUCTO-INV-26-DIA-1_0170-580x785.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2026/01/PAMPERO-PRODUCTO-INV-26-DIA-1_0169-580x785.jpg',
+                ]
+              },
+            ]
+          },
+          {
+            name: 'Botín Huepil',
+            desc: 'Botín de seguridad de cuero flor con puntera de acero de impacto certificada. Suela PU bi-densidad antideslizante, resistente a hidrocarburos y dieléctrica. Plantilla EVA 4mm con tratamiento antimicótico.',
+            sizes: '39 al 43',
+            imgContain: true,
+            img: 'https://pampero.com.ar/wp-content/uploads/2026/02/Botin-Huepil-negro-pa2701-frente-1200x1200.jpg',
+            colors: [
+              {
+                label: 'Negro', hex: '#111111',
+                img: 'https://pampero.com.ar/wp-content/uploads/2026/02/Botin-Huepil-negro-pa2701-frente-1200x1200.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2026/02/Botin-Huepil-negro-pa2701-frente-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2026/02/Botin-Huepil-negro-pa2701-lateral-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2026/02/Botin-Huepil-negro-pa2701-lateral-izq-1200x1200.jpg',
+                ]
+              },
+            ]
+          },
+          {
+            name: 'Bota Job Master',
+            desc: 'Bota de trabajo versátil con caña ligera y suela diseñada para múltiples actividades. Resistencia, flexibilidad y confort para largas distancias. <strong>También disponible con puntera de acero.</strong> También disponible en color blanco (Bota Frigorífica).',
+            sizes: '35 al 46',
+            img: 'https://pampero.com.ar/wp-content/uploads/2026/01/PAMPERO-PRODUCTO-INV-26-DIA-1_0240-1200x1200.jpg',
+            colors: [
+              {
+                label: 'Negro', hex: '#111111',
+                img: 'https://pampero.com.ar/wp-content/uploads/2026/01/PAMPERO-PRODUCTO-INV-26-DIA-1_0240-1200x1200.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2026/01/PAMPERO-PRODUCTO-INV-26-DIA-1_0240-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2026/01/PAMPERO-PRODUCTO-INV-26-DIA-1_0242-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2026/01/PAMPERO-PRODUCTO-INV-26-DIA-1_0241-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2026/01/PAMPERO-PRODUCTO-INV-26-DIA-1_0239-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2026/01/PAMPERO-PRODUCTO-INV-26-DIA-1_0238-1200x1200.jpg',
+                ]
+              },
+            ]
+          },
+        ]
+      },
+      impermeables: {
+        label: 'Impermeables',
+        items: [
+          { name: 'Traje de Lluvia Tormenta', img: 'https://pampero.com.ar/wp-content/uploads/2025/04/240626_Pampero_D1_7488-580x785.jpg' },
+          { name: 'Capa Impermeable Lluvia — Azul', img: 'https://pampero.com.ar/wp-content/uploads/2026/02/271203_Pampero_Ecom_0766-580x785.jpg' },
+          { name: 'Traje de Lluvia Premium — Naranja', img: 'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D2_0008-580x785.jpg' },
+          { name: 'Traje de Lluvia Premium — Azul', img: 'https://pampero.com.ar/wp-content/uploads/2024/09/333-copia-580x785.jpg' },
+          { name: 'Capa Impermeable Lluvia — Amarillo', img: 'https://pampero.com.ar/wp-content/uploads/2024/09/240701_Pampero_D4-1603-580x785.jpg' },
+          { name: 'Traje de Lluvia Premium — Amarillo', img: 'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D2_0025-580x785.jpg' },
+          { name: 'Traje Lluvia Premium Motostyle', img: 'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D2_0058-580x785.jpg' },
+        ]
+      },
+      abrigos: {
+        label: 'Abrigos',
+        items: [
+          {
+            name: 'Buzo Frisa Medio Cierre',
+            desc: 'Buzo cuello alto con cierre en frisa invisible de algodón poliéster. Cintura y puños en rib al tono.',
+            sizes: 'MMCH al 6MG',
+            img: 'https://pampero.com.ar/wp-content/uploads/2024/09/111118202_H2-5178.jpg',
+            colors: [
+              {
+                label: 'Negro',
+                hex: '#111111',
+                img: 'https://pampero.com.ar/wp-content/uploads/2024/09/111118202_H2-5178.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/111118202_H2-5178.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/111118202_H2-5174.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/111118202_H2-5183.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/111118202_H2-5178-1.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/111118202_H2-5184.jpg',
+                ]
+              },
+              {
+                label: 'Gris',
+                hex: '#8a8a8a',
+                img: 'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_6467-1200x1200.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_6467-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_6471-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_6478-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_6483-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_6479-1200x1200.jpg',
+                ]
+              },
+              {
+                label: 'Azul Marino',
+                hex: '#1a3a6b',
+                img: 'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_6936-1200x1200.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_6936-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_6941-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_6943-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_6944-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_6935-1200x1200.jpg',
+                ]
+              },
+            ]
+          },
+          {
+            name: 'Buzo Frisa Cuello Redondo',
+            desc: 'Buzo de cuello redondo en 100% algodón, con cintura y puños en rib al tono. Modelo holgado ideal para trabajos al aire libre en clima frío.',
+            sizes: 'MCH al 5MG',
+            img: 'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_6605-580x785.jpg',
+            colors: [
+              {
+                label: 'Negro',
+                hex: '#111111',
+                img: 'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_6605-580x785.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_6605-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_6616-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_6611-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_6614-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_6612-1200x1200.jpg',
+                ]
+              },
+              {
+                label: 'Gris',
+                hex: '#8a8a8a',
+                img: 'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_6931-580x785.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_6931-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_6923-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_6921-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_6922-1200x1200.jpg',
+                ]
+              },
+              {
+                label: 'Blanco',
+                hex: '#ffffff',
+                white: true,
+                img: 'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7046-580x785.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7046-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7050-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7051-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7055-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7054-1200x1200.jpg',
+                ]
+              },
+              {
+                label: 'Azul Marino',
+                hex: '#1a3a6b',
+                img: 'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7475-580x785.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7475-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7469-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7473-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7465-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7466-1200x1200.jpg',
+                ]
+              },
+            ]
+          },
+          {
+            name: 'Campera Polar Básica',
+            desc: 'Campera polar cuello alto con cierre visible y dos bolsillos laterales. Confeccionada en polar 100% poliéster.',
+            sizes: 'MCH al 2MG',
+            img: 'https://pampero.com.ar/wp-content/uploads/2026/04/271203_Pampero_Ecom_1668.jpg',
+            colors: [
+              {
+                label: 'Azul Marino',
+                hex: '#1a3a6b',
+                img: 'https://pampero.com.ar/wp-content/uploads/2026/04/271203_Pampero_Ecom_1668.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2026/04/271203_Pampero_Ecom_1668.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2026/04/271203_Pampero_Ecom_1669.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2026/04/271203_Pampero_Ecom_1674.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2026/04/271203_Pampero_Ecom_1675.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2026/04/271203_Pampero_Ecom_1660.jpg',
+                ]
+              },
+              {
+                label: 'Negro',
+                hex: '#111111',
+                img: null,
+                imgs: []
+              },
+              {
+                label: 'Gris',
+                hex: '#8a8a8a',
+                img: null,
+                imgs: []
+              },
+            ]
+          },
+          {
+            name: 'Campera Anorak Térmica',
+            desc: 'Confeccionada en tela Trucker de guata matelaseada en algodón con capucha desmontable y cintura ajustable con cordón. Cuello alto, puños de rib y dos bolsillos externos más uno interno.',
+            sizes: 'MCH al 3MG',
+            img: 'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7181.jpg',
+            colors: [
+              {
+                label: 'Azul Marino',
+                hex: '#1a3a6b',
+                img: 'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7181.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7181.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7187-copia.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7188.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7193.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7192.jpg',
+                ]
+              },
+              {
+                label: 'Naranja',
+                hex: '#e65c1a',
+                img: 'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7236-copia.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7236-copia.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7243.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7252.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7247.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7245.jpg',
+                ]
+              },
+            ]
+          },
+          {
+            name: 'Chaleco Térmico Básico',
+            desc: 'Chaleco básico de trucker resinado e impermeabilizado con forrería matelasseada. Cuello alto, cierre con carteron y broches encapsulados, ajuste en cintura con cordón, tancas y terminales. Dos bolsillos delanteros y uno interno.',
+            sizes: 'MCH al 4MG',
+            img: 'Chaleco Termico Basico.png',
+            colors: [
+              {
+                label: 'Azul Marino',
+                hex: '#1a3a6b',
+                img: 'Chaleco Termico Basico.png',
+                imgs: [
+                  'Chaleco Termico Basico.png',
+                ]
+              },
+              {
+                label: 'Negro',
+                hex: '#111111',
+                img: null,
+                imgs: []
+              },
+              {
+                label: 'Blanco',
+                hex: '#ffffff',
+                white: true,
+                img: null,
+                imgs: []
+              },
+            ]
+          },
+          {
+            name: 'Campera Pehuen',
+            desc: 'Campera Pehuen matelasseado bastón. Capucha en 3 partes, bolsillo ojal con vista delantera y recorte de costadillos. Tela Sire 100% poliéster con interior en guata siliconada 150 g/m2.',
+            sizes: 'MCH al 4MG',
+            img: 'Campera Pehuen.png',
+            colors: [
+              {
+                label: 'Azul Marino',
+                hex: '#1a3a6b',
+                img: 'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7302-1200x1200.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7302-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7309-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7312-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7314-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7315-1200x1200.jpg',
+                ]
+              },
+              {
+                label: 'Gris',
+                hex: '#8a8a8a',
+                img: 'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7329-1200x1200.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7329-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7333-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7340-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7337-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7339-1200x1200.jpg',
+                ]
+              },
+              {
+                label: 'Negro',
+                hex: '#111111',
+                img: null,
+                imgs: []
+              },
+              {
+                label: 'Verde',
+                hex: '#2d6a2d',
+                img: null,
+                imgs: []
+              },
+            ]
+          },
+          {
+            name: 'Chaleco Pehuen',
+            desc: 'Chaleco Pehuen matelasseado bastón. Cuello alto, bolsillo ojal con vista delantera y recorte de costadillos. Tela Sire 100% poliéster con interior en guata siliconada 150 g/m2.',
+            sizes: 'MCH al 4MG',
+            img: 'Chaleco pehuen.png',
+            colors: [
+              {
+                label: 'Azul Marino',
+                hex: '#1a3a6b',
+                img: null,
+                imgs: []
+              },
+              {
+                label: 'Gris',
+                hex: '#8a8a8a',
+                img: null,
+                imgs: []
+              },
+              {
+                label: 'Negro',
+                hex: '#111111',
+                img: null,
+                imgs: []
+              },
+              {
+                label: 'Verde',
+                hex: '#2d6a2d',
+                img: null,
+                imgs: []
+              },
+            ]
+          },
+          {
+            name: 'Chaleco Polar',
+            desc: 'Chaleco de polar 100% poliéster antipilling. Cuello alto, cierre a la vista, dos bolsillos laterales y un bolsillo con cierre.',
+            sizes: 'MCH al 4MG',
+            img: 'chaleco polar.png',
+            colors: [
+              {
+                label: 'Azul Marino',
+                hex: '#1a3a6b',
+                img: 'https://pampero.com.ar/wp-content/uploads/2024/10/250628_Pampero_Ecom_D44561.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2024/10/250628_Pampero_Ecom_D44561.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/10/250628_Pampero_Ecom_D44565.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/10/250628_Pampero_Ecom_D44569.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/10/250628_Pampero_Ecom_D44564.jpg',
+                ]
+              },
+              {
+                label: 'Gris',
+                hex: '#8a8a8a',
+                img: null,
+                imgs: []
+              },
+              {
+                label: 'Negro',
+                hex: '#111111',
+                img: 'https://pampero.com.ar/wp-content/uploads/2024/10/DSC05558-1.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2024/10/DSC05558-1.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/10/DSC05562-1.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/10/DSC05559.jpg',
+                ]
+              },
+              {
+                label: 'Verde',
+                hex: '#2d6a2d',
+                img: null,
+                imgs: []
+              },
+            ]
+          },
+          {
+            name: 'Buzo Polar Medio Cierre',
+            desc: 'Buzo de polar 100% poliéster antipilling. Cuello alto, medio cierre a la vista.',
+            sizes: 'MCH al 4MG',
+            img: 'buzo Polar medio cierre.png',
+            colors: [
+              {
+                label: 'Azul Marino',
+                hex: '#1a3a6b',
+                img: 'https://pampero.com.ar/wp-content/uploads/2025/04/IMG-20250416-WA00322-1.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2025/04/IMG-20250416-WA00322-1.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2025/04/IMG-20250416-WA00342.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2025/04/IMG-20250416-WA00362-1.jpg',
+                ]
+              },
+              {
+                label: 'Gris',
+                hex: '#8a8a8a',
+                img: null,
+                imgs: []
+              },
+              {
+                label: 'Negro',
+                hex: '#111111',
+                img: 'https://pampero.com.ar/wp-content/uploads/2026/04/271203_Pampero_Ecom_1657.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2026/04/271203_Pampero_Ecom_1657.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2026/04/271203_Pampero_Ecom_1653.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2026/04/271203_Pampero_Ecom_1656.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2026/04/271203_Pampero_Ecom_1649.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2026/04/271203_Pampero_Ecom_1646.jpg',
+                ]
+              },
+              {
+                label: 'Verde',
+                hex: '#2d6a2d',
+                img: null,
+                imgs: []
+              },
+            ]
+          },
+          {
+            name: 'Chaleco Softshell',
+            desc: 'Chaleco en tela softshell con cuello alto, dos bolsillos con cierre y acceso central con cierre. Ideal para jornadas al aire libre en clima frío.',
+            sizes: 'CH al 2MG',
+            img: 'https://pampero.com.ar/wp-content/uploads/2026/06/Pampero-chaleco-softshell-NEGRO_1-1200x1200.jpg',
+            colors: [
+              {
+                label: 'Negro', hex: '#111111',
+                img: 'https://pampero.com.ar/wp-content/uploads/2026/06/Pampero-chaleco-softshell-NEGRO_1-1200x1200.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2026/06/Pampero-chaleco-softshell-NEGRO_1-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2026/06/Pampero-chaleco-softshell-NEGRO_2-1200x1200.jpg',
+                ]
+              },
+            ]
+          },
+          {
+            name: 'Campera Softshell',
+            desc: 'Campera en tela softshell con cinta reflectiva para alta visibilidad. Modelo al cuerpo, tres bolsillos y espalda más larga.',
+            sizes: 'MCH al 3MG',
+            img: 'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_6617.jpg',
+            colors: [
+              {
+                label: 'Negro', hex: '#111111',
+                img: 'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_6617.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_6617.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_6621.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_6624.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_6627.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_6628.jpg',
+                ]
+              },
+              {
+                label: 'Azul Marino', hex: '#1a3a6b',
+                img: 'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7167-1200x1200.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7167-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7170-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7175-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7176-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7166-1200x1200.jpg',
+                ]
+              },
+            ]
+          },
+        ]
+      },
+      seguridad: {
+        label: 'Seguridad',
+        items: [
+          { name: 'Mameluco Descartable', img: 'https://pampero.com.ar/wp-content/uploads/2024/12/DSC05573-580x785.jpg' },
+          { name: 'Guante Vaqueta Alto Impacto', img: 'https://pampero.com.ar/wp-content/uploads/2024/09/240626_PAMPERO1844-580x785.jpg' },
+          { name: 'Guante De Cuero Soldador Reforzado', img: 'https://pampero.com.ar/wp-content/uploads/2024/09/240626_PAMPERO0065-scaled-1-580x785.jpg' },
+          { name: 'Guante De Cuero Vaqueta Con Reflex', img: 'https://pampero.com.ar/wp-content/uploads/2024/09/240626_PAMPERO0004-scaled-1-580x785.jpg' },
+          {
+            name: 'Protector Lumbar Pampero',
+            desc: 'Protección lumbar elástica con terminaciones en polar para ventilación abdominal. Refuerzo lateral con tensores ajustables y ballenas de polipropileno.',
+            sizes: 'T1 al T5',
+            img: 'https://pampero.com.ar/wp-content/uploads/2024/10/240626_Pampero_D1_7218-1200x1200.jpg',
+            colors: [
+              {
+                label: 'Negro', hex: '#111111',
+                img: 'https://pampero.com.ar/wp-content/uploads/2024/10/240626_Pampero_D1_7218-1200x1200.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2024/10/240626_Pampero_D1_7218-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/10/240626_Pampero_D1_7232-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/10/240626_Pampero_D1_7234-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/10/240626_Pampero_D1_7231-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/10/240626_Pampero_D1_7230-1200x1200.jpg',
+                ]
+              }
+            ]
+          },
+          {
+            name: 'Guante Descarne Puño Corto',
+            desc: 'Guante de cuero descarne con puño corto. Apto para industria petrolera, automotriz, construcción, minera, montajes, eléctrica y naval.',
+            sizes: 'T10',
+            img: 'https://pampero.com.ar/wp-content/uploads/2024/09/240626_PAMPERO1838-1200x1200.jpg',
+            colors: [
+              {
+                label: 'Cuero', hex: '#8B6914',
+                img: 'https://pampero.com.ar/wp-content/uploads/2024/09/240626_PAMPERO1838-1200x1200.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_PAMPERO1838-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_PAMPERO1858-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_PAMPERO1853-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_PAMPERO1854-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2024/09/240626_PAMPERO1857-1200x1200.jpg',
+                ]
+              }
+            ]
+          },
+          {
+            name: 'Casco de Seguridad Lanin',
+            desc: 'Casco de seguridad de polietileno con arnés a cremallera incluido. Diseño unisex certificado para uso industrial.',
+            sizes: 'TU',
+            img: 'https://pampero.com.ar/wp-content/uploads/2025/10/PAMPERO-PRODUCTO-DIA-31887.jpg',
+            imgContain: true,
+            colors: [
+              {
+                label: 'Blanco', hex: '#ffffff', white: true,
+                img: 'https://pampero.com.ar/wp-content/uploads/2025/10/PAMPERO-PRODUCTO-DIA-31887.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2025/10/PAMPERO-PRODUCTO-DIA-31887.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2025/10/PAMPERO-PRODUCTO-DIA-31888.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2025/10/PAMPERO-PRODUCTO-DIA-31889.jpg',
+                ]
+              },
+              {
+                label: 'Azul', hex: '#1a3a6b',
+                img: 'https://pampero.com.ar/wp-content/uploads/2026/05/Pampero-casco_1.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2026/05/Pampero-casco_1.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2026/05/Pampero-casco_2.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2026/05/Pampero-casco_3.jpg',
+                ]
+              }
+            ]
+          },
+          {
+            name: 'Mascarilla Respirable Mendoza',
+            desc: 'Mascarilla descartable respirable para protección básica en ambientes de trabajo. Talle único.',
+            sizes: 'TU',
+            img: 'https://pampero.com.ar/wp-content/uploads/2025/10/PAMPERO-PRODUCTO-DIA-31913.jpg',
+            imgContain: true,
+            colors: [
+              {
+                label: 'Blanco', hex: '#ffffff', white: true,
+                img: 'https://pampero.com.ar/wp-content/uploads/2025/10/PAMPERO-PRODUCTO-DIA-31913.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2025/10/PAMPERO-PRODUCTO-DIA-31913.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2025/10/PAMPERO-PRODUCTO-DIA-31914.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2025/10/PAMPERO-PRODUCTO-DIA-31912-1.jpg',
+                ]
+              }
+            ]
+          },
+          {
+            name: 'Mascarilla Respirable c/ Válvula Mendoza',
+            desc: 'Mascarilla respirable con válvula de exhalación para mayor comodidad en uso prolongado. Uso industrial, talle único.',
+            sizes: 'TU',
+            img: 'https://pampero.com.ar/wp-content/uploads/2025/10/PAMPERO-PRODUCTO-DIA-31915.jpg',
+            imgContain: true,
+            colors: [
+              {
+                label: 'Blanco', hex: '#ffffff', white: true,
+                img: 'https://pampero.com.ar/wp-content/uploads/2025/10/PAMPERO-PRODUCTO-DIA-31915.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2025/10/PAMPERO-PRODUCTO-DIA-31915.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2025/10/PAMPERO-PRODUCTO-DIA-31917.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2025/10/PAMPERO-PRODUCTO-DIA-31916.jpg',
+                ]
+              }
+            ]
+          },
+          {
+            name: 'Anteojo de Seguridad Chimango',
+            desc: 'Anteojo de seguridad con tratamiento anti-rayaduras, resistente a impactos y con protección UV. Uso industrial.',
+            sizes: 'TU',
+            img: 'https://pampero.com.ar/wp-content/uploads/2025/10/PAMPERO-PRODUCTO-DIA-31901.jpg',
+            imgContain: true,
+            colors: [
+              {
+                label: 'Gris', hex: '#8a8a8a',
+                img: 'https://pampero.com.ar/wp-content/uploads/2025/10/PAMPERO-PRODUCTO-DIA-31901.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2025/10/PAMPERO-PRODUCTO-DIA-31901.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2025/10/PAMPERO-PRODUCTO-DIA-31902.jpg',
+                ]
+              },
+              {
+                label: 'Traslucido', hex: '#c8e8f0',
+                img: 'https://pampero.com.ar/wp-content/uploads/2025/10/PAMPERO-PRODUCTO-DIA-31905.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2025/10/PAMPERO-PRODUCTO-DIA-31905.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2025/10/PAMPERO-PRODUCTO-DIA-31906.jpg',
+                ]
+              },
+            ]
+          },
+          {
+            name: 'Anteojo de Seguridad Cóndor',
+            desc: 'Anteojo de seguridad con tratamiento anti-rayaduras, resistente a impactos y con protección UV. Certificado para uso industrial.',
+            sizes: 'TU',
+            img: 'https://pampero.com.ar/wp-content/uploads/2025/10/PAMPERO-PRODUCTO-DIA-31910.jpg',
+            imgContain: true,
+            colors: [
+              {
+                label: 'Traslucido', hex: '#c8e8f0',
+                img: 'https://pampero.com.ar/wp-content/uploads/2025/10/PAMPERO-PRODUCTO-DIA-31910.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2025/10/PAMPERO-PRODUCTO-DIA-31910.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2025/10/PAMPERO-PRODUCTO-DIA-31911.jpg',
+                ]
+              },
+              {
+                label: 'Gris', hex: '#8a8a8a',
+                img: 'https://pampero.com.ar/wp-content/uploads/2025/10/PAMPERO-PRODUCTO-DIA-31907.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2025/10/PAMPERO-PRODUCTO-DIA-31907.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2025/10/PAMPERO-PRODUCTO-DIA-31908.jpg',
+                ]
+              },
+              {
+                label: 'Negro', hex: '#111111',
+                img: null,
+                imgs: []
+              },
+            ]
+          },
+          {
+            name: 'Tapones Auditivos Sierra',
+            desc: 'Tapones de espuma de poliuretano suave con cordón. NRR 29 dB, CSA Clase AL. Compatibles con Sistema de Validación 3M™ E-A-Rfit™.',
+            sizes: 'TU',
+            img: 'https://pampero.com.ar/wp-content/uploads/2025/10/PAMPERO-PRODUCTO-DIA-31918-1.jpg',
+            imgContain: true,
+            colors: [
+              {
+                label: 'Amarillo', hex: '#FFD100',
+                img: 'https://pampero.com.ar/wp-content/uploads/2025/10/PAMPERO-PRODUCTO-DIA-31918-1.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2025/10/PAMPERO-PRODUCTO-DIA-31918-1.jpg',
+                ]
+              }
+            ]
+          },
+          {
+            name: 'Tapones Auditivos Valle',
+            desc: 'Tapones reutilizables de tres aletas en polímero ultra-soft hipo-alergénico, lavables y resistentes a la cera del oído.',
+            sizes: 'TU',
+            img: 'https://pampero.com.ar/wp-content/uploads/2025/10/PAMPERO-PRODUCTO-DIA-31919-1.jpg',
+            imgContain: true,
+            colors: [
+              {
+                label: 'Amarillo', hex: '#FFD100',
+                img: 'https://pampero.com.ar/wp-content/uploads/2025/10/PAMPERO-PRODUCTO-DIA-31919-1.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2025/10/PAMPERO-PRODUCTO-DIA-31919-1.jpg',
+                ]
+              }
+            ]
+          },
+          {
+            name: 'Guante Touch Poliester',
+            desc: 'Guante con forro de punto de poliéster galga 13 y palma recubierta de PU con tratamiento antimicrobiano Sanitized®. Excelente agarre en condiciones húmedas o aceitosas.',
+            sizes: '7',
+            img: 'https://pampero.com.ar/wp-content/uploads/2025/07/PAMPERO-PRODUCTO-DIA-4_0226-1200x1200.jpg',
+            imgContain: true,
+            colors: [
+              {
+                label: 'Naranja', hex: '#e65c1a',
+                img: 'https://pampero.com.ar/wp-content/uploads/2025/07/PAMPERO-PRODUCTO-DIA-4_0226-1200x1200.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2025/07/PAMPERO-PRODUCTO-DIA-4_0226-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2025/07/PAMPERO-PRODUCTO-DIA-4_0227-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2025/07/PAMPERO-PRODUCTO-DIA-4_0228-1200x1200.jpg',
+                ]
+              },
+              {
+                label: 'Aero', hex: '#7cb9e8',
+                img: 'https://pampero.com.ar/wp-content/uploads/2025/07/PAMPERO-PRODUCTO-DIA-4_0219-1-1200x1200.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2025/07/PAMPERO-PRODUCTO-DIA-4_0219-1-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2025/07/PAMPERO-PRODUCTO-DIA-4_0220-1-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2025/07/PAMPERO-PRODUCTO-DIA-4_0225-1-1200x1200.jpg',
+                ]
+              },
+              {
+                label: 'Amarillo', hex: '#FFD100',
+                img: 'https://pampero.com.ar/wp-content/uploads/2025/07/PAMPERO-PRODUCTO-DIA-4_0219-1200x1200.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2025/07/PAMPERO-PRODUCTO-DIA-4_0219-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2025/07/PAMPERO-PRODUCTO-DIA-4_0220-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2025/07/PAMPERO-PRODUCTO-DIA-4_0225-1200x1200.jpg',
+                ]
+              },
+            ]
+          },
+          {
+            name: 'Guante Cutek Touch',
+            desc: 'Guante anticorte de nylon galga 13 con forro de fibra de acero y HPPE, y recubrimiento de PU en palma. Nivel de protección anticorte A6.',
+            sizes: '9',
+            img: 'https://pampero.com.ar/wp-content/uploads/2025/07/PAMPERO-PRODUCTO-DIA-4_0022-1200x1200.jpg',
+            imgContain: true,
+            colors: [
+              {
+                label: 'Amarillo', hex: '#FFD100',
+                img: 'https://pampero.com.ar/wp-content/uploads/2025/07/PAMPERO-PRODUCTO-DIA-4_0022-1200x1200.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2025/07/PAMPERO-PRODUCTO-DIA-4_0022-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2025/07/PAMPERO-PRODUCTO-DIA-4_0023-1200x1200.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2025/07/PAMPERO-PRODUCTO-DIA-4_0024-1200x1200.jpg',
+                ]
+              },
+            ]
+          },
+          {
+            name: 'Bandolera Reflex',
+            desc: 'Bandolera en cinta de poliéster fluorescente de 55 mm con banda reflectiva continua de 10 mm. Alta visibilidad para entornos de riesgo.',
+            img: 'https://pampero.com.ar/wp-content/uploads/2025/03/DSC055672.jpg',
+            imgContain: true,
+            colors: [
+              {
+                label: 'Amarillo', hex: '#FFD100',
+                img: 'https://pampero.com.ar/wp-content/uploads/2025/03/DSC055672.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2025/03/DSC055672.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2025/03/DSC05568.jpg',
+                ]
+              },
+              {
+                label: 'Naranja', hex: '#e65c1a',
+                img: 'https://pampero.com.ar/wp-content/uploads/2025/03/DSC055702.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2025/03/DSC055702.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2025/03/DSC05571.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2025/03/DSC05572.jpg',
+                ]
+              },
+            ]
+          },
+          {
+            name: 'Máscara de Soldar Talampaya',
+            desc: 'Máscara de soldar fotosensible con filtro visual de alta calidad, protección UV/IR y materiales retardantes de llama. Sensibilidad y tiempo de retardo ajustables.',
+            sizes: 'TU',
+            img: 'https://pampero.com.ar/wp-content/uploads/2025/10/PAMPERO-PRODUCTO-DIA-31890.jpg',
+            imgContain: true,
+            colors: [
+              {
+                label: 'Negro', hex: '#111111',
+                img: 'https://pampero.com.ar/wp-content/uploads/2025/10/PAMPERO-PRODUCTO-DIA-31890.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2025/10/PAMPERO-PRODUCTO-DIA-31890.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2025/10/PAMPERO-PRODUCTO-DIA-31891.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2025/10/PAMPERO-PRODUCTO-DIA-31893.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2025/10/PAMPERO-PRODUCTO-DIA-31894.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2025/10/PAMPERO-PRODUCTO-DIA-31895.jpg',
+                ]
+              },
+            ]
+          },
+          {
+            name: 'Protector Auditivo Baritú',
+            desc: 'Protector auditivo tipo copa Pampero. Diseño ergonómico para uso prolongado en entornos industriales.',
+            sizes: 'TU',
+            img: 'https://pampero.com.ar/wp-content/uploads/2025/10/PAMPERO-PRODUCTO-DIA-31897-1.jpg',
+            imgContain: true,
+            colors: [
+              {
+                label: 'Amarillo', hex: '#FFD100',
+                img: 'https://pampero.com.ar/wp-content/uploads/2025/10/PAMPERO-PRODUCTO-DIA-31897-1.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2025/10/PAMPERO-PRODUCTO-DIA-31897-1.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2025/10/PAMPERO-PRODUCTO-DIA-31898-1.jpg',
+                ]
+              },
+            ]
+          },
+          {
+            name: 'Protector Auditivo Alerces',
+            desc: 'Protector auditivo tipo copa Pampero. Diseño ergonómico para uso prolongado en entornos industriales.',
+            sizes: 'TU',
+            img: 'https://d1cwu3ie96gcvw.cloudfront.net/articulo_imagen/104/_ILM0829-Editar_1761057574.jpg',
+            imgContain: true,
+            colors: [
+              {
+                label: 'Amarillo', hex: '#FFD100',
+                img: 'https://d1cwu3ie96gcvw.cloudfront.net/articulo_imagen/104/_ILM0829-Editar_1761057574.jpg',
+                imgs: [
+                  'https://d1cwu3ie96gcvw.cloudfront.net/articulo_imagen/104/_ILM0829-Editar_1761057574.jpg',
+                ]
+              },
+            ]
+          },
+          {
+            name: 'Protector Auditivo Pacífico',
+            desc: 'Protector auditivo tipo copa Pampero. Diseño ergonómico para uso prolongado en entornos industriales.',
+            sizes: 'TU',
+            img: 'https://d1cwu3ie96gcvw.cloudfront.net/articulo_imagen/104/_ILM0825-Editar_1761057609.jpg',
+            imgContain: true,
+            colors: [
+              {
+                label: 'Amarillo', hex: '#FFD100',
+                img: 'https://d1cwu3ie96gcvw.cloudfront.net/articulo_imagen/104/_ILM0825-Editar_1761057609.jpg',
+                imgs: [
+                  'https://d1cwu3ie96gcvw.cloudfront.net/articulo_imagen/104/_ILM0825-Editar_1761057609.jpg',
+                ]
+              },
+            ]
+          },
+        ]
+      }
+    };
+
+    var catView = document.getElementById('catView');
+    var prodView = document.getElementById('prodView');
+    var prodPageTitle = document.getElementById('prodPageTitle');
+    var prodPageGrid = document.getElementById('prodPageGrid');
+    var backBtn = document.getElementById('backBtn');
+
+    function switchProductColor(btn, colorLabel, colorImg, defaultImg, productName) {
+      var card = btn.closest('.prod-card');
+      var img = card.querySelector('.prod-card__img img');
+      var lbl = card.querySelector('.prod-card__color-label');
+      var waBtn = card.querySelector('.prod-card__btn');
+      img.src = colorImg || defaultImg;
+      if (lbl) lbl.textContent = colorLabel;
+      card.querySelectorAll('.color-swatch').forEach(function(s) { s.classList.remove('active'); });
+      btn.classList.add('active');
+      var msg = encodeURIComponent('Hola Pampero Córdoba! Quiero consultar sobre ' + productName + ' — ' + colorLabel);
+      waBtn.href = 'https://wa.me/5493513104836?text=' + msg;
+    }
+
+    function imgStyle(p) {
+      return p.imgContain ? ' style="object-fit:contain;object-position:center center;background:#fff"' : '';
+    }
+
+    function renderCard(p) {
+      var extraMeta = '';
+      if (p.desc) extraMeta += '<p class="prod-card__desc">' + p.desc + '</p>';
+      if (p.sizes) extraMeta += '<span class="prod-card__sizes"><i class="fas fa-ruler-horizontal" style="margin-right:.3rem"></i>Talles: ' + p.sizes + '</span>';
+
+      if (p.colors && p.colors.length) {
+        var first = p.colors[0];
+        var firstImg = first.img || p.img;
+        var swatches = p.colors.map(function(c, i) {
+          var activeClass = i === 0 ? ' active' : '';
+          var whiteClass = c.white ? ' color-swatch--white' : '';
+          var cImg = c.img ? "'" + c.img + "'" : 'null';
+          var safeLabel = c.label.replace(/'/g, "\\'");
+          var safeName = p.name.replace(/'/g, "\\'");
+          return '<button class="color-swatch' + activeClass + whiteClass + '"' +
+            ' style="background:' + c.hex + '"' +
+            ' title="' + c.label + '"' +
+            ' onclick="switchProductColor(this,\'' + safeLabel + '\',' + cImg + ',\'' + p.img + '\',\'' + safeName + '\')"></button>';
+        }).join('');
+        var firstMsg = encodeURIComponent('Hola Pampero Córdoba! Quiero consultar sobre ' + p.name + ' — ' + first.label);
+        return '<div class="prod-card">' +
+          '<div class="prod-card__img"><img src="' + firstImg + '" alt="' + p.name + '" loading="lazy"' + imgStyle(p) + ' /></div>' +
+          '<div class="prod-card__body">' +
+          '<p class="prod-card__name">' + p.name + '</p>' +
+          extraMeta +
+          '<div class="prod-card__color-label">' + first.label + '</div>' +
+          '<div class="prod-card__colors">' + swatches + '</div>' +
+          '<a class="prod-card__btn" href="https://wa.me/5493513104836?text=' + firstMsg + '" target="_blank" rel="noopener">' +
+          '<i class="fab fa-whatsapp"></i> Consultar</a>' +
+          '</div></div>';
+      } else {
+        var msg = encodeURIComponent('Hola Pampero Córdoba! Quiero consultar sobre ' + p.name);
+        return '<div class="prod-card">' +
+          '<div class="prod-card__img"><img src="' + p.img + '" alt="' + p.name + '" loading="lazy"' + imgStyle(p) + ' /></div>' +
+          '<div class="prod-card__body">' +
+          '<p class="prod-card__name">' + p.name + '</p>' +
+          extraMeta +
+          '<a class="prod-card__btn" href="https://wa.me/5493513104836?text=' + msg + '" target="_blank" rel="noopener">' +
+          '<i class="fab fa-whatsapp"></i> Consultar</a>' +
+          '</div></div>';
+      }
+    }
+
+    function goToCategory(cat) {
+      var data = PRODUCTS[cat];
+      if (!data) return;
+      prodPageTitle.textContent = data.label;
+      prodPageGrid.innerHTML = data.items.map(renderCard).join('');
+      catView.style.opacity = '0';
+      setTimeout(function() {
+        catView.style.display = 'none';
+        prodView.style.display = 'block';
+        setTimeout(function() { prodView.style.opacity = '1'; }, 10);
+        document.getElementById('lineas').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 200);
+    }
+
+    function backToCategories() {
+      prodView.style.opacity = '0';
+      setTimeout(function() {
+        prodView.style.display = 'none';
+        catView.style.display = 'block';
+        setTimeout(function() { catView.style.opacity = '1'; }, 10);
+        document.getElementById('lineas').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 200);
+    }
+
+    document.querySelectorAll('.line-card[data-cat]').forEach(function(card) {
+      card.addEventListener('click', function() {
+        goToCategory(this.dataset.cat);
+      });
+    });
+
+    backBtn.addEventListener('click', backToCategories);
+
+    // ── PRODUCT MODAL ──────────────────────────────────────────
+    var modalOverlay  = document.getElementById('modalOverlay');
+    var modalMainImg  = document.getElementById('modalMainImg');
+    var modalThumbs   = document.getElementById('modalThumbs');
+    var modalCat      = document.getElementById('modalCat');
+    var modalName     = document.getElementById('modalName');
+    var modalDesc     = document.getElementById('modalDesc');
+    var modalSizesWrap= document.getElementById('modalSizesWrap');
+    var modalSizes    = document.getElementById('modalSizes');
+    var modalColorsSection = document.getElementById('modalColorsSection');
+    var modalColorName= document.getElementById('modalColorName');
+    var modalSwatches = document.getElementById('modalSwatches');
+    var modalWa       = document.getElementById('modalWa');
+    var modalClose    = document.getElementById('modalClose');
+
+    var _modalProduct = null;
+    var _modalColorIdx = 0;
+
+    function modalSetMainImage(src) {
+      modalMainImg.style.opacity = '0';
+      setTimeout(function() {
+        modalMainImg.src = src;
+        modalMainImg.style.opacity = '1';
+      }, 150);
+    }
+
+    function modalRenderGallery(imgs, activeIdx) {
+      activeIdx = activeIdx || 0;
+      modalMainImg.src = imgs[0];
+      modalMainImg.style.opacity = '1';
+      modalThumbs.innerHTML = imgs.map(function(url, i) {
+        return '<div class="modal__thumb' + (i === activeIdx ? ' active' : '') + '" data-idx="' + i + '">' +
+          '<img src="' + url + '" loading="lazy" /></div>';
+      }).join('');
+      modalThumbs.querySelectorAll('.modal__thumb').forEach(function(t) {
+        t.addEventListener('click', function() {
+          var idx = parseInt(this.dataset.idx);
+          modalSetMainImage(imgs[idx]);
+          modalThumbs.querySelectorAll('.modal__thumb').forEach(function(x) { x.classList.remove('active'); });
+          this.classList.add('active');
+        });
+      });
+    }
+
+    function modalSelectColor(colorIdx) {
+      _modalColorIdx = colorIdx;
+      var p = _modalProduct;
+      var c = p.colors[colorIdx];
+      modalColorName.textContent = c.label;
+      var imgs = c.imgs && c.imgs.length ? c.imgs : (c.img ? [c.img] : [p.img]);
+      modalRenderGallery(imgs, 0);
+      modalSwatches.querySelectorAll('.modal__swatch').forEach(function(s, i) {
+        s.classList.toggle('active', i === colorIdx);
+      });
+      var msg = encodeURIComponent('Hola Pampero Córdoba! Quiero consultar sobre ' + p.name + ' — ' + c.label);
+      modalWa.href = 'https://wa.me/5493513104836?text=' + msg;
+    }
+
+    function openModal(product, catLabel, initColorIdx) {
+      _modalProduct = product;
+      _modalColorIdx = initColorIdx || 0;
+
+      modalCat.textContent = catLabel || 'Venta Corporativa';
+      modalName.textContent = product.name;
+      modalDesc.innerHTML = product.desc || '';
+      modalDesc.style.display = product.desc ? 'block' : 'none';
+
+      if (product.sizes) {
+        modalSizes.textContent = product.sizes;
+        modalSizesWrap.style.display = 'flex';
+      } else {
+        modalSizesWrap.style.display = 'none';
+      }
+
+      var containStyle = product.imgContain ? 'object-fit:contain;object-position:center center;background:#fff' : '';
+      modalMainImg.style.cssText = containStyle;
+
+      if (product.colors && product.colors.length) {
+        modalColorsSection.style.display = 'block';
+        modalSwatches.innerHTML = product.colors.map(function(c, i) {
+          var whiteClass = c.white ? ' modal__swatch--white' : '';
+          return '<button class="modal__swatch' + whiteClass + '" style="background:' + c.hex + '" title="' + c.label + '"></button>';
+        }).join('');
+        modalSwatches.querySelectorAll('.modal__swatch').forEach(function(btn, i) {
+          btn.addEventListener('click', function() { modalSelectColor(i); });
+        });
+        modalSelectColor(_modalColorIdx);
+      } else {
+        modalColorsSection.style.display = 'none';
+        var imgs = product.imgs ? product.imgs : [product.img];
+        modalRenderGallery(imgs, 0);
+        var msg = encodeURIComponent('Hola Pampero Córdoba! Quiero consultar sobre ' + product.name);
+        modalWa.href = 'https://wa.me/5493513104836?text=' + msg;
+      }
+
+      document.body.style.overflow = 'hidden';
+      modalOverlay.classList.add('open');
+    }
+
+    function closeModal() {
+      modalOverlay.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    modalClose.addEventListener('click', closeModal);
+    modalOverlay.addEventListener('click', function(e) {
+      if (e.target === modalOverlay) closeModal();
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeModal();
+    });
+
+    // Delegate click on prod-card images and names to open modal
+    document.addEventListener('click', function(e) {
+      var imgWrap = e.target.closest('.prod-card__img');
+      var nameEl  = e.target.closest('.prod-card__name');
+      if (!imgWrap && !nameEl) return;
+      var card = (imgWrap || nameEl).closest('.prod-card');
+      if (!card) return;
+      var grid = card.closest('.prod-page__grid');
+      if (!grid) return;
+      var catKey = document.getElementById('prodPageTitle').textContent.toLowerCase();
+      var catData = null;
+      Object.keys(PRODUCTS).forEach(function(k) {
+        if (PRODUCTS[k].label.toLowerCase() === catKey) catData = PRODUCTS[k];
+      });
+      if (!catData) return;
+      var cards = Array.from(grid.querySelectorAll('.prod-card'));
+      var cardIdx = cards.indexOf(card);
+      if (cardIdx < 0 || !catData.items[cardIdx]) return;
+      // detect currently active color swatch index
+      var activeSwatchIdx = 0;
+      var swatches = card.querySelectorAll('.color-swatch');
+      swatches.forEach(function(s, i) { if (s.classList.contains('active')) activeSwatchIdx = i; });
+      openModal(catData.items[cardIdx], catData.label, activeSwatchIdx);
+    });
+  </script>
+</body>
+</html>
