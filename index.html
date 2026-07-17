@@ -1000,8 +1000,9 @@
     );
     if (!link) return;
     event.preventDefault();
+    event.stopImmediatePropagation();
     gtag_report_conversion(link.href);
-  });
+  }, true);
   </script>
 </head>
 <body>
