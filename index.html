@@ -968,6 +968,32 @@
       .local__thumb { width: 72px; height: 72px; }
     }
   </style>
+
+  <!-- Google tag (gtag.js) – Google Ads AW-18297227843 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18297227843"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-18297227843');
+  </script>
+
+  <!-- Event snippet for Clic en WhatsApp - Presupuesto conversion page
+  In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+  <script>
+  function gtag_report_conversion(url) {
+    var callback = function () {
+      if (typeof(url) != 'undefined') {
+        window.location = url;
+      }
+    };
+    gtag('event', 'conversion', {
+        'send_to': 'AW-18297227843/YRZKCKbwmtIcEMOU5pRE',
+        'event_callback': callback
+    });
+    return false;
+  }
+  </script>
 </head>
 <body>
 
@@ -1524,7 +1550,7 @@
           <p class="modal__color-name" id="modalColorName"></p>
           <div class="modal__swatches" id="modalSwatches"></div>
         </div>
-        <a class="modal__wa" id="modalWa" href="#" target="_blank" rel="noopener">
+        <a class="modal__wa" id="modalWa" href="#" target="_blank" rel="noopener" onclick="return gtag_report_conversion(this.href)">
           <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
         </a>
       </div>
@@ -1559,7 +1585,7 @@
         <div class="footer__social">
           <a href="https://www.instagram.com/pamperocordobaoficial" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
           <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-          <a href="https://wa.me/5493513104836" aria-label="WhatsApp" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://wa.me/5493513104836" aria-label="WhatsApp" target="_blank" rel="noopener" onclick="return gtag_report_conversion(this.href)"><i class="fab fa-whatsapp"></i></a>
         </div>
       </div>
       <div class="footer__col">
@@ -1584,7 +1610,7 @@
       <div class="footer__col">
         <h4>Contacto</h4>
         <ul>
-          <li><a href="https://wa.me/5493513104836" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="https://wa.me/5493513104836" target="_blank" rel="noopener" onclick="return gtag_report_conversion(this.href)">WhatsApp</a></li>
           <li><a href="mailto:Cordoba@pampenorte.com">Cordoba@pampenorte.com</a></li>
           <li><a href="mailto:Cordoba@pampenorte.com">Cordoba@pampenorte.com</a></li>
         </ul>
@@ -1600,7 +1626,8 @@
   <!-- ── WHATSAPP FLOAT ── -->
   <a class="wa"
     href="https://wa.me/5493513104836?text=Hola%20Pampero%20C%C3%B3rdoba!%20Quiero%20solicitar%20un%20presupuesto%20para%20ropa%20de%20trabajo.%20%C2%BFMe%20pueden%20asesorar%3F"
-    target="_blank" rel="noopener" aria-label="Solicitar presupuesto por WhatsApp">
+    target="_blank" rel="noopener" aria-label="Solicitar presupuesto por WhatsApp"
+    onclick="return gtag_report_conversion(this.href)">
     <div class="wa__pulse"></div>
     <i class="fab fa-whatsapp"></i>
     <span class="wa__label">Pedir presupuesto</span>
@@ -3226,7 +3253,7 @@
           extraMeta +
           '<div class="prod-card__color-label">' + first.label + '</div>' +
           '<div class="prod-card__colors">' + swatches + '</div>' +
-          '<a class="prod-card__btn" href="https://wa.me/5493513104836?text=' + firstMsg + '" target="_blank" rel="noopener">' +
+          '<a class="prod-card__btn" href="https://wa.me/5493513104836?text=' + firstMsg + '" target="_blank" rel="noopener" onclick="return gtag_report_conversion(this.href)">' +
           '<i class="fab fa-whatsapp"></i> Consultar</a>' +
           '</div></div>';
       } else {
@@ -3236,7 +3263,7 @@
           '<div class="prod-card__body">' +
           '<p class="prod-card__name">' + p.name + '</p>' +
           extraMeta +
-          '<a class="prod-card__btn" href="https://wa.me/5493513104836?text=' + msg + '" target="_blank" rel="noopener">' +
+          '<a class="prod-card__btn" href="https://wa.me/5493513104836?text=' + msg + '" target="_blank" rel="noopener" onclick="return gtag_report_conversion(this.href)">' +
           '<i class="fab fa-whatsapp"></i> Consultar</a>' +
           '</div></div>';
       }
