@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Calzado | Pampero Córdoba</title>
+<meta name="description" content="Calzado de seguridad y corporativo para toda la jornada laboral. Venta corporativa y mayorista en Córdoba, Argentina." />
+<link rel="canonical" href="https://www.pamperocordoba.com/calzado/" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Calzado | Pampero Córdoba" />
+<meta property="og:description" content="Calzado de seguridad y corporativo para toda la jornada laboral. Venta corporativa y mayorista en Córdoba, Argentina." />
+<meta property="og:url" content="https://www.pamperocordoba.com/calzado/" />
+<meta property="og:image" content="https://pampero.com.ar/wp-content/uploads/2025/06/BAJO_PORTADA_CALZADOS.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Barlow+Condensed:wght@600;700;800;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+<link rel="icon" type="image/png" href="https://pampero.com.ar/wp-content/uploads/2024/09/FAV_PAMPERO.png" />
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Barlow',sans-serif;background:#fff;color:#111;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+:root{--yellow:#FFD100;--black:#111111;--white:#FFFFFF;--gray-bg:#F4F4F4;--gray-mid:#999999;--gray-txt:#444444;--border:#E0E0E0}
+.topbar{background:var(--yellow);color:var(--black);text-align:center;font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:.45rem 1rem}
+.navbar{position:sticky;top:0;z-index:1000;background:var(--black);display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;height:70px}
+.navbar__logo{display:flex;align-items:center;gap:.85rem}
+.navbar__logo img{height:38px;width:auto;filter:brightness(0) invert(1)}
+.navbar__logo-sep{width:1px;height:28px;background:#444;margin:0 .5rem}
+.navbar__logo-city{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1.3rem;color:#fff;letter-spacing:.18em;text-transform:uppercase}
+.navbar__cta{background:var(--yellow);color:var(--black);font-size:.75rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:.6rem 1.5rem;border-radius:2px;white-space:nowrap}
+.navbar__cta:hover{opacity:.88}
+.container{max-width:1200px;margin:0 auto;padding:0 2.5rem}
+.breadcrumb{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--gray-mid);margin:1.75rem 0 0}
+.breadcrumb a{color:var(--gray-mid);transition:color .18s}
+.breadcrumb a:hover{color:var(--black)}
+.breadcrumb span.sep{color:#ccc}
+.breadcrumb span.current{color:var(--black)}
+.page-back{display:inline-flex;align-items:center;gap:.5rem;background:none;border:none;cursor:pointer;font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-mid);padding:1.25rem 0 0;font-family:inherit}
+.page-back:hover{color:var(--black)}
+.page-header{display:flex;justify-content:space-between;align-items:flex-end;margin:1.25rem 0 2.5rem;flex-wrap:wrap;gap:1rem;padding-bottom:2rem;border-bottom:1px solid var(--border)}
+.section-label{display:inline-block;font-size:.68rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--gray-mid);margin-bottom:.65rem}
+.section-label--yellow{color:#c9a400}
+.section-title{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(2.2rem,4vw,3.4rem);text-transform:uppercase;line-height:1;letter-spacing:-.01em;color:var(--black);margin-bottom:.5rem}
+.section-desc{color:var(--gray-txt);font-size:1rem;max-width:520px}
+.btn{display:inline-flex;align-items:center;gap:.5rem;font-family:'Barlow',sans-serif;font-size:.8rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:.85rem 2rem;border-radius:2px;transition:all .18s;border:2px solid transparent;cursor:pointer}
+.btn--outline-black{background:transparent;color:var(--black);border-color:var(--black)}
+.btn--outline-black:hover{background:var(--black);color:#fff}
+main{min-height:40vh;padding-bottom:4rem}
+.prod-page__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:.5rem}
+.prod-card{background:var(--gray-bg)}
+.prod-card__img{aspect-ratio:3/4;overflow:hidden;display:block}
+.prod-card__img img{width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform .5s ease}
+.prod-card:hover .prod-card__img img{transform:scale(1.04)}
+.prod-card__body{padding:.75rem 1rem 1rem}
+.prod-card__name{font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--black);margin-bottom:.4rem;line-height:1.3;display:block}
+.prod-card__name:hover{color:#8a7300}
+.prod-card__desc{font-size:.75rem;color:var(--gray-txt);line-height:1.5;margin-bottom:.5rem}
+.prod-card__sizes{display:inline-block;font-size:.65rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gray-mid);background:#e8e8e8;padding:.18rem .55rem;margin-bottom:.55rem}
+.prod-card__btn{display:inline-flex;align-items:center;gap:.35rem;background:var(--yellow);color:var(--black);font-size:.65rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:.35rem .85rem;border:none;cursor:pointer;transition:opacity .18s}
+.prod-card__btn:hover{opacity:.8}
+@media(max-width:1024px){.prod-page__grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:768px){.prod-page__grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:400px){.prod-page__grid{grid-template-columns:1fr}}
+
+/* Article page */
+.article{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;margin-top:.5rem;align-items:start}
+.article__gallery{display:flex;flex-direction:column;background:var(--gray-bg)}
+.article__main-img{aspect-ratio:3/4;overflow:hidden}
+.article__main-img img{width:100%;height:100%;object-fit:cover;object-position:center top;transition:opacity .2s}
+.article__thumbs{display:flex;gap:.5rem;padding:.75rem;flex-wrap:wrap;background:#eaeaea}
+.article__thumb{width:64px;height:82px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:border-color .15s;flex-shrink:0;background:none;padding:0}
+.article__thumb:hover{border-color:#aaa}
+.article__thumb.active{border-color:var(--yellow)}
+.article__thumb img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.article__info{display:flex;flex-direction:column;gap:.9rem}
+.article__cat{font-size:.68rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--gray-mid)}
+.article__name{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:2.4rem;text-transform:uppercase;line-height:1;color:var(--black)}
+.article__desc{font-size:.92rem;color:var(--gray-txt);line-height:1.7;border-top:1px solid var(--border);padding-top:.9rem}
+.article__sizes-wrap{display:flex;align-items:center;gap:.65rem;flex-wrap:wrap}
+.article__sizes-label{font-size:.68rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--black)}
+.article__sizes-val{font-size:.85rem;font-weight:600;color:var(--gray-txt);background:var(--gray-bg);padding:.3rem .75rem;border:1px solid var(--border)}
+.article__colors-label{font-size:.68rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--black);margin-bottom:.3rem}
+.article__color-name{font-size:.82rem;font-weight:600;color:var(--gray-mid);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.5rem;min-height:1.1em}
+.article__swatches{display:flex;gap:.5rem;flex-wrap:wrap}
+.article__swatch{width:30px;height:30px;border-radius:50%;border:2.5px solid transparent;cursor:pointer;transition:border-color .15s,transform .15s;outline:none;padding:0}
+.article__swatch:hover{transform:scale(1.1)}
+.article__swatch.active{border-color:var(--black) !important;transform:scale(1.15)}
+.article__swatch--white{border-color:#bbb !important}
+.article__swatch--white.active{border-color:var(--black) !important}
+.article__wa{display:flex;align-items:center;justify-content:center;gap:.65rem;background:#25D366;color:#fff;font-size:.85rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:1.1rem;border:none;cursor:pointer;text-decoration:none;margin-top:.5rem;transition:background .18s}
+.article__wa:hover{background:#1fba58;color:#fff}
+.article__wa i{font-size:1.15rem}
+@media(max-width:760px){.article{grid-template-columns:1fr;gap:1.5rem}.article__name{font-size:1.9rem}}
+
+/* Footer + WA float (idénticos a index.html) */
+footer{background:#0a0a0a;color:#666;padding:4rem 2.5rem 2rem}
+.footer__grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2.5fr 1fr 1fr 1fr;gap:3rem;padding-bottom:3rem;border-bottom:1px solid #1e1e1e}
+.footer__logo-wrap{display:flex;align-items:center;gap:.75rem;margin-bottom:1rem}
+.footer__logo-wrap img{height:30px;filter:brightness(0) invert(1)}
+.footer__logo-city{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.3rem;color:#fff;text-transform:uppercase;letter-spacing:.08em}
+.footer__logo-sub{font-size:.6rem;color:var(--yellow);font-weight:700;letter-spacing:.15em;text-transform:uppercase}
+.footer__desc{font-size:.83rem;line-height:1.75;max-width:280px;color:#555}
+.footer__social{display:flex;gap:.6rem;margin-top:1.25rem}
+.footer__social a{width:34px;height:34px;background:#1a1a1a;display:flex;align-items:center;justify-content:center;color:#666;font-size:.85rem;transition:all .18s}
+.footer__social a:hover{background:var(--yellow);color:var(--black)}
+.footer__col h4{font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.14em;color:#fff;margin-bottom:1.1rem}
+.footer__col ul{list-style:none}
+.footer__col li{margin-bottom:.6rem}
+.footer__col li a{font-size:.82rem;color:#555;transition:color .18s}
+.footer__col li a:hover{color:var(--yellow)}
+.footer__bottom{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding-top:2rem;flex-wrap:wrap;gap:.75rem}
+.footer__bottom p{font-size:.75rem;color:#333}
+.footer__bottom a{color:var(--yellow)}
+.wa{position:fixed;bottom:1.75rem;right:1.75rem;z-index:900;background:#25D366;color:#fff;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.55rem;box-shadow:0 4px 18px rgba(37,211,102,.55);transition:transform .2s}
+.wa:hover{transform:scale(1.1);color:#fff}
+@media(max-width:768px){.navbar{padding:0 1.25rem}.container{padding:0 1.25rem}}
+</style>
+
+</head>
+<body>
+
+  
+  <div class="topbar">Venta Corporativa Pampero &nbsp;·&nbsp; Córdoba, Argentina</div>
+  <nav class="navbar">
+    <a class="navbar__logo" href="/">
+      <img src="https://pampero.com.ar/wp-content/uploads/2024/07/logosimbolo.png" alt="Pampero logo" />
+      <div class="navbar__logo-sep"></div>
+      <span class="navbar__logo-city">Córdoba</span>
+    </a>
+    <a class="navbar__cta" href="/#presupuesto">Pedir presupuesto</a>
+  </nav>
+  <main class="container">
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="/">Inicio</a><span class="sep">/</span><span class="current">Calzado</span>
+    </nav>
+    <button class="page-back" onclick="if(document.referrer){history.back()}else{location.href='/'}">
+      <i class="fas fa-arrow-left"></i> Volver
+    </button>
+    <div class="page-header">
+      <div>
+        <span class="section-label">Venta Corporativa</span>
+        <h1 class="section-title">Calzado</h1>
+        <p class="section-desc">Calzado de seguridad y corporativo para toda la jornada laboral.</p>
+      </div>
+      <a class="btn btn--outline-black" href="/#presupuesto">Pedir presupuesto <i class="fas fa-arrow-right"></i></a>
+    </div>
+    <div class="prod-page__grid">
+      <div class="prod-card">
+      <a class="prod-card__img" href="./botin-alenke/"><img src="https://pampero.com.ar/wp-content/uploads/2026/01/WhatsApp-Image-2026-01-27-at-2.39.39-PM-1-580x785.jpeg" alt="Botín Alenke" loading="lazy" /></a>
+      <div class="prod-card__body">
+        <a class="prod-card__name" href="./botin-alenke/">Botín Alenke</a>
+        <p class="prod-card__desc">Botín con punta de acero y cuero flor 100% vacuno. Suela PU bi-densidad antideslizante, resistente a hidrocarburos y dieléctrica. Plantilla Ortholite.</p><span class="prod-card__sizes"><i class="fas fa-ruler-horizontal" style="margin-right:.3rem"></i>Talles: 35 al 46</span>
+        <a class="prod-card__btn" href="https://wa.me/5493513104836?text=Hola%20Pampero%20C%C3%B3rdoba!%20Quiero%20consultar%20sobre%20Bot%C3%ADn%20Alenke%20%E2%80%94%20Marr%C3%B3n" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Consultar</a>
+      </div></div>
+<div class="prod-card">
+      <a class="prod-card__img" href="./botin-constructor/"><img src="Botin Constructor.jpg" alt="Botín Constructor" loading="lazy" /></a>
+      <div class="prod-card__body">
+        <a class="prod-card__name" href="./botin-constructor/">Botín Constructor</a>
+        <p class="prod-card__desc">Botín 100% cuero vacuno BOX ultra resistente. Talón reforzado. Suela de caucho y PU dieléctrica, con alto nivel de resistencia a la abrasión y altas temperaturas. Resistente a la flexión, con estrías para escalera. Interior de pique absorvente y expelente de humedad. Plantilla extraconfort 3mm.</p><span class="prod-card__sizes"><i class="fas fa-ruler-horizontal" style="margin-right:.3rem"></i>Talles: 35 al 45</span>
+        <a class="prod-card__btn" href="https://wa.me/5493513104836?text=Hola%20Pampero%20C%C3%B3rdoba!%20Quiero%20consultar%20sobre%20Bot%C3%ADn%20Constructor%20%E2%80%94%20Negro" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Consultar</a>
+      </div></div>
+<div class="prod-card">
+      <a class="prod-card__img" href="./botin-patrio/"><img src="Botin Patrio.png" alt="Botín Patrio" loading="lazy" /></a>
+      <div class="prod-card__body">
+        <a class="prod-card__name" href="./botin-patrio/">Botín Patrio</a>
+        <p class="prod-card__desc">Botín 100% cuero vacuno flor. Talón reforzado. Suela PU bi-densidad ultra-liviana, dieléctrica, con alto nivel de resistencia a la abrasión y altas temperaturas. Resistente a la inflexión, con estrías para escaleras. *Consultar por talles mayores.</p><span class="prod-card__sizes"><i class="fas fa-ruler-horizontal" style="margin-right:.3rem"></i>Talles: 35 al 45</span>
+        <a class="prod-card__btn" href="https://wa.me/5493513104836?text=Hola%20Pampero%20C%C3%B3rdoba!%20Quiero%20consultar%20sobre%20Bot%C3%ADn%20Patrio%20%E2%80%94%20Negro" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Consultar</a>
+      </div></div>
+<div class="prod-card">
+      <a class="prod-card__img" href="./zapatilla-ushua/"><img src="https://pampero.com.ar/wp-content/uploads/2024/08/121131110-1-scaled-1-1200x1200.jpg" alt="Zapatilla Ushua" loading="lazy" /></a>
+      <div class="prod-card__body">
+        <a class="prod-card__name" href="./zapatilla-ushua/">Zapatilla Ushua</a>
+        <p class="prod-card__desc">Cuero flor dieléctrico combinado con tela Ripstop. Suela PU bi-densidad antideslizante y resistente a hidrocarburos. Puntera plástica. Cert. IRAM.</p><span class="prod-card__sizes"><i class="fas fa-ruler-horizontal" style="margin-right:.3rem"></i>Talles: 35 al 45</span>
+        <a class="prod-card__btn" href="https://wa.me/5493513104836?text=Hola%20Pampero%20C%C3%B3rdoba!%20Quiero%20consultar%20sobre%20Zapatilla%20Ushua%20%E2%80%94%20Marr%C3%B3n" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Consultar</a>
+      </div></div>
+<div class="prod-card">
+      <a class="prod-card__img" href="./botin-yavu/"><img src="https://pampero.com.ar/wp-content/uploads/2025/07/PAMPERO-PRODUCTO-INV-26-DIA-1_0151-580x785.jpg" alt="Botín Yavu" loading="lazy" /></a>
+      <div class="prod-card__body">
+        <a class="prod-card__name" href="./botin-yavu/">Botín Yavu</a>
+        <p class="prod-card__desc">Botín de cuero flor con punta de acero y suela PU antideslizante, resistente a hidrocarburos y dieléctrica. Ojales anticorrosión, collar acolchado y talón antifatiga con núcleo PU bi-densidad.</p><span class="prod-card__sizes"><i class="fas fa-ruler-horizontal" style="margin-right:.3rem"></i>Talles: 35 al 46</span>
+        <a class="prod-card__btn" href="https://wa.me/5493513104836?text=Hola%20Pampero%20C%C3%B3rdoba!%20Quiero%20consultar%20sobre%20Bot%C3%ADn%20Yavu%20%E2%80%94%20Cuero" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Consultar</a>
+      </div></div>
+<div class="prod-card">
+      <a class="prod-card__img" href="./zapato-yavu/"><img src="https://pampero.com.ar/wp-content/uploads/2024/10/PA-1619H2NEGRO-1-580x785.jpg" alt="Zapato Yavu" loading="lazy" /></a>
+      <div class="prod-card__body">
+        <a class="prod-card__name" href="./zapato-yavu/">Zapato Yavu</a>
+        <p class="prod-card__desc">Cuero flor con puntera de acero y suela PU bi-densidad antideslizante, dieléctrica y resistente a hidrocarburos. Tratamiento antimicótico, taco antifatiga y ojales anticorrosivos.</p><span class="prod-card__sizes"><i class="fas fa-ruler-horizontal" style="margin-right:.3rem"></i>Talles: 36 al 46</span>
+        <a class="prod-card__btn" href="https://wa.me/5493513104836?text=Hola%20Pampero%20C%C3%B3rdoba!%20Quiero%20consultar%20sobre%20Zapato%20Yavu%20%E2%80%94%20Negro" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Consultar</a>
+      </div></div>
+<div class="prod-card">
+      <a class="prod-card__img" href="./botin-huepil/"><img src="https://pampero.com.ar/wp-content/uploads/2026/02/Botin-Huepil-negro-pa2701-frente-1200x1200.jpg" alt="Botín Huepil" loading="lazy" /></a>
+      <div class="prod-card__body">
+        <a class="prod-card__name" href="./botin-huepil/">Botín Huepil</a>
+        <p class="prod-card__desc">Botín de seguridad de cuero flor con puntera de acero de impacto certificada. Suela PU bi-densidad antideslizante, resistente a hidrocarburos y dieléctrica. Plantilla EVA 4mm con tratamiento antimicótico.</p><span class="prod-card__sizes"><i class="fas fa-ruler-horizontal" style="margin-right:.3rem"></i>Talles: 39 al 43</span>
+        <a class="prod-card__btn" href="https://wa.me/5493513104836?text=Hola%20Pampero%20C%C3%B3rdoba!%20Quiero%20consultar%20sobre%20Bot%C3%ADn%20Huepil%20%E2%80%94%20Negro" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Consultar</a>
+      </div></div>
+<div class="prod-card">
+      <a class="prod-card__img" href="./bota-job-master/"><img src="https://pampero.com.ar/wp-content/uploads/2026/01/PAMPERO-PRODUCTO-INV-26-DIA-1_0240-1200x1200.jpg" alt="Bota Job Master" loading="lazy" /></a>
+      <div class="prod-card__body">
+        <a class="prod-card__name" href="./bota-job-master/">Bota Job Master</a>
+        <p class="prod-card__desc">Bota de trabajo versátil con caña ligera y suela diseñada para múltiples actividades. Resistencia, flexibilidad y confort para largas distancias. &lt;strong&gt;También disponible con puntera de acero.&lt;/strong&gt; También disponible en color blanco (Bota Frigorífica).</p><span class="prod-card__sizes"><i class="fas fa-ruler-horizontal" style="margin-right:.3rem"></i>Talles: 35 al 46</span>
+        <a class="prod-card__btn" href="https://wa.me/5493513104836?text=Hola%20Pampero%20C%C3%B3rdoba!%20Quiero%20consultar%20sobre%20Bota%20Job%20Master%20%E2%80%94%20Negro" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Consultar</a>
+      </div></div>
+<div class="prod-card">
+      <a class="prod-card__img" href="./botin-de-seguridad-p9001/"><img src="9001.png" alt="Botín de Seguridad P9001" loading="lazy" /></a>
+      <div class="prod-card__body">
+        <a class="prod-card__name" href="./botin-de-seguridad-p9001/">Botín de Seguridad P9001</a>
+        <p class="prod-card__desc">Calzado confeccionado en cuero vacuno descarne con suela monodensidad, ultra liviano y resistente a hidrocarburos. Puntera de acero certificada según norma IRAM 3610.</p><span class="prod-card__sizes"><i class="fas fa-ruler-horizontal" style="margin-right:.3rem"></i>Talles: 35 al 46</span>
+        <a class="prod-card__btn" href="https://wa.me/5493513104836?text=Hola%20Pampero%20C%C3%B3rdoba!%20Quiero%20consultar%20sobre%20Bot%C3%ADn%20de%20Seguridad%20P9001%20%E2%80%94%20Negro" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Consultar</a>
+      </div></div>
+<div class="prod-card">
+      <a class="prod-card__img" href="./botin-p91/"><img src="P91.png" alt="Botín P91" loading="lazy" /></a>
+      <div class="prod-card__body">
+        <a class="prod-card__name" href="./botin-p91/">Botín P91</a>
+        <p class="prod-card__desc">Botín de seguridad de cuero vacuno con cordones y detalles amarillos. Suela bidensidad antideslizante y resistente a hidrocarburos.</p><span class="prod-card__sizes"><i class="fas fa-ruler-horizontal" style="margin-right:.3rem"></i>Talles: 35 al 46</span>
+        <a class="prod-card__btn" href="https://wa.me/5493513104836?text=Hola%20Pampero%20C%C3%B3rdoba!%20Quiero%20consultar%20sobre%20Bot%C3%ADn%20P91%20%E2%80%94%20Negro" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Consultar</a>
+      </div></div>
+    </div>
+  </main>
+  
+  <footer>
+    <div class="footer__grid">
+      <div>
+        <div class="footer__logo-wrap">
+          <img src="https://pampero.com.ar/wp-content/uploads/2024/07/logosimbolo.png" alt="Pampero" />
+          <div>
+            <div class="footer__logo-city">Pampero</div>
+            <div class="footer__logo-sub">Córdoba</div>
+          </div>
+        </div>
+        <p class="footer__desc">Distribuidores oficiales de Pampero en Córdoba. Especialistas en indumentaria corporativa y de trabajo para empresas, con atención personalizada y pedidos por volumen.</p>
+        <div class="footer__social">
+          <a href="https://www.instagram.com/pamperocordobaoficial" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://wa.me/5493513104836" aria-label="WhatsApp" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="footer__col">
+        <h4>Venta Corporativa</h4>
+        <ul><li><a href="/camisas/">Camisas y Remeras</a></li><li><a href="/pantalones/">Pantalones</a></li><li><a href="/calzado/">Calzado</a></li><li><a href="/impermeables/">Impermeables</a></li><li><a href="/abrigos/">Abrigos</a></li><li><a href="/seguridad/">Seguridad</a></li></ul>
+      </div>
+      <div class="footer__col">
+        <h4>Empresa</h4>
+        <ul>
+          <li><a href="/#nosotros">Quiénes somos</a></li>
+          <li><a href="/#presupuesto">Presupuesto</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="https://wa.me/5493513104836" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="mailto:Cordoba@pampenorte.com">Cordoba@pampenorte.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>&copy; 2025 Pampero Córdoba — Distribuidor Oficial.</p>
+      <p><a href="https://www.pamperocordoba.com">www.pamperocordoba.com</a></p>
+    </div>
+  </footer>
+  <a class="wa" href="https://wa.me/5493513104836?text=Hola%20Pampero%20C%C3%B3rdoba!%20Quiero%20solicitar%20un%20presupuesto%20para%20ropa%20de%20trabajo.%20%C2%BFMe%20pueden%20asesorar%3F" target="_blank" rel="noopener" aria-label="Solicitar presupuesto por WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+</body>
+</html>
