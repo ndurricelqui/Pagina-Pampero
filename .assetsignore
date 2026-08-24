@@ -1,4 +1,7 @@
 .git
+.git/
+.git/**
+**/.git/**
 .gitignore
 .assetsignore
 build-pages.js
