@@ -91,6 +91,9 @@ main{min-height:40vh;padding-bottom:4rem}
 .article__swatch.active{border-color:var(--black) !important;transform:scale(1.15)}
 .article__swatch--white{border-color:#bbb !important}
 .article__swatch--white.active{border-color:var(--black) !important}
+.article__swatch--oos{position:relative;cursor:not-allowed;opacity:.45}
+.article__swatch--oos:hover{transform:none}
+.article__swatch--oos::after{content:'';position:absolute;top:50%;left:50%;width:140%;height:2px;background:#e11;transform:translate(-50%,-50%) rotate(-45deg)}
 .article__wa{display:flex;align-items:center;justify-content:center;gap:.65rem;background:#25D366;color:#fff;font-size:.85rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:1.1rem;border:none;cursor:pointer;text-decoration:none;margin-top:.5rem;transition:background .18s}
 .article__wa:hover{background:#1fba58;color:#fff}
 .article__wa i{font-size:1.15rem}
@@ -156,7 +159,7 @@ footer{background:#0a0a0a;color:#666;padding:4rem 2.5rem 2rem}
         <div>
           <div class="article__colors-label">Color</div>
           <div class="article__color-name" id="colorName">Amarillo</div>
-          <div class="article__swatches"><button class="article__swatch active" style="background:#FFD100" title="Amarillo" data-label="Amarillo" data-imgs='["https://pampero.com.ar/wp-content/uploads/2025/10/PAMPERO-PRODUCTO-DIA-31919-1.jpg"]' onclick="pmpSelectColor(this)"></button></div>
+          <div class="article__swatches"><button class="article__swatch active" style="background:#FFD100" title="Amarillo" data-label="Amarillo" data-imgs='["https://pampero.com.ar/wp-content/uploads/2025/10/PAMPERO-PRODUCTO-DIA-31919-1.jpg"]' data-oos="0" onclick="pmpSelectColor(this)"></button></div>
         </div>
         <a class="article__wa" id="waBtn" href="https://wa.me/5493513104836?text=Hola%20Pampero%20C%C3%B3rdoba!%20Quiero%20consultar%20sobre%20Tapones%20Auditivos%20Valle%20%E2%80%94%20Amarillo" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Consultar por WhatsApp</a>
       </div>
@@ -218,6 +221,7 @@ footer{background:#0a0a0a;color:#666;padding:4rem 2.5rem 2rem}
       if (btn) btn.classList.add('active');
     }
     function pmpSelectColor(btn) {
+      if (btn.dataset.oos === '1') return;
       var imgs = JSON.parse(btn.dataset.imgs);
       var label = btn.dataset.label;
       document.querySelectorAll('.article__swatch').forEach(function (s) { s.classList.remove('active'); });

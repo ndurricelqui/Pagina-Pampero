@@ -176,6 +176,9 @@ main{min-height:40vh;padding-bottom:4rem}
 .article__swatch.active{border-color:var(--black) !important;transform:scale(1.15)}
 .article__swatch--white{border-color:#bbb !important}
 .article__swatch--white.active{border-color:var(--black) !important}
+.article__swatch--oos{position:relative;cursor:not-allowed;opacity:.45}
+.article__swatch--oos:hover{transform:none}
+.article__swatch--oos::after{content:'';position:absolute;top:50%;left:50%;width:140%;height:2px;background:#e11;transform:translate(-50%,-50%) rotate(-45deg)}
 .article__wa{display:flex;align-items:center;justify-content:center;gap:.65rem;background:#25D366;color:#fff;font-size:.85rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:1.1rem;border:none;cursor:pointer;text-decoration:none;margin-top:.5rem;transition:background .18s}
 .article__wa:hover{background:#1fba58;color:#fff}
 .article__wa i{font-size:1.15rem}
@@ -389,9 +392,11 @@ Object.keys(PRODUCTS).forEach((catSlug) => {
       initialWa = waLink(`Hola Pampero Córdoba! Quiero consultar sobre ${p.name} — ${first.label}`);
       const swatches = p.colors.map((c, i) => {
         const whiteClass = c.white ? ' article__swatch--white' : '';
+        const oosClass = c.outOfStock ? ' article__swatch--oos' : '';
         const activeClass = i === 0 ? ' active' : '';
         const imgs = JSON.stringify((c.imgs && c.imgs.length) ? c.imgs : (c.img ? [c.img] : [p.img]));
-        return `<button class="article__swatch${whiteClass}${activeClass}" style="background:${c.hex}" title="${esc(c.label)}" data-label="${esc(c.label)}" data-imgs='${imgs}' onclick="pmpSelectColor(this)"></button>`;
+        const titleLabel = c.outOfStock ? `${esc(c.label)} — Sin stock` : esc(c.label);
+        return `<button class="article__swatch${whiteClass}${oosClass}${activeClass}" style="background:${c.hex}" title="${titleLabel}" data-label="${esc(c.label)}" data-imgs='${imgs}' data-oos="${c.outOfStock ? '1' : '0'}" onclick="pmpSelectColor(this)"></button>`;
       }).join('');
       colorsBlock = `
         <div>
@@ -446,6 +451,7 @@ Object.keys(PRODUCTS).forEach((catSlug) => {
       if (btn) btn.classList.add('active');
     }
     function pmpSelectColor(btn) {
+      if (btn.dataset.oos === '1') return;
       var imgs = JSON.parse(btn.dataset.imgs);
       var label = btn.dataset.label;
       document.querySelectorAll('.article__swatch').forEach(function (s) { s.classList.remove('active'); });

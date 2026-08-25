@@ -794,6 +794,13 @@
     .modal__swatch.active { border-color: var(--black) !important; transform: scale(1.15); }
     .modal__swatch--white { border-color: #bbb !important; }
     .modal__swatch--white.active { border-color: var(--black) !important; }
+    .modal__swatch--oos { position: relative; cursor: not-allowed; opacity: .45; }
+    .modal__swatch--oos:hover { transform: none; }
+    .modal__swatch--oos::after {
+      content: ''; position: absolute; top: 50%; left: 50%;
+      width: 140%; height: 2px; background: #e11;
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
     .modal__wa {
       display: flex; align-items: center; justify-content: center; gap: .65rem;
       background: #25D366; color: #fff;
@@ -829,6 +836,13 @@
     .color-swatch.active { border-color: var(--black) !important; transform: scale(1.18); }
     .color-swatch--white { border-color: #bbb !important; }
     .color-swatch--white.active { border-color: var(--black) !important; }
+    .color-swatch--oos { position: relative; cursor: not-allowed; opacity: .45; }
+    .color-swatch--oos:hover { transform: none; }
+    .color-swatch--oos::after {
+      content: ''; position: absolute; top: 50%; left: 50%;
+      width: 140%; height: 2px; background: #e11;
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
     .prod-card__color-label {
       font-size: .67rem; color: var(--gray-mid);
       text-transform: uppercase; letter-spacing: .07em;
@@ -2353,20 +2367,8 @@
             name: 'Botín Yavu',
             desc: 'Botín de cuero flor con punta de acero y suela PU antideslizante, resistente a hidrocarburos y dieléctrica. Ojales anticorrosión, collar acolchado y talón antifatiga con núcleo PU bi-densidad.',
             sizes: '35 al 46',
-            img: 'https://pampero.com.ar/wp-content/uploads/2025/07/PAMPERO-PRODUCTO-INV-26-DIA-1_0151-580x785.jpg',
+            img: 'https://pampero.com.ar/wp-content/uploads/2024/08/PAMPERO-PRODUCTO-DIA-1_0297-580x785.jpg',
             colors: [
-              {
-                label: 'Cuero', hex: '#8B6914',
-                img: 'https://pampero.com.ar/wp-content/uploads/2025/07/PAMPERO-PRODUCTO-INV-26-DIA-1_0151-580x785.jpg',
-                imgs: [
-                  'https://pampero.com.ar/wp-content/uploads/2025/07/PAMPERO-PRODUCTO-INV-26-DIA-1_0151-580x785.jpg',
-                  'https://pampero.com.ar/wp-content/uploads/2025/07/PAMPERO-PRODUCTO-INV-26-DIA-1_0156-580x785.jpg',
-                  'https://pampero.com.ar/wp-content/uploads/2025/07/PAMPERO-PRODUCTO-INV-26-DIA-1_0153-580x785.jpg',
-                  'https://pampero.com.ar/wp-content/uploads/2025/07/PAMPERO-PRODUCTO-INV-26-DIA-1_0148-580x785.jpg',
-                  'https://pampero.com.ar/wp-content/uploads/2025/07/PAMPERO-PRODUCTO-INV-26-DIA-1_0150-580x785.jpg',
-                  'https://pampero.com.ar/wp-content/uploads/2025/07/PAMPERO-PRODUCTO-INV-26-DIA-1_0149-580x785.jpg',
-                ]
-              },
               {
                 label: 'Negro', hex: '#111111',
                 img: 'https://pampero.com.ar/wp-content/uploads/2024/08/PAMPERO-PRODUCTO-DIA-1_0297-580x785.jpg',
@@ -2377,6 +2379,18 @@
                   'https://pampero.com.ar/wp-content/uploads/2024/08/PAMPERO-PRODUCTO-DIA-1_0301-580x785.jpg',
                   'https://pampero.com.ar/wp-content/uploads/2024/08/PAMPERO-PRODUCTO-DIA-1_0310-580x785.jpg',
                   'https://pampero.com.ar/wp-content/uploads/2024/08/PAMPERO-PRODUCTO-DIA-1_0306-580x785.jpg',
+                ]
+              },
+              {
+                label: 'Cuero', hex: '#8B6914', outOfStock: true,
+                img: 'https://pampero.com.ar/wp-content/uploads/2025/07/PAMPERO-PRODUCTO-INV-26-DIA-1_0151-580x785.jpg',
+                imgs: [
+                  'https://pampero.com.ar/wp-content/uploads/2025/07/PAMPERO-PRODUCTO-INV-26-DIA-1_0151-580x785.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2025/07/PAMPERO-PRODUCTO-INV-26-DIA-1_0156-580x785.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2025/07/PAMPERO-PRODUCTO-INV-26-DIA-1_0153-580x785.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2025/07/PAMPERO-PRODUCTO-INV-26-DIA-1_0148-580x785.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2025/07/PAMPERO-PRODUCTO-INV-26-DIA-1_0150-580x785.jpg',
+                  'https://pampero.com.ar/wp-content/uploads/2025/07/PAMPERO-PRODUCTO-INV-26-DIA-1_0149-580x785.jpg',
                 ]
               },
             ]
@@ -3252,7 +3266,8 @@
     var prodPageGrid = document.getElementById('prodPageGrid');
     var backBtn = document.getElementById('backBtn');
 
-    function switchProductColor(btn, colorLabel, colorImg, defaultImg, productName) {
+    function switchProductColor(btn, colorLabel, colorImg, defaultImg, productName, isOos) {
+      if (isOos) return;
       var card = btn.closest('.prod-card');
       var img = card.querySelector('.prod-card__img img');
       var lbl = card.querySelector('.prod-card__color-label');
@@ -3280,13 +3295,14 @@
         var swatches = p.colors.map(function(c, i) {
           var activeClass = i === 0 ? ' active' : '';
           var whiteClass = c.white ? ' color-swatch--white' : '';
+          var oosClass = c.outOfStock ? ' color-swatch--oos' : '';
           var cImg = c.img ? "'" + c.img + "'" : 'null';
           var safeLabel = c.label.replace(/'/g, "\\'");
           var safeName = p.name.replace(/'/g, "\\'");
-          return '<button class="color-swatch' + activeClass + whiteClass + '"' +
+          return '<button class="color-swatch' + activeClass + whiteClass + oosClass + '"' +
             ' style="background:' + c.hex + '"' +
-            ' title="' + c.label + '"' +
-            ' onclick="switchProductColor(this,\'' + safeLabel + '\',' + cImg + ',\'' + p.img + '\',\'' + safeName + '\')"></button>';
+            ' title="' + c.label + (c.outOfStock ? ' — Sin stock' : '') + '"' +
+            ' onclick="switchProductColor(this,\'' + safeLabel + '\',' + cImg + ',\'' + p.img + '\',\'' + safeName + '\',' + !!c.outOfStock + ')"></button>';
         }).join('');
         var firstMsg = encodeURIComponent('Hola Pampero Córdoba! Quiero consultar sobre ' + p.name + ' — ' + first.label);
         return '<div class="prod-card">' +
@@ -3425,10 +3441,14 @@
         modalColorsSection.style.display = 'block';
         modalSwatches.innerHTML = product.colors.map(function(c, i) {
           var whiteClass = c.white ? ' modal__swatch--white' : '';
-          return '<button class="modal__swatch' + whiteClass + '" style="background:' + c.hex + '" title="' + c.label + '"></button>';
+          var oosClass = c.outOfStock ? ' modal__swatch--oos' : '';
+          return '<button class="modal__swatch' + whiteClass + oosClass + '" style="background:' + c.hex + '" title="' + c.label + (c.outOfStock ? ' — Sin stock' : '') + '"></button>';
         }).join('');
         modalSwatches.querySelectorAll('.modal__swatch').forEach(function(btn, i) {
-          btn.addEventListener('click', function() { modalSelectColor(i); });
+          btn.addEventListener('click', function() {
+            if (product.colors[i].outOfStock) return;
+            modalSelectColor(i);
+          });
         });
         modalSelectColor(_modalColorIdx);
       } else {
