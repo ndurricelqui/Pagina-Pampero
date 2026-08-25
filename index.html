@@ -648,13 +648,20 @@
       margin-bottom: 3rem;
     }
     .prod-card { background: var(--gray-bg); }
-    .prod-card__img { aspect-ratio: 3/4; overflow: hidden; }
+    .prod-card__img { aspect-ratio: 3/4; overflow: hidden; position: relative; }
     .prod-card__img img {
       width: 100%; height: 100%;
       object-fit: cover; object-position: center top;
       transition: transform .5s ease;
     }
     .prod-card:hover .prod-card__img img { transform: scale(1.04); }
+    .prod-card__badge {
+      position: absolute; top: .6rem; left: .6rem; z-index: 2;
+      background: #e11; color: #fff;
+      font-size: .62rem; font-weight: 800;
+      letter-spacing: .06em; text-transform: uppercase;
+      padding: .3rem .6rem; pointer-events: none;
+    }
     .prod-card__body { padding: .75rem 1rem 1rem; }
     .prod-card__name {
       font-size: .78rem; font-weight: 700;
@@ -719,7 +726,7 @@
     /* Gallery side */
     .modal__gallery { background: var(--gray-bg); display: flex; flex-direction: column; }
     .modal__main-img {
-      aspect-ratio: 3/4; overflow: hidden; flex-shrink: 0;
+      aspect-ratio: 3/4; overflow: hidden; flex-shrink: 0; position: relative;
     }
     .modal__main-img img {
       width: 100%; height: 100%; object-fit: cover;
@@ -1557,6 +1564,7 @@
       </button>
       <div class="modal__gallery">
         <div class="modal__main-img">
+          <span class="prod-card__badge" id="modalOosBadge" style="display:none">Sin stock</span>
           <img id="modalMainImg" src="" alt="" />
         </div>
         <div class="modal__thumbs" id="modalThumbs"></div>
@@ -3283,6 +3291,10 @@
       return p.imgContain ? ' style="object-fit:contain;object-position:center center;background:#fff"' : '';
     }
 
+    function isProductOos(p) {
+      return !!(p.colors && p.colors.length && p.colors.every(function(c) { return c.outOfStock; }));
+    }
+
     function renderCard(p) {
       var extraMeta = '';
       if (p.desc) extraMeta += '<p class="prod-card__desc">' + p.desc + '</p>';
@@ -3291,6 +3303,7 @@
       if (p.colors && p.colors.length) {
         var first = p.colors[0];
         var firstImg = first.img || p.img;
+        var badge = isProductOos(p) ? '<span class="prod-card__badge">Sin stock</span>' : '';
         var swatches = p.colors.map(function(c, i) {
           var activeClass = i === 0 ? ' active' : '';
           var whiteClass = c.white ? ' color-swatch--white' : '';
@@ -3305,7 +3318,7 @@
         }).join('');
         var firstMsg = encodeURIComponent('Hola Pampero Córdoba! Quiero consultar sobre ' + p.name + ' — ' + first.label);
         return '<div class="prod-card">' +
-          '<div class="prod-card__img"><img src="' + firstImg + '" alt="' + p.name + '" loading="lazy"' + imgStyle(p) + ' /></div>' +
+          '<div class="prod-card__img">' + badge + '<img src="' + firstImg + '" alt="' + p.name + '" loading="lazy"' + imgStyle(p) + ' /></div>' +
           '<div class="prod-card__body">' +
           '<p class="prod-card__name">' + p.name + '</p>' +
           extraMeta +
@@ -3362,6 +3375,7 @@
     // ── PRODUCT MODAL ──────────────────────────────────────────
     var modalOverlay  = document.getElementById('modalOverlay');
     var modalMainImg  = document.getElementById('modalMainImg');
+    var modalOosBadge = document.getElementById('modalOosBadge');
     var modalThumbs   = document.getElementById('modalThumbs');
     var modalCat      = document.getElementById('modalCat');
     var modalName     = document.getElementById('modalName');
@@ -3408,6 +3422,7 @@
       var p = _modalProduct;
       var c = p.colors[colorIdx];
       modalColorName.textContent = c.label;
+      modalOosBadge.style.display = c.outOfStock ? 'block' : 'none';
       var imgs = c.imgs && c.imgs.length ? c.imgs : (c.img ? [c.img] : [p.img]);
       modalRenderGallery(imgs, 0);
       modalSwatches.querySelectorAll('.modal__swatch').forEach(function(s, i) {
@@ -3452,6 +3467,7 @@
         modalSelectColor(_modalColorIdx);
       } else {
         modalColorsSection.style.display = 'none';
+        modalOosBadge.style.display = 'none';
         var imgs = product.imgs ? product.imgs : [product.img];
         modalRenderGallery(imgs, 0);
         var msg = encodeURIComponent('Hola Pampero Córdoba! Quiero consultar sobre ' + product.name);

@@ -137,9 +137,10 @@ a{text-decoration:none;color:inherit}
 main{min-height:40vh;padding-bottom:4rem}
 .prod-page__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:.5rem}
 .prod-card{background:var(--gray-bg)}
-.prod-card__img{aspect-ratio:3/4;overflow:hidden;display:block}
+.prod-card__img{aspect-ratio:3/4;overflow:hidden;display:block;position:relative}
 .prod-card__img img{width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform .5s ease}
 .prod-card:hover .prod-card__img img{transform:scale(1.04)}
+.prod-card__badge{position:absolute;top:.6rem;left:.6rem;z-index:2;background:#e11;color:#fff;font-size:.62rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:.3rem .6rem;pointer-events:none}
 .prod-card__body{padding:.75rem 1rem 1rem}
 .prod-card__name{font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--black);margin-bottom:.4rem;line-height:1.3;display:block}
 .prod-card__name:hover{color:#8a7300}
@@ -154,7 +155,7 @@ main{min-height:40vh;padding-bottom:4rem}
 /* Article page */
 .article{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;margin-top:.5rem;align-items:start}
 .article__gallery{display:flex;flex-direction:column;background:var(--gray-bg)}
-.article__main-img{aspect-ratio:3/4;overflow:hidden}
+.article__main-img{aspect-ratio:3/4;overflow:hidden;position:relative}
 .article__main-img img{width:100%;height:100%;object-fit:cover;object-position:center top;transition:opacity .2s}
 .article__thumbs{display:flex;gap:.5rem;padding:.75rem;flex-wrap:wrap;background:#eaeaea}
 .article__thumb{width:64px;height:82px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:border-color .15s;flex-shrink:0;background:none;padding:0}
@@ -289,9 +290,11 @@ function renderCardHtml(p, catSlug) {
   if (p.colors && p.colors.length) {
     const first = p.colors[0];
     const firstImg = first.img || p.img;
+    const isOos = p.colors.every((c) => c.outOfStock);
+    const badge = isOos ? '<span class="prod-card__badge">Sin stock</span>' : '';
     const msg = waLink(`Hola Pampero Córdoba! Quiero consultar sobre ${p.name} — ${first.label}`);
     return `<div class="prod-card">
-      <a class="prod-card__img" href="${href}"><img src="${firstImg}" alt="${esc(p.name)}" loading="lazy"${containAttr} /></a>
+      <a class="prod-card__img" href="${href}">${badge}<img src="${firstImg}" alt="${esc(p.name)}" loading="lazy"${containAttr} /></a>
       <div class="prod-card__body">
         <a class="prod-card__name" href="${href}">${esc(p.name)}</a>
         ${extraMeta}
@@ -425,7 +428,7 @@ Object.keys(PRODUCTS).forEach((catSlug) => {
     </button>
     <div class="article" style="margin-top:1.5rem">
       <div class="article__gallery">
-        <div class="article__main-img"><img id="mainImg" src="${galleryImgs[0]}" alt="${esc(p.name)}"${containAttr} /></div>
+        <div class="article__main-img"><span class="prod-card__badge" id="oosBadge"${(p.colors && p.colors.length && p.colors[0].outOfStock) ? '' : ' style="display:none"'}>Sin stock</span><img id="mainImg" src="${galleryImgs[0]}" alt="${esc(p.name)}"${containAttr} /></div>
         <div class="article__thumbs"${galleryImgs.length > 1 ? '' : ' style="display:none"'}>${thumbsHtml}</div>
       </div>
       <div class="article__info">
@@ -456,6 +459,8 @@ Object.keys(PRODUCTS).forEach((catSlug) => {
       var label = btn.dataset.label;
       document.querySelectorAll('.article__swatch').forEach(function (s) { s.classList.remove('active'); });
       btn.classList.add('active');
+      var oosBadge = document.getElementById('oosBadge');
+      if (oosBadge) oosBadge.style.display = 'none';
       var nameEl = document.getElementById('colorName');
       if (nameEl) nameEl.textContent = label;
       var thumbsWrap = document.querySelector('.article__thumbs');
