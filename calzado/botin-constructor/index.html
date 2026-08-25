@@ -144,8 +144,8 @@ footer{background:#0a0a0a;color:#666;padding:4rem 2.5rem 2rem}
     </button>
     <div class="article" style="margin-top:1.5rem">
       <div class="article__gallery">
-        <div class="article__main-img"><img id="mainImg" src="/Botin Constructor.jpg" alt="Botín Constructor" /></div>
-        <div class="article__thumbs" style="display:none"><button class="article__thumb active" onclick="pmpSetImage(this,'/Botin Constructor.jpg')"><img src="/Botin Constructor.jpg" loading="lazy" alt="Botín Constructor" /></button></div>
+        <div class="article__main-img"><img id="mainImg" src="/Botin Constructor.jpg" alt="Botín Constructor" style="object-fit:contain;object-position:center center;background:#fff" /></div>
+        <div class="article__thumbs" style="display:none"><button class="article__thumb active" onclick="pmpSetImage(this,'/Botin Constructor.jpg')"><img src="/Botin Constructor.jpg" loading="lazy" style="object-fit:contain;object-position:center center;background:#fff" alt="Botín Constructor" /></button></div>
       </div>
       <div class="article__info">
         <span class="article__cat">Calzado</span>
@@ -229,7 +229,7 @@ footer{background:#0a0a0a;color:#666;padding:4rem 2.5rem 2rem}
         if (imgs.length > 1) {
           thumbsWrap.style.display = '';
           thumbsWrap.innerHTML = imgs.map(function (url, i) {
-            return '<button class="article__thumb' + (i === 0 ? ' active' : '') + '" onclick="pmpSetImage(this,\'' + url.replace(/'/g, "\\'") + '\')"><img src="' + url + '" loading="lazy" alt="Botín Constructor" /></button>';
+            return '<button class="article__thumb' + (i === 0 ? ' active' : '') + '" onclick="pmpSetImage(this,\'' + url.replace(/'/g, "\\'") + '\')"><img src="' + url + '" loading="lazy" style="object-fit:contain;object-position:center center;background:#fff" alt="Botín Constructor" /></button>';
           }).join('');
         } else {
           thumbsWrap.style.display = 'none';

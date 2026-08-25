@@ -144,8 +144,8 @@ footer{background:#0a0a0a;color:#666;padding:4rem 2.5rem 2rem}
     </button>
     <div class="article" style="margin-top:1.5rem">
       <div class="article__gallery">
-        <div class="article__main-img"><img id="mainImg" src="https://d1cwu3ie96gcvw.cloudfront.net/articulo_imagen/104/_ILM0829-Editar_1761057574.jpg" alt="Protector Auditivo Alerces" /></div>
-        <div class="article__thumbs" style="display:none"><button class="article__thumb active" onclick="pmpSetImage(this,'https://d1cwu3ie96gcvw.cloudfront.net/articulo_imagen/104/_ILM0829-Editar_1761057574.jpg')"><img src="https://d1cwu3ie96gcvw.cloudfront.net/articulo_imagen/104/_ILM0829-Editar_1761057574.jpg" loading="lazy" alt="Protector Auditivo Alerces" /></button></div>
+        <div class="article__main-img"><img id="mainImg" src="https://d1cwu3ie96gcvw.cloudfront.net/articulo_imagen/104/_ILM0829-Editar_1761057574.jpg" alt="Protector Auditivo Alerces" style="object-fit:contain;object-position:center center;background:#fff" /></div>
+        <div class="article__thumbs" style="display:none"><button class="article__thumb active" onclick="pmpSetImage(this,'https://d1cwu3ie96gcvw.cloudfront.net/articulo_imagen/104/_ILM0829-Editar_1761057574.jpg')"><img src="https://d1cwu3ie96gcvw.cloudfront.net/articulo_imagen/104/_ILM0829-Editar_1761057574.jpg" loading="lazy" style="object-fit:contain;object-position:center center;background:#fff" alt="Protector Auditivo Alerces" /></button></div>
       </div>
       <div class="article__info">
         <span class="article__cat">Seguridad</span>
@@ -229,7 +229,7 @@ footer{background:#0a0a0a;color:#666;padding:4rem 2.5rem 2rem}
         if (imgs.length > 1) {
           thumbsWrap.style.display = '';
           thumbsWrap.innerHTML = imgs.map(function (url, i) {
-            return '<button class="article__thumb' + (i === 0 ? ' active' : '') + '" onclick="pmpSetImage(this,\'' + url.replace(/'/g, "\\'") + '\')"><img src="' + url + '" loading="lazy" alt="Protector Auditivo Alerces" /></button>';
+            return '<button class="article__thumb' + (i === 0 ? ' active' : '') + '" onclick="pmpSetImage(this,\'' + url.replace(/'/g, "\\'") + '\')"><img src="' + url + '" loading="lazy" style="object-fit:contain;object-position:center center;background:#fff" alt="Protector Auditivo Alerces" /></button>';
           }).join('');
         } else {
           thumbsWrap.style.display = 'none';

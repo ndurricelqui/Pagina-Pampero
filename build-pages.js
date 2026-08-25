@@ -272,18 +272,23 @@ function footer() {
   </a>`;
 }
 
+function imgContainStyle(p) {
+  return p.imgContain ? ' style="object-fit:contain;object-position:center center;background:#fff"' : '';
+}
+
 function renderCardHtml(p, catSlug) {
   const slug = slugify(p.name);
   let extraMeta = '';
   if (p.desc) extraMeta += `<p class="prod-card__desc">${esc(p.desc)}</p>`;
   if (p.sizes) extraMeta += `<span class="prod-card__sizes"><i class="fas fa-ruler-horizontal" style="margin-right:.3rem"></i>Talles: ${esc(p.sizes)}</span>`;
   const href = `./${slug}/`;
+  const containAttr = imgContainStyle(p);
   if (p.colors && p.colors.length) {
     const first = p.colors[0];
     const firstImg = first.img || p.img;
     const msg = waLink(`Hola Pampero Córdoba! Quiero consultar sobre ${p.name} — ${first.label}`);
     return `<div class="prod-card">
-      <a class="prod-card__img" href="${href}"><img src="${firstImg}" alt="${esc(p.name)}" loading="lazy" /></a>
+      <a class="prod-card__img" href="${href}"><img src="${firstImg}" alt="${esc(p.name)}" loading="lazy"${containAttr} /></a>
       <div class="prod-card__body">
         <a class="prod-card__name" href="${href}">${esc(p.name)}</a>
         ${extraMeta}
@@ -292,7 +297,7 @@ function renderCardHtml(p, catSlug) {
   }
   const msg = waLink(`Hola Pampero Córdoba! Quiero consultar sobre ${p.name}`);
   return `<div class="prod-card">
-    <a class="prod-card__img" href="${href}"><img src="${p.img}" alt="${esc(p.name)}" loading="lazy" /></a>
+    <a class="prod-card__img" href="${href}"><img src="${p.img}" alt="${esc(p.name)}" loading="lazy"${containAttr} /></a>
     <div class="prod-card__body">
       <a class="prod-card__name" href="${href}">${esc(p.name)}</a>
       ${extraMeta}
@@ -399,7 +404,8 @@ Object.keys(PRODUCTS).forEach((catSlug) => {
       initialWa = waLink(`Hola Pampero Córdoba! Quiero consultar sobre ${p.name}`);
     }
 
-    const thumbsHtml = galleryImgs.map((url, i) => `<button class="article__thumb${i === 0 ? ' active' : ''}" onclick="pmpSetImage(this,'${url.replace(/'/g, "\\'")}')"><img src="${url}" loading="lazy" alt="${esc(p.name)}" /></button>`).join('');
+    const containAttr = imgContainStyle(p);
+    const thumbsHtml = galleryImgs.map((url, i) => `<button class="article__thumb${i === 0 ? ' active' : ''}" onclick="pmpSetImage(this,'${url.replace(/'/g, "\\'")}')"><img src="${url}" loading="lazy"${containAttr} alt="${esc(p.name)}" /></button>`).join('');
 
     const body = `
   ${navbar('/')}
@@ -414,7 +420,7 @@ Object.keys(PRODUCTS).forEach((catSlug) => {
     </button>
     <div class="article" style="margin-top:1.5rem">
       <div class="article__gallery">
-        <div class="article__main-img"><img id="mainImg" src="${galleryImgs[0]}" alt="${esc(p.name)}" /></div>
+        <div class="article__main-img"><img id="mainImg" src="${galleryImgs[0]}" alt="${esc(p.name)}"${containAttr} /></div>
         <div class="article__thumbs"${galleryImgs.length > 1 ? '' : ' style="display:none"'}>${thumbsHtml}</div>
       </div>
       <div class="article__info">
@@ -451,7 +457,7 @@ Object.keys(PRODUCTS).forEach((catSlug) => {
         if (imgs.length > 1) {
           thumbsWrap.style.display = '';
           thumbsWrap.innerHTML = imgs.map(function (url, i) {
-            return '<button class="article__thumb' + (i === 0 ? ' active' : '') + '" onclick="pmpSetImage(this,\\'' + url.replace(/'/g, "\\\\'") + '\\')"><img src="' + url + '" loading="lazy" alt="${esc(p.name).replace(/'/g, "\\'")}" /></button>';
+            return '<button class="article__thumb' + (i === 0 ? ' active' : '') + '" onclick="pmpSetImage(this,\\'' + url.replace(/'/g, "\\\\'") + '\\')"><img src="' + url + '" loading="lazy"${containAttr} alt="${esc(p.name).replace(/'/g, "\\'")}" /></button>';
           }).join('');
         } else {
           thumbsWrap.style.display = 'none';

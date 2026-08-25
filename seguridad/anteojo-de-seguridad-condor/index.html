@@ -144,8 +144,8 @@ footer{background:#0a0a0a;color:#666;padding:4rem 2.5rem 2rem}
     </button>
     <div class="article" style="margin-top:1.5rem">
       <div class="article__gallery">
-        <div class="article__main-img"><img id="mainImg" src="https://pampero.com.ar/wp-content/uploads/2025/10/PAMPERO-PRODUCTO-DIA-31910.jpg" alt="Anteojo de Seguridad Cóndor" /></div>
-        <div class="article__thumbs"><button class="article__thumb active" onclick="pmpSetImage(this,'https://pampero.com.ar/wp-content/uploads/2025/10/PAMPERO-PRODUCTO-DIA-31910.jpg')"><img src="https://pampero.com.ar/wp-content/uploads/2025/10/PAMPERO-PRODUCTO-DIA-31910.jpg" loading="lazy" alt="Anteojo de Seguridad Cóndor" /></button><button class="article__thumb" onclick="pmpSetImage(this,'https://pampero.com.ar/wp-content/uploads/2025/10/PAMPERO-PRODUCTO-DIA-31911.jpg')"><img src="https://pampero.com.ar/wp-content/uploads/2025/10/PAMPERO-PRODUCTO-DIA-31911.jpg" loading="lazy" alt="Anteojo de Seguridad Cóndor" /></button></div>
+        <div class="article__main-img"><img id="mainImg" src="https://pampero.com.ar/wp-content/uploads/2025/10/PAMPERO-PRODUCTO-DIA-31910.jpg" alt="Anteojo de Seguridad Cóndor" style="object-fit:contain;object-position:center center;background:#fff" /></div>
+        <div class="article__thumbs"><button class="article__thumb active" onclick="pmpSetImage(this,'https://pampero.com.ar/wp-content/uploads/2025/10/PAMPERO-PRODUCTO-DIA-31910.jpg')"><img src="https://pampero.com.ar/wp-content/uploads/2025/10/PAMPERO-PRODUCTO-DIA-31910.jpg" loading="lazy" style="object-fit:contain;object-position:center center;background:#fff" alt="Anteojo de Seguridad Cóndor" /></button><button class="article__thumb" onclick="pmpSetImage(this,'https://pampero.com.ar/wp-content/uploads/2025/10/PAMPERO-PRODUCTO-DIA-31911.jpg')"><img src="https://pampero.com.ar/wp-content/uploads/2025/10/PAMPERO-PRODUCTO-DIA-31911.jpg" loading="lazy" style="object-fit:contain;object-position:center center;background:#fff" alt="Anteojo de Seguridad Cóndor" /></button></div>
       </div>
       <div class="article__info">
         <span class="article__cat">Seguridad</span>
@@ -229,7 +229,7 @@ footer{background:#0a0a0a;color:#666;padding:4rem 2.5rem 2rem}
         if (imgs.length > 1) {
           thumbsWrap.style.display = '';
           thumbsWrap.innerHTML = imgs.map(function (url, i) {
-            return '<button class="article__thumb' + (i === 0 ? ' active' : '') + '" onclick="pmpSetImage(this,\'' + url.replace(/'/g, "\\'") + '\')"><img src="' + url + '" loading="lazy" alt="Anteojo de Seguridad Cóndor" /></button>';
+            return '<button class="article__thumb' + (i === 0 ? ' active' : '') + '" onclick="pmpSetImage(this,\'' + url.replace(/'/g, "\\'") + '\')"><img src="' + url + '" loading="lazy" style="object-fit:contain;object-position:center center;background:#fff" alt="Anteojo de Seguridad Cóndor" /></button>';
           }).join('');
         } else {
           thumbsWrap.style.display = 'none';
