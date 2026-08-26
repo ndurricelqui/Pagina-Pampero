@@ -100,17 +100,16 @@ main{min-height:40vh;padding-bottom:4rem}
 .article__wa i{font-size:1.15rem}
 @media(max-width:760px){.article{grid-template-columns:1fr;gap:1.5rem}.article__name{font-size:1.9rem}}
 
-/* Tabla de talles + guía de medición */
-.article__sizechart{border-top:1px solid var(--border);padding-top:.9rem;display:flex;flex-direction:column;gap:.75rem}
-.article__sizechart-label{font-size:.68rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--black)}
-.sizechart-scroll{overflow-x:auto}
-.sizechart-table{width:100%;border-collapse:collapse;font-size:.75rem;white-space:nowrap}
-.sizechart-table th,.sizechart-table td{border:1px solid var(--border);padding:.4rem .55rem;text-align:center}
-.sizechart-table thead th{background:var(--yellow);color:var(--black);font-weight:800;text-transform:uppercase;letter-spacing:.04em}
-.sizechart-table td.sizechart-letter{background:var(--yellow);color:var(--black);font-weight:800}
-.sizechart-table td.sizechart-rowlabel{text-align:left;color:var(--gray-txt);font-weight:600}
-.sizechart-table tbody tr:nth-child(even){background:var(--gray-bg)}
-.article__guideimg{max-width:100%;border:1px solid var(--border);align-self:flex-start}
+/* Tabla de talles + guía de medición (sección al final de la página) */
+.sizechart-section{margin-top:3rem;padding-top:2rem;border-top:1px solid var(--border)}
+.sizechart-section__label{font-size:.68rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--black);margin-bottom:1rem}
+.sizechart-section__imgs{display:flex;gap:1.5rem;flex-wrap:wrap}
+.sizechart-section__imgs img{width:50%;max-width:420px;flex:1 1 260px;border:1px solid var(--border);cursor:zoom-in;transition:opacity .18s}
+.sizechart-section__imgs img:hover{opacity:.85}
+.sizechart-lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:2000;align-items:center;justify-content:center;padding:2rem;cursor:zoom-out}
+.sizechart-lightbox.open{display:flex}
+.sizechart-lightbox img{max-width:92vw;max-height:92vh;object-fit:contain;border:none;cursor:zoom-out}
+@media(max-width:600px){.sizechart-section__imgs img{width:100%;max-width:100%}}
 
 /* Footer + WA float (idénticos a index.html) */
 footer{background:#0a0a0a;color:#666;padding:4rem 2.5rem 2rem}
@@ -167,7 +166,6 @@ footer{background:#0a0a0a;color:#666;padding:4rem 2.5rem 2rem}
         <span class="article__cat">Abrigos</span>
         <h1 class="article__name">Campera Pehuen</h1>
         <p class="article__desc">Campera Pehuen matelasseado bastón. Capucha en 3 partes, bolsillo ojal con vista delantera y recorte de costadillos. Tela Sire 100% poliéster con interior en guata siliconada 150 g/m2.</p>
-        
         <div class="article__sizes-wrap"><span class="article__sizes-label">Talles</span><span class="article__sizes-val">MCH al 4MG</span></div>
         
         <div>
@@ -178,6 +176,7 @@ footer{background:#0a0a0a;color:#666;padding:4rem 2.5rem 2rem}
         <a class="article__wa" id="waBtn" href="https://wa.me/5493513104836?text=Hola%20Pampero%20C%C3%B3rdoba!%20Quiero%20consultar%20sobre%20Campera%20Pehuen%20%E2%80%94%20Azul%20Marino" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Consultar por WhatsApp</a>
       </div>
     </div>
+    
   </main>
   
   <footer>
@@ -224,6 +223,13 @@ footer{background:#0a0a0a;color:#666;padding:4rem 2.5rem 2rem}
     <i class="fab fa-whatsapp"></i>
   </a>
   <script>
+    function pmpOpenLightbox(src) {
+      var lb = document.getElementById('sizechartLightbox');
+      var img = document.getElementById('sizechartLightboxImg');
+      if (!lb || !img) return;
+      img.src = src;
+      lb.classList.add('open');
+    }
     function pmpSetImage(btn, src) {
       var main = document.getElementById('mainImg');
       main.style.opacity = '0';

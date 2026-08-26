@@ -185,17 +185,16 @@ main{min-height:40vh;padding-bottom:4rem}
 .article__wa i{font-size:1.15rem}
 @media(max-width:760px){.article{grid-template-columns:1fr;gap:1.5rem}.article__name{font-size:1.9rem}}
 
-/* Tabla de talles + guía de medición */
-.article__sizechart{border-top:1px solid var(--border);padding-top:.9rem;display:flex;flex-direction:column;gap:.75rem}
-.article__sizechart-label{font-size:.68rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--black)}
-.sizechart-scroll{overflow-x:auto}
-.sizechart-table{width:100%;border-collapse:collapse;font-size:.75rem;white-space:nowrap}
-.sizechart-table th,.sizechart-table td{border:1px solid var(--border);padding:.4rem .55rem;text-align:center}
-.sizechart-table thead th{background:var(--yellow);color:var(--black);font-weight:800;text-transform:uppercase;letter-spacing:.04em}
-.sizechart-table td.sizechart-letter{background:var(--yellow);color:var(--black);font-weight:800}
-.sizechart-table td.sizechart-rowlabel{text-align:left;color:var(--gray-txt);font-weight:600}
-.sizechart-table tbody tr:nth-child(even){background:var(--gray-bg)}
-.article__guideimg{max-width:100%;border:1px solid var(--border);align-self:flex-start}
+/* Tabla de talles + guía de medición (sección al final de la página) */
+.sizechart-section{margin-top:3rem;padding-top:2rem;border-top:1px solid var(--border)}
+.sizechart-section__label{font-size:.68rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--black);margin-bottom:1rem}
+.sizechart-section__imgs{display:flex;gap:1.5rem;flex-wrap:wrap}
+.sizechart-section__imgs img{width:50%;max-width:420px;flex:1 1 260px;border:1px solid var(--border);cursor:zoom-in;transition:opacity .18s}
+.sizechart-section__imgs img:hover{opacity:.85}
+.sizechart-lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:2000;align-items:center;justify-content:center;padding:2rem;cursor:zoom-out}
+.sizechart-lightbox.open{display:flex}
+.sizechart-lightbox img{max-width:92vw;max-height:92vh;object-fit:contain;border:none;cursor:zoom-out}
+@media(max-width:600px){.sizechart-section__imgs img{width:100%;max-width:100%}}
 
 /* Footer + WA float (idénticos a index.html) */
 footer{background:#0a0a0a;color:#666;padding:4rem 2.5rem 2rem}
@@ -292,20 +291,22 @@ function imgContainStyle(p) {
   return p.imgContain ? ' style="object-fit:contain;object-position:center center;background:#fff"' : '';
 }
 
-// ── Tabla de talles + guía de medición (van debajo de la descripción) ──
+// ── Tabla de talles + guía de medición (sección al final de la página, imágenes a mitad de tamaño y expandibles) ──
 function renderSizeChart(p) {
-  if (!p.sizeChart && !p.measureGuideImg) return '';
-  let html = '<div class="article__sizechart">';
-  if (p.sizeChart) {
-    const sc = p.sizeChart;
-    html += `<div class="article__sizechart-label">Tabla de talles</div>
-    <div class="sizechart-scroll"><table class="sizechart-table"><thead><tr><th colspan="2">Talle</th>${sc.cols.map((c) => `<th>${esc(c)}</th>`).join('')}<th>Tolerancia</th></tr></thead><tbody>${sc.rows.map((r) => `<tr><td class="sizechart-letter">${esc(r.letter)}</td><td class="sizechart-rowlabel">${esc(r.label)}</td>${r.values.map((v) => `<td>${esc(v)}</td>`).join('')}<td>${esc(r.tolerance || sc.tolerance || '')}</td></tr>`).join('')}</tbody></table></div>`;
-  }
-  if (p.measureGuideImg) {
-    html += `<img class="article__guideimg" src="${p.measureGuideImg}" alt="Guía de medición - ${esc(p.name)}" loading="lazy" />`;
-  }
-  html += '</div>';
-  return html;
+  if (!p.sizeChartImg && !p.measureGuideImg) return '';
+  const imgs = [];
+  if (p.sizeChartImg) imgs.push({ src: p.sizeChartImg, alt: `Tabla de talles - ${esc(p.name)}` });
+  if (p.measureGuideImg) imgs.push({ src: p.measureGuideImg, alt: `Guía de medición - ${esc(p.name)}` });
+  return `
+    <div class="sizechart-section">
+      <div class="sizechart-section__label">Tabla de talles y guía de medición</div>
+      <div class="sizechart-section__imgs">
+        ${imgs.map((img) => `<img src="${img.src}" alt="${img.alt}" loading="lazy" onclick="pmpOpenLightbox(this.src)" />`).join('')}
+      </div>
+    </div>
+    <div class="sizechart-lightbox" id="sizechartLightbox" onclick="this.classList.remove('open')">
+      <img id="sizechartLightboxImg" src="" alt="" />
+    </div>`;
 }
 
 function renderCardHtml(p, catSlug) {
@@ -463,15 +464,22 @@ Object.keys(PRODUCTS).forEach((catSlug) => {
         <span class="article__cat">${esc(meta.title)}</span>
         <h1 class="article__name">${esc(p.name)}</h1>
         ${p.desc ? `<p class="article__desc">${p.desc}</p>` : ''}
-        ${renderSizeChart(p)}
         ${p.sizes ? `<div class="article__sizes-wrap"><span class="article__sizes-label">Talles</span><span class="article__sizes-val">${esc(p.sizes)}</span></div>` : ''}
         ${colorsBlock}
         <a class="article__wa" id="waBtn" href="${initialWa}" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Consultar por WhatsApp</a>
       </div>
     </div>
+    ${renderSizeChart(p)}
   </main>
   ${footer()}
   <script>
+    function pmpOpenLightbox(src) {
+      var lb = document.getElementById('sizechartLightbox');
+      var img = document.getElementById('sizechartLightboxImg');
+      if (!lb || !img) return;
+      img.src = src;
+      lb.classList.add('open');
+    }
     function pmpSetImage(btn, src) {
       var main = document.getElementById('mainImg');
       main.style.opacity = '0';

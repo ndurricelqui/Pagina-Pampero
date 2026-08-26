@@ -100,17 +100,16 @@ main{min-height:40vh;padding-bottom:4rem}
 .article__wa i{font-size:1.15rem}
 @media(max-width:760px){.article{grid-template-columns:1fr;gap:1.5rem}.article__name{font-size:1.9rem}}
 
-/* Tabla de talles + guía de medición */
-.article__sizechart{border-top:1px solid var(--border);padding-top:.9rem;display:flex;flex-direction:column;gap:.75rem}
-.article__sizechart-label{font-size:.68rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--black)}
-.sizechart-scroll{overflow-x:auto}
-.sizechart-table{width:100%;border-collapse:collapse;font-size:.75rem;white-space:nowrap}
-.sizechart-table th,.sizechart-table td{border:1px solid var(--border);padding:.4rem .55rem;text-align:center}
-.sizechart-table thead th{background:var(--yellow);color:var(--black);font-weight:800;text-transform:uppercase;letter-spacing:.04em}
-.sizechart-table td.sizechart-letter{background:var(--yellow);color:var(--black);font-weight:800}
-.sizechart-table td.sizechart-rowlabel{text-align:left;color:var(--gray-txt);font-weight:600}
-.sizechart-table tbody tr:nth-child(even){background:var(--gray-bg)}
-.article__guideimg{max-width:100%;border:1px solid var(--border);align-self:flex-start}
+/* Tabla de talles + guía de medición (sección al final de la página) */
+.sizechart-section{margin-top:3rem;padding-top:2rem;border-top:1px solid var(--border)}
+.sizechart-section__label{font-size:.68rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--black);margin-bottom:1rem}
+.sizechart-section__imgs{display:flex;gap:1.5rem;flex-wrap:wrap}
+.sizechart-section__imgs img{width:50%;max-width:420px;flex:1 1 260px;border:1px solid var(--border);cursor:zoom-in;transition:opacity .18s}
+.sizechart-section__imgs img:hover{opacity:.85}
+.sizechart-lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:2000;align-items:center;justify-content:center;padding:2rem;cursor:zoom-out}
+.sizechart-lightbox.open{display:flex}
+.sizechart-lightbox img{max-width:92vw;max-height:92vh;object-fit:contain;border:none;cursor:zoom-out}
+@media(max-width:600px){.sizechart-section__imgs img{width:100%;max-width:100%}}
 
 /* Footer + WA float (idénticos a index.html) */
 footer{background:#0a0a0a;color:#666;padding:4rem 2.5rem 2rem}
@@ -167,8 +166,6 @@ footer{background:#0a0a0a;color:#666;padding:4rem 2.5rem 2rem}
         <span class="article__cat">Camisas y Remeras</span>
         <h1 class="article__name">Camisa De Trabajo</h1>
         <p class="article__desc">Confeccionada en gabardina 6 oz 100% algodón con construcción sarga 2/1/s. Cuello clásico, puños con botones y bolsillos delanteros funcionales.</p>
-        <div class="article__sizechart"><div class="article__sizechart-label">Tabla de talles</div>
-    <div class="sizechart-scroll"><table class="sizechart-table"><thead><tr><th colspan="2">Talle</th><th>38</th><th>40</th><th>42</th><th>44</th><th>46</th><th>48</th><th>50</th><th>52</th><th>54</th><th>56</th><th>Tolerancia</th></tr></thead><tbody><tr><td class="sizechart-letter">A</td><td class="sizechart-rowlabel">Medida de Cuello</td><td>38</td><td>40</td><td>42</td><td>44</td><td>46</td><td>48</td><td>50</td><td>52</td><td>54</td><td>56</td><td>1cm</td></tr><tr><td class="sizechart-letter">B</td><td class="sizechart-rowlabel">Medida de Pecho</td><td>58</td><td>60</td><td>62</td><td>64</td><td>66</td><td>68</td><td>70</td><td>72</td><td>74</td><td>76</td><td>1cm</td></tr><tr><td class="sizechart-letter">C</td><td class="sizechart-rowlabel">Ancho de Hombros</td><td>48</td><td>50</td><td>52</td><td>54</td><td>56</td><td>58</td><td>60</td><td>62</td><td>64</td><td>66</td><td>1cm</td></tr><tr><td class="sizechart-letter">D</td><td class="sizechart-rowlabel">Largo de Manga</td><td>62</td><td>62.5</td><td>63</td><td>63</td><td>63</td><td>64</td><td>64</td><td>64</td><td>65</td><td>65</td><td>1cm</td></tr><tr><td class="sizechart-letter">E</td><td class="sizechart-rowlabel">Largo Total</td><td>76</td><td>76.5</td><td>77</td><td>77.5</td><td>78</td><td>78.5</td><td>79</td><td>79.5</td><td>80</td><td>80.5</td><td>1cm</td></tr></tbody></table></div><img class="article__guideimg" src="/camisas/camisa-de-trabajo/guia-medicion-camisa-de-trabajo.png" alt="Guía de medición - Camisa De Trabajo" loading="lazy" /></div>
         <div class="article__sizes-wrap"><span class="article__sizes-label">Talles</span><span class="article__sizes-val">36 al 62</span></div>
         
         <div>
@@ -178,6 +175,16 @@ footer{background:#0a0a0a;color:#666;padding:4rem 2.5rem 2rem}
         </div>
         <a class="article__wa" id="waBtn" href="https://wa.me/5493513104836?text=Hola%20Pampero%20C%C3%B3rdoba!%20Quiero%20consultar%20sobre%20Camisa%20De%20Trabajo%20%E2%80%94%20Aero" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Consultar por WhatsApp</a>
       </div>
+    </div>
+    
+    <div class="sizechart-section">
+      <div class="sizechart-section__label">Tabla de talles y guía de medición</div>
+      <div class="sizechart-section__imgs">
+        <img src="/camisas/camisa-de-trabajo/tabla-talles-camisa-de-trabajo.png" alt="Tabla de talles - Camisa De Trabajo" loading="lazy" onclick="pmpOpenLightbox(this.src)" /><img src="/camisas/camisa-de-trabajo/guia-medicion-camisa-de-trabajo.png" alt="Guía de medición - Camisa De Trabajo" loading="lazy" onclick="pmpOpenLightbox(this.src)" />
+      </div>
+    </div>
+    <div class="sizechart-lightbox" id="sizechartLightbox" onclick="this.classList.remove('open')">
+      <img id="sizechartLightboxImg" src="" alt="" />
     </div>
   </main>
   
@@ -225,6 +232,13 @@ footer{background:#0a0a0a;color:#666;padding:4rem 2.5rem 2rem}
     <i class="fab fa-whatsapp"></i>
   </a>
   <script>
+    function pmpOpenLightbox(src) {
+      var lb = document.getElementById('sizechartLightbox');
+      var img = document.getElementById('sizechartLightboxImg');
+      if (!lb || !img) return;
+      img.src = src;
+      lb.classList.add('open');
+    }
     function pmpSetImage(btn, src) {
       var main = document.getElementById('mainImg');
       main.style.opacity = '0';
