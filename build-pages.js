@@ -185,6 +185,18 @@ main{min-height:40vh;padding-bottom:4rem}
 .article__wa i{font-size:1.15rem}
 @media(max-width:760px){.article{grid-template-columns:1fr;gap:1.5rem}.article__name{font-size:1.9rem}}
 
+/* Tabla de talles + guía de medición */
+.article__sizechart{border-top:1px solid var(--border);padding-top:.9rem;display:flex;flex-direction:column;gap:.75rem}
+.article__sizechart-label{font-size:.68rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--black)}
+.sizechart-scroll{overflow-x:auto}
+.sizechart-table{width:100%;border-collapse:collapse;font-size:.75rem;white-space:nowrap}
+.sizechart-table th,.sizechart-table td{border:1px solid var(--border);padding:.4rem .55rem;text-align:center}
+.sizechart-table thead th{background:var(--yellow);color:var(--black);font-weight:800;text-transform:uppercase;letter-spacing:.04em}
+.sizechart-table td.sizechart-letter{background:var(--yellow);color:var(--black);font-weight:800}
+.sizechart-table td.sizechart-rowlabel{text-align:left;color:var(--gray-txt);font-weight:600}
+.sizechart-table tbody tr:nth-child(even){background:var(--gray-bg)}
+.article__guideimg{max-width:100%;border:1px solid var(--border);align-self:flex-start}
+
 /* Footer + WA float (idénticos a index.html) */
 footer{background:#0a0a0a;color:#666;padding:4rem 2.5rem 2rem}
 .footer__grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2.5fr 1fr 1fr 1fr;gap:3rem;padding-bottom:3rem;border-bottom:1px solid #1e1e1e}
@@ -278,6 +290,22 @@ function footer() {
 
 function imgContainStyle(p) {
   return p.imgContain ? ' style="object-fit:contain;object-position:center center;background:#fff"' : '';
+}
+
+// ── Tabla de talles + guía de medición (van debajo de la descripción) ──
+function renderSizeChart(p) {
+  if (!p.sizeChart && !p.measureGuideImg) return '';
+  let html = '<div class="article__sizechart">';
+  if (p.sizeChart) {
+    const sc = p.sizeChart;
+    html += `<div class="article__sizechart-label">Tabla de talles</div>
+    <div class="sizechart-scroll"><table class="sizechart-table"><thead><tr><th colspan="2">Talle</th>${sc.cols.map((c) => `<th>${esc(c)}</th>`).join('')}<th>Tolerancia</th></tr></thead><tbody>${sc.rows.map((r) => `<tr><td class="sizechart-letter">${esc(r.letter)}</td><td class="sizechart-rowlabel">${esc(r.label)}</td>${r.values.map((v) => `<td>${esc(v)}</td>`).join('')}<td>${esc(r.tolerance || sc.tolerance || '')}</td></tr>`).join('')}</tbody></table></div>`;
+  }
+  if (p.measureGuideImg) {
+    html += `<img class="article__guideimg" src="${p.measureGuideImg}" alt="Guía de medición - ${esc(p.name)}" loading="lazy" />`;
+  }
+  html += '</div>';
+  return html;
 }
 
 function renderCardHtml(p, catSlug) {
@@ -435,6 +463,7 @@ Object.keys(PRODUCTS).forEach((catSlug) => {
         <span class="article__cat">${esc(meta.title)}</span>
         <h1 class="article__name">${esc(p.name)}</h1>
         ${p.desc ? `<p class="article__desc">${p.desc}</p>` : ''}
+        ${renderSizeChart(p)}
         ${p.sizes ? `<div class="article__sizes-wrap"><span class="article__sizes-label">Talles</span><span class="article__sizes-val">${esc(p.sizes)}</span></div>` : ''}
         ${colorsBlock}
         <a class="article__wa" id="waBtn" href="${initialWa}" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Consultar por WhatsApp</a>
