@@ -189,12 +189,12 @@ main{min-height:40vh;padding-bottom:4rem}
 .sizechart-section{margin-top:3rem;padding-top:2rem;border-top:1px solid var(--border)}
 .sizechart-section__label{font-size:.68rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--black);margin-bottom:1rem}
 .sizechart-section__imgs{display:flex;align-items:flex-start;gap:1.5rem;flex-wrap:wrap}
-.sizechart-section__imgs img{width:50%;max-width:420px;height:auto;flex:0 1 auto;border:1px solid var(--border);cursor:zoom-in;transition:opacity .18s}
+.sizechart-section__imgs img{height:auto;max-width:100%;flex:0 1 auto;border:1px solid var(--border);cursor:zoom-in;transition:opacity .18s}
 .sizechart-section__imgs img:hover{opacity:.85}
 .sizechart-lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:2000;align-items:center;justify-content:center;padding:2rem;cursor:zoom-out}
 .sizechart-lightbox.open{display:flex}
 .sizechart-lightbox img{max-width:92vw;max-height:92vh;object-fit:contain;border:none;cursor:zoom-out}
-@media(max-width:600px){.sizechart-section__imgs img{width:100%;max-width:100%}}
+@media(max-width:600px){.sizechart-section__imgs img{width:100% !important;height:auto !important}}
 
 /* Footer + WA float (idénticos a index.html) */
 footer{background:#0a0a0a;color:#666;padding:4rem 2.5rem 2rem}
@@ -291,6 +291,34 @@ function imgContainStyle(p) {
   return p.imgContain ? ' style="object-fit:contain;object-position:center center;background:#fff"' : '';
 }
 
+// Lee el ancho/alto real de un PNG o JPEG local (para poder mostrarlo a
+// exactamente la mitad de su tamaño original, sin distorsionar proporciones).
+function readImageSize(relUrl) {
+  try {
+    const filePath = path.join(ROOT, relUrl.replace(/^\//, ''));
+    const buf = fs.readFileSync(filePath);
+    // PNG: firma 8 bytes + chunk IHDR (ancho/alto en offsets 16/20, big-endian)
+    if (buf[0] === 0x89 && buf[1] === 0x50 && buf[2] === 0x4e && buf[3] === 0x47) {
+      return { width: buf.readUInt32BE(16), height: buf.readUInt32BE(20) };
+    }
+    // JPEG: recorrer los markers hasta encontrar un SOFx (0xC0-0xC3)
+    if (buf[0] === 0xff && buf[1] === 0xd8) {
+      let offset = 2;
+      while (offset < buf.length) {
+        if (buf[offset] !== 0xff) break;
+        const marker = buf[offset + 1];
+        if (marker === 0xc0 || marker === 0xc1 || marker === 0xc2 || marker === 0xc3) {
+          return { height: buf.readUInt16BE(offset + 5), width: buf.readUInt16BE(offset + 7) };
+        }
+        offset += 2 + buf.readUInt16BE(offset + 2);
+      }
+    }
+  } catch (e) {
+    // archivo no encontrado o formato no soportado: se usa fallback CSS
+  }
+  return null;
+}
+
 // ── Tabla de talles + guía de medición (sección al final de la página, imágenes a mitad de tamaño y expandibles) ──
 function renderSizeChart(p) {
   if (!p.sizeChartImg && !p.measureGuideImg) return '';
@@ -301,7 +329,16 @@ function renderSizeChart(p) {
     <div class="sizechart-section">
       <div class="sizechart-section__label">Tabla de talles y guía de medición</div>
       <div class="sizechart-section__imgs">
-        ${imgs.map((img) => `<img src="${img.src}" alt="${img.alt}" loading="lazy" onclick="pmpOpenLightbox(this.src)" />`).join('')}
+        ${imgs
+          .map((img) => {
+            // Se renderiza a la mitad del tamaño real de cada imagen (no un
+            // ancho compartido), para que cada una respete su propia
+            // proporción tal cual la foto original.
+            const size = readImageSize(img.src);
+            const dims = size ? ` width="${Math.round(size.width / 2)}" height="${Math.round(size.height / 2)}"` : '';
+            return `<img src="${img.src}" alt="${img.alt}" loading="lazy"${dims} onclick="pmpOpenLightbox(this.src)" />`;
+          })
+          .join('')}
       </div>
     </div>
     <div class="sizechart-lightbox" id="sizechartLightbox" onclick="this.classList.remove('open')">

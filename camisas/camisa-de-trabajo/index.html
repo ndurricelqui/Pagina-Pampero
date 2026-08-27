@@ -104,12 +104,12 @@ main{min-height:40vh;padding-bottom:4rem}
 .sizechart-section{margin-top:3rem;padding-top:2rem;border-top:1px solid var(--border)}
 .sizechart-section__label{font-size:.68rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--black);margin-bottom:1rem}
 .sizechart-section__imgs{display:flex;align-items:flex-start;gap:1.5rem;flex-wrap:wrap}
-.sizechart-section__imgs img{width:50%;max-width:420px;height:auto;flex:0 1 auto;border:1px solid var(--border);cursor:zoom-in;transition:opacity .18s}
+.sizechart-section__imgs img{height:auto;max-width:100%;flex:0 1 auto;border:1px solid var(--border);cursor:zoom-in;transition:opacity .18s}
 .sizechart-section__imgs img:hover{opacity:.85}
 .sizechart-lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:2000;align-items:center;justify-content:center;padding:2rem;cursor:zoom-out}
 .sizechart-lightbox.open{display:flex}
 .sizechart-lightbox img{max-width:92vw;max-height:92vh;object-fit:contain;border:none;cursor:zoom-out}
-@media(max-width:600px){.sizechart-section__imgs img{width:100%;max-width:100%}}
+@media(max-width:600px){.sizechart-section__imgs img{width:100% !important;height:auto !important}}
 
 /* Footer + WA float (idénticos a index.html) */
 footer{background:#0a0a0a;color:#666;padding:4rem 2.5rem 2rem}
@@ -180,7 +180,7 @@ footer{background:#0a0a0a;color:#666;padding:4rem 2.5rem 2rem}
     <div class="sizechart-section">
       <div class="sizechart-section__label">Tabla de talles y guía de medición</div>
       <div class="sizechart-section__imgs">
-        <img src="/camisas/camisa-de-trabajo/tabla-talles-camisa-de-trabajo.png" alt="Tabla de talles - Camisa De Trabajo" loading="lazy" onclick="pmpOpenLightbox(this.src)" /><img src="/camisas/camisa-de-trabajo/guia-medicion-camisa-de-trabajo.png" alt="Guía de medición - Camisa De Trabajo" loading="lazy" onclick="pmpOpenLightbox(this.src)" />
+        <img src="/camisas/camisa-de-trabajo/tabla-talles-camisa-de-trabajo.png" alt="Tabla de talles - Camisa De Trabajo" loading="lazy" width="635" height="135" onclick="pmpOpenLightbox(this.src)" /><img src="/camisas/camisa-de-trabajo/guia-medicion-camisa-de-trabajo.png" alt="Guía de medición - Camisa De Trabajo" loading="lazy" width="452" height="265" onclick="pmpOpenLightbox(this.src)" />
       </div>
     </div>
     <div class="sizechart-lightbox" id="sizechartLightbox" onclick="this.classList.remove('open')">
