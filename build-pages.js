@@ -188,8 +188,8 @@ main{min-height:40vh;padding-bottom:4rem}
 /* Tabla de talles + guía de medición (sección al final de la página) */
 .sizechart-section{margin-top:3rem;padding-top:2rem;border-top:1px solid var(--border)}
 .sizechart-section__label{font-size:.68rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--black);margin-bottom:1rem}
-.sizechart-section__imgs{display:flex;gap:1.5rem;flex-wrap:wrap}
-.sizechart-section__imgs img{width:50%;max-width:420px;flex:1 1 260px;border:1px solid var(--border);cursor:zoom-in;transition:opacity .18s}
+.sizechart-section__imgs{display:flex;align-items:flex-start;gap:1.5rem;flex-wrap:wrap}
+.sizechart-section__imgs img{width:50%;max-width:420px;height:auto;flex:0 1 auto;border:1px solid var(--border);cursor:zoom-in;transition:opacity .18s}
 .sizechart-section__imgs img:hover{opacity:.85}
 .sizechart-lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:2000;align-items:center;justify-content:center;padding:2rem;cursor:zoom-out}
 .sizechart-lightbox.open{display:flex}
