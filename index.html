@@ -12,6 +12,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Barlow+Condensed:wght@600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="/assets/quote.css" />
 
   <style>
     /* ═══════════════════════════════════════
@@ -96,6 +97,8 @@
       transition: color .18s;
     }
     .navbar__menu a:hover { color: var(--yellow); }
+    /* Actions (Mi presupuesto + CTA) */
+    .navbar__actions { display: flex; align-items: center; gap: .75rem; }
     /* CTA */
     .navbar__cta {
       background: var(--yellow); color: var(--black);
@@ -915,6 +918,8 @@
     @media (max-width: 540px) {
       .section { padding: 60px 1.25rem; }
       .navbar { padding: 0 1.25rem; }
+      .navbar__logo-sep, .navbar__logo-city { display: none; }
+      .navbar__actions { gap: .4rem; }
       .hero__content { padding: 0 1.25rem; }
       .lines__grid { grid-template-columns: repeat(2, 1fr); }
       .chosen__grid { grid-template-columns: 1fr; gap: 1rem; }
@@ -1052,9 +1057,18 @@
     <ul class="navbar__menu" id="navMenu">
       <li><a href="#lineas">Venta Corporativa</a></li>
       <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="/presupuesto/">Armá tu presupuesto</a></li>
     </ul>
 
-    <a class="navbar__cta" href="#presupuesto">Pedir presupuesto</a>
+    <div class="navbar__actions">
+      <a class="navbar__quote-link" href="/presupuesto/">
+        <i class="fas fa-file-invoice"></i>
+        <span class="navbar__quote-link-text">Mi presupuesto</span>
+        <span class="quote-badge" data-quote-badge>0</span>
+      </a>
+
+      <a class="navbar__cta" href="#presupuesto">Pedir presupuesto</a>
+    </div>
 
     <button class="hamburger" id="hamburger" aria-label="Menú">
       <span></span><span></span><span></span>
@@ -1099,6 +1113,9 @@
         <div class="hero__btns">
           <a class="btn btn--yellow" href="#presupuesto">
             Solicitar presupuesto
+          </a>
+          <a class="btn btn--outline-white" href="/presupuesto/">
+            Armá tu presupuesto
           </a>
         </div>
       </div>
@@ -1551,7 +1568,7 @@
         <ul>
           <li><a href="#nosotros">Quiénes somos</a></li>
           <li><a href="#por-que">Por qué elegirnos</a></li>
-          <li><a href="#presupuesto">Presupuesto</a></li>
+          <li><a href="/presupuesto/">Armá tu presupuesto</a></li>
         </ul>
       </div>
       <div class="footer__col">
@@ -3451,5 +3468,6 @@
       openModal(catData.items[cardIdx], catData.label, activeSwatchIdx);
     });
   </script>
+  <script src="/assets/quote.js" defer></script>
 </body>
 </html>

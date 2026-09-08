@@ -1,0 +1,91 @@
+/**
+ * quote.css
+ * ─────────────────────────────────────────────────────────────
+ * Estilos compartidos de "Armá tu presupuesto". Se carga en
+ * index.html y en todas las páginas generadas por build-pages.js.
+ * Reutiliza los tokens de diseño existentes (--yellow, --black,
+ * --gray-bg, --border, etc.) para mantener la identidad visual.
+ * ─────────────────────────────────────────────────────────────
+ */
+
+/* ── Acceso "Mi presupuesto" en el header ── */
+.navbar__quote-link {
+  display: flex; align-items: center; gap: .5rem;
+  background: transparent; color: #fff;
+  border: 1.5px solid #444;
+  font-family: 'Barlow', sans-serif;
+  font-size: .74rem; font-weight: 800;
+  letter-spacing: .08em; text-transform: uppercase;
+  padding: .55rem 1rem; border-radius: 2px;
+  white-space: nowrap; transition: border-color .18s, background .18s;
+}
+.navbar__quote-link:hover { border-color: var(--yellow, #FFD100); }
+.navbar__quote-link i { font-size: .85rem; }
+.quote-badge {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 18px; height: 18px; padding: 0 .3rem;
+  background: var(--yellow, #FFD100); color: var(--black, #111);
+  font-size: .68rem; font-weight: 900; border-radius: 999px; line-height: 1;
+}
+.quote-badge--empty { background: #333; color: #999; }
+@media (max-width: 768px) {
+  .navbar__quote-link { padding: .5rem .7rem; font-size: .68rem; gap: .35rem; }
+  .navbar__quote-link span.navbar__quote-link-text { display: none; }
+}
+
+/* ── Botón "Agregar al presupuesto" (convive con el de WhatsApp) ── */
+.prod-card__addquote {
+  display: inline-flex; align-items: center; gap: .35rem;
+  background: transparent; color: var(--black, #111);
+  border: 1.5px solid var(--black, #111);
+  font-family: 'Barlow', sans-serif;
+  font-size: .65rem; font-weight: 800;
+  letter-spacing: .08em; text-transform: uppercase;
+  padding: .32rem .8rem; margin-top: .4rem; margin-left: .4rem;
+  cursor: pointer; transition: background .18s, color .18s;
+}
+.prod-card__addquote:hover { background: var(--black, #111); color: #fff; }
+.prod-card__addquote.is-added { background: var(--black, #111); color: #fff; border-color: var(--black, #111); }
+
+.article__addquote {
+  display: flex; align-items: center; justify-content: center; gap: .65rem;
+  background: transparent; color: var(--black, #111);
+  border: 2px solid var(--black, #111);
+  font-family: 'Barlow', sans-serif;
+  font-size: .85rem; font-weight: 800;
+  letter-spacing: .1em; text-transform: uppercase;
+  padding: 1.05rem; cursor: pointer; margin-top: .6rem;
+  transition: background .18s, color .18s;
+}
+.article__addquote:hover { background: var(--black, #111); color: #fff; }
+.article__addquote.is-added { background: var(--black, #111); color: #fff; }
+
+/* ── Toast de feedback ── */
+.quote-toast {
+  position: fixed; left: 50%; bottom: 1.5rem; z-index: 3000;
+  transform: translate(-50%, 20px);
+  display: flex; align-items: center; gap: .75rem;
+  background: var(--black, #111); color: #fff;
+  padding: .85rem 1rem .85rem 1.1rem;
+  border-radius: 3px; box-shadow: 0 8px 24px rgba(0,0,0,.28);
+  font-size: .82rem; font-weight: 600;
+  opacity: 0; visibility: hidden;
+  transition: opacity .22s ease, transform .22s ease, visibility .22s;
+  max-width: calc(100vw - 2rem);
+}
+.quote-toast.is-visible { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
+.quote-toast i { color: var(--yellow, #FFD100); font-size: 1.05rem; flex-shrink: 0; }
+.quote-toast__msg { white-space: nowrap; }
+.quote-toast__link {
+  color: var(--yellow, #FFD100); font-weight: 800; text-transform: uppercase;
+  font-size: .72rem; letter-spacing: .06em; white-space: nowrap;
+  border-left: 1px solid #333; padding-left: .75rem;
+}
+.quote-toast__close {
+  background: none; border: none; color: #888; font-size: 1.1rem;
+  cursor: pointer; line-height: 1; padding: 0 0 0 .25rem;
+}
+@media (max-width: 480px) {
+  .quote-toast { flex-wrap: wrap; justify-content: center; text-align: center; }
+  .quote-toast__link { border-left: none; padding-left: 0; }
+}

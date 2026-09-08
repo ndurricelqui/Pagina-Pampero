@@ -17,6 +17,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Barlow+Condensed:wght@600;700;800;900&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+<link rel="stylesheet" href="/assets/quote.css" />
 <link rel="icon" type="image/png" href="https://pampero.com.ar/wp-content/uploads/2024/09/FAV_PAMPERO.png" />
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -31,6 +32,7 @@ a{text-decoration:none;color:inherit}
 .navbar__logo img{height:38px;width:auto;filter:brightness(0) invert(1)}
 .navbar__logo-sep{width:1px;height:28px;background:#444;margin:0 .5rem}
 .navbar__logo-city{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1.3rem;color:#fff;letter-spacing:.18em;text-transform:uppercase}
+.navbar__actions{display:flex;align-items:center;gap:.75rem}
 .navbar__cta{background:var(--yellow);color:var(--black);font-size:.75rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:.6rem 1.5rem;border-radius:2px;white-space:nowrap}
 .navbar__cta:hover{opacity:.88}
 .container{max-width:1200px;margin:0 auto;padding:0 2.5rem}
@@ -133,6 +135,61 @@ footer{background:#0a0a0a;color:#666;padding:4rem 2.5rem 2rem}
 .wa{position:fixed;bottom:1.75rem;right:1.75rem;z-index:900;background:#25D366;color:#fff;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.55rem;box-shadow:0 4px 18px rgba(37,211,102,.55);transition:transform .2s}
 .wa:hover{transform:scale(1.1);color:#fff}
 @media(max-width:768px){.navbar{padding:0 1.25rem}.container{padding:0 1.25rem}}
+@media(max-width:400px){.navbar__actions{gap:.4rem}.navbar__cta{padding:.55rem .75rem;font-size:.6rem}}
+
+/* Formulario (idéntico al de index.html #presupuesto) */
+.form{background:var(--gray-bg);padding:2.5rem}
+.form__title{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.5rem;text-transform:uppercase;margin-bottom:1.75rem;padding-bottom:1.25rem;border-bottom:2px solid var(--yellow)}
+.form__row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.form__group{margin-bottom:1.1rem}
+.form__group label{display:block;font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--black);margin-bottom:.4rem}
+.form__group input,.form__group select,.form__group textarea{width:100%;padding:.75rem 1rem;border:1.5px solid var(--border);background:#fff;font-family:'Barlow',sans-serif;font-size:.92rem;color:var(--black);border-radius:0;outline:none;transition:border-color .18s;-webkit-appearance:none}
+.form__group input:focus,.form__group select:focus,.form__group textarea:focus{border-color:var(--yellow)}
+.form__group textarea{resize:vertical;min-height:90px}
+.form__check{display:flex;gap:.65rem;align-items:flex-start;margin-bottom:1.5rem}
+.form__check input{width:auto;margin-top:.2rem;accent-color:var(--yellow)}
+.form__check label{font-size:.8rem;color:var(--gray-txt);font-weight:400;text-transform:none;letter-spacing:0}
+.btn--submit{background:var(--black);color:#fff;width:100%;justify-content:center;font-size:.82rem;padding:1.1rem;border:2px solid var(--black);transition:background .18s,color .18s}
+.btn--submit:hover{background:#fff;color:var(--black)}
+#formSuccess{display:none;text-align:center;padding:3rem 2rem}
+#formSuccess i{font-size:3rem;color:var(--yellow);display:block;margin-bottom:1rem}
+#formSuccess h3{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.75rem;text-transform:uppercase;margin-bottom:.5rem}
+#formSuccess p{color:var(--gray-txt);font-size:.9rem}
+
+/* Página "Armá tu presupuesto" */
+.quote-page__subtitle{color:var(--gray-txt);font-size:.95rem;max-width:640px;margin:-1.25rem 0 2.5rem}
+.quote-empty{text-align:center;padding:4rem 1rem;background:var(--gray-bg)}
+.quote-empty i{font-size:2.6rem;color:var(--gray-mid);margin-bottom:1rem;display:block}
+.quote-empty h2{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.6rem;text-transform:uppercase;margin-bottom:.5rem}
+.quote-empty p{color:var(--gray-txt);font-size:.9rem;margin-bottom:1.75rem}
+.quote-empty__cats{display:flex;flex-wrap:wrap;gap:.75rem;justify-content:center;margin-top:2rem}
+.quote-empty__cat{display:inline-flex;align-items:center;gap:.5rem;background:#fff;border:1.5px solid var(--border);color:var(--black);font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;padding:.65rem 1.1rem;transition:border-color .18s}
+.quote-empty__cat:hover{border-color:var(--black)}
+.quote-items{display:flex;flex-direction:column;gap:1px;background:var(--border);margin-bottom:2.5rem}
+.quote-item{display:grid;grid-template-columns:72px 1fr auto auto;gap:1rem;align-items:center;background:#fff;padding:1rem}
+.quote-item__img{width:72px;height:96px;object-fit:cover;object-position:center top;background:var(--gray-bg);flex-shrink:0}
+.quote-item__name{font-size:.85rem;font-weight:700;text-transform:uppercase;color:var(--black);margin-bottom:.25rem}
+.quote-item__cat{font-size:.68rem;color:var(--gray-mid);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+.quote-item__note{width:100%;padding:.5rem .65rem;border:1.5px solid var(--border);font-family:'Barlow',sans-serif;font-size:.78rem;outline:none}
+.quote-item__note:focus{border-color:var(--yellow)}
+.quote-item__qty{display:flex;flex-direction:column;align-items:center;gap:.3rem}
+.quote-item__qty label{font-size:.62rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--gray-mid)}
+.quote-item__qty input{width:64px;padding:.5rem;text-align:center;border:1.5px solid var(--border);font-family:'Barlow',sans-serif;font-size:.9rem;font-weight:700;outline:none;-webkit-appearance:none}
+.quote-item__qty input:focus{border-color:var(--yellow)}
+.quote-item__remove{background:none;border:none;color:var(--gray-mid);font-size:1.05rem;cursor:pointer;padding:.5rem;transition:color .18s}
+.quote-item__remove:hover{color:#e11}
+@media(max-width:600px){.quote-item{grid-template-columns:56px 1fr;grid-template-rows:auto auto}.quote-item__img{width:56px;height:75px}.quote-item__qty{grid-column:1/2;flex-direction:row;justify-content:flex-start;gap:.5rem}.quote-item__remove{grid-column:2/3;grid-row:2/3;justify-self:end}}
+.quote-section{margin-bottom:2.5rem}
+.quote-section__title{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.15rem;text-transform:uppercase;margin-bottom:1rem}
+.quote-personalize{display:flex;flex-wrap:wrap;gap:.6rem}
+.quote-personalize__opt{display:inline-flex;align-items:center;gap:.5rem;background:var(--gray-bg);border:1.5px solid transparent;font-size:.8rem;font-weight:600;color:var(--black);padding:.6rem 1rem;cursor:pointer;transition:border-color .18s}
+.quote-personalize__opt input{accent-color:var(--yellow)}
+.quote-personalize__opt.active{border-color:var(--yellow)}
+.quote-submit-wa{display:flex;align-items:center;justify-content:center;gap:.65rem;background:#25D366;color:#fff;width:100%;font-size:.9rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:1.15rem;border:none;cursor:pointer;transition:background .18s;margin-bottom:.85rem}
+.quote-submit-wa:hover{background:#1fba58}
+.quote-submit-secondary{display:flex;align-items:center;justify-content:center;gap:.6rem;background:transparent;color:var(--black);width:100%;font-size:.82rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:1rem;border:2px solid var(--black);cursor:pointer;transition:background .18s,color .18s}
+.quote-submit-secondary:hover{background:var(--black);color:#fff}
+.quote-actions-note{font-size:.72rem;color:var(--gray-mid);text-align:center;margin-top:.85rem}
 </style>
 
 </head>
@@ -146,7 +203,14 @@ footer{background:#0a0a0a;color:#666;padding:4rem 2.5rem 2rem}
       <div class="navbar__logo-sep"></div>
       <span class="navbar__logo-city">Córdoba</span>
     </a>
-    <a class="navbar__cta" href="/#presupuesto">Pedir presupuesto</a>
+    <div class="navbar__actions">
+      <a class="navbar__quote-link" href="/presupuesto/">
+        <i class="fas fa-file-invoice"></i>
+        <span class="navbar__quote-link-text">Mi presupuesto</span>
+        <span class="quote-badge" data-quote-badge>0</span>
+      </a>
+      <a class="navbar__cta" href="/#presupuesto">Pedir presupuesto</a>
+    </div>
   </nav>
   <main class="container">
     <nav class="breadcrumb" aria-label="breadcrumb">
@@ -170,6 +234,7 @@ footer{background:#0a0a0a;color:#666;padding:4rem 2.5rem 2rem}
         <a class="prod-card__name" href="./buzo-frisa-medio-cierre/">Buzo Frisa Medio Cierre</a>
         <p class="prod-card__desc">Buzo cuello alto con cierre en frisa invisible de algodón poliéster. Cintura y puños en rib al tono.</p><span class="prod-card__sizes"><i class="fas fa-ruler-horizontal" style="margin-right:.3rem"></i>Talles: MMCH al 6MG</span>
         <a class="prod-card__btn" href="https://wa.me/5493513104836?text=Hola%20Pampero%20C%C3%B3rdoba!%20Quiero%20consultar%20sobre%20Buzo%20Frisa%20Medio%20Cierre%20%E2%80%94%20Negro" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Consultar</a>
+        <button type="button" class="prod-card__addquote js-add-to-quote" data-id="abrigos__buzo-frisa-medio-cierre" data-name="Buzo Frisa Medio Cierre" data-category="abrigos" data-category-label="Abrigos" data-img="https://pampero.com.ar/wp-content/uploads/2024/09/111118202_H2-5178.jpg" data-label="Agregar al presupuesto"><i class="js-add-to-quote-icon fas fa-plus"></i> <span class="js-add-to-quote-label">Agregar al presupuesto</span></button>
       </div></div>
 <div class="prod-card">
       <a class="prod-card__img" href="./buzo-frisa-cuello-redondo/"><img src="https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_6605-580x785.jpg" alt="Buzo Frisa Cuello Redondo" loading="lazy" /></a>
@@ -177,6 +242,7 @@ footer{background:#0a0a0a;color:#666;padding:4rem 2.5rem 2rem}
         <a class="prod-card__name" href="./buzo-frisa-cuello-redondo/">Buzo Frisa Cuello Redondo</a>
         <p class="prod-card__desc">Buzo de cuello redondo en 100% algodón, con cintura y puños en rib al tono. Modelo holgado ideal para trabajos al aire libre en clima frío.</p><span class="prod-card__sizes"><i class="fas fa-ruler-horizontal" style="margin-right:.3rem"></i>Talles: MCH al 5MG</span>
         <a class="prod-card__btn" href="https://wa.me/5493513104836?text=Hola%20Pampero%20C%C3%B3rdoba!%20Quiero%20consultar%20sobre%20Buzo%20Frisa%20Cuello%20Redondo%20%E2%80%94%20Negro" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Consultar</a>
+        <button type="button" class="prod-card__addquote js-add-to-quote" data-id="abrigos__buzo-frisa-cuello-redondo" data-name="Buzo Frisa Cuello Redondo" data-category="abrigos" data-category-label="Abrigos" data-img="https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_6605-580x785.jpg" data-label="Agregar al presupuesto"><i class="js-add-to-quote-icon fas fa-plus"></i> <span class="js-add-to-quote-label">Agregar al presupuesto</span></button>
       </div></div>
 <div class="prod-card">
       <a class="prod-card__img" href="./campera-polar-basica/"><img src="https://pampero.com.ar/wp-content/uploads/2026/04/271203_Pampero_Ecom_1668.jpg" alt="Campera Polar Básica" loading="lazy" /></a>
@@ -184,6 +250,7 @@ footer{background:#0a0a0a;color:#666;padding:4rem 2.5rem 2rem}
         <a class="prod-card__name" href="./campera-polar-basica/">Campera Polar Básica</a>
         <p class="prod-card__desc">Campera polar cuello alto con cierre visible y dos bolsillos laterales. Confeccionada en polar 100% poliéster.</p><span class="prod-card__sizes"><i class="fas fa-ruler-horizontal" style="margin-right:.3rem"></i>Talles: MCH al 2MG</span>
         <a class="prod-card__btn" href="https://wa.me/5493513104836?text=Hola%20Pampero%20C%C3%B3rdoba!%20Quiero%20consultar%20sobre%20Campera%20Polar%20B%C3%A1sica%20%E2%80%94%20Azul%20Marino" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Consultar</a>
+        <button type="button" class="prod-card__addquote js-add-to-quote" data-id="abrigos__campera-polar-basica" data-name="Campera Polar Básica" data-category="abrigos" data-category-label="Abrigos" data-img="https://pampero.com.ar/wp-content/uploads/2026/04/271203_Pampero_Ecom_1668.jpg" data-label="Agregar al presupuesto"><i class="js-add-to-quote-icon fas fa-plus"></i> <span class="js-add-to-quote-label">Agregar al presupuesto</span></button>
       </div></div>
 <div class="prod-card">
       <a class="prod-card__img" href="./campera-anorak-termica/"><img src="https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7181.jpg" alt="Campera Anorak Térmica" loading="lazy" /></a>
@@ -191,6 +258,7 @@ footer{background:#0a0a0a;color:#666;padding:4rem 2.5rem 2rem}
         <a class="prod-card__name" href="./campera-anorak-termica/">Campera Anorak Térmica</a>
         <p class="prod-card__desc">Confeccionada en tela Trucker de guata matelaseada en algodón con capucha desmontable y cintura ajustable con cordón. Cuello alto, puños de rib y dos bolsillos externos más uno interno.</p><span class="prod-card__sizes"><i class="fas fa-ruler-horizontal" style="margin-right:.3rem"></i>Talles: MCH al 3MG</span>
         <a class="prod-card__btn" href="https://wa.me/5493513104836?text=Hola%20Pampero%20C%C3%B3rdoba!%20Quiero%20consultar%20sobre%20Campera%20Anorak%20T%C3%A9rmica%20%E2%80%94%20Azul%20Marino" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Consultar</a>
+        <button type="button" class="prod-card__addquote js-add-to-quote" data-id="abrigos__campera-anorak-termica" data-name="Campera Anorak Térmica" data-category="abrigos" data-category-label="Abrigos" data-img="https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7181.jpg" data-label="Agregar al presupuesto"><i class="js-add-to-quote-icon fas fa-plus"></i> <span class="js-add-to-quote-label">Agregar al presupuesto</span></button>
       </div></div>
 <div class="prod-card">
       <a class="prod-card__img" href="./chaleco-termico-basico/"><img src="/Chaleco Termico Basico.png" alt="Chaleco Térmico Básico" loading="lazy" /></a>
@@ -198,6 +266,7 @@ footer{background:#0a0a0a;color:#666;padding:4rem 2.5rem 2rem}
         <a class="prod-card__name" href="./chaleco-termico-basico/">Chaleco Térmico Básico</a>
         <p class="prod-card__desc">Chaleco básico de trucker resinado e impermeabilizado con forrería matelasseada. Cuello alto, cierre con carteron y broches encapsulados, ajuste en cintura con cordón, tancas y terminales. Dos bolsillos delanteros y uno interno.</p><span class="prod-card__sizes"><i class="fas fa-ruler-horizontal" style="margin-right:.3rem"></i>Talles: MCH al 4MG</span>
         <a class="prod-card__btn" href="https://wa.me/5493513104836?text=Hola%20Pampero%20C%C3%B3rdoba!%20Quiero%20consultar%20sobre%20Chaleco%20T%C3%A9rmico%20B%C3%A1sico%20%E2%80%94%20Azul%20Marino" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Consultar</a>
+        <button type="button" class="prod-card__addquote js-add-to-quote" data-id="abrigos__chaleco-termico-basico" data-name="Chaleco Térmico Básico" data-category="abrigos" data-category-label="Abrigos" data-img="/Chaleco Termico Basico.png" data-label="Agregar al presupuesto"><i class="js-add-to-quote-icon fas fa-plus"></i> <span class="js-add-to-quote-label">Agregar al presupuesto</span></button>
       </div></div>
 <div class="prod-card">
       <a class="prod-card__img" href="./campera-pehuen/"><img src="https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7302-1200x1200.jpg" alt="Campera Pehuen" loading="lazy" /></a>
@@ -205,6 +274,7 @@ footer{background:#0a0a0a;color:#666;padding:4rem 2.5rem 2rem}
         <a class="prod-card__name" href="./campera-pehuen/">Campera Pehuen</a>
         <p class="prod-card__desc">Campera Pehuen matelasseado bastón. Capucha en 3 partes, bolsillo ojal con vista delantera y recorte de costadillos. Tela Sire 100% poliéster con interior en guata siliconada 150 g/m2.</p><span class="prod-card__sizes"><i class="fas fa-ruler-horizontal" style="margin-right:.3rem"></i>Talles: MCH al 4MG</span>
         <a class="prod-card__btn" href="https://wa.me/5493513104836?text=Hola%20Pampero%20C%C3%B3rdoba!%20Quiero%20consultar%20sobre%20Campera%20Pehuen%20%E2%80%94%20Azul%20Marino" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Consultar</a>
+        <button type="button" class="prod-card__addquote js-add-to-quote" data-id="abrigos__campera-pehuen" data-name="Campera Pehuen" data-category="abrigos" data-category-label="Abrigos" data-img="https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7302-1200x1200.jpg" data-label="Agregar al presupuesto"><i class="js-add-to-quote-icon fas fa-plus"></i> <span class="js-add-to-quote-label">Agregar al presupuesto</span></button>
       </div></div>
 <div class="prod-card">
       <a class="prod-card__img" href="./chaleco-pehuen/"><img src="/Chaleco pehuen.png" alt="Chaleco Pehuen" loading="lazy" /></a>
@@ -212,6 +282,7 @@ footer{background:#0a0a0a;color:#666;padding:4rem 2.5rem 2rem}
         <a class="prod-card__name" href="./chaleco-pehuen/">Chaleco Pehuen</a>
         <p class="prod-card__desc">Chaleco Pehuen matelasseado bastón. Cuello alto, bolsillo ojal con vista delantera y recorte de costadillos. Tela Sire 100% poliéster con interior en guata siliconada 150 g/m2.</p><span class="prod-card__sizes"><i class="fas fa-ruler-horizontal" style="margin-right:.3rem"></i>Talles: MCH al 4MG</span>
         <a class="prod-card__btn" href="https://wa.me/5493513104836?text=Hola%20Pampero%20C%C3%B3rdoba!%20Quiero%20consultar%20sobre%20Chaleco%20Pehuen%20%E2%80%94%20Azul%20Marino" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Consultar</a>
+        <button type="button" class="prod-card__addquote js-add-to-quote" data-id="abrigos__chaleco-pehuen" data-name="Chaleco Pehuen" data-category="abrigos" data-category-label="Abrigos" data-img="/Chaleco pehuen.png" data-label="Agregar al presupuesto"><i class="js-add-to-quote-icon fas fa-plus"></i> <span class="js-add-to-quote-label">Agregar al presupuesto</span></button>
       </div></div>
 <div class="prod-card">
       <a class="prod-card__img" href="./chaleco-polar/"><img src="https://pampero.com.ar/wp-content/uploads/2024/10/250628_Pampero_Ecom_D44561.jpg" alt="Chaleco Polar" loading="lazy" /></a>
@@ -219,6 +290,7 @@ footer{background:#0a0a0a;color:#666;padding:4rem 2.5rem 2rem}
         <a class="prod-card__name" href="./chaleco-polar/">Chaleco Polar</a>
         <p class="prod-card__desc">Chaleco de polar 100% poliéster antipilling. Cuello alto, cierre a la vista, dos bolsillos laterales y un bolsillo con cierre.</p><span class="prod-card__sizes"><i class="fas fa-ruler-horizontal" style="margin-right:.3rem"></i>Talles: MCH al 4MG</span>
         <a class="prod-card__btn" href="https://wa.me/5493513104836?text=Hola%20Pampero%20C%C3%B3rdoba!%20Quiero%20consultar%20sobre%20Chaleco%20Polar%20%E2%80%94%20Azul%20Marino" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Consultar</a>
+        <button type="button" class="prod-card__addquote js-add-to-quote" data-id="abrigos__chaleco-polar" data-name="Chaleco Polar" data-category="abrigos" data-category-label="Abrigos" data-img="https://pampero.com.ar/wp-content/uploads/2024/10/250628_Pampero_Ecom_D44561.jpg" data-label="Agregar al presupuesto"><i class="js-add-to-quote-icon fas fa-plus"></i> <span class="js-add-to-quote-label">Agregar al presupuesto</span></button>
       </div></div>
 <div class="prod-card">
       <a class="prod-card__img" href="./buzo-polar-medio-cierre/"><img src="https://pampero.com.ar/wp-content/uploads/2025/04/IMG-20250416-WA00322-1.jpg" alt="Buzo Polar Medio Cierre" loading="lazy" /></a>
@@ -226,6 +298,7 @@ footer{background:#0a0a0a;color:#666;padding:4rem 2.5rem 2rem}
         <a class="prod-card__name" href="./buzo-polar-medio-cierre/">Buzo Polar Medio Cierre</a>
         <p class="prod-card__desc">Buzo de polar 100% poliéster antipilling. Cuello alto, medio cierre a la vista.</p><span class="prod-card__sizes"><i class="fas fa-ruler-horizontal" style="margin-right:.3rem"></i>Talles: MCH al 4MG</span>
         <a class="prod-card__btn" href="https://wa.me/5493513104836?text=Hola%20Pampero%20C%C3%B3rdoba!%20Quiero%20consultar%20sobre%20Buzo%20Polar%20Medio%20Cierre%20%E2%80%94%20Azul%20Marino" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Consultar</a>
+        <button type="button" class="prod-card__addquote js-add-to-quote" data-id="abrigos__buzo-polar-medio-cierre" data-name="Buzo Polar Medio Cierre" data-category="abrigos" data-category-label="Abrigos" data-img="https://pampero.com.ar/wp-content/uploads/2025/04/IMG-20250416-WA00322-1.jpg" data-label="Agregar al presupuesto"><i class="js-add-to-quote-icon fas fa-plus"></i> <span class="js-add-to-quote-label">Agregar al presupuesto</span></button>
       </div></div>
 <div class="prod-card">
       <a class="prod-card__img" href="./chaleco-softshell/"><img src="https://pampero.com.ar/wp-content/uploads/2026/06/Pampero-chaleco-softshell-NEGRO_1-1200x1200.jpg" alt="Chaleco Softshell" loading="lazy" /></a>
@@ -233,6 +306,7 @@ footer{background:#0a0a0a;color:#666;padding:4rem 2.5rem 2rem}
         <a class="prod-card__name" href="./chaleco-softshell/">Chaleco Softshell</a>
         <p class="prod-card__desc">Chaleco en tela softshell con cuello alto, dos bolsillos con cierre y acceso central con cierre. Ideal para jornadas al aire libre en clima frío.</p><span class="prod-card__sizes"><i class="fas fa-ruler-horizontal" style="margin-right:.3rem"></i>Talles: CH al 2MG</span>
         <a class="prod-card__btn" href="https://wa.me/5493513104836?text=Hola%20Pampero%20C%C3%B3rdoba!%20Quiero%20consultar%20sobre%20Chaleco%20Softshell%20%E2%80%94%20Negro" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Consultar</a>
+        <button type="button" class="prod-card__addquote js-add-to-quote" data-id="abrigos__chaleco-softshell" data-name="Chaleco Softshell" data-category="abrigos" data-category-label="Abrigos" data-img="https://pampero.com.ar/wp-content/uploads/2026/06/Pampero-chaleco-softshell-NEGRO_1-1200x1200.jpg" data-label="Agregar al presupuesto"><i class="js-add-to-quote-icon fas fa-plus"></i> <span class="js-add-to-quote-label">Agregar al presupuesto</span></button>
       </div></div>
 <div class="prod-card">
       <a class="prod-card__img" href="./campera-softshell-reflex/"><img src="https://macata.com.ar/wp-content/uploads/Softshell1-B.jpg" alt="Campera Softshell Reflex" loading="lazy" /></a>
@@ -240,6 +314,7 @@ footer{background:#0a0a0a;color:#666;padding:4rem 2.5rem 2rem}
         <a class="prod-card__name" href="./campera-softshell-reflex/">Campera Softshell Reflex</a>
         <p class="prod-card__desc">Campera softshell con cinta reflectiva, ajuste de puños con presilla y velcro, y bolsillos laterales con cierre. Tejido softshell 100% poliéster, impermeable y respirable.</p><span class="prod-card__sizes"><i class="fas fa-ruler-horizontal" style="margin-right:.3rem"></i>Talles: S al 4XL</span>
         <a class="prod-card__btn" href="https://wa.me/5493513104836?text=Hola%20Pampero%20C%C3%B3rdoba!%20Quiero%20consultar%20sobre%20Campera%20Softshell%20Reflex%20%E2%80%94%20Negro" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Consultar</a>
+        <button type="button" class="prod-card__addquote js-add-to-quote" data-id="abrigos__campera-softshell-reflex" data-name="Campera Softshell Reflex" data-category="abrigos" data-category-label="Abrigos" data-img="https://macata.com.ar/wp-content/uploads/Softshell1-B.jpg" data-label="Agregar al presupuesto"><i class="js-add-to-quote-icon fas fa-plus"></i> <span class="js-add-to-quote-label">Agregar al presupuesto</span></button>
       </div></div>
     </div>
   </main>
@@ -268,7 +343,7 @@ footer{background:#0a0a0a;color:#666;padding:4rem 2.5rem 2rem}
         <h4>Empresa</h4>
         <ul>
           <li><a href="/#nosotros">Quiénes somos</a></li>
-          <li><a href="/#presupuesto">Presupuesto</a></li>
+          <li><a href="/presupuesto/">Armá tu presupuesto</a></li>
         </ul>
       </div>
       <div class="footer__col">
@@ -287,5 +362,6 @@ footer{background:#0a0a0a;color:#666;padding:4rem 2.5rem 2rem}
   <a class="wa" href="https://wa.me/5493513104836?text=Hola%20Pampero%20C%C3%B3rdoba!%20Quiero%20solicitar%20un%20presupuesto%20para%20ropa%20de%20trabajo.%20%C2%BFMe%20pueden%20asesorar%3F" target="_blank" rel="noopener" aria-label="Solicitar presupuesto por WhatsApp">
     <i class="fab fa-whatsapp"></i>
   </a>
+<script src="/assets/quote.js" defer></script>
 </body>
 </html>

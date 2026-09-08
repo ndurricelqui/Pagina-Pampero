@@ -55,31 +55,37 @@ const CATEGORY_META = {
     title: 'Camisas y Remeras',
     desc: 'Camisas para uniformes empresariales con personalización de marca.',
     img: 'https://pampero.com.ar/wp-content/uploads/2025/06/BAJO_PORTADA_CAMISAS.jpg',
+    icon: 'fa-shirt',
   },
   pantalones: {
     title: 'Pantalones',
     desc: 'Pantalones resistentes para uso corporativo y laboral intensivo.',
     img: 'https://pampero.com.ar/wp-content/uploads/2025/06/BAJO_PORTADA_PANTALONES.jpg',
+    icon: 'fa-socks',
   },
   calzado: {
     title: 'Calzado',
     desc: 'Calzado de seguridad y corporativo para toda la jornada laboral.',
     img: 'https://pampero.com.ar/wp-content/uploads/2025/06/BAJO_PORTADA_CALZADOS.jpg',
+    icon: 'fa-shoe-prints',
   },
   impermeables: {
     title: 'Impermeables',
     desc: 'Camperas y pilotos impermeables para trabajo en exteriores.',
     img: 'https://pampero.com.ar/wp-content/uploads/2025/06/BAJO_PORTADA_IMPERMEABLES.jpg',
+    icon: 'fa-cloud-showers-heavy',
   },
   abrigos: {
     title: 'Abrigos',
     desc: 'Abrigos corporativos para afrontar el frío con identidad de marca.',
     img: 'https://pampero.com.ar/wp-content/uploads/2025/07/BAJO_PORTADA_ABRIGOS.jpg',
+    icon: 'fa-vest',
   },
   seguridad: {
     title: 'Seguridad',
     desc: 'Guantes, protecciones y equipamiento de seguridad para entornos exigentes.',
     img: 'https://pampero.com.ar/wp-content/uploads/2025/07/BAJO_PORTADA_SEGURIDAD.jpg',
+    icon: 'fa-hard-hat',
   },
 };
 
@@ -102,6 +108,12 @@ function waLink(text) {
   return `https://wa.me/${WA_PHONE}?text=${encodeURIComponent(text)}`;
 }
 
+// Botón "Agregar al presupuesto" (convive con el de WhatsApp, no lo reemplaza).
+function addQuoteBtnHtml(id, name, catSlug, catLabel, img, variant) {
+  const cls = variant === 'article' ? 'article__addquote' : 'prod-card__addquote';
+  return `<button type="button" class="${cls} js-add-to-quote" data-id="${esc(id)}" data-name="${esc(name)}" data-category="${esc(catSlug)}" data-category-label="${esc(catLabel)}" data-img="${esc(img)}" data-label="Agregar al presupuesto"><i class="js-add-to-quote-icon fas fa-plus"></i> <span class="js-add-to-quote-label">Agregar al presupuesto</span></button>`;
+}
+
 // ── 4. CSS compartido (subconjunto liviano, pensado para carga rápida) ──
 const SHARED_CSS = `
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -116,6 +128,7 @@ a{text-decoration:none;color:inherit}
 .navbar__logo img{height:38px;width:auto;filter:brightness(0) invert(1)}
 .navbar__logo-sep{width:1px;height:28px;background:#444;margin:0 .5rem}
 .navbar__logo-city{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1.3rem;color:#fff;letter-spacing:.18em;text-transform:uppercase}
+.navbar__actions{display:flex;align-items:center;gap:.75rem}
 .navbar__cta{background:var(--yellow);color:var(--black);font-size:.75rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:.6rem 1.5rem;border-radius:2px;white-space:nowrap}
 .navbar__cta:hover{opacity:.88}
 .container{max-width:1200px;margin:0 auto;padding:0 2.5rem}
@@ -218,6 +231,61 @@ footer{background:#0a0a0a;color:#666;padding:4rem 2.5rem 2rem}
 .wa{position:fixed;bottom:1.75rem;right:1.75rem;z-index:900;background:#25D366;color:#fff;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.55rem;box-shadow:0 4px 18px rgba(37,211,102,.55);transition:transform .2s}
 .wa:hover{transform:scale(1.1);color:#fff}
 @media(max-width:768px){.navbar{padding:0 1.25rem}.container{padding:0 1.25rem}}
+@media(max-width:400px){.navbar__actions{gap:.4rem}.navbar__cta{padding:.55rem .75rem;font-size:.6rem}}
+
+/* Formulario (idéntico al de index.html #presupuesto) */
+.form{background:var(--gray-bg);padding:2.5rem}
+.form__title{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.5rem;text-transform:uppercase;margin-bottom:1.75rem;padding-bottom:1.25rem;border-bottom:2px solid var(--yellow)}
+.form__row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.form__group{margin-bottom:1.1rem}
+.form__group label{display:block;font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--black);margin-bottom:.4rem}
+.form__group input,.form__group select,.form__group textarea{width:100%;padding:.75rem 1rem;border:1.5px solid var(--border);background:#fff;font-family:'Barlow',sans-serif;font-size:.92rem;color:var(--black);border-radius:0;outline:none;transition:border-color .18s;-webkit-appearance:none}
+.form__group input:focus,.form__group select:focus,.form__group textarea:focus{border-color:var(--yellow)}
+.form__group textarea{resize:vertical;min-height:90px}
+.form__check{display:flex;gap:.65rem;align-items:flex-start;margin-bottom:1.5rem}
+.form__check input{width:auto;margin-top:.2rem;accent-color:var(--yellow)}
+.form__check label{font-size:.8rem;color:var(--gray-txt);font-weight:400;text-transform:none;letter-spacing:0}
+.btn--submit{background:var(--black);color:#fff;width:100%;justify-content:center;font-size:.82rem;padding:1.1rem;border:2px solid var(--black);transition:background .18s,color .18s}
+.btn--submit:hover{background:#fff;color:var(--black)}
+#formSuccess{display:none;text-align:center;padding:3rem 2rem}
+#formSuccess i{font-size:3rem;color:var(--yellow);display:block;margin-bottom:1rem}
+#formSuccess h3{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.75rem;text-transform:uppercase;margin-bottom:.5rem}
+#formSuccess p{color:var(--gray-txt);font-size:.9rem}
+
+/* Página "Armá tu presupuesto" */
+.quote-page__subtitle{color:var(--gray-txt);font-size:.95rem;max-width:640px;margin:-1.25rem 0 2.5rem}
+.quote-empty{text-align:center;padding:4rem 1rem;background:var(--gray-bg)}
+.quote-empty i{font-size:2.6rem;color:var(--gray-mid);margin-bottom:1rem;display:block}
+.quote-empty h2{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.6rem;text-transform:uppercase;margin-bottom:.5rem}
+.quote-empty p{color:var(--gray-txt);font-size:.9rem;margin-bottom:1.75rem}
+.quote-empty__cats{display:flex;flex-wrap:wrap;gap:.75rem;justify-content:center;margin-top:2rem}
+.quote-empty__cat{display:inline-flex;align-items:center;gap:.5rem;background:#fff;border:1.5px solid var(--border);color:var(--black);font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;padding:.65rem 1.1rem;transition:border-color .18s}
+.quote-empty__cat:hover{border-color:var(--black)}
+.quote-items{display:flex;flex-direction:column;gap:1px;background:var(--border);margin-bottom:2.5rem}
+.quote-item{display:grid;grid-template-columns:72px 1fr auto auto;gap:1rem;align-items:center;background:#fff;padding:1rem}
+.quote-item__img{width:72px;height:96px;object-fit:cover;object-position:center top;background:var(--gray-bg);flex-shrink:0}
+.quote-item__name{font-size:.85rem;font-weight:700;text-transform:uppercase;color:var(--black);margin-bottom:.25rem}
+.quote-item__cat{font-size:.68rem;color:var(--gray-mid);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+.quote-item__note{width:100%;padding:.5rem .65rem;border:1.5px solid var(--border);font-family:'Barlow',sans-serif;font-size:.78rem;outline:none}
+.quote-item__note:focus{border-color:var(--yellow)}
+.quote-item__qty{display:flex;flex-direction:column;align-items:center;gap:.3rem}
+.quote-item__qty label{font-size:.62rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--gray-mid)}
+.quote-item__qty input{width:64px;padding:.5rem;text-align:center;border:1.5px solid var(--border);font-family:'Barlow',sans-serif;font-size:.9rem;font-weight:700;outline:none;-webkit-appearance:none}
+.quote-item__qty input:focus{border-color:var(--yellow)}
+.quote-item__remove{background:none;border:none;color:var(--gray-mid);font-size:1.05rem;cursor:pointer;padding:.5rem;transition:color .18s}
+.quote-item__remove:hover{color:#e11}
+@media(max-width:600px){.quote-item{grid-template-columns:56px 1fr;grid-template-rows:auto auto}.quote-item__img{width:56px;height:75px}.quote-item__qty{grid-column:1/2;flex-direction:row;justify-content:flex-start;gap:.5rem}.quote-item__remove{grid-column:2/3;grid-row:2/3;justify-self:end}}
+.quote-section{margin-bottom:2.5rem}
+.quote-section__title{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.15rem;text-transform:uppercase;margin-bottom:1rem}
+.quote-personalize{display:flex;flex-wrap:wrap;gap:.6rem}
+.quote-personalize__opt{display:inline-flex;align-items:center;gap:.5rem;background:var(--gray-bg);border:1.5px solid transparent;font-size:.8rem;font-weight:600;color:var(--black);padding:.6rem 1rem;cursor:pointer;transition:border-color .18s}
+.quote-personalize__opt input{accent-color:var(--yellow)}
+.quote-personalize__opt.active{border-color:var(--yellow)}
+.quote-submit-wa{display:flex;align-items:center;justify-content:center;gap:.65rem;background:#25D366;color:#fff;width:100%;font-size:.9rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:1.15rem;border:none;cursor:pointer;transition:background .18s;margin-bottom:.85rem}
+.quote-submit-wa:hover{background:#1fba58}
+.quote-submit-secondary{display:flex;align-items:center;justify-content:center;gap:.6rem;background:transparent;color:var(--black);width:100%;font-size:.82rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:1rem;border:2px solid var(--black);cursor:pointer;transition:background .18s,color .18s}
+.quote-submit-secondary:hover{background:var(--black);color:#fff}
+.quote-actions-note{font-size:.72rem;color:var(--gray-mid);text-align:center;margin-top:.85rem}
 `;
 
 const HEAD_FONTS = `
@@ -225,6 +293,7 @@ const HEAD_FONTS = `
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Barlow+Condensed:wght@600;700;800;900&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+<link rel="stylesheet" href="/assets/quote.css" />
 <link rel="icon" type="image/png" href="https://pampero.com.ar/wp-content/uploads/2024/09/FAV_PAMPERO.png" />`;
 
 function navbar(homeHref) {
@@ -236,7 +305,14 @@ function navbar(homeHref) {
       <div class="navbar__logo-sep"></div>
       <span class="navbar__logo-city">Córdoba</span>
     </a>
-    <a class="navbar__cta" href="${homeHref}#presupuesto">Pedir presupuesto</a>
+    <div class="navbar__actions">
+      <a class="navbar__quote-link" href="/presupuesto/">
+        <i class="fas fa-file-invoice"></i>
+        <span class="navbar__quote-link-text">Mi presupuesto</span>
+        <span class="quote-badge" data-quote-badge>0</span>
+      </a>
+      <a class="navbar__cta" href="${homeHref}#presupuesto">Pedir presupuesto</a>
+    </div>
   </nav>`;
 }
 
@@ -266,7 +342,7 @@ function footer() {
         <h4>Empresa</h4>
         <ul>
           <li><a href="/#nosotros">Quiénes somos</a></li>
-          <li><a href="/#presupuesto">Presupuesto</a></li>
+          <li><a href="/presupuesto/">Armá tu presupuesto</a></li>
         </ul>
       </div>
       <div class="footer__col">
@@ -346,8 +422,10 @@ function renderSizeChart(p) {
     </div>`;
 }
 
-function renderCardHtml(p, catSlug) {
+function renderCardHtml(p, catSlug, meta) {
   const slug = slugify(p.name);
+  const quoteId = `${catSlug}__${slug}`;
+  const catLabel = meta ? meta.title : catSlug;
   let extraMeta = '';
   if (p.desc) extraMeta += `<p class="prod-card__desc">${esc(p.desc)}</p>`;
   if (p.sizes) extraMeta += `<span class="prod-card__sizes"><i class="fas fa-ruler-horizontal" style="margin-right:.3rem"></i>Talles: ${esc(p.sizes)}</span>`;
@@ -365,6 +443,7 @@ function renderCardHtml(p, catSlug) {
         <a class="prod-card__name" href="${href}">${esc(p.name)}</a>
         ${extraMeta}
         <a class="prod-card__btn" href="${msg}" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Consultar</a>
+        ${addQuoteBtnHtml(quoteId, p.name, catSlug, catLabel, firstImg)}
       </div></div>`;
   }
   const msg = waLink(`Hola Pampero Córdoba! Quiero consultar sobre ${p.name}`);
@@ -374,6 +453,7 @@ function renderCardHtml(p, catSlug) {
       <a class="prod-card__name" href="${href}">${esc(p.name)}</a>
       ${extraMeta}
       <a class="prod-card__btn" href="${msg}" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Consultar</a>
+      ${addQuoteBtnHtml(quoteId, p.name, catSlug, catLabel, p.img)}
     </div></div>`;
 }
 
@@ -398,6 +478,7 @@ ${extraHead}
 </head>
 <body>
 ${bodyContent}
+<script src="/assets/quote.js" defer></script>
 </body>
 </html>`;
 }
@@ -409,7 +490,7 @@ Object.keys(PRODUCTS).forEach((catSlug) => {
   const cat = PRODUCTS[catSlug];
   const meta = CATEGORY_META[catSlug] || { title: cat.label, desc: '', img: '' };
   const canonical = `${SITE_URL}/${catSlug}/`;
-  const cardsHtml = cat.items.map((p) => renderCardHtml(p, catSlug)).join('\n');
+  const cardsHtml = cat.items.map((p) => renderCardHtml(p, catSlug, meta)).join('\n');
 
   const body = `
   ${navbar('/')}
@@ -504,6 +585,7 @@ Object.keys(PRODUCTS).forEach((catSlug) => {
         ${p.sizes ? `<div class="article__sizes-wrap"><span class="article__sizes-label">Talles</span><span class="article__sizes-val">${esc(p.sizes)}</span></div>` : ''}
         ${colorsBlock}
         <a class="article__wa" id="waBtn" href="${initialWa}" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Consultar por WhatsApp</a>
+        ${addQuoteBtnHtml(`${catSlug}__${slug}`, p.name, catSlug, meta.title, galleryImgs[0], 'article')}
       </div>
     </div>
     ${renderSizeChart(p)}
@@ -569,5 +651,269 @@ Object.keys(PRODUCTS).forEach((catSlug) => {
   });
 });
 
+// ── 7. Generar la página "Armá tu presupuesto" ──
+function buildQuotePage() {
+  const canonical = `${SITE_URL}/presupuesto/`;
+  const quickCats = Object.keys(CATEGORY_META)
+    .map((k) => `<a class="quote-empty__cat" href="/${k}/"><i class="fas ${CATEGORY_META[k].icon}"></i> ${esc(CATEGORY_META[k].title)}</a>`)
+    .join('');
+
+  const body = `
+  ${navbar('/')}
+  <main class="container">
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="/">Inicio</a><span class="sep">/</span><span class="current">Armá tu presupuesto</span>
+    </nav>
+    <div class="page-header" style="border-bottom:none;padding-bottom:0">
+      <div>
+        <span class="section-label">Venta Corporativa</span>
+        <h1 class="section-title">Armá tu presupuesto</h1>
+        <p class="section-desc quote-page__subtitle" style="margin-top:.5rem">Seleccioná los productos y cantidades aproximadas que necesita tu empresa. Nuestro equipo te enviará una cotización personalizada.</p>
+      </div>
+    </div>
+
+    <div id="quoteEmpty" class="quote-empty" hidden>
+      <i class="fas fa-file-invoice"></i>
+      <h2>Todavía no agregaste productos</h2>
+      <p>Recorré nuestras categorías y agregá los productos que necesita tu empresa.</p>
+      <a class="btn btn--outline-black" href="/#lineas">Ver productos <i class="fas fa-arrow-right"></i></a>
+      <div class="quote-empty__cats">${quickCats}</div>
+    </div>
+
+    <div id="quoteContent" hidden>
+      <div id="quoteItems" class="quote-items"></div>
+
+      <div class="quote-section">
+        <h2 class="quote-section__title">¿Necesitás personalizar las prendas?</h2>
+        <div class="quote-personalize" id="quotePersonalize">
+          <label class="quote-personalize__opt"><input type="checkbox" value="Bordado de logo" /> Bordado de logo</label>
+          <label class="quote-personalize__opt"><input type="checkbox" value="Estampa / serigrafía" /> Estampa / serigrafía</label>
+          <label class="quote-personalize__opt"><input type="checkbox" value="No necesito personalización" /> No necesito personalización</label>
+          <label class="quote-personalize__opt"><input type="checkbox" value="Necesito asesoramiento" /> Necesito asesoramiento</label>
+        </div>
+      </div>
+
+      <div class="quote-section">
+        <h2 class="quote-section__title">Comentarios adicionales</h2>
+        <div class="form__group" style="margin-bottom:0">
+          <textarea id="quoteComments" placeholder="Ej: necesitamos logo bordado en pecho, es para personal de mantenimiento, entregas mensuales... (opcional)"></textarea>
+        </div>
+      </div>
+
+      <div class="quote-section">
+        <div class="form" id="quoteFormWrap">
+          <h3 class="form__title">Datos de tu empresa</h3>
+          <form id="quoteClientForm" novalidate>
+            <input type="hidden" name="access_key" value="fec27d8a-e46f-4395-a586-009c5bf796f0" />
+            <input type="hidden" name="subject" value="Nueva solicitud de presupuesto (Armá tu presupuesto) – Pampero Córdoba" />
+            <input type="hidden" name="from_name" value="Web Pampero Córdoba" />
+            <input type="hidden" name="redirect" value="false" />
+            <div class="form__row">
+              <div class="form__group">
+                <label for="qEmpresa">Empresa / Organización *</label>
+                <input type="text" id="qEmpresa" name="empresa" required placeholder="Nombre de tu empresa" />
+              </div>
+              <div class="form__group">
+                <label for="qNombre">Nombre y apellido *</label>
+                <input type="text" id="qNombre" name="name" required placeholder="Juan Pérez" />
+              </div>
+            </div>
+            <div class="form__row">
+              <div class="form__group">
+                <label for="qWhatsapp">WhatsApp *</label>
+                <input type="tel" id="qWhatsapp" name="phone" required placeholder="+54 9 351 000-0000" />
+              </div>
+              <div class="form__group">
+                <label for="qEmail">Email <span style="font-weight:400;text-transform:none">(opcional)</span></label>
+                <input type="email" id="qEmail" name="email" placeholder="nombre@empresa.com" />
+              </div>
+            </div>
+            <div class="form__row">
+              <div class="form__group">
+                <label for="qLocalidad">Localidad *</label>
+                <input type="text" id="qLocalidad" name="localidad" required placeholder="Córdoba" />
+              </div>
+              <div class="form__group">
+                <label for="qCantidad">Cantidad aproximada de personas</label>
+                <select id="qCantidad" name="cantidad_personas">
+                  <option value="1 a 10">1 a 10</option>
+                  <option value="11 a 30">11 a 30</option>
+                  <option value="31 a 100">31 a 100</option>
+                  <option value="Más de 100">Más de 100</option>
+                </select>
+              </div>
+            </div>
+
+            <button type="button" class="quote-submit-wa" id="quoteWaBtn"><i class="fab fa-whatsapp"></i> Solicitar presupuesto por WhatsApp</button>
+            <button type="submit" class="quote-submit-secondary" id="quoteFormSubmitBtn"><i class="fas fa-paper-plane"></i> Enviar solicitud</button>
+            <p class="quote-actions-note">Nunca compartimos tus datos con terceros. Te contactamos solo para responder esta solicitud.</p>
+          </form>
+        </div>
+        <div id="quoteFormSuccess" style="display:none;text-align:center;padding:3rem 2rem">
+          <i class="fas fa-check-circle" style="font-size:3rem;color:var(--yellow);display:block;margin-bottom:1rem"></i>
+          <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.75rem;text-transform:uppercase;margin-bottom:.5rem">¡Solicitud enviada!</h3>
+          <p style="color:var(--gray-txt);font-size:.9rem">Nos comunicaremos en menos de 24 horas hábiles.<br>También podés escribirnos directo por WhatsApp.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+  ${footer()}
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var Q = window.PamperoQuote;
+    if (!Q) return;
+
+    var quoteEmpty = document.getElementById('quoteEmpty');
+    var quoteContent = document.getElementById('quoteContent');
+    var quoteItemsEl = document.getElementById('quoteItems');
+    var clientForm = document.getElementById('quoteClientForm');
+    var waBtn = document.getElementById('quoteWaBtn');
+    var formSubmitBtn = document.getElementById('quoteFormSubmitBtn');
+
+    function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]; }); }
+
+    function renderItems() {
+      var items = Q.getItems();
+      if (!items.length) {
+        quoteEmpty.hidden = false;
+        quoteContent.hidden = true;
+        return;
+      }
+      quoteEmpty.hidden = true;
+      quoteContent.hidden = false;
+      quoteItemsEl.innerHTML = items.map(function (it) {
+        return '<div class="quote-item" data-id="' + esc(it.id) + '">' +
+          '<img class="quote-item__img" src="' + esc(it.img) + '" alt="' + esc(it.name) + '" loading="lazy" />' +
+          '<div><div class="quote-item__name">' + esc(it.name) + '</div>' +
+          '<div class="quote-item__cat">' + esc(it.categoryLabel || '') + '</div>' +
+          '<input type="text" class="quote-item__note js-item-note" placeholder="Comentarios sobre este producto (opcional)" value="' + esc(it.note || '') + '" /></div>' +
+          '<div class="quote-item__qty"><label>Cantidad</label><input type="number" min="1" class="js-item-qty" value="' + esc(it.qty) + '" /></div>' +
+          '<button type="button" class="quote-item__remove js-item-remove" aria-label="Quitar producto"><i class="fas fa-trash"></i></button>' +
+          '</div>';
+      }).join('');
+    }
+
+    quoteItemsEl.addEventListener('input', function (e) {
+      var row = e.target.closest('.quote-item');
+      if (!row) return;
+      var id = row.getAttribute('data-id');
+      if (e.target.classList.contains('js-item-qty')) Q.updateQty(id, e.target.value);
+      else if (e.target.classList.contains('js-item-note')) Q.updateNote(id, e.target.value);
+    });
+
+    quoteItemsEl.addEventListener('click', function (e) {
+      var btn = e.target.closest('.js-item-remove');
+      if (!btn) return;
+      var id = btn.closest('.quote-item').getAttribute('data-id');
+      Q.removeItem(id);
+      Q.pushEvent('remove_from_quote', { product_id: id, quote_items_count: Q.getCount() });
+      renderItems();
+    });
+
+    document.querySelectorAll('.quote-personalize__opt input').forEach(function (chk) {
+      chk.addEventListener('change', function () {
+        if (chk.value === 'No necesito personalización' && chk.checked) {
+          document.querySelectorAll('.quote-personalize__opt input').forEach(function (other) { if (other !== chk) other.checked = false; });
+        } else if (chk.checked) {
+          var none = document.querySelector('.quote-personalize__opt input[value="No necesito personalización"]');
+          if (none) none.checked = false;
+        }
+        document.querySelectorAll('.quote-personalize__opt').forEach(function (opt) {
+          opt.classList.toggle('active', opt.querySelector('input').checked);
+        });
+      });
+    });
+
+    function getPersonalization() {
+      return Array.prototype.slice.call(document.querySelectorAll('.quote-personalize__opt input:checked')).map(function (c) { return c.value; }).join(', ');
+    }
+
+    function buildMessage() {
+      var items = Q.getItems();
+      var empresa = document.getElementById('qEmpresa').value.trim();
+      var nombre = document.getElementById('qNombre').value.trim();
+      var localidad = document.getElementById('qLocalidad').value.trim();
+      var cantidad = document.getElementById('qCantidad').value;
+      var personalizacion = getPersonalization();
+      var comentarios = document.getElementById('quoteComments').value.trim();
+
+      var lines = [];
+      lines.push('Hola Pampero Córdoba, quiero solicitar un presupuesto para mi empresa.');
+      lines.push('');
+      lines.push('Empresa: ' + empresa);
+      lines.push('Contacto: ' + nombre);
+      lines.push('Localidad: ' + localidad);
+      lines.push('Cantidad de personas: ' + cantidad);
+      lines.push('');
+      lines.push('Productos solicitados:');
+      items.forEach(function (it) {
+        var extra = it.note ? ' (' + it.note + ')' : '';
+        lines.push('• ' + it.name + ' — ' + it.qty + ' unidades' + extra);
+      });
+      if (personalizacion) { lines.push(''); lines.push('Personalización: ' + personalizacion); }
+      if (comentarios) lines.push('Comentarios: ' + comentarios);
+      lines.push('');
+      lines.push('Quedo a la espera de la cotización.');
+      return lines.join('\\n');
+    }
+
+    waBtn.addEventListener('click', function () {
+      if (!clientForm.checkValidity()) { clientForm.reportValidity(); return; }
+      var msg = buildMessage();
+      Q.pushEvent('quote_whatsapp_click', { quote_items_count: Q.getCount() });
+      window.open(Q.waLink(msg), '_blank', 'noopener');
+    });
+
+    clientForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!clientForm.checkValidity()) { clientForm.reportValidity(); return; }
+      formSubmitBtn.disabled = true;
+      formSubmitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+
+      var fd = new FormData(clientForm);
+      fd.append('personalizacion', getPersonalization());
+      fd.append('comentarios', document.getElementById('quoteComments').value.trim());
+      fd.append('mensaje', buildMessage());
+
+      fetch('https://api.web3forms.com/submit', { method: 'POST', body: fd })
+        .then(function (res) { return res.json(); })
+        .then(function (data) {
+          if (data.success) {
+            document.getElementById('quoteFormWrap').style.display = 'none';
+            document.getElementById('quoteFormSuccess').style.display = 'block';
+            Q.pushEvent('quote_form_submit', { quote_items_count: Q.getCount() });
+          } else {
+            alert('Hubo un error al enviar. Por favor contactanos por WhatsApp.');
+            formSubmitBtn.disabled = false;
+            formSubmitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Enviar solicitud';
+          }
+        })
+        .catch(function () {
+          alert('Hubo un error de conexión. Por favor contactanos por WhatsApp.');
+          formSubmitBtn.disabled = false;
+          formSubmitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Enviar solicitud';
+        });
+    });
+
+    renderItems();
+    Q.pushEvent('view_quote', { quote_items_count: Q.getCount() });
+  });
+  </script>`;
+
+  const html = pageShell({
+    title: 'Solicitá presupuesto de ropa de trabajo | Pampero Córdoba',
+    description: 'Armá tu presupuesto: seleccioná indumentaria de trabajo, uniformes, calzado y elementos de seguridad, indicá cantidades y recibí una cotización personalizada por WhatsApp.',
+    canonical,
+    bodyContent: body,
+  });
+
+  const qdir = path.join(ROOT, 'presupuesto');
+  fs.mkdirSync(qdir, { recursive: true });
+  fs.writeFileSync(path.join(qdir, 'index.html'), html, 'utf8');
+}
+
+buildQuotePage();
+
 console.log('Generadas', outDirs.length, 'categorías:', outDirs.join(', '));
+console.log('Generada página /presupuesto/.');
 console.log('OK — index.html no fue modificado.');
