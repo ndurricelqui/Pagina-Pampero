@@ -206,6 +206,11 @@
       color: var(--gray-mid); margin-bottom: .65rem;
     }
     .section-label--yellow { color: var(--yellow); }
+    .section-label--badge {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: var(--yellow); color: var(--black);
+      padding: .4rem 1rem; font-size: .75rem;
+    }
     .section-title {
       font-family: 'Barlow Condensed', sans-serif;
       font-weight: 900; font-size: clamp(2.2rem, 4vw, 3.4rem);
@@ -1045,7 +1050,6 @@
     </a>
 
     <ul class="navbar__menu" id="navMenu">
-      <li><a href="#categorias">Categorías</a></li>
       <li><a href="#lineas">Venta Corporativa</a></li>
       <li><a href="#nosotros">Nosotros</a></li>
     </ul>
@@ -1096,9 +1100,6 @@
           <a class="btn btn--yellow" href="#presupuesto">
             Solicitar presupuesto
           </a>
-          <a class="btn btn--outline-white" href="#categorias">
-            Ver líneas <i class="fas fa-arrow-right"></i>
-          </a>
         </div>
       </div>
     </div>
@@ -1126,7 +1127,7 @@
       <div id="catView">
       <div class="lines__header">
         <div class="reveal">
-          <span class="section-label section-label--yellow">Venta Corporativa</span>
+          <span class="section-label section-label--badge"><i class="fas fa-building"></i> Venta Corporativa / Mayorista</span>
           <h2 class="section-title">Categorias</h2>
         </div>
         <p class="section-desc reveal reveal-delay-1">
