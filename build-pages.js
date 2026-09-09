@@ -109,9 +109,12 @@ function waLink(text) {
 }
 
 // Botón "Agregar al presupuesto" (convive con el de WhatsApp, no lo reemplaza).
-function addQuoteBtnHtml(id, name, catSlug, catLabel, img, variant) {
+function addQuoteBtnHtml(id, name, catSlug, catLabel, img, variant, colors, initialColor) {
   const cls = variant === 'article' ? 'article__addquote' : 'prod-card__addquote';
-  return `<button type="button" class="${cls} js-add-to-quote" data-id="${esc(id)}" data-name="${esc(name)}" data-category="${esc(catSlug)}" data-category-label="${esc(catLabel)}" data-img="${esc(img)}" data-label="Agregar al presupuesto"><i class="js-add-to-quote-icon fas fa-plus"></i> <span class="js-add-to-quote-label">Agregar al presupuesto</span></button>`;
+  const colorsAttr = colors && colors.length
+    ? ` data-colors="${esc(JSON.stringify(colors))}" data-color="${esc(initialColor || '')}"`
+    : '';
+  return `<button type="button" class="${cls} js-add-to-quote" data-id="${esc(id)}" data-name="${esc(name)}" data-category="${esc(catSlug)}" data-category-label="${esc(catLabel)}" data-img="${esc(img)}"${colorsAttr} data-label="Agregar al presupuesto"><i class="js-add-to-quote-icon fas fa-plus"></i> <span class="js-add-to-quote-label">Agregar al presupuesto</span></button>`;
 }
 
 // ── 4. CSS compartido (subconjunto liviano, pensado para carga rápida) ──
@@ -266,6 +269,17 @@ footer{background:#0a0a0a;color:#666;padding:4rem 2.5rem 2rem}
 .quote-item__img{width:72px;height:96px;object-fit:cover;object-position:center top;background:var(--gray-bg);flex-shrink:0}
 .quote-item__name{font-size:.85rem;font-weight:700;text-transform:uppercase;color:var(--black);margin-bottom:.25rem}
 .quote-item__cat{font-size:.68rem;color:var(--gray-mid);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+.quote-item__opts{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:.5rem}
+.quote-item__opts label{display:flex;flex-direction:column;gap:.2rem;font-size:.62rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--gray-mid)}
+.quote-item__color,.quote-item__personalize{padding:.45rem .6rem;border:1.5px solid var(--border);font-family:'Barlow',sans-serif;font-size:.75rem;font-weight:600;color:var(--black);background:#fff;outline:none;cursor:pointer;-webkit-appearance:none}
+.quote-item__color:focus,.quote-item__personalize:focus{border-color:var(--yellow)}
+.quote-item__addcolor{margin-top:.5rem}
+.quote-item__addcolor-picker{display:flex;flex-wrap:wrap;gap:.35rem;align-items:center;margin-top:.4rem}
+.quote-item__addcolor-picker[hidden]{display:none}
+.quote-item__addcolor select{padding:.28rem .45rem;border:1.5px solid var(--border);font-family:'Barlow',sans-serif;font-size:.65rem;font-weight:600;color:var(--black);background:#fff;outline:none;cursor:pointer;-webkit-appearance:none}
+.quote-item__addcolor-btn{display:inline-flex;align-items:center;gap:.25rem;background:transparent;border:1.5px solid var(--black);color:var(--black);font-size:.6rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:.3rem .55rem;cursor:pointer;transition:background .18s,color .18s;white-space:nowrap}
+.quote-item__addcolor-btn:hover{background:var(--black);color:#fff}
+.quote-item__addcolor-btn[hidden]{display:none}
 .quote-item__note{width:100%;padding:.5rem .65rem;border:1.5px solid var(--border);font-family:'Barlow',sans-serif;font-size:.78rem;outline:none}
 .quote-item__note:focus{border-color:var(--yellow)}
 .quote-item__qty{display:flex;flex-direction:column;align-items:center;gap:.3rem}
@@ -277,10 +291,6 @@ footer{background:#0a0a0a;color:#666;padding:4rem 2.5rem 2rem}
 @media(max-width:600px){.quote-item{grid-template-columns:56px 1fr;grid-template-rows:auto auto}.quote-item__img{width:56px;height:75px}.quote-item__qty{grid-column:1/2;flex-direction:row;justify-content:flex-start;gap:.5rem}.quote-item__remove{grid-column:2/3;grid-row:2/3;justify-self:end}}
 .quote-section{margin-bottom:2.5rem}
 .quote-section__title{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.15rem;text-transform:uppercase;margin-bottom:1rem}
-.quote-personalize{display:flex;flex-wrap:wrap;gap:.6rem}
-.quote-personalize__opt{display:inline-flex;align-items:center;gap:.5rem;background:var(--gray-bg);border:1.5px solid transparent;font-size:.8rem;font-weight:600;color:var(--black);padding:.6rem 1rem;cursor:pointer;transition:border-color .18s}
-.quote-personalize__opt input{accent-color:var(--yellow)}
-.quote-personalize__opt.active{border-color:var(--yellow)}
 .quote-submit-wa{display:flex;align-items:center;justify-content:center;gap:.65rem;background:#25D366;color:#fff;width:100%;font-size:.9rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:1.15rem;border:none;cursor:pointer;transition:background .18s;margin-bottom:.85rem}
 .quote-submit-wa:hover{background:#1fba58}
 .quote-submit-secondary{display:flex;align-items:center;justify-content:center;gap:.6rem;background:transparent;color:var(--black);width:100%;font-size:.82rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:1rem;border:2px solid var(--black);cursor:pointer;transition:background .18s,color .18s}
@@ -437,13 +447,14 @@ function renderCardHtml(p, catSlug, meta) {
     const isOos = p.colors.every((c) => c.outOfStock);
     const badge = isOos ? '<span class="prod-card__badge">Sin stock</span>' : '';
     const msg = waLink(`Hola Pampero Córdoba! Quiero consultar sobre ${p.name} — ${first.label}`);
+    const colorsForQuote = p.colors.map((c) => ({ label: c.label, hex: c.hex, img: (c.imgs && c.imgs[0]) || c.img || p.img }));
     return `<div class="prod-card">
       <a class="prod-card__img" href="${href}">${badge}<img src="${firstImg}" alt="${esc(p.name)}" loading="lazy"${containAttr} /></a>
       <div class="prod-card__body">
         <a class="prod-card__name" href="${href}">${esc(p.name)}</a>
         ${extraMeta}
         <a class="prod-card__btn" href="${msg}" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Consultar</a>
-        ${addQuoteBtnHtml(quoteId, p.name, catSlug, catLabel, firstImg)}
+        ${addQuoteBtnHtml(quoteId, p.name, catSlug, catLabel, firstImg, undefined, colorsForQuote, first.label)}
       </div></div>`;
   }
   const msg = waLink(`Hola Pampero Córdoba! Quiero consultar sobre ${p.name}`);
@@ -585,7 +596,7 @@ Object.keys(PRODUCTS).forEach((catSlug) => {
         ${p.sizes ? `<div class="article__sizes-wrap"><span class="article__sizes-label">Talles</span><span class="article__sizes-val">${esc(p.sizes)}</span></div>` : ''}
         ${colorsBlock}
         <a class="article__wa" id="waBtn" href="${initialWa}" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Consultar por WhatsApp</a>
-        ${addQuoteBtnHtml(`${catSlug}__${slug}`, p.name, catSlug, meta.title, galleryImgs[0], 'article')}
+        ${addQuoteBtnHtml(`${catSlug}__${slug}`, p.name, catSlug, meta.title, galleryImgs[0], 'article', (p.colors && p.colors.length) ? p.colors.map((c) => ({ label: c.label, hex: c.hex, img: (c.imgs && c.imgs[0]) || c.img || p.img })) : undefined, (p.colors && p.colors.length) ? p.colors[0].label : undefined)}
       </div>
     </div>
     ${renderSizeChart(p)}
@@ -634,6 +645,12 @@ Object.keys(PRODUCTS).forEach((catSlug) => {
       pmpSetImage(null, imgs[0]);
       var waBtn = document.getElementById('waBtn');
       waBtn.href = 'https://wa.me/${WA_PHONE}?text=' + encodeURIComponent('Hola Pampero Córdoba! Quiero consultar sobre ${p.name.replace(/'/g, "\\'")} — ' + label);
+      var addQuoteBtn = document.querySelector('.js-add-to-quote');
+      if (addQuoteBtn) {
+        addQuoteBtn.setAttribute('data-color', label);
+        addQuoteBtn.setAttribute('data-img', imgs[0]);
+      }
+      if (window.PamperoQuote) window.PamperoQuote.syncAddButtons();
     }
   </script>`;
 
@@ -682,16 +699,6 @@ function buildQuotePage() {
 
     <div id="quoteContent" hidden>
       <div id="quoteItems" class="quote-items"></div>
-
-      <div class="quote-section">
-        <h2 class="quote-section__title">¿Necesitás personalizar las prendas?</h2>
-        <div class="quote-personalize" id="quotePersonalize">
-          <label class="quote-personalize__opt"><input type="checkbox" value="Bordado de logo" /> Bordado de logo</label>
-          <label class="quote-personalize__opt"><input type="checkbox" value="Estampa / serigrafía" /> Estampa / serigrafía</label>
-          <label class="quote-personalize__opt"><input type="checkbox" value="No necesito personalización" /> No necesito personalización</label>
-          <label class="quote-personalize__opt"><input type="checkbox" value="Necesito asesoramiento" /> Necesito asesoramiento</label>
-        </div>
-      </div>
 
       <div class="quote-section">
         <h2 class="quote-section__title">Comentarios adicionales</h2>
@@ -781,12 +788,52 @@ function buildQuotePage() {
       }
       quoteEmpty.hidden = true;
       quoteContent.hidden = false;
+
+      var colorsInUseByBase = {};
+      items.forEach(function (it) {
+        var key = it.baseId || it.id;
+        colorsInUseByBase[key] = colorsInUseByBase[key] || [];
+        if (it.color) colorsInUseByBase[key].push(it.color);
+      });
+
       quoteItemsEl.innerHTML = items.map(function (it) {
+        var colors = Array.isArray(it.colors) ? it.colors : [];
+        var colorField = '';
+        if (colors.length) {
+          var colorOptions = colors.map(function (c) {
+            var selected = c.label === it.color ? ' selected' : '';
+            return '<option value="' + esc(c.label) + '"' + selected + '>' + esc(c.label) + '</option>';
+          }).join('');
+          colorField = '<label>Color<select class="quote-item__color js-item-color">' + colorOptions + '</select></label>';
+        }
+        var personalizeOptions = ['', 'Bordado de logo', 'Estampa / serigrafía', 'Necesito asesoramiento'].map(function (opt) {
+          var selected = opt === (it.personalization || '') ? ' selected' : '';
+          var text = opt || 'Sin personalización';
+          return '<option value="' + esc(opt) + '"' + selected + '>' + esc(text) + '</option>';
+        }).join('');
+        var personalizeField = '<label>Personalización<select class="quote-item__personalize js-item-personalize">' + personalizeOptions + '</select></label>';
+
+        var addColorField = '';
+        var usedColors = colorsInUseByBase[it.baseId || it.id] || [];
+        var remainingColors = colors.filter(function (c) { return usedColors.indexOf(c.label) === -1; });
+        if (remainingColors.length) {
+          var addColorOptions = remainingColors.map(function (c) { return '<option value="' + esc(c.label) + '">' + esc(c.label) + '</option>'; }).join('');
+          addColorField = '<div class="quote-item__addcolor">' +
+            '<button type="button" class="quote-item__addcolor-btn js-item-addcolor-toggle"><i class="fas fa-plus"></i> Agregar otro color</button>' +
+            '<div class="quote-item__addcolor-picker" hidden>' +
+            '<select class="js-item-addcolor">' + addColorOptions + '</select>' +
+            '<button type="button" class="quote-item__addcolor-btn js-item-addcolor-confirm"><i class="fas fa-check"></i> Agregar</button>' +
+            '</div></div>';
+        }
+
         return '<div class="quote-item" data-id="' + esc(it.id) + '">' +
           '<img class="quote-item__img" src="' + esc(it.img) + '" alt="' + esc(it.name) + '" loading="lazy" />' +
           '<div><div class="quote-item__name">' + esc(it.name) + '</div>' +
           '<div class="quote-item__cat">' + esc(it.categoryLabel || '') + '</div>' +
-          '<input type="text" class="quote-item__note js-item-note" placeholder="Comentarios sobre este producto (opcional)" value="' + esc(it.note || '') + '" /></div>' +
+          '<div class="quote-item__opts">' + colorField + personalizeField + '</div>' +
+          '<input type="text" class="quote-item__note js-item-note" placeholder="Comentarios sobre este producto (opcional)" value="' + esc(it.note || '') + '" />' +
+          addColorField +
+          '</div>' +
           '<div class="quote-item__qty"><label>Cantidad</label><input type="number" min="1" class="js-item-qty" value="' + esc(it.qty) + '" /></div>' +
           '<button type="button" class="quote-item__remove js-item-remove" aria-label="Quitar producto"><i class="fas fa-trash"></i></button>' +
           '</div>';
@@ -802,31 +849,68 @@ function buildQuotePage() {
     });
 
     quoteItemsEl.addEventListener('click', function (e) {
-      var btn = e.target.closest('.js-item-remove');
-      if (!btn) return;
-      var id = btn.closest('.quote-item').getAttribute('data-id');
-      Q.removeItem(id);
-      Q.pushEvent('remove_from_quote', { product_id: id, quote_items_count: Q.getCount() });
-      renderItems();
-    });
+      var removeBtn = e.target.closest('.js-item-remove');
+      if (removeBtn) {
+        var id = removeBtn.closest('.quote-item').getAttribute('data-id');
+        Q.removeItem(id);
+        Q.pushEvent('remove_from_quote', { product_id: id, quote_items_count: Q.getCount() });
+        renderItems();
+        return;
+      }
 
-    document.querySelectorAll('.quote-personalize__opt input').forEach(function (chk) {
-      chk.addEventListener('change', function () {
-        if (chk.value === 'No necesito personalización' && chk.checked) {
-          document.querySelectorAll('.quote-personalize__opt input').forEach(function (other) { if (other !== chk) other.checked = false; });
-        } else if (chk.checked) {
-          var none = document.querySelector('.quote-personalize__opt input[value="No necesito personalización"]');
-          if (none) none.checked = false;
+      var toggleBtn = e.target.closest('.js-item-addcolor-toggle');
+      if (toggleBtn) {
+        var picker = toggleBtn.parentElement.querySelector('.quote-item__addcolor-picker');
+        if (picker) {
+          picker.hidden = false;
+          toggleBtn.hidden = true;
         }
-        document.querySelectorAll('.quote-personalize__opt').forEach(function (opt) {
-          opt.classList.toggle('active', opt.querySelector('input').checked);
+        return;
+      }
+
+      var addColorBtn = e.target.closest('.js-item-addcolor-confirm');
+      if (addColorBtn) {
+        var row = addColorBtn.closest('.quote-item');
+        var select = row.querySelector('.js-item-addcolor');
+        var color = select ? select.value : '';
+        if (!color) return;
+        var items = Q.getItems();
+        var current = null;
+        for (var i = 0; i < items.length; i++) { if (items[i].id === row.getAttribute('data-id')) { current = items[i]; break; } }
+        if (!current) return;
+        var colorImg = '';
+        for (var j = 0; j < (current.colors || []).length; j++) { if (current.colors[j].label === color) { colorImg = current.colors[j].img || ''; break; } }
+        var result = Q.addItem({
+          id: current.baseId || current.id,
+          name: current.name,
+          category: current.category,
+          categoryLabel: current.categoryLabel,
+          img: colorImg || current.img,
+          color: color,
+          colors: current.colors,
         });
-      });
+        if (result.added) {
+          Q.pushEvent('add_to_quote', { product_id: current.baseId, product_name: current.name, product_category: current.category, quote_items_count: Q.getCount() });
+          Q.showToast('Agregado a tu presupuesto', { icon: 'fa-check-circle' });
+        }
+        renderItems();
+      }
     });
 
-    function getPersonalization() {
-      return Array.prototype.slice.call(document.querySelectorAll('.quote-personalize__opt input:checked')).map(function (c) { return c.value; }).join(', ');
-    }
+    quoteItemsEl.addEventListener('change', function (e) {
+      var row = e.target.closest('.quote-item');
+      if (!row) return;
+      var id = row.getAttribute('data-id');
+      if (e.target.classList.contains('js-item-color')) {
+        var updated = Q.updateColor(id, e.target.value);
+        var idx = -1;
+        for (var i = 0; i < updated.length; i++) { if (updated[i].id === id) { idx = i; break; } }
+        var imgEl = row.querySelector('.quote-item__img');
+        if (idx !== -1 && imgEl && updated[idx].img) imgEl.src = updated[idx].img;
+      } else if (e.target.classList.contains('js-item-personalize')) {
+        Q.updatePersonalization(id, e.target.value);
+      }
+    });
 
     function buildMessage() {
       var items = Q.getItems();
@@ -834,7 +918,6 @@ function buildQuotePage() {
       var nombre = document.getElementById('qNombre').value.trim();
       var localidad = document.getElementById('qLocalidad').value.trim();
       var cantidad = document.getElementById('qCantidad').value;
-      var personalizacion = getPersonalization();
       var comentarios = document.getElementById('quoteComments').value.trim();
 
       var lines = [];
@@ -847,10 +930,13 @@ function buildQuotePage() {
       lines.push('');
       lines.push('Productos solicitados:');
       items.forEach(function (it) {
-        var extra = it.note ? ' (' + it.note + ')' : '';
+        var details = [];
+        if (it.color) details.push('Color: ' + it.color);
+        if (it.personalization) details.push('Personalización: ' + it.personalization);
+        if (it.note) details.push(it.note);
+        var extra = details.length ? ' (' + details.join(' — ') + ')' : '';
         lines.push('• ' + it.name + ' — ' + it.qty + ' unidades' + extra);
       });
-      if (personalizacion) { lines.push(''); lines.push('Personalización: ' + personalizacion); }
       if (comentarios) lines.push('Comentarios: ' + comentarios);
       lines.push('');
       lines.push('Quedo a la espera de la cotización.');
@@ -871,7 +957,9 @@ function buildQuotePage() {
       formSubmitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
 
       var fd = new FormData(clientForm);
-      fd.append('personalizacion', getPersonalization());
+      var personalizaciones = Q.getItems().filter(function (it) { return it.personalization; })
+        .map(function (it) { return it.name + ': ' + it.personalization; }).join(', ');
+      fd.append('personalizacion', personalizaciones);
       fd.append('comentarios', document.getElementById('quoteComments').value.trim());
       fd.append('mensaje', buildMessage());
 

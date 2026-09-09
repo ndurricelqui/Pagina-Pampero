@@ -170,6 +170,17 @@ footer{background:#0a0a0a;color:#666;padding:4rem 2.5rem 2rem}
 .quote-item__img{width:72px;height:96px;object-fit:cover;object-position:center top;background:var(--gray-bg);flex-shrink:0}
 .quote-item__name{font-size:.85rem;font-weight:700;text-transform:uppercase;color:var(--black);margin-bottom:.25rem}
 .quote-item__cat{font-size:.68rem;color:var(--gray-mid);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+.quote-item__opts{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:.5rem}
+.quote-item__opts label{display:flex;flex-direction:column;gap:.2rem;font-size:.62rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--gray-mid)}
+.quote-item__color,.quote-item__personalize{padding:.45rem .6rem;border:1.5px solid var(--border);font-family:'Barlow',sans-serif;font-size:.75rem;font-weight:600;color:var(--black);background:#fff;outline:none;cursor:pointer;-webkit-appearance:none}
+.quote-item__color:focus,.quote-item__personalize:focus{border-color:var(--yellow)}
+.quote-item__addcolor{margin-top:.5rem}
+.quote-item__addcolor-picker{display:flex;flex-wrap:wrap;gap:.35rem;align-items:center;margin-top:.4rem}
+.quote-item__addcolor-picker[hidden]{display:none}
+.quote-item__addcolor select{padding:.28rem .45rem;border:1.5px solid var(--border);font-family:'Barlow',sans-serif;font-size:.65rem;font-weight:600;color:var(--black);background:#fff;outline:none;cursor:pointer;-webkit-appearance:none}
+.quote-item__addcolor-btn{display:inline-flex;align-items:center;gap:.25rem;background:transparent;border:1.5px solid var(--black);color:var(--black);font-size:.6rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:.3rem .55rem;cursor:pointer;transition:background .18s,color .18s;white-space:nowrap}
+.quote-item__addcolor-btn:hover{background:var(--black);color:#fff}
+.quote-item__addcolor-btn[hidden]{display:none}
 .quote-item__note{width:100%;padding:.5rem .65rem;border:1.5px solid var(--border);font-family:'Barlow',sans-serif;font-size:.78rem;outline:none}
 .quote-item__note:focus{border-color:var(--yellow)}
 .quote-item__qty{display:flex;flex-direction:column;align-items:center;gap:.3rem}
@@ -181,10 +192,6 @@ footer{background:#0a0a0a;color:#666;padding:4rem 2.5rem 2rem}
 @media(max-width:600px){.quote-item{grid-template-columns:56px 1fr;grid-template-rows:auto auto}.quote-item__img{width:56px;height:75px}.quote-item__qty{grid-column:1/2;flex-direction:row;justify-content:flex-start;gap:.5rem}.quote-item__remove{grid-column:2/3;grid-row:2/3;justify-self:end}}
 .quote-section{margin-bottom:2.5rem}
 .quote-section__title{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.15rem;text-transform:uppercase;margin-bottom:1rem}
-.quote-personalize{display:flex;flex-wrap:wrap;gap:.6rem}
-.quote-personalize__opt{display:inline-flex;align-items:center;gap:.5rem;background:var(--gray-bg);border:1.5px solid transparent;font-size:.8rem;font-weight:600;color:var(--black);padding:.6rem 1rem;cursor:pointer;transition:border-color .18s}
-.quote-personalize__opt input{accent-color:var(--yellow)}
-.quote-personalize__opt.active{border-color:var(--yellow)}
 .quote-submit-wa{display:flex;align-items:center;justify-content:center;gap:.65rem;background:#25D366;color:#fff;width:100%;font-size:.9rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:1.15rem;border:none;cursor:pointer;transition:background .18s;margin-bottom:.85rem}
 .quote-submit-wa:hover{background:#1fba58}
 .quote-submit-secondary{display:flex;align-items:center;justify-content:center;gap:.6rem;background:transparent;color:var(--black);width:100%;font-size:.82rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:1rem;border:2px solid var(--black);cursor:pointer;transition:background .18s,color .18s}
@@ -238,7 +245,7 @@ footer{background:#0a0a0a;color:#666;padding:4rem 2.5rem 2rem}
           <div class="article__swatches"><button class="article__swatch active" style="background:#1a3a6b" title="Azul" data-label="Azul" data-imgs='["https://pampero.com.ar/wp-content/uploads/2024/09/DSC05031-580x785.jpg"]' data-oos="0" onclick="pmpSelectColor(this)"></button><button class="article__swatch article__swatch--white" style="background:#ffffff" title="Blanco" data-label="Blanco" data-imgs='["https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_6907-580x785.jpg"]' data-oos="0" onclick="pmpSelectColor(this)"></button><button class="article__swatch" style="background:#8a8a8a" title="Gris Melange" data-label="Gris Melange" data-imgs='["https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_6595-580x785.jpg"]' data-oos="0" onclick="pmpSelectColor(this)"></button><button class="article__swatch" style="background:#111111" title="Negro" data-label="Negro" data-imgs='["https://pampero.com.ar/wp-content/uploads/2024/09/DSC05031-580x785.jpg"]' data-oos="0" onclick="pmpSelectColor(this)"></button><button class="article__swatch" style="background:#c41e3a" title="Rojo" data-label="Rojo" data-imgs='["https://pampero.com.ar/wp-content/uploads/2024/09/DSC05031-580x785.jpg"]' data-oos="0" onclick="pmpSelectColor(this)"></button><button class="article__swatch" style="background:#2d6a2d" title="Verde" data-label="Verde" data-imgs='["https://pampero.com.ar/wp-content/uploads/2024/09/DSC05031-580x785.jpg"]' data-oos="0" onclick="pmpSelectColor(this)"></button></div>
         </div>
         <a class="article__wa" id="waBtn" href="https://wa.me/5493513104836?text=Hola%20Pampero%20C%C3%B3rdoba!%20Quiero%20consultar%20sobre%20Chomba%20Pique%20B%C3%A1sica%20%E2%80%94%20Azul" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Consultar por WhatsApp</a>
-        <button type="button" class="article__addquote js-add-to-quote" data-id="camisas__chomba-pique-basica" data-name="Chomba Pique Básica" data-category="camisas" data-category-label="Camisas y Remeras" data-img="https://pampero.com.ar/wp-content/uploads/2024/09/DSC05031-580x785.jpg" data-label="Agregar al presupuesto"><i class="js-add-to-quote-icon fas fa-plus"></i> <span class="js-add-to-quote-label">Agregar al presupuesto</span></button>
+        <button type="button" class="article__addquote js-add-to-quote" data-id="camisas__chomba-pique-basica" data-name="Chomba Pique Básica" data-category="camisas" data-category-label="Camisas y Remeras" data-img="https://pampero.com.ar/wp-content/uploads/2024/09/DSC05031-580x785.jpg" data-colors="[{&quot;label&quot;:&quot;Azul&quot;,&quot;hex&quot;:&quot;#1a3a6b&quot;,&quot;img&quot;:&quot;https://pampero.com.ar/wp-content/uploads/2024/09/DSC05031-580x785.jpg&quot;},{&quot;label&quot;:&quot;Blanco&quot;,&quot;hex&quot;:&quot;#ffffff&quot;,&quot;img&quot;:&quot;https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_6907-580x785.jpg&quot;},{&quot;label&quot;:&quot;Gris Melange&quot;,&quot;hex&quot;:&quot;#8a8a8a&quot;,&quot;img&quot;:&quot;https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_6595-580x785.jpg&quot;},{&quot;label&quot;:&quot;Negro&quot;,&quot;hex&quot;:&quot;#111111&quot;,&quot;img&quot;:&quot;https://pampero.com.ar/wp-content/uploads/2024/09/DSC05031-580x785.jpg&quot;},{&quot;label&quot;:&quot;Rojo&quot;,&quot;hex&quot;:&quot;#c41e3a&quot;,&quot;img&quot;:&quot;https://pampero.com.ar/wp-content/uploads/2024/09/DSC05031-580x785.jpg&quot;},{&quot;label&quot;:&quot;Verde&quot;,&quot;hex&quot;:&quot;#2d6a2d&quot;,&quot;img&quot;:&quot;https://pampero.com.ar/wp-content/uploads/2024/09/DSC05031-580x785.jpg&quot;}]" data-color="Azul" data-label="Agregar al presupuesto"><i class="js-add-to-quote-icon fas fa-plus"></i> <span class="js-add-to-quote-label">Agregar al presupuesto</span></button>
       </div>
     </div>
     
@@ -339,6 +346,12 @@ footer{background:#0a0a0a;color:#666;padding:4rem 2.5rem 2rem}
       pmpSetImage(null, imgs[0]);
       var waBtn = document.getElementById('waBtn');
       waBtn.href = 'https://wa.me/5493513104836?text=' + encodeURIComponent('Hola Pampero Córdoba! Quiero consultar sobre Chomba Pique Básica — ' + label);
+      var addQuoteBtn = document.querySelector('.js-add-to-quote');
+      if (addQuoteBtn) {
+        addQuoteBtn.setAttribute('data-color', label);
+        addQuoteBtn.setAttribute('data-img', imgs[0]);
+      }
+      if (window.PamperoQuote) window.PamperoQuote.syncAddButtons();
     }
   </script>
 <script src="/assets/quote.js" defer></script>

@@ -46,21 +46,41 @@
     return -1;
   }
 
+  // Un mismo artículo puede pedirse en más de un color: el color elegido
+  // pasa a formar parte del identificador del ítem, para que cada color
+  // quede como una fila independiente dentro del presupuesto.
+  function slugifyColor(label) {
+    return String(label || '')
+      .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-+|-+$/g, '');
+  }
+
+  function composeItemId(id, color) {
+    return color ? id + '__c-' + slugifyColor(color) : id;
+  }
+
   // ── API pública del "presupuesto" ───────────────────────
   function addItem(product) {
     var items = getItems();
-    var idx = findIndex(items, product.id);
+    var itemId = composeItemId(product.id, product.color);
+    var idx = findIndex(items, itemId);
     if (idx !== -1) {
       return { added: false, duplicate: true, items: items };
     }
     items.push({
-      id: product.id,
+      id: itemId,
+      baseId: product.id,
       name: product.name,
       category: product.category,
       categoryLabel: product.categoryLabel,
       img: product.img || '',
       qty: 1,
       note: '',
+      colors: product.colors || [],
+      color: product.color || '',
+      personalization: '',
     });
     saveItems(items);
     return { added: true, duplicate: false, items: items };
@@ -88,6 +108,32 @@
     var idx = findIndex(items, id);
     if (idx === -1) return items;
     items[idx].note = note || '';
+    saveItems(items);
+    return items;
+  }
+
+  function updateColor(id, color) {
+    var items = getItems();
+    var idx = findIndex(items, id);
+    if (idx === -1) return items;
+    items[idx].color = color || '';
+    if (color && Array.isArray(items[idx].colors)) {
+      for (var i = 0; i < items[idx].colors.length; i++) {
+        if (items[idx].colors[i].label === color && items[idx].colors[i].img) {
+          items[idx].img = items[idx].colors[i].img;
+          break;
+        }
+      }
+    }
+    saveItems(items);
+    return items;
+  }
+
+  function updatePersonalization(id, personalization) {
+    var items = getItems();
+    var idx = findIndex(items, id);
+    if (idx === -1) return items;
+    items[idx].personalization = personalization || '';
     saveItems(items);
     return items;
   }
@@ -127,8 +173,8 @@
     var buttons = document.querySelectorAll('.js-add-to-quote');
     for (var i = 0; i < buttons.length; i++) {
       var btn = buttons[i];
-      var added = hasItem(btn.getAttribute('data-id'));
-      setButtonState(btn, added);
+      var itemId = composeItemId(btn.getAttribute('data-id'), btn.getAttribute('data-color') || '');
+      setButtonState(btn, hasItem(itemId));
     }
   }
 
@@ -179,12 +225,19 @@
     if (!btn) return;
     e.preventDefault();
 
+    var colorsAttr = btn.getAttribute('data-colors');
+    var colors = [];
+    if (colorsAttr) {
+      try { colors = JSON.parse(colorsAttr); } catch (e) { colors = []; }
+    }
     var product = {
       id: btn.getAttribute('data-id'),
       name: btn.getAttribute('data-name'),
       category: btn.getAttribute('data-category'),
       categoryLabel: btn.getAttribute('data-category-label'),
       img: btn.getAttribute('data-img'),
+      colors: colors,
+      color: btn.getAttribute('data-color') || '',
     };
     if (!product.id || !product.name) return;
 
@@ -228,6 +281,8 @@
     removeItem: removeItem,
     updateQty: updateQty,
     updateNote: updateNote,
+    updateColor: updateColor,
+    updatePersonalization: updatePersonalization,
     hasItem: hasItem,
     getCount: getCount,
     waLink: waLink,
