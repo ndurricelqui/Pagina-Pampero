@@ -28,7 +28,9 @@
   font-size: .68rem; font-weight: 900; border-radius: 999px; line-height: 1;
 }
 .quote-badge--empty { background: #333; color: #999; }
-@media (max-width: 768px) {
+/* Por debajo de 900px el texto "Mi presupuesto" no entra junto al logo:
+   queda solo el ícono con el contador. */
+@media (max-width: 900px) {
   .navbar__quote-link { padding: .5rem .7rem; font-size: .68rem; gap: .35rem; }
   .navbar__quote-link span.navbar__quote-link-text { display: none; }
 }

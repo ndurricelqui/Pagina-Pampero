@@ -65,6 +65,7 @@
       background: var(--black);
       display: flex; align-items: center;
       justify-content: space-between;
+      gap: 1rem;
       padding: 0 2.5rem;
       height: 70px;
     }
@@ -252,7 +253,8 @@
     }
     .instagram-banner__text h3 {
       font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 900; font-size: 1.75rem;
+      font-weight: 900; font-size: clamp(1.3rem, 6vw, 1.75rem);
+      overflow-wrap: anywhere;
       text-transform: uppercase; line-height: 1;
     }
     .instagram-banner__text span {
@@ -898,14 +900,19 @@
       .chosen__grid--5 { grid-template-columns: repeat(3, 1fr); }
       .footer__grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
     }
-    @media (max-width: 768px) {
+    /* El menú horizontal no entra junto al logo y los botones por debajo
+       de ~1280px: ahí se colapsa en el botón hamburguesa. */
+    @media (max-width: 1280px) {
       .navbar__menu { display: none; flex-direction: column; gap: 0;
         position: absolute; top: 70px; left: 0; right: 0;
         background: var(--black); padding: 1rem 2.5rem 1.5rem;
       }
+      .navbar__menu li { padding: .5rem 0; }
       .navbar__menu.open { display: flex; }
-      .navbar__cta { display: none; }
       .hamburger { display: flex; }
+    }
+    @media (max-width: 768px) {
+      .navbar__cta { display: none; }
       .about__grid { grid-template-columns: 1fr; gap: 3rem; }
       .about__img-stamp { bottom: 1rem; right: 1rem; }
       .quote__grid { grid-template-columns: 1fr; gap: 2.5rem; }

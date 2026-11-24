@@ -233,8 +233,11 @@ footer{background:#0a0a0a;color:#666;padding:4rem 2.5rem 2rem}
 .footer__bottom a{color:var(--yellow)}
 .wa{position:fixed;bottom:1.75rem;right:1.75rem;z-index:900;background:#25D366;color:#fff;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.55rem;box-shadow:0 4px 18px rgba(37,211,102,.55);transition:transform .2s}
 .wa:hover{transform:scale(1.1);color:#fff}
-@media(max-width:768px){.navbar{padding:0 1.25rem}.container{padding:0 1.25rem}}
-@media(max-width:400px){.navbar__actions{gap:.4rem}.navbar__cta{padding:.55rem .75rem;font-size:.6rem}}
+.navbar{gap:1rem}
+@media(max-width:1024px){.footer__grid{grid-template-columns:1fr 1fr;gap:2rem}}
+@media(max-width:768px){.navbar{padding:0 1.25rem}.container{padding:0 1.25rem}.footer__grid{grid-template-columns:1fr}}
+@media(max-width:600px){.navbar__logo-sep,.navbar__logo-city{display:none}.navbar__actions{gap:.5rem}}
+@media(max-width:400px){.navbar{padding:0 1rem}.navbar__logo img{height:30px}.navbar__actions{gap:.4rem}.navbar__cta{padding:.55rem .75rem;font-size:.6rem}}
 
 /* Formulario (idéntico al de index.html #presupuesto) */
 .form{background:var(--gray-bg);padding:2.5rem}
