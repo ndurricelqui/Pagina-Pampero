@@ -87,6 +87,12 @@ const CATEGORY_META = {
     img: 'https://pampero.com.ar/wp-content/uploads/2025/07/BAJO_PORTADA_SEGURIDAD.jpg',
     icon: 'fa-hard-hat',
   },
+  merchandising: {
+    title: 'Merchandising',
+    desc: 'Vasos y botellas térmicas, gorras, mochilas y más artículos promocionales personalizados con tu logo.',
+    img: '/img/categorias/merchandising.webp',
+    icon: 'fa-gift',
+  },
 };
 
 // ── 3. Slugify ──
@@ -183,6 +189,11 @@ main{min-height:40vh;padding-bottom:4rem}
 .article__name{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:2.4rem;text-transform:uppercase;line-height:1;color:var(--black)}
 .article__desc{font-size:.92rem;color:var(--gray-txt);line-height:1.7;border-top:1px solid var(--border);padding-top:.9rem}
 .article__sizes-wrap{display:flex;align-items:center;gap:.65rem;flex-wrap:wrap}
+/* Ficha técnica opcional (campo specs: [['Etiqueta','Valor'], ...]) */
+.article__specs{display:grid;grid-template-columns:max-content 1fr;gap:.45rem 1rem;margin:0;font-size:.85rem;border-top:1px solid var(--border);padding-top:.9rem}
+.article__specs dt{font-size:.68rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--black);padding-top:.12rem}
+.article__specs dd{margin:0;color:var(--gray-txt);line-height:1.5}
+@media(max-width:480px){.article__specs{grid-template-columns:1fr;gap:.15rem}.article__specs dd{margin-bottom:.45rem}}
 .article__sizes-label{font-size:.68rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--black)}
 .article__sizes-val{font-size:.85rem;font-weight:600;color:var(--gray-txt);background:var(--gray-bg);padding:.3rem .75rem;border:1px solid var(--border)}
 .article__colors-label{font-size:.68rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--black);margin-bottom:.3rem}
@@ -409,6 +420,16 @@ function readImageSize(relUrl) {
 }
 
 // ── Tabla de talles + guía de medición (sección al final de la página, imágenes a mitad de tamaño y expandibles) ──
+// Ficha técnica del artículo (opcional). Cada fila es [etiqueta, valor];
+// todo se escapa para evitar inyección de HTML.
+function renderSpecs(p) {
+  if (!Array.isArray(p.specs) || !p.specs.length) return '';
+  const rows = p.specs
+    .filter((r) => Array.isArray(r) && r[0] && r[1])
+    .map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join('');
+  return rows ? `<dl class="article__specs" aria-label="Ficha técnica">${rows}</dl>` : '';
+}
+
 function renderSizeChart(p) {
   if (!p.sizeChartImg && !p.measureGuideImg) return '';
   const imgs = [];
@@ -484,7 +505,7 @@ function pageShell({ title, description, canonical, ogImage, extraHead = '', bod
 <meta property="og:title" content="${esc(title)}" />
 <meta property="og:description" content="${esc(description)}" />
 <meta property="og:url" content="${canonical}" />
-${ogImage ? `<meta property="og:image" content="${ogImage}" />` : ''}
+${ogImage ? `<meta property="og:image" content="${ogImage.startsWith('/') ? SITE_URL + ogImage : ogImage}" />` : ''}
 <meta name="twitter:card" content="summary_large_image" />
 ${HEAD_FONTS}
 <style>${SHARED_CSS}</style>
@@ -596,6 +617,7 @@ Object.keys(PRODUCTS).forEach((catSlug) => {
         <span class="article__cat">${esc(meta.title)}</span>
         <h1 class="article__name">${esc(p.name)}</h1>
         ${p.desc ? `<p class="article__desc">${p.desc}</p>` : ''}
+        ${renderSpecs(p)}
         ${p.sizes ? `<div class="article__sizes-wrap"><span class="article__sizes-label">Talles</span><span class="article__sizes-val">${esc(p.sizes)}</span></div>` : ''}
         ${colorsBlock}
         <a class="article__wa" id="waBtn" href="${initialWa}" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Consultar por WhatsApp</a>

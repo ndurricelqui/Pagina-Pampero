@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Merchandising | Pampero Córdoba</title>
+<meta name="description" content="Vasos y botellas térmicas, gorras, mochilas y más artículos promocionales personalizados con tu logo. Venta corporativa y mayorista en Córdoba, Argentina." />
+<link rel="canonical" href="https://www.pamperocordoba.com/merchandising/" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Merchandising | Pampero Córdoba" />
+<meta property="og:description" content="Vasos y botellas térmicas, gorras, mochilas y más artículos promocionales personalizados con tu logo. Venta corporativa y mayorista en Córdoba, Argentina." />
+<meta property="og:url" content="https://www.pamperocordoba.com/merchandising/" />
+<meta property="og:image" content="https://www.pamperocordoba.com/img/categorias/merchandising.webp" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Barlow+Condensed:wght@600;700;800;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+<link rel="stylesheet" href="/assets/quote.css" />
+<link rel="icon" type="image/png" href="https://pampero.com.ar/wp-content/uploads/2024/09/FAV_PAMPERO.png" />
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Barlow',sans-serif;background:#fff;color:#111;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+:root{--yellow:#FFD100;--black:#111111;--white:#FFFFFF;--gray-bg:#F4F4F4;--gray-mid:#999999;--gray-txt:#444444;--border:#E0E0E0}
+.topbar{background:var(--yellow);color:var(--black);text-align:center;font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:.45rem 1rem}
+.navbar{position:sticky;top:0;z-index:1000;background:var(--black);display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;height:70px}
+.navbar__logo{display:flex;align-items:center;gap:.85rem}
+.navbar__logo img{height:38px;width:auto;filter:brightness(0) invert(1)}
+.navbar__logo-sep{width:1px;height:28px;background:#444;margin:0 .5rem}
+.navbar__logo-city{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1.3rem;color:#fff;letter-spacing:.18em;text-transform:uppercase}
+.navbar__actions{display:flex;align-items:center;gap:.75rem}
+.navbar__cta{background:var(--yellow);color:var(--black);font-size:.75rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:.6rem 1.5rem;border-radius:2px;white-space:nowrap}
+.navbar__cta:hover{opacity:.88}
+.container{max-width:1200px;margin:0 auto;padding:0 2.5rem}
+.breadcrumb{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--gray-mid);margin:1.75rem 0 0}
+.breadcrumb a{color:var(--gray-mid);transition:color .18s}
+.breadcrumb a:hover{color:var(--black)}
+.breadcrumb span.sep{color:#ccc}
+.breadcrumb span.current{color:var(--black)}
+.page-back{display:inline-flex;align-items:center;gap:.5rem;background:none;border:none;cursor:pointer;font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-mid);padding:1.25rem 0 0;font-family:inherit}
+.page-back:hover{color:var(--black)}
+.page-header{display:flex;justify-content:space-between;align-items:flex-end;margin:1.25rem 0 2.5rem;flex-wrap:wrap;gap:1rem;padding-bottom:2rem;border-bottom:1px solid var(--border)}
+.section-label{display:inline-block;font-size:.68rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--gray-mid);margin-bottom:.65rem}
+.section-label--yellow{color:#c9a400}
+.section-title{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(2.2rem,4vw,3.4rem);text-transform:uppercase;line-height:1;letter-spacing:-.01em;color:var(--black);margin-bottom:.5rem}
+.section-desc{color:var(--gray-txt);font-size:1rem;max-width:520px}
+.btn{display:inline-flex;align-items:center;gap:.5rem;font-family:'Barlow',sans-serif;font-size:.8rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:.85rem 2rem;border-radius:2px;transition:all .18s;border:2px solid transparent;cursor:pointer}
+.btn--outline-black{background:transparent;color:var(--black);border-color:var(--black)}
+.btn--outline-black:hover{background:var(--black);color:#fff}
+main{min-height:40vh;padding-bottom:4rem}
+.prod-page__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:.5rem}
+.prod-card{background:var(--gray-bg)}
+.prod-card__img{aspect-ratio:3/4;overflow:hidden;display:block;position:relative}
+.prod-card__img img{width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform .5s ease}
+.prod-card:hover .prod-card__img img{transform:scale(1.04)}
+.prod-card__badge{position:absolute;top:.6rem;left:.6rem;z-index:2;background:#e11;color:#fff;font-size:.62rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:.3rem .6rem;pointer-events:none}
+.prod-card__body{padding:.75rem 1rem 1rem}
+.prod-card__name{font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--black);margin-bottom:.4rem;line-height:1.3;display:block}
+.prod-card__name:hover{color:#8a7300}
+.prod-card__desc{font-size:.75rem;color:var(--gray-txt);line-height:1.5;margin-bottom:.5rem}
+.prod-card__sizes{display:inline-block;font-size:.65rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gray-mid);background:#e8e8e8;padding:.18rem .55rem;margin-bottom:.55rem}
+.prod-card__btn{display:inline-flex;align-items:center;gap:.35rem;background:var(--yellow);color:var(--black);font-size:.65rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:.35rem .85rem;border:none;cursor:pointer;transition:opacity .18s}
+.prod-card__btn:hover{opacity:.8}
+@media(max-width:1024px){.prod-page__grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:768px){.prod-page__grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:400px){.prod-page__grid{grid-template-columns:1fr}}
+
+/* Article page */
+.article{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;margin-top:.5rem;align-items:start}
+.article__gallery{display:flex;flex-direction:column;background:var(--gray-bg)}
+.article__main-img{aspect-ratio:3/4;overflow:hidden;position:relative}
+.article__main-img img{width:100%;height:100%;object-fit:cover;object-position:center top;transition:opacity .2s}
+.article__thumbs{display:flex;gap:.5rem;padding:.75rem;flex-wrap:wrap;background:#eaeaea}
+.article__thumb{width:64px;height:82px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:border-color .15s;flex-shrink:0;background:none;padding:0}
+.article__thumb:hover{border-color:#aaa}
+.article__thumb.active{border-color:var(--yellow)}
+.article__thumb img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.article__info{display:flex;flex-direction:column;gap:.9rem}
+.article__cat{font-size:.68rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--gray-mid)}
+.article__name{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:2.4rem;text-transform:uppercase;line-height:1;color:var(--black)}
+.article__desc{font-size:.92rem;color:var(--gray-txt);line-height:1.7;border-top:1px solid var(--border);padding-top:.9rem}
+.article__sizes-wrap{display:flex;align-items:center;gap:.65rem;flex-wrap:wrap}
+/* Ficha técnica opcional (campo specs: [['Etiqueta','Valor'], ...]) */
+.article__specs{display:grid;grid-template-columns:max-content 1fr;gap:.45rem 1rem;margin:0;font-size:.85rem;border-top:1px solid var(--border);padding-top:.9rem}
+.article__specs dt{font-size:.68rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--black);padding-top:.12rem}
+.article__specs dd{margin:0;color:var(--gray-txt);line-height:1.5}
+@media(max-width:480px){.article__specs{grid-template-columns:1fr;gap:.15rem}.article__specs dd{margin-bottom:.45rem}}
+.article__sizes-label{font-size:.68rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--black)}
+.article__sizes-val{font-size:.85rem;font-weight:600;color:var(--gray-txt);background:var(--gray-bg);padding:.3rem .75rem;border:1px solid var(--border)}
+.article__colors-label{font-size:.68rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--black);margin-bottom:.3rem}
+.article__color-name{font-size:.82rem;font-weight:600;color:var(--gray-mid);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.5rem;min-height:1.1em}
+.article__swatches{display:flex;gap:.5rem;flex-wrap:wrap}
+.article__swatch{width:30px;height:30px;border-radius:50%;border:2.5px solid transparent;cursor:pointer;transition:border-color .15s,transform .15s;outline:none;padding:0}
+.article__swatch:hover{transform:scale(1.1)}
+.article__swatch.active{border-color:var(--black) !important;transform:scale(1.15)}
+.article__swatch--white{border-color:#bbb !important}
+.article__swatch--white.active{border-color:var(--black) !important}
+.article__swatch--oos{position:relative;cursor:not-allowed;opacity:.45}
+.article__swatch--oos:hover{transform:none}
+.article__swatch--oos::after{content:'';position:absolute;top:50%;left:50%;width:140%;height:2px;background:#e11;transform:translate(-50%,-50%) rotate(-45deg)}
+.article__wa{display:flex;align-items:center;justify-content:center;gap:.65rem;background:#25D366;color:#fff;font-size:.85rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:1.1rem;border:none;cursor:pointer;text-decoration:none;margin-top:.5rem;transition:background .18s}
+.article__wa:hover{background:#1fba58;color:#fff}
+.article__wa i{font-size:1.15rem}
+@media(max-width:760px){.article{grid-template-columns:1fr;gap:1.5rem}.article__name{font-size:1.9rem}}
+
+/* Tabla de talles + guía de medición (sección al final de la página) */
+.sizechart-section{margin-top:3rem;padding-top:2rem;border-top:1px solid var(--border)}
+.sizechart-section__label{font-size:.68rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--black);margin-bottom:1rem}
+.sizechart-section__imgs{display:flex;align-items:flex-start;gap:1.5rem;flex-wrap:wrap}
+.sizechart-section__imgs img{height:160px;width:auto;max-width:100%;flex:0 1 auto;border:1px solid var(--border);cursor:zoom-in;transition:opacity .18s}
+.sizechart-section__imgs img:hover{opacity:.85}
+.sizechart-lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:2000;align-items:center;justify-content:center;padding:2rem;cursor:zoom-out}
+.sizechart-lightbox.open{display:flex}
+.sizechart-lightbox img{max-width:92vw;max-height:92vh;object-fit:contain;border:none;cursor:zoom-out}
+@media(max-width:600px){.sizechart-section__imgs img{width:100% !important;height:auto !important}}
+
+/* Footer + WA float (idénticos a index.html) */
+footer{background:#0a0a0a;color:#666;padding:4rem 2.5rem 2rem}
+.footer__grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2.5fr 1fr 1fr 1fr;gap:3rem;padding-bottom:3rem;border-bottom:1px solid #1e1e1e}
+.footer__logo-wrap{display:flex;align-items:center;gap:.75rem;margin-bottom:1rem}
+.footer__logo-wrap img{height:30px;filter:brightness(0) invert(1)}
+.footer__logo-city{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.3rem;color:#fff;text-transform:uppercase;letter-spacing:.08em}
+.footer__logo-sub{font-size:.6rem;color:var(--yellow);font-weight:700;letter-spacing:.15em;text-transform:uppercase}
+.footer__desc{font-size:.83rem;line-height:1.75;max-width:280px;color:#555}
+.footer__social{display:flex;gap:.6rem;margin-top:1.25rem}
+.footer__social a{width:34px;height:34px;background:#1a1a1a;display:flex;align-items:center;justify-content:center;color:#666;font-size:.85rem;transition:all .18s}
+.footer__social a:hover{background:var(--yellow);color:var(--black)}
+.footer__col h4{font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.14em;color:#fff;margin-bottom:1.1rem}
+.footer__col ul{list-style:none}
+.footer__col li{margin-bottom:.6rem}
+.footer__col li a{font-size:.82rem;color:#555;transition:color .18s}
+.footer__col li a:hover{color:var(--yellow)}
+.footer__bottom{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding-top:2rem;flex-wrap:wrap;gap:.75rem}
+.footer__bottom p{font-size:.75rem;color:#333}
+.footer__bottom a{color:var(--yellow)}
+.wa{position:fixed;bottom:1.75rem;right:1.75rem;z-index:900;background:#25D366;color:#fff;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.55rem;box-shadow:0 4px 18px rgba(37,211,102,.55);transition:transform .2s}
+.wa:hover{transform:scale(1.1);color:#fff}
+.navbar{gap:1rem}
+@media(max-width:1024px){.footer__grid{grid-template-columns:1fr 1fr;gap:2rem}}
+@media(max-width:768px){.navbar{padding:0 1.25rem}.container{padding:0 1.25rem}.footer__grid{grid-template-columns:1fr}}
+@media(max-width:600px){.navbar__logo-sep,.navbar__logo-city{display:none}.navbar__actions{gap:.5rem}}
+@media(max-width:400px){.navbar{padding:0 1rem}.navbar__logo img{height:30px}.navbar__actions{gap:.4rem}.navbar__cta{padding:.55rem .75rem;font-size:.6rem}}
+
+/* Formulario (idéntico al de index.html #presupuesto) */
+.form{background:var(--gray-bg);padding:2.5rem}
+.form__title{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.5rem;text-transform:uppercase;margin-bottom:1.75rem;padding-bottom:1.25rem;border-bottom:2px solid var(--yellow)}
+.form__row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.form__group{margin-bottom:1.1rem}
+.form__group label{display:block;font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--black);margin-bottom:.4rem}
+.form__group input,.form__group select,.form__group textarea{width:100%;padding:.75rem 1rem;border:1.5px solid var(--border);background:#fff;font-family:'Barlow',sans-serif;font-size:.92rem;color:var(--black);border-radius:0;outline:none;transition:border-color .18s;-webkit-appearance:none}
+.form__group input:focus,.form__group select:focus,.form__group textarea:focus{border-color:var(--yellow)}
+.form__group textarea{resize:vertical;min-height:90px}
+.form__check{display:flex;gap:.65rem;align-items:flex-start;margin-bottom:1.5rem}
+.form__check input{width:auto;margin-top:.2rem;accent-color:var(--yellow)}
+.form__check label{font-size:.8rem;color:var(--gray-txt);font-weight:400;text-transform:none;letter-spacing:0}
+.btn--submit{background:var(--black);color:#fff;width:100%;justify-content:center;font-size:.82rem;padding:1.1rem;border:2px solid var(--black);transition:background .18s,color .18s}
+.btn--submit:hover{background:#fff;color:var(--black)}
+#formSuccess{display:none;text-align:center;padding:3rem 2rem}
+#formSuccess i{font-size:3rem;color:var(--yellow);display:block;margin-bottom:1rem}
+#formSuccess h3{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.75rem;text-transform:uppercase;margin-bottom:.5rem}
+#formSuccess p{color:var(--gray-txt);font-size:.9rem}
+
+/* Página "Armá tu presupuesto" */
+.quote-page__subtitle{color:var(--gray-txt);font-size:.95rem;max-width:640px;margin:-1.25rem 0 2.5rem}
+.quote-empty{text-align:center;padding:4rem 1rem;background:var(--gray-bg)}
+.quote-empty i{font-size:2.6rem;color:var(--gray-mid);margin-bottom:1rem;display:block}
+.quote-empty h2{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.6rem;text-transform:uppercase;margin-bottom:.5rem}
+.quote-empty p{color:var(--gray-txt);font-size:.9rem;margin-bottom:1.75rem}
+.quote-empty__cats{display:flex;flex-wrap:wrap;gap:.75rem;justify-content:center;margin-top:2rem}
+.quote-empty__cat{display:inline-flex;align-items:center;gap:.5rem;background:#fff;border:1.5px solid var(--border);color:var(--black);font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;padding:.65rem 1.1rem;transition:border-color .18s}
+.quote-empty__cat:hover{border-color:var(--black)}
+.quote-items{display:flex;flex-direction:column;gap:1px;background:var(--border);margin-bottom:2.5rem}
+.quote-item{display:grid;grid-template-columns:72px 1fr auto auto;gap:1rem;align-items:center;background:#fff;padding:1rem}
+.quote-item__img{width:72px;height:96px;object-fit:cover;object-position:center top;background:var(--gray-bg);flex-shrink:0}
+.quote-item__name{font-size:.85rem;font-weight:700;text-transform:uppercase;color:var(--black);margin-bottom:.25rem}
+.quote-item__cat{font-size:.68rem;color:var(--gray-mid);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+.quote-item__opts{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:.5rem}
+.quote-item__opts label{display:flex;flex-direction:column;gap:.2rem;font-size:.62rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--gray-mid)}
+.quote-item__color,.quote-item__personalize{padding:.45rem .6rem;border:1.5px solid var(--border);font-family:'Barlow',sans-serif;font-size:.75rem;font-weight:600;color:var(--black);background:#fff;outline:none;cursor:pointer;-webkit-appearance:none}
+.quote-item__color:focus,.quote-item__personalize:focus{border-color:var(--yellow)}
+.quote-item__addcolor{margin-top:.5rem}
+.quote-item__addcolor-picker{display:flex;flex-wrap:wrap;gap:.35rem;align-items:center;margin-top:.4rem}
+.quote-item__addcolor-picker[hidden]{display:none}
+.quote-item__addcolor select{padding:.28rem .45rem;border:1.5px solid var(--border);font-family:'Barlow',sans-serif;font-size:.65rem;font-weight:600;color:var(--black);background:#fff;outline:none;cursor:pointer;-webkit-appearance:none}
+.quote-item__addcolor-btn{display:inline-flex;align-items:center;gap:.25rem;background:transparent;border:1.5px solid var(--black);color:var(--black);font-size:.6rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:.3rem .55rem;cursor:pointer;transition:background .18s,color .18s;white-space:nowrap}
+.quote-item__addcolor-btn:hover{background:var(--black);color:#fff}
+.quote-item__addcolor-btn[hidden]{display:none}
+.quote-item__note{width:100%;padding:.5rem .65rem;border:1.5px solid var(--border);font-family:'Barlow',sans-serif;font-size:.78rem;outline:none}
+.quote-item__note:focus{border-color:var(--yellow)}
+.quote-item__qty{display:flex;flex-direction:column;align-items:center;gap:.3rem}
+.quote-item__qty label{font-size:.62rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--gray-mid)}
+.quote-item__qty input{width:64px;padding:.5rem;text-align:center;border:1.5px solid var(--border);font-family:'Barlow',sans-serif;font-size:.9rem;font-weight:700;outline:none;-webkit-appearance:none}
+.quote-item__qty input:focus{border-color:var(--yellow)}
+.quote-item__remove{background:none;border:none;color:var(--gray-mid);font-size:1.05rem;cursor:pointer;padding:.5rem;transition:color .18s}
+.quote-item__remove:hover{color:#e11}
+@media(max-width:600px){.quote-item{grid-template-columns:56px 1fr;grid-template-rows:auto auto}.quote-item__img{width:56px;height:75px}.quote-item__qty{grid-column:1/2;flex-direction:row;justify-content:flex-start;gap:.5rem}.quote-item__remove{grid-column:2/3;grid-row:2/3;justify-self:end}}
+.quote-section{margin-bottom:2.5rem}
+.quote-section__title{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.15rem;text-transform:uppercase;margin-bottom:1rem}
+.quote-submit-wa{display:flex;align-items:center;justify-content:center;gap:.65rem;background:#25D366;color:#fff;width:100%;font-size:.9rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:1.15rem;border:none;cursor:pointer;transition:background .18s;margin-bottom:.85rem}
+.quote-submit-wa:hover{background:#1fba58}
+.quote-submit-secondary{display:flex;align-items:center;justify-content:center;gap:.6rem;background:transparent;color:var(--black);width:100%;font-size:.82rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:1rem;border:2px solid var(--black);cursor:pointer;transition:background .18s,color .18s}
+.quote-submit-secondary:hover{background:var(--black);color:#fff}
+.quote-actions-note{font-size:.72rem;color:var(--gray-mid);text-align:center;margin-top:.85rem}
+</style>
+
+</head>
+<body>
+
+  
+  <div class="topbar">Venta Corporativa Pampero &nbsp;·&nbsp; Córdoba, Argentina</div>
+  <nav class="navbar">
+    <a class="navbar__logo" href="/">
+      <img src="https://pampero.com.ar/wp-content/uploads/2024/07/logosimbolo.png" alt="Pampero logo" />
+      <div class="navbar__logo-sep"></div>
+      <span class="navbar__logo-city">Córdoba</span>
+    </a>
+    <div class="navbar__actions">
+      <a class="navbar__quote-link" href="/presupuesto/">
+        <i class="fas fa-file-invoice"></i>
+        <span class="navbar__quote-link-text">Mi presupuesto</span>
+        <span class="quote-badge" data-quote-badge>0</span>
+      </a>
+      <a class="navbar__cta" href="/#presupuesto">Pedir presupuesto</a>
+    </div>
+  </nav>
+  <main class="container">
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="/">Inicio</a><span class="sep">/</span><span class="current">Merchandising</span>
+    </nav>
+    <button class="page-back" onclick="if(document.referrer){history.back()}else{location.href='/'}">
+      <i class="fas fa-arrow-left"></i> Volver
+    </button>
+    <div class="page-header">
+      <div>
+        <span class="section-label">Venta Corporativa</span>
+        <h1 class="section-title">Merchandising</h1>
+        <p class="section-desc">Vasos y botellas térmicas, gorras, mochilas y más artículos promocionales personalizados con tu logo.</p>
+      </div>
+      <a class="btn btn--outline-black" href="/#presupuesto">Pedir presupuesto <i class="fas fa-arrow-right"></i></a>
+    </div>
+    <div class="prod-page__grid">
+      <div class="prod-card">
+      <a class="prod-card__img" href="./jarro-bayo/"><img src="/img/productos/jarro-bayo/verde-1.webp" alt="Jarro Bayo" loading="lazy" style="object-fit:contain;object-position:center center;background:#fff" /></a>
+      <div class="prod-card__body">
+        <a class="prod-card__name" href="./jarro-bayo/">Jarro Bayo</a>
+        <p class="prod-card__desc">Jarro térmico realizado en acero inoxidable en su exterior, y polipropileno de color negro en su interior, con tapa transparente cristal clear con cierre. Producto libre de BPA y aprobado por el I.N.A.L. para el contacto con alimentos. No es apto para lavavajillas. No es apto para microondas. El producto viene presentado en una Gift Box confeccionada en cartulina Kraft ¡personalizala con un mensaje especial!</p>
+        <a class="prod-card__btn" href="https://wa.me/5493513104836?text=Hola%20Pampero%20C%C3%B3rdoba!%20Quiero%20consultar%20sobre%20Jarro%20Bayo%20%E2%80%94%20Verde" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Consultar</a>
+        <button type="button" class="prod-card__addquote js-add-to-quote" data-id="merchandising__jarro-bayo" data-name="Jarro Bayo" data-category="merchandising" data-category-label="Merchandising" data-img="/img/productos/jarro-bayo/verde-1.webp" data-colors="[{&quot;label&quot;:&quot;Verde&quot;,&quot;hex&quot;:&quot;#008000&quot;,&quot;img&quot;:&quot;/img/productos/jarro-bayo/verde-1.webp&quot;},{&quot;label&quot;:&quot;Gris Claro&quot;,&quot;hex&quot;:&quot;#d3d3d3&quot;,&quot;img&quot;:&quot;/img/productos/jarro-bayo/gris-claro-1.webp&quot;}]" data-color="Verde" data-label="Agregar al presupuesto"><i class="js-add-to-quote-icon fas fa-plus"></i> <span class="js-add-to-quote-label">Agregar al presupuesto</span></button>
+      </div></div>
+<div class="prod-card">
+      <a class="prod-card__img" href="./jarro-chalten/"><img src="/img/productos/jarro-chalten/gris-plata-negro-1.webp" alt="Jarro Chaltén" loading="lazy" style="object-fit:contain;object-position:center center;background:#fff" /></a>
+      <div class="prod-card__body">
+        <a class="prod-card__name" href="./jarro-chalten/">Jarro Chaltén</a>
+        <p class="prod-card__desc">Jarro térmico realizado en acero inoxidable en su exterior, y polipropileno de color negro en su interior, con tapa cristal clear y base antideslizante. No es apto para lavavajillas. No es apto para microondas. Producto libre de BPA y aprobado por el I.N.A.L. para el contacto con alimentos.</p>
+        <a class="prod-card__btn" href="https://wa.me/5493513104836?text=Hola%20Pampero%20C%C3%B3rdoba!%20Quiero%20consultar%20sobre%20Jarro%20Chalt%C3%A9n%20%E2%80%94%20Gris%20Plata%20%2F%20Negro" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Consultar</a>
+        <button type="button" class="prod-card__addquote js-add-to-quote" data-id="merchandising__jarro-chalten" data-name="Jarro Chaltén" data-category="merchandising" data-category-label="Merchandising" data-img="/img/productos/jarro-chalten/gris-plata-negro-1.webp" data-colors="[{&quot;label&quot;:&quot;Gris Plata / Negro&quot;,&quot;hex&quot;:&quot;#c0c0c0&quot;,&quot;img&quot;:&quot;/img/productos/jarro-chalten/gris-plata-negro-1.webp&quot;},{&quot;label&quot;:&quot;Negro&quot;,&quot;hex&quot;:&quot;#000000&quot;,&quot;img&quot;:&quot;/img/productos/jarro-chalten/negro-1.webp&quot;},{&quot;label&quot;:&quot;Verde / Negro&quot;,&quot;hex&quot;:&quot;#008000&quot;,&quot;img&quot;:&quot;/img/productos/jarro-chalten/verde-negro-1.webp&quot;}]" data-color="Gris Plata / Negro" data-label="Agregar al presupuesto"><i class="js-add-to-quote-icon fas fa-plus"></i> <span class="js-add-to-quote-label">Agregar al presupuesto</span></button>
+      </div></div>
+<div class="prod-card">
+      <a class="prod-card__img" href="./jarro-puelo/"><img src="/img/productos/jarro-puelo/blanco-1.webp" alt="Jarro Puelo" loading="lazy" style="object-fit:contain;object-position:center center;background:#fff" /></a>
+      <div class="prod-card__body">
+        <a class="prod-card__name" href="./jarro-puelo/">Jarro Puelo</a>
+        <p class="prod-card__desc">Jarro térmico realizado en acero inoxidable en su exterior, y polipropileno de color negro en su interior. Su tapa es transparente cristal clear. ¡Este jarro térmico es la elección perfecta para mantener tu bebida caliente o fría! Capacidad: 590 ml. El producto viene presentado en una GiftBox confeccionada en cartulina Kraft ¡personalizala con un mensaje especial! Producto libre de BPA. Producto aprobado por el I.N.A.L. para el contacto con alimentos.</p>
+        <a class="prod-card__btn" href="https://wa.me/5493513104836?text=Hola%20Pampero%20C%C3%B3rdoba!%20Quiero%20consultar%20sobre%20Jarro%20Puelo%20%E2%80%94%20Blanco" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Consultar</a>
+        <button type="button" class="prod-card__addquote js-add-to-quote" data-id="merchandising__jarro-puelo" data-name="Jarro Puelo" data-category="merchandising" data-category-label="Merchandising" data-img="/img/productos/jarro-puelo/blanco-1.webp" data-colors="[{&quot;label&quot;:&quot;Blanco&quot;,&quot;hex&quot;:&quot;#ffffff&quot;,&quot;img&quot;:&quot;/img/productos/jarro-puelo/blanco-1.webp&quot;},{&quot;label&quot;:&quot;Negro&quot;,&quot;hex&quot;:&quot;#000000&quot;,&quot;img&quot;:&quot;/img/productos/jarro-puelo/negro-1.webp&quot;}]" data-color="Blanco" data-label="Agregar al presupuesto"><i class="js-add-to-quote-icon fas fa-plus"></i> <span class="js-add-to-quote-label">Agregar al presupuesto</span></button>
+      </div></div>
+<div class="prod-card">
+      <a class="prod-card__img" href="./jarro-maipo/"><img src="/img/productos/jarro-maipo/blanco-1.webp" alt="Jarro Maipo" loading="lazy" style="object-fit:contain;object-position:center center;background:#fff" /></a>
+      <div class="prod-card__body">
+        <a class="prod-card__name" href="./jarro-maipo/">Jarro Maipo</a>
+        <p class="prod-card__desc">Jarro térmico con mango, realizado en acero inoxidable en su exterior, y polipropileno de color negro en su interior. Cuenta con tapa transparente cristal clear con cierre. Incluye base antideslizante. Capacidad: 600 ml. El producto viene presentado en una Gift Box confeccionada en cartulina Kraft. Producto libre de BPA. Producto aprobado por el I.N.A.L. para el contacto con alimentos. No es apto para lavavajillas. No es apto para microondas.</p>
+        <a class="prod-card__btn" href="https://wa.me/5493513104836?text=Hola%20Pampero%20C%C3%B3rdoba!%20Quiero%20consultar%20sobre%20Jarro%20Maipo%20%E2%80%94%20Blanco" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Consultar</a>
+        <button type="button" class="prod-card__addquote js-add-to-quote" data-id="merchandising__jarro-maipo" data-name="Jarro Maipo" data-category="merchandising" data-category-label="Merchandising" data-img="/img/productos/jarro-maipo/blanco-1.webp" data-colors="[{&quot;label&quot;:&quot;Blanco&quot;,&quot;hex&quot;:&quot;#ffffff&quot;,&quot;img&quot;:&quot;/img/productos/jarro-maipo/blanco-1.webp&quot;},{&quot;label&quot;:&quot;Gris Claro&quot;,&quot;hex&quot;:&quot;#d3d3d3&quot;,&quot;img&quot;:&quot;/img/productos/jarro-maipo/gris-claro-1.webp&quot;},{&quot;label&quot;:&quot;Verde&quot;,&quot;hex&quot;:&quot;#008000&quot;,&quot;img&quot;:&quot;/img/productos/jarro-maipo/verde-1.webp&quot;},{&quot;label&quot;:&quot;Negro&quot;,&quot;hex&quot;:&quot;#000000&quot;,&quot;img&quot;:&quot;/img/productos/jarro-maipo/negro-1.webp&quot;}]" data-color="Blanco" data-label="Agregar al presupuesto"><i class="js-add-to-quote-icon fas fa-plus"></i> <span class="js-add-to-quote-label">Agregar al presupuesto</span></button>
+      </div></div>
+<div class="prod-card">
+      <a class="prod-card__img" href="./botella-atuel/"><img src="/img/productos/botella-atuel/blanco-1.webp" alt="Botella Atuel" loading="lazy" style="object-fit:contain;object-position:center center;background:#fff" /></a>
+      <div class="prod-card__body">
+        <a class="prod-card__name" href="./botella-atuel/">Botella Atuel</a>
+        <p class="prod-card__desc">Botella reutilizable de doble pared de acero inoxidable, esmaltado en su exterior con Powder Coating. Es ideal para mantener la temperatura de la bebida: mantiene 4 horas la bebida caliente y 8 horas la bebida fría. Su tapa está confeccionada en PP, acero inoxidable y silicona para evitar derrames de líquido. Capacidad: 500 ml. El producto viene presentado en una Gift Box confeccionada en cartulina Kraft. Producto aprobado por el I.N.A.L. para el contacto con alimentos. Producto libre de BPA. No es apto para lavavajillas. No es apto para microondas.</p>
+        <a class="prod-card__btn" href="https://wa.me/5493513104836?text=Hola%20Pampero%20C%C3%B3rdoba!%20Quiero%20consultar%20sobre%20Botella%20Atuel%20%E2%80%94%20Blanco" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Consultar</a>
+        <button type="button" class="prod-card__addquote js-add-to-quote" data-id="merchandising__botella-atuel" data-name="Botella Atuel" data-category="merchandising" data-category-label="Merchandising" data-img="/img/productos/botella-atuel/blanco-1.webp" data-colors="[{&quot;label&quot;:&quot;Blanco&quot;,&quot;hex&quot;:&quot;#ffffff&quot;,&quot;img&quot;:&quot;/img/productos/botella-atuel/blanco-1.webp&quot;},{&quot;label&quot;:&quot;Gris Oscuro&quot;,&quot;hex&quot;:&quot;#696969&quot;,&quot;img&quot;:&quot;/img/productos/botella-atuel/gris-oscuro-1.webp&quot;},{&quot;label&quot;:&quot;Negro&quot;,&quot;hex&quot;:&quot;#000000&quot;,&quot;img&quot;:&quot;/img/productos/botella-atuel/negro-1.webp&quot;},{&quot;label&quot;:&quot;Verde&quot;,&quot;hex&quot;:&quot;#008000&quot;,&quot;img&quot;:&quot;/img/productos/botella-atuel/verde-1.webp&quot;}]" data-color="Blanco" data-label="Agregar al presupuesto"><i class="js-add-to-quote-icon fas fa-plus"></i> <span class="js-add-to-quote-label">Agregar al presupuesto</span></button>
+      </div></div>
+<div class="prod-card">
+      <a class="prod-card__img" href="./mate-origen-con-bombilla/"><img src="/img/productos/mate-origen-con-bombilla/negro-1.webp" alt="Mate Origen con Bombilla" loading="lazy" style="object-fit:contain;object-position:center center;background:#fff" /></a>
+      <div class="prod-card__body">
+        <a class="prod-card__name" href="./mate-origen-con-bombilla/">Mate Origen con Bombilla</a>
+        <p class="prod-card__desc">Mate realizado en acero inoxidable bicapa 304 (18/8). Cuenta con doble pared aislante que mantiene la temperatura durante toda la cebada, manteniendo 30 minutos el agua caliente y 3 horas el agua fría. No traspasa sabores ni aromas a tu yerba. Incluye bombilla de acero inoxidable. Producto libre de BPA, aprobado por el INAL. No es apto para lavavajillas. No es apto para microondas.</p>
+        <a class="prod-card__btn" href="https://wa.me/5493513104836?text=Hola%20Pampero%20C%C3%B3rdoba!%20Quiero%20consultar%20sobre%20Mate%20Origen%20con%20Bombilla%20%E2%80%94%20Negro" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Consultar</a>
+        <button type="button" class="prod-card__addquote js-add-to-quote" data-id="merchandising__mate-origen-con-bombilla" data-name="Mate Origen con Bombilla" data-category="merchandising" data-category-label="Merchandising" data-img="/img/productos/mate-origen-con-bombilla/negro-1.webp" data-colors="[{&quot;label&quot;:&quot;Negro&quot;,&quot;hex&quot;:&quot;#000000&quot;,&quot;img&quot;:&quot;/img/productos/mate-origen-con-bombilla/negro-1.webp&quot;},{&quot;label&quot;:&quot;Verde&quot;,&quot;hex&quot;:&quot;#008000&quot;,&quot;img&quot;:&quot;/img/productos/mate-origen-con-bombilla/verde-1.webp&quot;},{&quot;label&quot;:&quot;Azul&quot;,&quot;hex&quot;:&quot;#0000ff&quot;,&quot;img&quot;:&quot;/img/productos/mate-origen-con-bombilla/azul-1.webp&quot;},{&quot;label&quot;:&quot;Rosa&quot;,&quot;hex&quot;:&quot;#ffc0cb&quot;,&quot;img&quot;:&quot;/img/productos/mate-origen-con-bombilla/rosa-1.webp&quot;},{&quot;label&quot;:&quot;Blanco&quot;,&quot;hex&quot;:&quot;#ffffff&quot;,&quot;img&quot;:&quot;/img/productos/mate-origen-con-bombilla/blanco-1.webp&quot;}]" data-color="Negro" data-label="Agregar al presupuesto"><i class="js-add-to-quote-icon fas fa-plus"></i> <span class="js-add-to-quote-label">Agregar al presupuesto</span></button>
+      </div></div>
+<div class="prod-card">
+      <a class="prod-card__img" href="./bombilla-caviahue/"><img src="/img/productos/bombilla-caviahue/plateado-negro-1.webp" alt="Bombilla Caviahue" loading="lazy" style="object-fit:contain;object-position:center center;background:#fff" /></a>
+      <div class="prod-card__body">
+        <a class="prod-card__name" href="./bombilla-caviahue/">Bombilla Caviahue</a>
+        <p class="prod-card__desc">Bombilla reutilizable de acero inoxidable, fabricada en acero SS304 con recubrimiento black powder coated en la parte superior. Cuenta con pico curvo para un mejor ángulo de consumo y filtro desmontable tipo pala con perforaciones múltiples. Es ideal para acompañar cualquier mate con estilo y practicidad, brindando una experiencia cómoda y duradera tanto en interiores como exteriores.</p>
+        <a class="prod-card__btn" href="https://wa.me/5493513104836?text=Hola%20Pampero%20C%C3%B3rdoba!%20Quiero%20consultar%20sobre%20Bombilla%20Caviahue%20%E2%80%94%20Plateado%20%2F%20Negro" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Consultar</a>
+        <button type="button" class="prod-card__addquote js-add-to-quote" data-id="merchandising__bombilla-caviahue" data-name="Bombilla Caviahue" data-category="merchandising" data-category-label="Merchandising" data-img="/img/productos/bombilla-caviahue/plateado-negro-1.webp" data-colors="[{&quot;label&quot;:&quot;Plateado / Negro&quot;,&quot;hex&quot;:&quot;#cccccc&quot;,&quot;img&quot;:&quot;/img/productos/bombilla-caviahue/plateado-negro-1.webp&quot;}]" data-color="Plateado / Negro" data-label="Agregar al presupuesto"><i class="js-add-to-quote-icon fas fa-plus"></i> <span class="js-add-to-quote-label">Agregar al presupuesto</span></button>
+      </div></div>
+<div class="prod-card">
+      <a class="prod-card__img" href="./termo-aconcagua/"><img src="/img/productos/termo-aconcagua/blanco-1.webp" alt="Termo Aconcagua" loading="lazy" style="object-fit:contain;object-position:center center;background:#fff" /></a>
+      <div class="prod-card__body">
+        <a class="prod-card__name" href="./termo-aconcagua/">Termo Aconcagua</a>
+        <p class="prod-card__desc">Termo de acero inoxidable con tapa multifunción, fabricado en acero interior 304 y exterior 201. Cuenta con tapa que puede utilizarse como mate, pico cebador, sistema de cierre seguro y asa lateral para un agarre cómodo. Es ideal para mantener bebidas calientes o frías durante largas jornadas de trabajo, actividades al aire libre o viajes, gracias a su capacidad térmica y diseño resistente.</p>
+        <a class="prod-card__btn" href="https://wa.me/5493513104836?text=Hola%20Pampero%20C%C3%B3rdoba!%20Quiero%20consultar%20sobre%20Termo%20Aconcagua%20%E2%80%94%20Blanco" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Consultar</a>
+        <button type="button" class="prod-card__addquote js-add-to-quote" data-id="merchandising__termo-aconcagua" data-name="Termo Aconcagua" data-category="merchandising" data-category-label="Merchandising" data-img="/img/productos/termo-aconcagua/blanco-1.webp" data-colors="[{&quot;label&quot;:&quot;Blanco&quot;,&quot;hex&quot;:&quot;#ffffff&quot;,&quot;img&quot;:&quot;/img/productos/termo-aconcagua/blanco-1.webp&quot;},{&quot;label&quot;:&quot;Negro&quot;,&quot;hex&quot;:&quot;#000000&quot;,&quot;img&quot;:&quot;/img/productos/termo-aconcagua/negro-1.webp&quot;},{&quot;label&quot;:&quot;Verde&quot;,&quot;hex&quot;:&quot;#709b5f&quot;,&quot;img&quot;:&quot;/img/productos/termo-aconcagua/verde-1.webp&quot;}]" data-color="Blanco" data-label="Agregar al presupuesto"><i class="js-add-to-quote-icon fas fa-plus"></i> <span class="js-add-to-quote-label">Agregar al presupuesto</span></button>
+      </div></div>
+<div class="prod-card">
+      <a class="prod-card__img" href="./termo-iguazu-1-1-l/"><img src="/img/productos/termo-iguazu-1-1-l/verde-gris-plata-1.webp" alt="Termo Iguazú 1,1 L" loading="lazy" style="object-fit:contain;object-position:center center;background:#fff" /></a>
+      <div class="prod-card__body">
+        <a class="prod-card__name" href="./termo-iguazu-1-1-l/">Termo Iguazú 1,1 L</a>
+        <p class="prod-card__desc">Termo de acero inoxidable 304, recubierto con esmalte especial que protege de ralladuras y golpes. Puede mantener el contenido a la misma temperatura durante 18hs, gracias a su doble pared aislante especial de acero. Cuenta con un tapón cebador Hermético a rosca con la función anti derrame y tapa con superficie plana estable para usar como taza o vaso y manija plegable para facilitar el transporte. Presentado en caja de cartón. Producto aprobado por el I.N.A.L. para el contacto con alimentos.</p>
+        <a class="prod-card__btn" href="https://wa.me/5493513104836?text=Hola%20Pampero%20C%C3%B3rdoba!%20Quiero%20consultar%20sobre%20Termo%20Iguaz%C3%BA%201%2C1%20L%20%E2%80%94%20Verde%20%2F%20Gris%20Plata" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Consultar</a>
+        <button type="button" class="prod-card__addquote js-add-to-quote" data-id="merchandising__termo-iguazu-1-1-l" data-name="Termo Iguazú 1,1 L" data-category="merchandising" data-category-label="Merchandising" data-img="/img/productos/termo-iguazu-1-1-l/verde-gris-plata-1.webp" data-colors="[{&quot;label&quot;:&quot;Verde / Gris Plata&quot;,&quot;hex&quot;:&quot;#008000&quot;,&quot;img&quot;:&quot;/img/productos/termo-iguazu-1-1-l/verde-gris-plata-1.webp&quot;}]" data-color="Verde / Gris Plata" data-label="Agregar al presupuesto"><i class="js-add-to-quote-icon fas fa-plus"></i> <span class="js-add-to-quote-label">Agregar al presupuesto</span></button>
+      </div></div>
+<div class="prod-card">
+      <a class="prod-card__img" href="./matera-estribo/"><img src="/img/productos/matera-estribo/marron-1.webp" alt="Matera Estribo" loading="lazy" style="object-fit:contain;object-position:center center;background:#fff" /></a>
+      <div class="prod-card__body">
+        <a class="prod-card__name" href="./matera-estribo/">Matera Estribo</a>
+        <p class="prod-card__desc">Matera rígida con doble manija fabricada 100% en poliuretano. Cuenta con doble correa resistente, costuras reforzadas y compartimento interior amplio. Es ideal para transportar tu equipo de mate de forma organizada y con estilo, perfecta para salidas al aire libre, picnics, la oficina o el día a día.</p>
+        <a class="prod-card__btn" href="https://wa.me/5493513104836?text=Hola%20Pampero%20C%C3%B3rdoba!%20Quiero%20consultar%20sobre%20Matera%20Estribo%20%E2%80%94%20Marr%C3%B3n" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Consultar</a>
+        <button type="button" class="prod-card__addquote js-add-to-quote" data-id="merchandising__matera-estribo" data-name="Matera Estribo" data-category="merchandising" data-category-label="Merchandising" data-img="/img/productos/matera-estribo/marron-1.webp" data-colors="[{&quot;label&quot;:&quot;Marrón&quot;,&quot;hex&quot;:&quot;#915c40&quot;,&quot;img&quot;:&quot;/img/productos/matera-estribo/marron-1.webp&quot;},{&quot;label&quot;:&quot;Negro&quot;,&quot;hex&quot;:&quot;#000000&quot;,&quot;img&quot;:&quot;/img/productos/matera-estribo/negro-1.webp&quot;}]" data-color="Marrón" data-label="Agregar al presupuesto"><i class="js-add-to-quote-icon fas fa-plus"></i> <span class="js-add-to-quote-label">Agregar al presupuesto</span></button>
+      </div></div>
+<div class="prod-card">
+      <a class="prod-card__img" href="./gorro-santa-fe-mesh-combinado/"><img src="/img/productos/gorro-santa-fe-mesh-combinado/blanco-azul-1.webp" alt="Gorro Santa Fe Mesh Combinado" loading="lazy" style="object-fit:contain;object-position:center center;background:#fff" /></a>
+      <div class="prod-card__body">
+        <a class="prod-card__name" href="./gorro-santa-fe-mesh-combinado/">Gorro Santa Fe Mesh Combinado</a>
+        <p class="prod-card__desc">Gorro de 6 paneles de algodón símil gamuza y mesh. Cierre hebilla metálica y tira de símil gamuza. Sticker metalizado en visera. Debido a la costura frontal del gorro, el logueo puede presentar leves imperfecciones o irregularidades propias del proceso de personalización.</p>
+        <a class="prod-card__btn" href="https://wa.me/5493513104836?text=Hola%20Pampero%20C%C3%B3rdoba!%20Quiero%20consultar%20sobre%20Gorro%20Santa%20Fe%20Mesh%20Combinado%20%E2%80%94%20Blanco%20%2F%20Azul" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Consultar</a>
+        <button type="button" class="prod-card__addquote js-add-to-quote" data-id="merchandising__gorro-santa-fe-mesh-combinado" data-name="Gorro Santa Fe Mesh Combinado" data-category="merchandising" data-category-label="Merchandising" data-img="/img/productos/gorro-santa-fe-mesh-combinado/blanco-azul-1.webp" data-colors="[{&quot;label&quot;:&quot;Blanco / Azul&quot;,&quot;hex&quot;:&quot;#ffffff&quot;,&quot;img&quot;:&quot;/img/productos/gorro-santa-fe-mesh-combinado/blanco-azul-1.webp&quot;},{&quot;label&quot;:&quot;Blanco / Beige / Kaki&quot;,&quot;hex&quot;:&quot;#ffffff&quot;,&quot;img&quot;:&quot;/img/productos/gorro-santa-fe-mesh-combinado/blanco-beige-kaki-1.webp&quot;},{&quot;label&quot;:&quot;Blanco / Negro&quot;,&quot;hex&quot;:&quot;#ffffff&quot;,&quot;img&quot;:&quot;/img/productos/gorro-santa-fe-mesh-combinado/blanco-negro-1.webp&quot;},{&quot;label&quot;:&quot;Negro&quot;,&quot;hex&quot;:&quot;#000000&quot;,&quot;img&quot;:&quot;/img/productos/gorro-santa-fe-mesh-combinado/negro-1.webp&quot;},{&quot;label&quot;:&quot;Azul / Bordó&quot;,&quot;hex&quot;:&quot;#4444ab&quot;,&quot;img&quot;:&quot;/img/productos/gorro-santa-fe-mesh-combinado/azul-bordo-1.webp&quot;},{&quot;label&quot;:&quot;Gris Oscuro / Azul&quot;,&quot;hex&quot;:&quot;#696969&quot;,&quot;img&quot;:&quot;/img/productos/gorro-santa-fe-mesh-combinado/gris-oscuro-azul-1.webp&quot;},{&quot;label&quot;:&quot;Verde / Beige / Kaki&quot;,&quot;hex&quot;:&quot;#008000&quot;,&quot;img&quot;:&quot;/img/productos/gorro-santa-fe-mesh-combinado/verde-beige-kaki-1.webp&quot;}]" data-color="Blanco / Azul" data-label="Agregar al presupuesto"><i class="js-add-to-quote-icon fas fa-plus"></i> <span class="js-add-to-quote-label">Agregar al presupuesto</span></button>
+      </div></div>
+<div class="prod-card">
+      <a class="prod-card__img" href="./gorro-lanin/"><img src="/img/productos/gorro-lanin/marron-1.webp" alt="Gorro Lanín" loading="lazy" style="object-fit:contain;object-position:center center;background:#fff" /></a>
+      <div class="prod-card__body">
+        <a class="prod-card__name" href="./gorro-lanin/">Gorro Lanín</a>
+        <p class="prod-card__desc">Gorro estilo casual de algodón. Cuenta con botón superior, costuras reforzadas, pequeños orificios laterales para mayor ventilación y ajuste trasero con hebilla metálica. Es ideal para el uso diario, actividades al aire libre, trabajo rural o urbano, y protegerse del sol en cualquier temporada.</p>
+        <a class="prod-card__btn" href="https://wa.me/5493513104836?text=Hola%20Pampero%20C%C3%B3rdoba!%20Quiero%20consultar%20sobre%20Gorro%20Lan%C3%ADn%20%E2%80%94%20Marr%C3%B3n" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Consultar</a>
+        <button type="button" class="prod-card__addquote js-add-to-quote" data-id="merchandising__gorro-lanin" data-name="Gorro Lanín" data-category="merchandising" data-category-label="Merchandising" data-img="/img/productos/gorro-lanin/marron-1.webp" data-colors="[{&quot;label&quot;:&quot;Marrón&quot;,&quot;hex&quot;:&quot;#817765&quot;,&quot;img&quot;:&quot;/img/productos/gorro-lanin/marron-1.webp&quot;},{&quot;label&quot;:&quot;Azul Marino&quot;,&quot;hex&quot;:&quot;#63778c&quot;,&quot;img&quot;:&quot;/img/productos/gorro-lanin/azul-marino-1.webp&quot;},{&quot;label&quot;:&quot;Beige / Kaki&quot;,&quot;hex&quot;:&quot;#bdb78f&quot;,&quot;img&quot;:&quot;/img/productos/gorro-lanin/beige-kaki-1.webp&quot;},{&quot;label&quot;:&quot;Negro&quot;,&quot;hex&quot;:&quot;#000000&quot;,&quot;img&quot;:&quot;/img/productos/gorro-lanin/negro-1.webp&quot;},{&quot;label&quot;:&quot;Verde&quot;,&quot;hex&quot;:&quot;#517656&quot;,&quot;img&quot;:&quot;/img/productos/gorro-lanin/verde-1.webp&quot;}]" data-color="Marrón" data-label="Agregar al presupuesto"><i class="js-add-to-quote-icon fas fa-plus"></i> <span class="js-add-to-quote-label">Agregar al presupuesto</span></button>
+      </div></div>
+<div class="prod-card">
+      <a class="prod-card__img" href="./gorro-cardenal/"><img src="/img/productos/gorro-cardenal/gris-1.webp" alt="Gorro Cardenal" loading="lazy" style="object-fit:contain;object-position:center center;background:#fff" /></a>
+      <div class="prod-card__body">
+        <a class="prod-card__name" href="./gorro-cardenal/">Gorro Cardenal</a>
+        <p class="prod-card__desc">Gorro tipo pescador unisex color gris confeccionado en poliéster, un tejido ultraligero suave y de secado rápido. Este modelo cuenta con una visera curva y un cubre nuca y boca, que se ajusta mediante botones, brindando resguardo adicional frente al viento, el polvo y los rayos UV. Con un tamaño de 62 cm y un peso de 103 gramos, este gorro ofrece un ajuste cómodo sin sacrificar ligereza ni movilidad. Es ideal para actividades al aire libre como trabajos en el campo, pesca, senderismo o cualquier tarea que requiera protección contra el sol y el clima. Su diseño práctico y funcional lo hace perfecto tanto para el uso laboral como recreativo.</p>
+        <a class="prod-card__btn" href="https://wa.me/5493513104836?text=Hola%20Pampero%20C%C3%B3rdoba!%20Quiero%20consultar%20sobre%20Gorro%20Cardenal%20%E2%80%94%20Gris" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Consultar</a>
+        <button type="button" class="prod-card__addquote js-add-to-quote" data-id="merchandising__gorro-cardenal" data-name="Gorro Cardenal" data-category="merchandising" data-category-label="Merchandising" data-img="/img/productos/gorro-cardenal/gris-1.webp" data-colors="[{&quot;label&quot;:&quot;Gris&quot;,&quot;hex&quot;:&quot;#808080&quot;,&quot;img&quot;:&quot;/img/productos/gorro-cardenal/gris-1.webp&quot;}]" data-color="Gris" data-label="Agregar al presupuesto"><i class="js-add-to-quote-icon fas fa-plus"></i> <span class="js-add-to-quote-label">Agregar al presupuesto</span></button>
+      </div></div>
+<div class="prod-card">
+      <a class="prod-card__img" href="./mochila-rosario/"><img src="/img/productos/mochila-rosario/azul-negro-1.webp" alt="Mochila Rosario" loading="lazy" style="object-fit:contain;object-position:center center;background:#fff" /></a>
+      <div class="prod-card__body">
+        <a class="prod-card__name" href="./mochila-rosario/">Mochila Rosario</a>
+        <p class="prod-card__desc">Realizada en Polyester. Cuenta con bolsillo principal de apertura amplia 180° y bolsillo frontal. Correas en el espaldar ajustable y tiras superiores reforzadas.</p>
+        <a class="prod-card__btn" href="https://wa.me/5493513104836?text=Hola%20Pampero%20C%C3%B3rdoba!%20Quiero%20consultar%20sobre%20Mochila%20Rosario%20%E2%80%94%20Azul%20%2F%20Negro" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Consultar</a>
+        <button type="button" class="prod-card__addquote js-add-to-quote" data-id="merchandising__mochila-rosario" data-name="Mochila Rosario" data-category="merchandising" data-category-label="Merchandising" data-img="/img/productos/mochila-rosario/azul-negro-1.webp" data-colors="[{&quot;label&quot;:&quot;Azul / Negro&quot;,&quot;hex&quot;:&quot;#0000ff&quot;,&quot;img&quot;:&quot;/img/productos/mochila-rosario/azul-negro-1.webp&quot;},{&quot;label&quot;:&quot;Gris Oscuro / Negro&quot;,&quot;hex&quot;:&quot;#696969&quot;,&quot;img&quot;:&quot;/img/productos/mochila-rosario/gris-oscuro-negro-1.webp&quot;}]" data-color="Azul / Negro" data-label="Agregar al presupuesto"><i class="js-add-to-quote-icon fas fa-plus"></i> <span class="js-add-to-quote-label">Agregar al presupuesto</span></button>
+      </div></div>
+<div class="prod-card">
+      <a class="prod-card__img" href="./mochila-arrecifes/"><img src="/img/productos/mochila-arrecifes/negro-marron-oscuro-1.webp" alt="Mochila Arrecifes" loading="lazy" style="object-fit:contain;object-position:center center;background:#fff" /></a>
+      <div class="prod-card__body">
+        <a class="prod-card__name" href="./mochila-arrecifes/">Mochila Arrecifes</a>
+        <p class="prod-card__desc">Mochila elaborada en canvas con bolsillo acolchado porta laptop. Dos bolsillos frontales con cierre, uno simple y otro con organizador interior y llavero.</p>
+        <a class="prod-card__btn" href="https://wa.me/5493513104836?text=Hola%20Pampero%20C%C3%B3rdoba!%20Quiero%20consultar%20sobre%20Mochila%20Arrecifes%20%E2%80%94%20Negro%20%2F%20Marr%C3%B3n%20Oscuro" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Consultar</a>
+        <button type="button" class="prod-card__addquote js-add-to-quote" data-id="merchandising__mochila-arrecifes" data-name="Mochila Arrecifes" data-category="merchandising" data-category-label="Merchandising" data-img="/img/productos/mochila-arrecifes/negro-marron-oscuro-1.webp" data-colors="[{&quot;label&quot;:&quot;Negro / Marrón Oscuro&quot;,&quot;hex&quot;:&quot;#000000&quot;,&quot;img&quot;:&quot;/img/productos/mochila-arrecifes/negro-marron-oscuro-1.webp&quot;},{&quot;label&quot;:&quot;Azul / Negro&quot;,&quot;hex&quot;:&quot;#000080&quot;,&quot;img&quot;:&quot;/img/productos/mochila-arrecifes/azul-negro-1.webp&quot;}]" data-color="Negro / Marrón Oscuro" data-label="Agregar al presupuesto"><i class="js-add-to-quote-icon fas fa-plus"></i> <span class="js-add-to-quote-label">Agregar al presupuesto</span></button>
+      </div></div>
+<div class="prod-card">
+      <a class="prod-card__img" href="./mochila-esteco/"><img src="/img/productos/mochila-esteco/beige-kaki-1.webp" alt="Mochila Esteco" loading="lazy" style="object-fit:contain;object-position:center center;background:#fff" /></a>
+      <div class="prod-card__body">
+        <a class="prod-card__name" href="./mochila-esteco/">Mochila Esteco</a>
+        <p class="prod-card__desc">Mochila compacta con solapa y doble broche frontal. Está confeccionada en polycotton laminado 600D. Cuenta con cierre interior, bolsillo frontal y correas acolchadas ajustables. Incluye tirador superior, base reforzada y espalda acolchada.</p>
+        <a class="prod-card__btn" href="https://wa.me/5493513104836?text=Hola%20Pampero%20C%C3%B3rdoba!%20Quiero%20consultar%20sobre%20Mochila%20Esteco%20%E2%80%94%20Beige%20%2F%20Kaki" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Consultar</a>
+        <button type="button" class="prod-card__addquote js-add-to-quote" data-id="merchandising__mochila-esteco" data-name="Mochila Esteco" data-category="merchandising" data-category-label="Merchandising" data-img="/img/productos/mochila-esteco/beige-kaki-1.webp" data-colors="[{&quot;label&quot;:&quot;Beige / Kaki&quot;,&quot;hex&quot;:&quot;#f0e68c&quot;,&quot;img&quot;:&quot;/img/productos/mochila-esteco/beige-kaki-1.webp&quot;}]" data-color="Beige / Kaki" data-label="Agregar al presupuesto"><i class="js-add-to-quote-icon fas fa-plus"></i> <span class="js-add-to-quote-label">Agregar al presupuesto</span></button>
+      </div></div>
+<div class="prod-card">
+      <a class="prod-card__img" href="./mochila-bragado/"><img src="/img/productos/mochila-bragado/negro-gris-oscuro-1.webp" alt="Mochila Bragado" loading="lazy" style="object-fit:contain;object-position:center center;background:#fff" /></a>
+      <div class="prod-card__body">
+        <a class="prod-card__name" href="./mochila-bragado/">Mochila Bragado</a>
+        <p class="prod-card__desc">Mochila elaborada en Polyester con bolsillo acolchado portanotebook. Dos bolsillos frontales con cierre, uno simple y otro con organizador interior y llavero.</p>
+        <a class="prod-card__btn" href="https://wa.me/5493513104836?text=Hola%20Pampero%20C%C3%B3rdoba!%20Quiero%20consultar%20sobre%20Mochila%20Bragado%20%E2%80%94%20Negro%20%2F%20Gris%20Oscuro" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Consultar</a>
+        <button type="button" class="prod-card__addquote js-add-to-quote" data-id="merchandising__mochila-bragado" data-name="Mochila Bragado" data-category="merchandising" data-category-label="Merchandising" data-img="/img/productos/mochila-bragado/negro-gris-oscuro-1.webp" data-colors="[{&quot;label&quot;:&quot;Negro / Gris Oscuro&quot;,&quot;hex&quot;:&quot;#000000&quot;,&quot;img&quot;:&quot;/img/productos/mochila-bragado/negro-gris-oscuro-1.webp&quot;},{&quot;label&quot;:&quot;Azul / Negro&quot;,&quot;hex&quot;:&quot;#0000ff&quot;,&quot;img&quot;:&quot;/img/productos/mochila-bragado/azul-negro-1.webp&quot;}]" data-color="Negro / Gris Oscuro" data-label="Agregar al presupuesto"><i class="js-add-to-quote-icon fas fa-plus"></i> <span class="js-add-to-quote-label">Agregar al presupuesto</span></button>
+      </div></div>
+<div class="prod-card">
+      <a class="prod-card__img" href="./mochila-esquel/"><img src="/img/productos/mochila-esquel/beige-kaki-1.webp" alt="Mochila Esquel" loading="lazy" style="object-fit:contain;object-position:center center;background:#fff" /></a>
+      <div class="prod-card__body">
+        <a class="prod-card__name" href="./mochila-esquel/">Mochila Esquel</a>
+        <p class="prod-card__desc">La Mochila Esquel de Pampero es una mochila realizada en tela de canvas, con detalles en PU. Cuenta con un compartimiento principal con cierre, una división acolchada porta Notebook de 15&quot;. Además, posee correas ajustables, dos bolsillos frontales con cierre para llevar pequeños objetos y dos bolsillos laterales abiertos, ideales para llevar tu bebida.</p>
+        <a class="prod-card__btn" href="https://wa.me/5493513104836?text=Hola%20Pampero%20C%C3%B3rdoba!%20Quiero%20consultar%20sobre%20Mochila%20Esquel%20%E2%80%94%20Beige%20%2F%20Kaki" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Consultar</a>
+        <button type="button" class="prod-card__addquote js-add-to-quote" data-id="merchandising__mochila-esquel" data-name="Mochila Esquel" data-category="merchandising" data-category-label="Merchandising" data-img="/img/productos/mochila-esquel/beige-kaki-1.webp" data-colors="[{&quot;label&quot;:&quot;Beige / Kaki&quot;,&quot;hex&quot;:&quot;#bdac7a&quot;,&quot;img&quot;:&quot;/img/productos/mochila-esquel/beige-kaki-1.webp&quot;},{&quot;label&quot;:&quot;Negro&quot;,&quot;hex&quot;:&quot;#000000&quot;,&quot;img&quot;:&quot;/img/productos/mochila-esquel/negro-1.webp&quot;},{&quot;label&quot;:&quot;Verde&quot;,&quot;hex&quot;:&quot;#008000&quot;,&quot;img&quot;:&quot;/img/productos/mochila-esquel/verde-1.webp&quot;}]" data-color="Beige / Kaki" data-label="Agregar al presupuesto"><i class="js-add-to-quote-icon fas fa-plus"></i> <span class="js-add-to-quote-label">Agregar al presupuesto</span></button>
+      </div></div>
+<div class="prod-card">
+      <a class="prod-card__img" href="./mochila-traful/"><img src="/img/productos/mochila-traful/beige-kaki-1.webp" alt="Mochila Traful" loading="lazy" style="object-fit:contain;object-position:center center;background:#fff" /></a>
+      <div class="prod-card__body">
+        <a class="prod-card__name" href="./mochila-traful/">Mochila Traful</a>
+        <p class="prod-card__desc">La Mochila Traful de Pampero es una mochila realizada en tela de canvas, con detalles en PU. Cuenta con un compartimiento principal con cierre hebilla y una división acolchada porta Notebook de 15&quot;. Además, posee un bolsillo frontal para llevar pequeños objetos y correas ajustables y un bolsillo lateral abierto para llevar tu bebida.</p>
+        <a class="prod-card__btn" href="https://wa.me/5493513104836?text=Hola%20Pampero%20C%C3%B3rdoba!%20Quiero%20consultar%20sobre%20Mochila%20Traful%20%E2%80%94%20Beige%20%2F%20Kaki" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Consultar</a>
+        <button type="button" class="prod-card__addquote js-add-to-quote" data-id="merchandising__mochila-traful" data-name="Mochila Traful" data-category="merchandising" data-category-label="Merchandising" data-img="/img/productos/mochila-traful/beige-kaki-1.webp" data-colors="[{&quot;label&quot;:&quot;Beige / Kaki&quot;,&quot;hex&quot;:&quot;#bdac7a&quot;,&quot;img&quot;:&quot;/img/productos/mochila-traful/beige-kaki-1.webp&quot;},{&quot;label&quot;:&quot;Verde&quot;,&quot;hex&quot;:&quot;#008000&quot;,&quot;img&quot;:&quot;/img/productos/mochila-traful/verde-1.webp&quot;}]" data-color="Beige / Kaki" data-label="Agregar al presupuesto"><i class="js-add-to-quote-icon fas fa-plus"></i> <span class="js-add-to-quote-label">Agregar al presupuesto</span></button>
+      </div></div>
+<div class="prod-card">
+      <a class="prod-card__img" href="./neceser-puna/"><img src="/img/productos/neceser-puna/gris-claro-1.webp" alt="Neceser Puna" loading="lazy" style="object-fit:contain;object-position:center center;background:#fff" /></a>
+      <div class="prod-card__body">
+        <a class="prod-card__name" href="./neceser-puna/">Neceser Puna</a>
+        <p class="prod-card__desc">El Neceser Puna está confeccionado en materiales de alta calidad: Tarpaulin, PEVA y PE, para que tus productos estén siempre protegidos. Cuenta con un único compartimiento con cierre de gran capacidad que te permite guardar maquillaje, joyas, cremas, ropa, anteojos, cámaras, accesorios electrónicos o cualquier objeto de valor. También, cuenta con una correa de color negro para trasladarlo cómodamente y con mayor facilidad. Práctico y funcional, el Neceser Puna es la solución ideal para mantener todo organizado en una sola bolsa. ¡Llevalo a donde vayas y tené tus cosas siempre cerca!</p>
+        <a class="prod-card__btn" href="https://wa.me/5493513104836?text=Hola%20Pampero%20C%C3%B3rdoba!%20Quiero%20consultar%20sobre%20Neceser%20Puna%20%E2%80%94%20Gris%20Claro" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Consultar</a>
+        <button type="button" class="prod-card__addquote js-add-to-quote" data-id="merchandising__neceser-puna" data-name="Neceser Puna" data-category="merchandising" data-category-label="Merchandising" data-img="/img/productos/neceser-puna/gris-claro-1.webp" data-colors="[{&quot;label&quot;:&quot;Gris Claro&quot;,&quot;hex&quot;:&quot;#d3d3d3&quot;,&quot;img&quot;:&quot;/img/productos/neceser-puna/gris-claro-1.webp&quot;}]" data-color="Gris Claro" data-label="Agregar al presupuesto"><i class="js-add-to-quote-icon fas fa-plus"></i> <span class="js-add-to-quote-label">Agregar al presupuesto</span></button>
+      </div></div>
+<div class="prod-card">
+      <a class="prod-card__img" href="./tote-catedral/"><img src="/img/productos/tote-catedral/gris-claro-1.webp" alt="Tote Catedral" loading="lazy" style="object-fit:contain;object-position:center center;background:#fff" /></a>
+      <div class="prod-card__body">
+        <a class="prod-card__name" href="./tote-catedral/">Tote Catedral</a>
+        <p class="prod-card__desc">El Tote Catedral está confeccionado en materiales super resistentes: Tarpaulin, PEVA y PE, lo que le otorga durabilidad y resistencia al uso diario. Con sus medidas de 50,8 (alto) x 12,7 (profundidad) x 55,8 (ancho) cm, ofrece un amplio espacio para llevar todo lo que necesitas. Además, no tiene cierres: se enrosca y se engancha para asegurarte de no perder nada. El Tote Catedral es muy cómodo y práctico: usalo como eco bag para las compras, como cartera para la oficina o llévala a la playa. ¡Ideal para cualquier ocasión!</p>
+        <a class="prod-card__btn" href="https://wa.me/5493513104836?text=Hola%20Pampero%20C%C3%B3rdoba!%20Quiero%20consultar%20sobre%20Tote%20Catedral%20%E2%80%94%20Gris%20Claro" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Consultar</a>
+        <button type="button" class="prod-card__addquote js-add-to-quote" data-id="merchandising__tote-catedral" data-name="Tote Catedral" data-category="merchandising" data-category-label="Merchandising" data-img="/img/productos/tote-catedral/gris-claro-1.webp" data-colors="[{&quot;label&quot;:&quot;Gris Claro&quot;,&quot;hex&quot;:&quot;#d3d3d3&quot;,&quot;img&quot;:&quot;/img/productos/tote-catedral/gris-claro-1.webp&quot;}]" data-color="Gris Claro" data-label="Agregar al presupuesto"><i class="js-add-to-quote-icon fas fa-plus"></i> <span class="js-add-to-quote-label">Agregar al presupuesto</span></button>
+      </div></div>
+<div class="prod-card">
+      <a class="prod-card__img" href="./bolso-merlo/"><img src="/img/productos/bolso-merlo/gris-claro-1.webp" alt="Bolso Merlo" loading="lazy" style="object-fit:contain;object-position:center center;background:#fff" /></a>
+      <div class="prod-card__body">
+        <a class="prod-card__name" href="./bolso-merlo/">Bolso Merlo</a>
+        <p class="prod-card__desc">El bolso Merlo de Pampero está confeccionado en tarpaulin + PEVA + PE, en color gris con detalles en negro. Tiene un compartimiento principal amplio y un bolsillo externo. Cuenta con una correa regulable y dos manijas para transportarlo con comodidad, ya sea con la mano o al hombro. Ideal para las actividades deportivas o viajes.</p>
+        <a class="prod-card__btn" href="https://wa.me/5493513104836?text=Hola%20Pampero%20C%C3%B3rdoba!%20Quiero%20consultar%20sobre%20Bolso%20Merlo%20%E2%80%94%20Gris%20Claro" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Consultar</a>
+        <button type="button" class="prod-card__addquote js-add-to-quote" data-id="merchandising__bolso-merlo" data-name="Bolso Merlo" data-category="merchandising" data-category-label="Merchandising" data-img="/img/productos/bolso-merlo/gris-claro-1.webp" data-colors="[{&quot;label&quot;:&quot;Gris Claro&quot;,&quot;hex&quot;:&quot;#d3d3d3&quot;,&quot;img&quot;:&quot;/img/productos/bolso-merlo/gris-claro-1.webp&quot;}]" data-color="Gris Claro" data-label="Agregar al presupuesto"><i class="js-add-to-quote-icon fas fa-plus"></i> <span class="js-add-to-quote-label">Agregar al presupuesto</span></button>
+      </div></div>
+<div class="prod-card">
+      <a class="prod-card__img" href="./bolso-remanso/"><img src="/img/productos/bolso-remanso/beige-kaki-1.webp" alt="Bolso Remanso" loading="lazy" style="object-fit:contain;object-position:center center;background:#fff" /></a>
+      <div class="prod-card__body">
+        <a class="prod-card__name" href="./bolso-remanso/">Bolso Remanso</a>
+        <p class="prod-card__desc">Bolso de viaje confeccionado en resistente twill nylon. Cuenta con bolsillos exteriores de poliuretano, cierre con tiradores, forro interior y accesorios metálicos que varían según el color del bolso es ideal para viajes escapadas de fin de semana o como equipaje de mano gracias a su diseño espacioso y funcional.</p>
+        <a class="prod-card__btn" href="https://wa.me/5493513104836?text=Hola%20Pampero%20C%C3%B3rdoba!%20Quiero%20consultar%20sobre%20Bolso%20Remanso%20%E2%80%94%20Beige%20%2F%20Kaki" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Consultar</a>
+        <button type="button" class="prod-card__addquote js-add-to-quote" data-id="merchandising__bolso-remanso" data-name="Bolso Remanso" data-category="merchandising" data-category-label="Merchandising" data-img="/img/productos/bolso-remanso/beige-kaki-1.webp" data-colors="[{&quot;label&quot;:&quot;Beige / Kaki&quot;,&quot;hex&quot;:&quot;#bdac7a&quot;,&quot;img&quot;:&quot;/img/productos/bolso-remanso/beige-kaki-1.webp&quot;},{&quot;label&quot;:&quot;Negro&quot;,&quot;hex&quot;:&quot;#000000&quot;,&quot;img&quot;:&quot;/img/productos/bolso-remanso/negro-1.webp&quot;},{&quot;label&quot;:&quot;Verde&quot;,&quot;hex&quot;:&quot;#008000&quot;,&quot;img&quot;:&quot;/img/productos/bolso-remanso/verde-1.webp&quot;}]" data-color="Beige / Kaki" data-label="Agregar al presupuesto"><i class="js-add-to-quote-icon fas fa-plus"></i> <span class="js-add-to-quote-label">Agregar al presupuesto</span></button>
+      </div></div>
+<div class="prod-card">
+      <a class="prod-card__img" href="./cooler-cerrillo/"><img src="/img/productos/cooler-cerrillo/gris-claro-1.webp" alt="Cooler Cerrillo" loading="lazy" style="object-fit:contain;object-position:center center;background:#fff" /></a>
+      <div class="prod-card__body">
+        <a class="prod-card__name" href="./cooler-cerrillo/">Cooler Cerrillo</a>
+        <p class="prod-card__desc">Cooler confeccionado en Tarpaulin con interior en PEVA + PE. Cuenta con estructura de aluminio, dos manijas para facilitar el transporte, cierre y cabezal metálico color negro y un bolsillo frontal para guardar objetos pequeños. Además, el cooler Cerillo es plegable, facilitando el transporte y almacenamiento del mismo. Capacidad: 26 Lts. Es el compañero ideal para llevar a picnics, viajes o cualquier actividad al aire libre.</p>
+        <a class="prod-card__btn" href="https://wa.me/5493513104836?text=Hola%20Pampero%20C%C3%B3rdoba!%20Quiero%20consultar%20sobre%20Cooler%20Cerrillo%20%E2%80%94%20Gris%20Claro" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Consultar</a>
+        <button type="button" class="prod-card__addquote js-add-to-quote" data-id="merchandising__cooler-cerrillo" data-name="Cooler Cerrillo" data-category="merchandising" data-category-label="Merchandising" data-img="/img/productos/cooler-cerrillo/gris-claro-1.webp" data-colors="[{&quot;label&quot;:&quot;Gris Claro&quot;,&quot;hex&quot;:&quot;#d3d3d3&quot;,&quot;img&quot;:&quot;/img/productos/cooler-cerrillo/gris-claro-1.webp&quot;}]" data-color="Gris Claro" data-label="Agregar al presupuesto"><i class="js-add-to-quote-icon fas fa-plus"></i> <span class="js-add-to-quote-label">Agregar al presupuesto</span></button>
+      </div></div>
+<div class="prod-card">
+      <a class="prod-card__img" href="./cooler-glaciar/"><img src="/img/productos/cooler-glaciar/gris-oscuro-1.webp" alt="Cooler Glaciar" loading="lazy" style="object-fit:contain;object-position:center center;background:#fff" /></a>
+      <div class="prod-card__body">
+        <a class="prod-card__name" href="./cooler-glaciar/">Cooler Glaciar</a>
+        <p class="prod-card__desc">Interior de PEVA con soldadura hermética y estanca para evitar el derrame de líquido. Cuenta con manijas laterales y tapón inferior de desagote. Posibilidad de guardado del conjunto plegado. Completamente desmontable, permitiendo facilidad de limpieza. Patas con apoyo antideslizante. Compartimentos: Superior principal de gran apertura con cierre. Superior con menor apertura con velcro permitiendo retirar bebida sin perder el frio en su interior. Incluye funda de transporte. La foto es ilustrativa, no incluye bebidas.</p>
+        <a class="prod-card__btn" href="https://wa.me/5493513104836?text=Hola%20Pampero%20C%C3%B3rdoba!%20Quiero%20consultar%20sobre%20Cooler%20Glaciar%20%E2%80%94%20Gris%20Oscuro" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Consultar</a>
+        <button type="button" class="prod-card__addquote js-add-to-quote" data-id="merchandising__cooler-glaciar" data-name="Cooler Glaciar" data-category="merchandising" data-category-label="Merchandising" data-img="/img/productos/cooler-glaciar/gris-oscuro-1.webp" data-colors="[{&quot;label&quot;:&quot;Gris Oscuro&quot;,&quot;hex&quot;:&quot;#696969&quot;,&quot;img&quot;:&quot;/img/productos/cooler-glaciar/gris-oscuro-1.webp&quot;}]" data-color="Gris Oscuro" data-label="Agregar al presupuesto"><i class="js-add-to-quote-icon fas fa-plus"></i> <span class="js-add-to-quote-label">Agregar al presupuesto</span></button>
+      </div></div>
+<div class="prod-card">
+      <a class="prod-card__img" href="./silla-pastor/"><img src="/img/productos/silla-pastor/gris-claro-1.webp" alt="Silla Pastor" loading="lazy" style="object-fit:contain;object-position:center center;background:#fff" /></a>
+      <div class="prod-card__body">
+        <a class="prod-card__name" href="./silla-pastor/">Silla Pastor</a>
+        <p class="prod-card__desc">Silla baja plegable confeccionada en Polyester 600x300D/PVC, acolchado de espuma. En el apoyabrazo, cuenta con soporte de mesh para sostener bebida. Incluye funda de transporte. Material de la estructura: Acero 16*0.8/1.0mm. Medidas: 61 x 53 x 53 cm (Altura x Longitud x Ancho). Ideal para llevarla a la playa o para un día de camping.</p>
+        <a class="prod-card__btn" href="https://wa.me/5493513104836?text=Hola%20Pampero%20C%C3%B3rdoba!%20Quiero%20consultar%20sobre%20Silla%20Pastor%20%E2%80%94%20Gris%20Claro" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Consultar</a>
+        <button type="button" class="prod-card__addquote js-add-to-quote" data-id="merchandising__silla-pastor" data-name="Silla Pastor" data-category="merchandising" data-category-label="Merchandising" data-img="/img/productos/silla-pastor/gris-claro-1.webp" data-colors="[{&quot;label&quot;:&quot;Gris Claro&quot;,&quot;hex&quot;:&quot;#d3d3d3&quot;,&quot;img&quot;:&quot;/img/productos/silla-pastor/gris-claro-1.webp&quot;}]" data-color="Gris Claro" data-label="Agregar al presupuesto"><i class="js-add-to-quote-icon fas fa-plus"></i> <span class="js-add-to-quote-label">Agregar al presupuesto</span></button>
+      </div></div>
+<div class="prod-card">
+      <a class="prod-card__img" href="./silla-plegable-pampero/"><img src="/img/productos/silla-plegable-pampero/negro-verde-1.webp" alt="Silla Plegable Pampero" loading="lazy" style="object-fit:contain;object-position:center center;background:#fff" /></a>
+      <div class="prod-card__body">
+        <a class="prod-card__name" href="./silla-plegable-pampero/">Silla Plegable Pampero</a>
+        <p class="prod-card__desc">Silla plegable con Estructura reforzada con terminación epoxi rugosa. Paneles con interior de foam garantizando comodidad. Apoyabrazos acolchados. Bases adaptables a la superficie. Panel desmontable en el respaldo para logueo.</p>
+        <a class="prod-card__btn" href="https://wa.me/5493513104836?text=Hola%20Pampero%20C%C3%B3rdoba!%20Quiero%20consultar%20sobre%20Silla%20Plegable%20Pampero%20%E2%80%94%20Negro%20%2F%20Verde" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Consultar</a>
+        <button type="button" class="prod-card__addquote js-add-to-quote" data-id="merchandising__silla-plegable-pampero" data-name="Silla Plegable Pampero" data-category="merchandising" data-category-label="Merchandising" data-img="/img/productos/silla-plegable-pampero/negro-verde-1.webp" data-colors="[{&quot;label&quot;:&quot;Negro / Verde&quot;,&quot;hex&quot;:&quot;#000000&quot;,&quot;img&quot;:&quot;/img/productos/silla-plegable-pampero/negro-verde-1.webp&quot;},{&quot;label&quot;:&quot;Negro / Gris Claro&quot;,&quot;hex&quot;:&quot;#000000&quot;,&quot;img&quot;:&quot;/img/productos/silla-plegable-pampero/negro-gris-claro-1.webp&quot;}]" data-color="Negro / Verde" data-label="Agregar al presupuesto"><i class="js-add-to-quote-icon fas fa-plus"></i> <span class="js-add-to-quote-label">Agregar al presupuesto</span></button>
+      </div></div>
+    </div>
+  </main>
+  
+  <footer>
+    <div class="footer__grid">
+      <div>
+        <div class="footer__logo-wrap">
+          <img src="https://pampero.com.ar/wp-content/uploads/2024/07/logosimbolo.png" alt="Pampero" />
+          <div>
+            <div class="footer__logo-city">Pampero</div>
+            <div class="footer__logo-sub">Córdoba</div>
+          </div>
+        </div>
+        <p class="footer__desc">Distribuidores oficiales de Pampero en Córdoba. Especialistas en indumentaria corporativa y de trabajo para empresas, con atención personalizada y pedidos por volumen.</p>
+        <div class="footer__social">
+          <a href="https://www.instagram.com/pamperocordobaoficial" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://wa.me/5493513104836" aria-label="WhatsApp" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="footer__col">
+        <h4>Venta Corporativa</h4>
+        <ul><li><a href="/camisas/">Camisas y Remeras</a></li><li><a href="/pantalones/">Pantalones</a></li><li><a href="/calzado/">Calzado</a></li><li><a href="/impermeables/">Impermeables</a></li><li><a href="/abrigos/">Abrigos</a></li><li><a href="/seguridad/">Seguridad</a></li><li><a href="/merchandising/">Merchandising</a></li></ul>
+      </div>
+      <div class="footer__col">
+        <h4>Empresa</h4>
+        <ul>
+          <li><a href="/#nosotros">Quiénes somos</a></li>
+          <li><a href="/presupuesto/">Armá tu presupuesto</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="https://wa.me/5493513104836" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="mailto:Cordoba@pampenorte.com">Cordoba@pampenorte.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>&copy; 2025 Pampero Córdoba — Distribuidor Oficial.</p>
+      <p><a href="https://www.pamperocordoba.com">www.pamperocordoba.com</a></p>
+    </div>
+  </footer>
+  <a class="wa" href="https://wa.me/5493513104836?text=Hola%20Pampero%20C%C3%B3rdoba!%20Quiero%20solicitar%20un%20presupuesto%20para%20ropa%20de%20trabajo.%20%C2%BFMe%20pueden%20asesorar%3F" target="_blank" rel="noopener" aria-label="Solicitar presupuesto por WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+<script src="/assets/quote.js" defer></script>
+</body>
+</html>
