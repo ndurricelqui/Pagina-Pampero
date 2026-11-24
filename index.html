@@ -1010,20 +1010,17 @@
     gtag('config', 'AW-18297227843');
   </script>
 
-  <!-- Event snippet for Clic en WhatsApp - Presupuesto conversion page
-  In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+  <!-- Conversión de Google Ads "Clic en WhatsApp - Presupuesto".
+  El link de WhatsApp se abre siempre de inmediato (no esperamos a Google):
+  la conversión se envía en paralelo con transport_type 'beacon', que el
+  navegador entrega aunque el usuario cambie de pestaña o de página.
+  Así el botón funciona aunque gtag.js esté bloqueado o tarde en cargar. -->
   <script>
-  function gtag_report_conversion(url) {
-    var callback = function () {
-      if (typeof url !== 'undefined') {
-        window.open(url, '_blank', 'noopener');
-      }
-    };
+  function gtag_report_conversion() {
     gtag('event', 'conversion', {
       'send_to': 'AW-18297227843/YRZKCKbwmtIcEMOU5pRE',
-      'event_callback': callback
+      'transport_type': 'beacon'
     });
-    return false;
   }
 
   document.addEventListener('click', function (event) {
@@ -1031,9 +1028,8 @@
       'a[href*="wa.me"], a[href*="api.whatsapp.com"], a[href*="whatsapp.com"]'
     );
     if (!link) return;
-    event.preventDefault();
-    event.stopImmediatePropagation();
-    gtag_report_conversion(link.href);
+    // No se cancela el clic: el navegador abre WhatsApp normalmente.
+    try { gtag_report_conversion(); } catch (_) { /* nunca bloquear el link */ }
   }, true);
   </script>
 </head>
@@ -1238,15 +1234,15 @@
           </p>
         </div>
         <div class="local__gallery">
-          <div class="local__thumb" onclick="openLocalLightbox('local1.jpg')"><img data-src="local1.jpg" alt="Local Pampero" /></div>
-          <div class="local__thumb" onclick="openLocalLightbox('local2.jpg')"><img data-src="local2.jpg" alt="Local Pampero" /></div>
-          <div class="local__thumb" onclick="openLocalLightbox('local3.jpg')"><img data-src="local3.jpg" alt="Local Pampero" /></div>
-          <div class="local__thumb" onclick="openLocalLightbox('local4.jpg')"><img data-src="local4.jpg" alt="Local Pampero" /></div>
-          <div class="local__thumb" onclick="openLocalLightbox('local5.jpg')"><img data-src="local5.jpg" alt="Local Pampero" /></div>
-          <div class="local__thumb" onclick="openLocalLightbox('local6.jpg')"><img data-src="local6.jpg" alt="Local Pampero" /></div>
-          <div class="local__thumb" onclick="openLocalLightbox('local7.jpg')"><img data-src="local7.jpg" alt="Local Pampero" /></div>
-          <div class="local__thumb" onclick="openLocalLightbox('local8.jpg')"><img data-src="local8.jpg" alt="Local Pampero" /></div>
-          <div class="local__thumb" onclick="openLocalLightbox('local9.jpg')"><img data-src="local9.jpg" alt="Local Pampero" /></div>
+          <div class="local__thumb" onclick="openLocalLightbox('/img/local/local1.webp')"><img data-src="/img/local/local1-thumb.webp" alt="Local Pampero" width="88" height="88" /></div>
+          <div class="local__thumb" onclick="openLocalLightbox('/img/local/local2.webp')"><img data-src="/img/local/local2-thumb.webp" alt="Local Pampero" width="88" height="88" /></div>
+          <div class="local__thumb" onclick="openLocalLightbox('/img/local/local3.webp')"><img data-src="/img/local/local3-thumb.webp" alt="Local Pampero" width="88" height="88" /></div>
+          <div class="local__thumb" onclick="openLocalLightbox('/img/local/local4.webp')"><img data-src="/img/local/local4-thumb.webp" alt="Local Pampero" width="88" height="88" /></div>
+          <div class="local__thumb" onclick="openLocalLightbox('/img/local/local5.webp')"><img data-src="/img/local/local5-thumb.webp" alt="Local Pampero" width="88" height="88" /></div>
+          <div class="local__thumb" onclick="openLocalLightbox('/img/local/local6.webp')"><img data-src="/img/local/local6-thumb.webp" alt="Local Pampero" width="88" height="88" /></div>
+          <div class="local__thumb" onclick="openLocalLightbox('/img/local/local7.webp')"><img data-src="/img/local/local7-thumb.webp" alt="Local Pampero" width="88" height="88" /></div>
+          <div class="local__thumb" onclick="openLocalLightbox('/img/local/local8.webp')"><img data-src="/img/local/local8-thumb.webp" alt="Local Pampero" width="88" height="88" /></div>
+          <div class="local__thumb" onclick="openLocalLightbox('/img/local/local9.webp')"><img data-src="/img/local/local9-thumb.webp" alt="Local Pampero" width="88" height="88" /></div>
         </div>
       </div>
 
@@ -1293,7 +1289,10 @@
         <div class="about__img-wrap reveal">
           <img
             class="about__img"
-            src="/Frente Local.jpg"
+            src="/img/local/frente-local-1400.webp"
+            srcset="/img/local/frente-local-800.webp 800w, /img/local/frente-local-1400.webp 1400w"
+            sizes="(max-width: 900px) 100vw, 600px"
+            width="1400" height="992"
             alt="Local Pampero Córdoba"
             loading="lazy"
             style="object-fit: contain; aspect-ratio: auto; object-position: center center; background: #f4f4f4;"
@@ -2270,13 +2269,13 @@
             desc: 'Botín 100% cuero vacuno BOX ultra resistente. Talón reforzado. Suela de caucho y PU dieléctrica, con alto nivel de resistencia a la abrasión y altas temperaturas. Resistente a la flexión, con estrías para escalera. Interior de pique absorvente y expelente de humedad. Plantilla extraconfort 3mm.',
             sizes: '35 al 45',
             imgContain: true,
-            img: '/Botin Constructor.jpg',
+            img: '/img/productos/botin-constructor.webp',
             colors: [
               {
                 label: 'Negro', hex: '#111111',
-                img: '/Botin Constructor.jpg',
+                img: '/img/productos/botin-constructor.webp',
                 imgs: [
-                  '/Botin Constructor.jpg',
+                  '/img/productos/botin-constructor.webp',
                 ]
               },
             ]
@@ -2286,13 +2285,13 @@
             desc: 'Botín 100% cuero vacuno flor. Talón reforzado. Suela PU bi-densidad ultra-liviana, dieléctrica, con alto nivel de resistencia a la abrasión y altas temperaturas. Resistente a la inflexión, con estrías para escaleras. *Consultar por talles mayores.',
             sizes: '35 al 45',
             imgContain: true,
-            img: '/Botin Patrio.png',
+            img: '/img/productos/botin-patrio.webp',
             colors: [
               {
                 label: 'Negro', hex: '#111111',
-                img: '/Botin Patrio.png',
+                img: '/img/productos/botin-patrio.webp',
                 imgs: [
-                  '/Botin Patrio.png',
+                  '/img/productos/botin-patrio.webp',
                 ]
               },
             ]
@@ -2441,13 +2440,13 @@
             desc: 'Calzado confeccionado en cuero vacuno descarne con suela monodensidad, ultra liviano y resistente a hidrocarburos. Puntera de acero certificada según norma IRAM 3610.',
             sizes: '35 al 46',
             imgContain: true,
-            img: '/9001.png',
+            img: '/img/productos/botin-p9001.webp',
             colors: [
               {
                 label: 'Negro', hex: '#111111',
-                img: '/9001.png',
+                img: '/img/productos/botin-p9001.webp',
                 imgs: [
-                  '/9001.png',
+                  '/img/productos/botin-p9001.webp',
                 ]
               },
             ]
@@ -2457,13 +2456,13 @@
             desc: 'Botín de seguridad de cuero vacuno con cordones y detalles amarillos. Suela bidensidad antideslizante y resistente a hidrocarburos.',
             sizes: '35 al 46',
             imgContain: true,
-            img: '/P91.png',
+            img: '/img/productos/botin-p91.webp',
             colors: [
               {
                 label: 'Negro', hex: '#111111',
-                img: '/P91.png',
+                img: '/img/productos/botin-p91.webp',
                 imgs: [
-                  '/P91.png',
+                  '/img/productos/botin-p91.webp',
                 ]
               },
             ]
@@ -2631,7 +2630,7 @@
                   'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7188.jpg',
                   'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7193.jpg',
                   'https://pampero.com.ar/wp-content/uploads/2024/09/240626_Pampero_D1_7192.jpg',
-                  '/Campera Termica Basica.png',
+                  '/img/productos/campera-termica-basica.webp',
                 ]
               },
               {
@@ -2652,14 +2651,14 @@
             name: 'Chaleco Térmico Básico',
             desc: 'Chaleco básico de trucker resinado e impermeabilizado con forrería matelasseada. Cuello alto, cierre con carteron y broches encapsulados, ajuste en cintura con cordón, tancas y terminales. Dos bolsillos delanteros y uno interno.',
             sizes: 'MCH al 4MG',
-            img: '/Chaleco Termico Basico.png',
+            img: '/img/productos/chaleco-termico-basico.webp',
             colors: [
               {
                 label: 'Azul Marino',
                 hex: '#1a3a6b',
-                img: '/Chaleco Termico Basico.png',
+                img: '/img/productos/chaleco-termico-basico.webp',
                 imgs: [
-                  '/Chaleco Termico Basico.png',
+                  '/img/productos/chaleco-termico-basico.webp',
                 ]
               },
               {
@@ -2681,7 +2680,7 @@
             name: 'Campera Pehuen',
             desc: 'Campera Pehuen matelasseado bastón. Capucha en 3 partes, bolsillo ojal con vista delantera y recorte de costadillos. Tela Sire 100% poliéster con interior en guata siliconada 150 g/m2.',
             sizes: 'MCH al 4MG',
-            img: '/Campera Pehuen.png',
+            img: '/img/productos/campera-pehuen.webp',
             colors: [
               {
                 label: 'Azul Marino',
@@ -2725,7 +2724,7 @@
             name: 'Chaleco Pehuen',
             desc: 'Chaleco Pehuen matelasseado bastón. Cuello alto, bolsillo ojal con vista delantera y recorte de costadillos. Tela Sire 100% poliéster con interior en guata siliconada 150 g/m2.',
             sizes: 'MCH al 4MG',
-            img: '/Chaleco pehuen.png',
+            img: '/img/productos/chaleco-pehuen.webp',
             colors: [
               {
                 label: 'Azul Marino',
@@ -2757,7 +2756,7 @@
             name: 'Chaleco Polar',
             desc: 'Chaleco de polar 100% poliéster antipilling. Cuello alto, cierre a la vista, dos bolsillos laterales y un bolsillo con cierre.',
             sizes: 'MCH al 4MG',
-            img: '/chaleco polar.png',
+            img: '/img/productos/chaleco-polar.webp',
             colors: [
               {
                 label: 'Azul Marino',
@@ -2798,7 +2797,7 @@
             name: 'Buzo Polar Medio Cierre',
             desc: 'Buzo de polar 100% poliéster antipilling. Cuello alto, medio cierre a la vista.',
             sizes: 'MCH al 4MG',
-            img: '/buzo Polar medio cierre.png',
+            img: '/img/productos/buzo-polar-medio-cierre.webp',
             colors: [
               {
                 label: 'Azul Marino',
