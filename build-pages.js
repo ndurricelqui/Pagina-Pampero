@@ -467,7 +467,9 @@ function renderCardHtml(p, catSlug, meta) {
   const containAttr = imgContainStyle(p);
   if (p.colors && p.colors.length) {
     const first = p.colors[0];
-    const firstImg = first.img || p.img;
+    // "cover" (opcional): foto de portada del artículo, solo para la tarjeta
+    // y la vista inicial; cada color muestra después sus propias fotos.
+    const firstImg = p.cover || first.img || p.img;
     const isOos = p.colors.every((c) => c.outOfStock);
     const badge = isOos ? '<span class="prod-card__badge">Sin stock</span>' : '';
     const msg = waLink(`Hola Pampero Córdoba! Quiero consultar sobre ${p.name} — ${first.label}`);
@@ -574,6 +576,9 @@ Object.keys(PRODUCTS).forEach((catSlug) => {
     if (p.colors && p.colors.length) {
       const first = p.colors[0];
       galleryImgs = (first.imgs && first.imgs.length) ? first.imgs : (first.img ? [first.img] : [p.img]);
+      // Con portada: el artículo abre mostrándola; al elegir un color,
+      // pmpSelectColor reemplaza la galería por las fotos de ese color.
+      if (p.cover) galleryImgs = [p.cover, ...galleryImgs.filter((u) => u !== p.cover)];
       initialWa = waLink(`Hola Pampero Córdoba! Quiero consultar sobre ${p.name} — ${first.label}`);
       const swatches = p.colors.map((c, i) => {
         const whiteClass = c.white ? ' article__swatch--white' : '';
