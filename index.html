@@ -410,14 +410,19 @@
     /* ═══════════════════════════════════════
        ABOUT / NOSOTROS
     ═══════════════════════════════════════ */
+    /* La foto del local se muestra completa, con su proporción original.
+       La columna de foto es un poco más ancha y el texto se acomoda a su
+       altura; los destacados (01/02/03) van en una fila completa debajo. */
     .about__grid {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 5rem; align-items: center;
+      display: grid; grid-template-columns: 1.25fr 1fr;
+      gap: 3.5rem; align-items: center;
     }
     .about__img-wrap { position: relative; }
-    .about__img {
-      width: 100%; aspect-ratio: 4/5; object-fit: cover;
-      object-position: center top;
+    .about__img { display: block; width: 100%; height: auto; }
+    /* Doble clase para ganarle a la regla base .about__list (que va más abajo) */
+    .about__list.about__list--row {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 2rem; margin-top: 4rem;
     }
     .about__img-stamp {
       position: absolute; bottom: -1.5rem; right: -1.5rem;
@@ -922,6 +927,11 @@
     @media (max-width: 768px) {
       .navbar__cta { display: none; }
       .about__grid { grid-template-columns: 1fr; gap: 3rem; }
+      .about__list.about__list--row { grid-template-columns: 1fr; gap: 1.5rem; margin-top: 3rem; }
+      /* Sello "CBA" más chico para no tapar la foto en pantallas angostas */
+      .about__img-stamp { width: 92px; height: 92px; }
+      .about__img-stamp strong { font-size: 1.9rem; }
+      .about__img-stamp span { font-size: .5rem; }
       .about__img-stamp { bottom: 1rem; right: 1rem; }
       .quote__grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .quote__info { position: static; }
@@ -1327,7 +1337,6 @@
             width="1400" height="992"
             alt="Local Pampero Córdoba"
             loading="lazy"
-            style="object-fit: contain; aspect-ratio: auto; object-position: center center; background: #f4f4f4;"
           />
           <div class="about__img-stamp">
             <strong>CBA</strong>
@@ -1336,7 +1345,7 @@
         </div>
         <div class="reveal reveal-delay-1">
           <span class="section-label">Quiénes somos</span>
-          <h2 class="section-title">Somos<br>Pampero<br>Córdoba</h2>
+          <h2 class="section-title">Somos Pampero<br>Córdoba</h2>
           <p class="section-desc" style="margin-bottom:1.5rem">
             En Pampero Córdoba ayudamos a empresas a resolver de forma integral su indumentaria laboral y corporativa, combinando asesoramiento, diseño, personalización, logística y abastecimiento continuo, respaldados por la trayectoria y calidad de Pampero, marca referente a nivel nacional en indumentaria de trabajo.
           </p>
@@ -1349,28 +1358,29 @@
             Trabajamos con empresas y equipos que eligen la durabilidad
             de Pampero para uniformar a su gente con calidad y respaldo de marca.
           </p>
-          <div class="about__list">
-            <div class="about__item">
-              <span class="about__item-num">01</span>
-              <div class="about__item-text">
-                <h4>Fabricantes y distribución oficial</h4>
-                <p>Producimos y distribuimos productos originales con garantía de marca Pampero.</p>
-              </div>
-            </div>
-            <div class="about__item">
-              <span class="about__item-num">02</span>
-              <div class="about__item-text">
-                <h4>Atención directa</h4>
-                <p>Sin intermediarios. Hablás con quien conoce el producto.</p>
-              </div>
-            </div>
-            <div class="about__item">
-              <span class="about__item-num">03</span>
-              <div class="about__item-text">
-                <h4>Pedidos por volumen</h4>
-                <p>Uniformes y kits corporativos con descuentos por cantidad.</p>
-              </div>
-            </div>
+        </div>
+      </div>
+      <!-- Destacados: fila completa debajo de foto + texto -->
+      <div class="about__list about__list--row">
+        <div class="about__item">
+          <span class="about__item-num">01</span>
+          <div class="about__item-text">
+            <h4>Fabricantes y distribución oficial</h4>
+            <p>Producimos y distribuimos productos originales con garantía de marca Pampero.</p>
+          </div>
+        </div>
+        <div class="about__item">
+          <span class="about__item-num">02</span>
+          <div class="about__item-text">
+            <h4>Atención directa</h4>
+            <p>Sin intermediarios. Hablás con quien conoce el producto.</p>
+          </div>
+        </div>
+        <div class="about__item">
+          <span class="about__item-num">03</span>
+          <div class="about__item-text">
+            <h4>Pedidos por volumen</h4>
+            <p>Uniformes y kits corporativos con descuentos por cantidad.</p>
           </div>
         </div>
       </div>
