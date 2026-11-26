@@ -254,6 +254,7 @@ footer{background:#0a0a0a;color:#666;padding:4rem 2.5rem 2rem}
 .form{background:var(--gray-bg);padding:2.5rem}
 .form__title{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.5rem;text-transform:uppercase;margin-bottom:1.75rem;padding-bottom:1.25rem;border-bottom:2px solid var(--yellow)}
 .form__row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+@media(max-width:600px){.form__row{grid-template-columns:1fr}}
 .form__group{margin-bottom:1.1rem}
 .form__group label{display:block;font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--black);margin-bottom:.4rem}
 .form__group input,.form__group select,.form__group textarea{width:100%;padding:.75rem 1rem;border:1.5px solid var(--border);background:#fff;font-family:'Barlow',sans-serif;font-size:.92rem;color:var(--black);border-radius:0;outline:none;transition:border-color .18s;-webkit-appearance:none}
@@ -739,7 +740,7 @@ function buildQuotePage() {
 
       <div class="quote-section">
         <div class="form" id="quoteFormWrap">
-          <h3 class="form__title">Datos de tu empresa</h3>
+          <h3 class="form__title">Tus datos</h3>
           <form id="quoteClientForm" novalidate>
             <input type="hidden" name="access_key" value="fec27d8a-e46f-4395-a586-009c5bf796f0" />
             <input type="hidden" name="subject" value="Nueva solicitud de presupuesto (Armá tu presupuesto) – Pampero Córdoba" />
@@ -747,37 +748,14 @@ function buildQuotePage() {
             <input type="hidden" name="redirect" value="false" />
             <div class="form__row">
               <div class="form__group">
-                <label for="qEmpresa">Empresa / Organización *</label>
-                <input type="text" id="qEmpresa" name="empresa" required placeholder="Nombre de tu empresa" />
+                <label for="qNombre">Nombre *</label>
+                <input type="text" id="qNombre" name="name" required autocomplete="name" placeholder="Juan Pérez o nombre de tu empresa" />
               </div>
               <div class="form__group">
-                <label for="qNombre">Nombre y apellido *</label>
-                <input type="text" id="qNombre" name="name" required placeholder="Juan Pérez" />
-              </div>
-            </div>
-            <div class="form__row">
-              <div class="form__group">
-                <label for="qWhatsapp">WhatsApp *</label>
-                <input type="tel" id="qWhatsapp" name="phone" required placeholder="+54 9 351 000-0000" />
-              </div>
-              <div class="form__group">
-                <label for="qEmail">Email <span style="font-weight:400;text-transform:none">(opcional)</span></label>
-                <input type="email" id="qEmail" name="email" placeholder="nombre@empresa.com" />
-              </div>
-            </div>
-            <div class="form__row">
-              <div class="form__group">
-                <label for="qLocalidad">Localidad *</label>
-                <input type="text" id="qLocalidad" name="localidad" required placeholder="Córdoba" />
-              </div>
-              <div class="form__group">
-                <label for="qCantidad">Cantidad aproximada de personas</label>
-                <select id="qCantidad" name="cantidad_personas">
-                  <option value="1 a 10">1 a 10</option>
-                  <option value="11 a 30">11 a 30</option>
-                  <option value="31 a 100">31 a 100</option>
-                  <option value="Más de 100">Más de 100</option>
-                </select>
+                <label for="qCuit">CUIT <span style="font-weight:400;text-transform:none">(opcional)</span></label>
+                <!-- 11 dígitos, con o sin guiones (ej. 30-12345678-9) -->
+                <input type="text" id="qCuit" name="cuit" inputmode="numeric" autocomplete="off"
+                  pattern="\\d{2}-?\\d{8}-?\\d" title="11 dígitos, por ejemplo 30-12345678-9" placeholder="30-12345678-9" />
               </div>
             </div>
 
@@ -944,19 +922,15 @@ function buildQuotePage() {
 
     function buildMessage() {
       var items = Q.getItems();
-      var empresa = document.getElementById('qEmpresa').value.trim();
       var nombre = document.getElementById('qNombre').value.trim();
-      var localidad = document.getElementById('qLocalidad').value.trim();
-      var cantidad = document.getElementById('qCantidad').value;
+      var cuit = document.getElementById('qCuit').value.trim();
       var comentarios = document.getElementById('quoteComments').value.trim();
 
       var lines = [];
-      lines.push('Hola Pampero Córdoba, quiero solicitar un presupuesto para mi empresa.');
+      lines.push('Hola Pampero Córdoba, quiero solicitar un presupuesto.');
       lines.push('');
-      lines.push('Empresa: ' + empresa);
-      lines.push('Contacto: ' + nombre);
-      lines.push('Localidad: ' + localidad);
-      lines.push('Cantidad de personas: ' + cantidad);
+      lines.push('Nombre: ' + nombre);
+      if (cuit) lines.push('CUIT: ' + cuit);
       lines.push('');
       lines.push('Productos solicitados:');
       items.forEach(function (it) {
@@ -973,8 +947,20 @@ function buildQuotePage() {
       return lines.join('\\n');
     }
 
+    var nombreInput = document.getElementById('qNombre');
+    var cuitInput = document.getElementById('qCuit');
+
+    // Valida solo los campos indicados (muestra el aviso del primero que falle)
+    function validFields(fields) {
+      for (var i = 0; i < fields.length; i++) {
+        if (!fields[i].checkValidity()) { fields[i].reportValidity(); return false; }
+      }
+      return true;
+    }
+
+    // En los dos envíos alcanza con el nombre (y el CUIT, si se cargó, bien escrito)
     waBtn.addEventListener('click', function () {
-      if (!clientForm.checkValidity()) { clientForm.reportValidity(); return; }
+      if (!validFields([nombreInput, cuitInput])) return;
       var msg = buildMessage();
       Q.pushEvent('quote_whatsapp_click', { quote_items_count: Q.getCount() });
       window.open(Q.waLink(msg), '_blank', 'noopener');
@@ -982,7 +968,7 @@ function buildQuotePage() {
 
     clientForm.addEventListener('submit', function (e) {
       e.preventDefault();
-      if (!clientForm.checkValidity()) { clientForm.reportValidity(); return; }
+      if (!validFields([nombreInput, cuitInput])) return;
       formSubmitBtn.disabled = true;
       formSubmitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
 
